@@ -11,7 +11,7 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/dev-site-documentation-template/',
+  pathPrefix: process.env.PATH_PREFIX || '/acrobat-sign/developer-guide/',
   siteMetadata: {
     versions: [
       {
