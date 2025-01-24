@@ -11,101 +11,102 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/acrobat-sign/developer-guide/',
+  pathPrefix: process.env.PATH_PREFIX || '/acrobat-sign/developer-guide/docs/',
   siteMetadata: {
-    versions: [
-      {
-        title: 'v2.0',
-        selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/dev-site'
-      }
-    ],
     pages: [
       {
-        title: 'Cat Analytics',
+        title: 'Adobe Acrobat Sign',
         path: '/'
       },
       {
-        title: 'Guides',
-        path: '/guides/'
+        title: 'Resources',
+        menu: [{
+          title: 'Free Dev Account Sign-Up',
+          path: 'https://www.adobe.com/sign/developer-form.html'
+        },{
+          title: 'FAQs and Tech Tips',
+          path: 'https://www.adobe.com/go/acrobatsigntechblog'
+        },{
+          title: 'Application Certification Form',
+          path: 'https://www.adobe.com/go/esign-dev-cert'
+        },{
+          title: 'Integration Guides',
+          path: 'https://www.adobe.com/go/acrobatsignintegrations'
+        },{
+          title: '3rd Party Integrations',
+          path: 'https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT'
+        },{
+          title: 'Security and Compliance',
+          path: 'https://www.adobe.com/trust/resources.html'
+        },{
+          title: 'Forum',
+          path: 'https://www.adobe.com/go/acrobatsigndevforum'
+        }]
       },
       {
-        title: 'API Reference',
-        menu: [
-          {
-            title: 'Cat Reference v2.0',
-            description: 'Cat Reporting API',
-            path: '/api/index.md'
-          },
-          {
-            title: 'Cat Reference v1.4',
-            description: 'Cat API Spec',
-            path: '/api/1.4.md'
-          }
-        ]
+        title: 'Documentation',
+        menu: [{
+          title: 'API Release Notes',
+          path: 'http://google.com'
+        },{
+          title: 'API Reference (v.6)',
+          path: 'https://secure.na1.adobesign.com/public/docs/restapi/v6'
+        },{
+          title: 'Core Dev Guide',
+          path: 'http://google.com'
+        },{
+          title: 'Webhook Reference',
+          path: 'http://google.com'
+        },{
+          title: 'Acrobat Sign Embed',
+          path: 'http://google.com'
+        },{
+          title: 'SDK Downloads',
+          path: 'http://google.com'
+        }]
       },
       {
-        title: 'Support',
-        path: '/support/'
+        title: 'Solutions for Government',
+        path: 'overview/signgov/index.md'
+      },
+      {
+        title: 'Postman workspace',
+        path: 'https://www.adobe.com/go/acrobatsignpostman'
       }
     ],
     subPages: [
       {
-        title: 'Get Started',
-        path: '/guides/',
+        title: "Sign for Government",
+        subTitle: '',
+        path: 'overview/signgov/index.md',
         pages: [
           {
-            title: 'Dummy an OAuth Client',
-            path: '/guides/dummy_oauth_client/'
+            title: 'Developer Overview',
+            path: 'overview/signgov/index.md'
           },
           {
-            title: 'Dummy OAuth using POSTMAN',
-            path: '/guides/dummy_using_postman/'
-          }
-        ]
-      },
-      {
-        title: 'Cat Metrics API',
-        path: '/guides/dummy_metrics_api/'
-      },
-      {
-        title: 'Migrating',
-        path: '/guides/migrating/'
-      },
-      {
-        title: 'Overview',
-        path: '/support/',
-        header: true,
-        pages: [
-          {
-            title: 'Help',
-            path: '/support/'
+            title: 'Getting Started',
+            path: 'overview/signgov/gstarted.md'
           },
           {
-            title: 'FAQ',
-            path: '/support/FAQ/'
+            title: 'APIs and Applications',
+            path: 'overview/signgov/apps.md'
           },
           {
-            title: 'How to contribute',
-            path: '/support/contribute/'
-          }
-        ]
-      },
-      {
-        title: 'Community',
-        path: '/support/community/',
-        header: true,
-        pages: [
-          {
-            title: 'Information',
-            path: '/support/community/'
+            title: 'Sign Gov and Commerical Comparison',
+            path: 'overview/signgov/diffs.md'
           }
         ]
       }
     ]
   },
-  plugins: [`@adobe/gatsby-theme-aio`]
+  plugins: [`@adobe/gatsby-theme-aio`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: "pages"
+      }
+    }
+  ]
 };
