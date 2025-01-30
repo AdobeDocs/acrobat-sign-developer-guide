@@ -1,4 +1,4 @@
-# Latest API Release Notes
+# Latest API Release Notes 
 Last update: Jun 21, 2024.
 
 <InlineAlert slots="text" />
