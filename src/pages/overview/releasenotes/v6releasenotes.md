@@ -56,7 +56,7 @@ Existing Acrobat Sign APIs return the entire list of resources (agreements, widg
 }
 ```
 
-The subsequent GET /resources calls would just need to add <strong>nextCursor</strong> as <strong>query param</strong> in the URL for fetching the next set of resources.
+The subsequent GET /resources calls would just need to add **nextCursor** as **query param** in the URL for fetching the next set of resources.
 
 **Sample Request**
 
