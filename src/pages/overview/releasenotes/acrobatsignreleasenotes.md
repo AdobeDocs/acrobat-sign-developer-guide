@@ -298,7 +298,6 @@ For non-developer product feature and UI changes, refer to [this link](https://h
                                                                                                                                          |
 ## Bug fixes
 
-
 ### July 2023
 
 Refer to the [Resolved issue list](https://helpx.adobe.com/sign/release-notes/adobe-sign/sign-release-schedule.html#Schedule]).

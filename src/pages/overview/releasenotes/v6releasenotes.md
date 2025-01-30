@@ -7,15 +7,13 @@ Last update: Jun 13, 2024.
 
 For non-developer product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
 
-
 The 2016 (to present) REST v6 Acrobat Sign APIs release introduces numerous enhancements and features. To help developers migrate from older API versions to Version 6, we have tabulated the v6 APIs against their closest counterparts in previous versions in the [API Change Log](#apichange). In the change log, we have documented enhancements, features, and any changes from the prior version. In addition to the information compiled here, refer to the [Acrobat Sign API Reference](https://www.adobe.com/go/acrobatsignapireference) for a quick reference for the Acrobat Sign APIs. This page lists all our APIs in a easily discoverable format, and lets you try them out without having to write any code!
 
 <InlineAlert slots="text" />
 
 v5 and SOAP-based apps will continue to function, but all versions prior to v6 are deprecated.
 
-REST API Enhancements
-----------------------------------------------------------------------------
+## REST API Enhancements
 
 ### Pagination Support
 
@@ -89,7 +87,6 @@ Headers : Authorization: Bearer <access-token>
 
 ```
 
-
 The above request will result in a **304(Resource Not Modified)** HTTP response if the ETag provided in the If-None-Match header represents the latest version of the resource. Otherwise, the response body will include the queried resource in the usual format, along with an ETag representing the fetched version of the resource in the response header.
 
 The _response header_ below represents the second scenario, in which the resource has been modified prior to the request (notice the ETag as one of the headers).
@@ -108,7 +105,6 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 
-
 Update or delete operations will have a similar workflow. The clients are required to provide the ETag of the resource version that they want to update in the If-Match request header. The update will only be successful if the ETag in the request header represents the latest version of the resource on the server. Otherwise, this will result in a **412 (Precondition Failed)** response. In this example, we are trying to update the status of the agreement fetched above:
 
 **Sample PUT Operation (ETag In Request Header)**
@@ -124,7 +120,6 @@ Headers : Authorization: Bearer <access-token>
 
 ```
 
-
 The response below indicates that we are trying to update an older version (_observe the ETag in the request_) of this resource. Along with this response body, the response header contains the HTTP status code 412(Precondition Failed).
 
 **Sample PUT Operation (ETag In Request Header)**
@@ -136,7 +131,6 @@ The response below indicates that we are trying to update an older version (_obs
 }
 
 ```
-
 
 The ETag value required to be passed in any PUT or DELETE API can be obtained from a corresponding GET operation on the same entity. The table below mentions these modification (PUT or DELETE) APIs along with the corresponding GET APIs that provides the ETag value for these modification requests.
 
@@ -159,8 +153,6 @@ The ETag value required to be passed in any PUT or DELETE API can be obtained fr
 | PUT /webhooks/{webhookId}                             | GET /webhooks/{webhookId}                            |
 | PUT /webhooks/{webhookId}/state                       | GET /webhooks/{webhookId}                            |
 | DELETE /webhooks/{webhookId}                          | GET /webhooks/{webhookId}                            |
-
-
 
 ### GET, PUT, POST consistency
 
@@ -338,7 +330,6 @@ getSigningUrlForAsyncAgreementCreation();
 
 ```
 
-
 #### Simple Agreement Creation
 
 Some operations on a newly created agreement like downloading agreement document are not allowed until all the background processes in creating agreement is completed. The [GET /agreements/{agreementId}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) API provides the status of the agreement on which the client can poll before performing such operations. Refer the sample code below for more details.
@@ -423,11 +414,9 @@ function getAgreementInfoForAsyncAgreementCreation() {
 
 ```
 
-
 #### Polling Frequency
 
 The polling frequency can vary from clients to clients depending on their use case. Clients using large files in agreement creation are expected to keep time between subsequent polling calls more compared to the scenarios where the agreement files uploaded are small. The table below can be referred as a general guideline by clients to determine their polling frequency.
-
 
 |File Size         |Polling Time Period|
 |------------------|-------------------|
@@ -506,7 +495,6 @@ The new document visibility feature allows senders to control the exposure of ag
 
 ```
 
-
 ### Draft
 
 The v6 APIs provides the capability for an incremental creation of a resource by introducing the concept of “DRAFT”. The incremental creation of any resource is really helpful, especially when it is constituted of many complex components. Draft is a temporary or primitive stage of the final intended resource that can be updated in steps to create the final resource.
@@ -526,7 +514,6 @@ This example illustrates a stepwise creation of an agreement:
 }
 
 ```
-
 
 The step above creates a draft. Notice that we have not assigned any participant to this agreement yet.
 
@@ -550,7 +537,6 @@ The step above creates a draft. Notice that we have not assigned any participant
 }
 
 ```
-
 
 Notice the addition of a participant and an update in the `name` field. This step can be iterated any number of times until we have all the data needed to create the agreement.
 
@@ -583,12 +569,10 @@ The v6 Acrobat Sign APIs has endpoints to manage notes in an agreement. Clients 
 
 The reminder APIs in v6 enable clients to create reminders for _any_ participant at any time before their action on the agreement. The capability to list all reminders on an agreement is also availaible in v6. These capabilities will significantly improve clients’ experience of handling reminders for agreements. The table below lists all the endpoints in this set:
 
-
 |Authoring API                           |Functionality                                   |
 |----------------------------------------|------------------------------------------------|
 |POST /agreements/{agreementId}/reminders|Sets reminders for a list of participants.      |
 |GET /agreements/{agreementId}/reminders |Retrieves all the reminders set on an agreement.|
-
 
 ### Resource views
 
@@ -610,7 +594,6 @@ _Request - POST /agreements/{agreementId}/views_
 
 ```
 
-
 _Response - POST /agreements/{agreementId}/views_
 
 ```
@@ -623,7 +606,6 @@ _Response - POST /agreements/{agreementId}/views_
 ]
 
 ```
-
 
 ### Resource visibility
 
@@ -665,7 +647,6 @@ The suppress email feature, in a broader sense, enables us to specify which emai
 
 ```
 
-
 ### Webhooks
 
 Callbacks in Acrobat Sign are now handled through **webhooks**. A _webhook_ is essentially a web service designed to listen for and respond to POST requests. When you create a webhook and register it with Acrobat Sign, Acrobat Sign’s Webhook Subscription Service will notify your webhook of any relevant event by sending a POST request via HTTPS containing a JSON object with the details of the event. Your webhook then passes those details on to your application for handling. The service operates on a push model: your app doesn’t have to poll for events at all—those events are automatically sent to your webhook as they happen, with virtually no delay, so your app is instantaneously, automatically updated with any changes.
@@ -681,89 +662,71 @@ Acrobat Sign version 6 includes many changes to the API model.
 
 *   Retrieves the latest note on an agreement for the user.
 
-
 [GET /agreements/{agreementId}/members](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAllMembers)
 
 *   Returns all the users associated with an agreement: participant set, cc’s, shared participants, and sender.
 
-
 [GET /agreements/{agreementId}/members/participantSets/{participantSetId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getParticipantSet)
 *   Returns a detailed participant set object.
-
 
 [GET /agreements/{agreementId}/reminders](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementReminders)
 
 *   Lists all the reminders on an agreement.
 
-
 [GET /libraryDocuments/{libraryDocumentId}/me/note](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocumentNoteForApiUser)
 
 *   Retrieves the latest note on a library template for the user.
-
 
 [GET /megaSigns/{megaSignId}/childAgreementsInfo/{childAgreementsInfoFileId}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/megaSigns/getChildAgreementsInfoFile)
 
 *   Retrieves the file stream of the original CSV file that was uploaded by the sender while creating the MegaSign.
 
-
 [GET /megaSigns/{megaSignId}/events](https://secure.na1.echosign.com/public/docs/restapi/v6#!/megaSigns/getEvents)
 
 *   Lists all the events of a MegaSign.
-
 
 [GET /users/{userId}/groups](https://secure.echosign.com/public/docs/restapi/v6#!/users/getGroupsOfUser)
 
 *   Lists all the groups to which the user identified by the userId belongs.
 
-
 [POST /agreements/{agreementId}/formFields](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/postFormFields)
 
 *   Creates form fields in an agreement using a library template.
-
 
 [POST /agreements/{agreementId}/members/share](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/createShareOnAgreement)
 
 *   Allows users to share agreements with other users.
 
-
 [POST /agreements/{agreementId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementView)
 
 *   Returns the requested views such as manage page view, agreement documents view, post send page view associated with an agreement in the requested configuration.
 
-
 [POST /libraryDocuments/{libraryDocumentId}/views](https://corporate.na1.echosign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView)
 *   Returns the requested views, such as manage page view, library documents view, and send page view of this library document in the requested configuration.
-
 
 [POST /megaSigns/{megaSignId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/megaSigns/getMegaSignView)
 
 *   Provides all the views associated with a megaSign, such as manage page view, documents view, etc.
 
-
 [POST /users/{userId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/users/getUserViews)
 
 *   Provides all the views associated with a user, like profile page view, account page view, or manage page view.
-
 
 [POST /widgets/{widgetId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView)
 
 *   Returns the requested views, such as manage page view, widget documents view, and post send page view associated with a widget in the requested configuration.
 
-
 [PUT /agreements/{agreementId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreement)
 
 *   Updates the data of an agreement, such as name, participants, etc.
-
 
 [PUT /agreements/{agreementId}/formFields](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateFormFields)
 
 *   Edit or modify an existing form field on an agreement document.
 
-
 [PUT /agreements/{agreementId}/me/visibility](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementVisibility)
 
 *   Manage the visibility of an agreement in `GET /agreements`.
-
 
 [PUT /agreements/{agreementId}/members/participantSets/{participantSetId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateParticipantSet)
 
@@ -772,41 +735,33 @@ Acrobat Sign version 6 includes many changes to the API model.
 1. Allows replacing a specific participant in the set instead of choosing between either replacing all participants or no one.
 2. Allows sender to replace participants who are not the current signer as well.
 
-
 [PUT /agreements/{agreementId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementState)
 
 *   Transitions an agreement from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transitions are allowed. An allowed transition would follow the following sequence: `DRAFT` -> `AUTHORING` -> `IN_PROCESS` -> `CANCELLED`.
-
 
 [PUT /libraryDocuments/{libraryDocumentId}](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/updateLibraryDocument)
 
 *   Updates the data of a library document, such as name, type, scope, etc.
 
-
 [PUT /libraryDocuments/{libraryDocumentId}/me/visibility](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/updateLibraryDocumentVisibility)
 
 *   A new API to control visibility of an agreement in the `GET /libraryDocuments` response.
-
 
 [PUT /libraryDocuments/{libraryDocumentId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/updateLibraryDocumentState)
 
 *   Transitions a library document from one state to another: for example, `AUTHORING` to `ACTIVE`. Note that not all transitions are allowed. An allowed transition would follow the following sequence: `AUTHORING` -> `ACTIVE`.
 
-
 [PUT /megaSigns/{megaSignId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/megaSigns/updateMegaSignState)
 
 *   Transitions a MegaSign from one state to another: for example, `IN_PROCESS` to `CANCELLED`. Note that not all transition are allowed. An allowed transition would follow the following sequence: `IN_PROCESS` -> `CANCELLED`.
-
 
 [PUT /users/{userId}/groups](https://secure.echosign.com/public/docs/restapi/v6#!/users/updateGroupsOfUser)
 
 *   Migrates the user to a different group or updates their role in the existing group.
 
-
 [PUT /widgets/{widgetId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/updateWidgetState)
 
 *   Transitions a widget from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transitions are allowed. An allowed transition would follow one of the following sequences: `DRAFT` -> `AUTHORING` -> `ACTIVE`, `ACTIVE` <-> `INACTIVE`, `DRAFT` -> `CANCELLED`.
-
 
 ### Updated APIs
 
@@ -816,7 +771,6 @@ Acrobat Sign version 6 includes many changes to the API model.
     
 *   The response parameter is also renamed to have camel casing.
     
-
 [GET /agreements](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreements)
 
 *   The response is paginated.
@@ -827,7 +781,6 @@ Acrobat Sign version 6 includes many changes to the API model.
     
 *   Data returned is same as v5.
     
-
 [GET /agreements/{agreementId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo)
 
 *   The model is consistent with the corresponding POST and PUT APIs.
@@ -836,7 +789,6 @@ Acrobat Sign version 6 includes many changes to the API model.
     
 *   Detailed participants and events information are available through separate endpoints.
     
-
 Includes audit reports for draft creation.
 
 Uses `participantId` instead of `participantEmail` as a filter.
@@ -847,7 +799,6 @@ Uses `participantId` instead of `participantEmail` as a filter.
     
 *   There are minor changes in the field names.
     
-
 [GET /agreements/{agreementId}/documents/imageUrls](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls)
 
 *   Uses `participantId` instead of `participantEmail` as a filter.
@@ -856,14 +807,12 @@ Uses `participantId` instead of `participantEmail` as a filter.
     
 *   Provides annotated image URLs with `documentId` and page number.
     
-
 [GET /agreements/{agreementId}/documents/{documentId}/imageUrls](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls)
 
 *   Uses `participantId` instead of `participantEmail` as a filter.
     
 *   There are minor changes in the field names.
     
-
 [GET /libraryDocuments](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocuments)
 
 *   Response is paginated.
@@ -880,7 +829,6 @@ Uses `participantId` instead of `participantEmail` as a filter.
     
 *   The `libraryTemplateType` filter is dropped from this API. This will be available along with other filtering through search services.
     
-
 [GET /libraryDocuments/{libraryDocumentId}](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocumentInfo)
 
 *   Events have been removed from the response of this endpoint and are now returned through a dedicated events endpoint.
@@ -891,14 +839,12 @@ Uses `participantId` instead of `participantEmail` as a filter.
     
 *   The model is consistent with the corresponding POST and PUT operations.
     
-
 [GET /libraryDocuments/{libraryDocumentId}/documents](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getDocuments)
 
 *   Added a `label` parameter for using in the custom workflow.
     
 *   A `versionId` of the documents has been added as a filter.
     
-
 A base64 encoding option is available for the generated PDF.
 
 Minor restructuring in the response.
@@ -911,14 +857,12 @@ Minor restructuring in the response.
     
 *   Returns the new account admin information.
     
-
 [GET /users/{userId}](https://secure.echosign.com/public/docs/restapi/v6#!/users/getUserDetail)
 
 *   A few unusable fields were dropped.
     
 *   We have removed capability flags from here.
     
-
 The model is consistent with the POST and PUT operations.
 
 [POST /agreements](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/createAgreement)
@@ -943,7 +887,6 @@ The model is consistent with the POST and PUT operations.
     
 *   There is a separate state transitioning (from draft to agreement) API.
     
-
 [POST /agreements/{agreementId}/members/participantSets/{participantSetId}/delegatedParticipantSets](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/createDelegatedParticipantSets)
 
 *   You should specify an agent delegation role for a successful call.
@@ -952,7 +895,6 @@ The model is consistent with the POST and PUT operations.
     
 *   You are not allowed to perform “Someone else should sign” with this API, as it will now be done through [PUT /agreements/{agreementId}/members/participantSets/{participantSetId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateParticipantSet)
     
-
 [POST /agreements/{agreementId}/reminders](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant)
 
 Was: [POST /reminders](https://secure.na1.echosign.com/public/docs/restapi/v5#!/reminders/createReminder)
@@ -963,7 +905,6 @@ Was: [POST /reminders](https://secure.na1.echosign.com/public/docs/restapi/v5#!/
     
 *   You can track each reminder through the ID returned from here.
     
-
 [POST /libraryDocuments](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocument)
 
 *   The model is consistent with the corresponding GET & PUT operations.
@@ -976,20 +917,17 @@ Was: [POST /reminders](https://secure.na1.echosign.com/public/docs/restapi/v5#!/
     
 *   There is a separate state transitioning (Authoring to Active) API.
     
-
 [POST /transientDocuments](https://secure.echosign.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument)
 
 *   Returns an `UNSUPPORTED_MEDIA_TYPE` error for unsupported media types in Acrobat Sign.
     
-
 [POST /widgets](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/createWidget)
 
 *   The request body is now consistent with this API’s GET/PUT counterpart. A common agreement model is used across all these APIs.
     
 *   Form fields layer template and Merge Fields support have been removed in v6 for widget creation.
     
-*   The `signatureFlow` parameter has been dropped and the workflow is inferred through the order in the `additionalParticipantSetsInfo` parameter.
-    
+*   The `signatureFlow` parameter has been dropped and the workflow is inferred through the order in the `additionalParticipantSetsInfo` parameter. 
 
 Enables a participant to reject an agreement.
 
@@ -1005,7 +943,6 @@ Was: [PUT /agreements/{agreementId}/status](https://secure.echosign.com/public/d
     
 *   This API can be used by the sender to cancel the agreement.
     
-
 Updating the group of the user is now handled via the `PUT /users/{userId}/groups` API.
 
 This is functionally the same as before, but the API structure is revamped to make it consistent with other state transition APIs in v6.
