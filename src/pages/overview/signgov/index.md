@@ -25,6 +25,6 @@ Note that provisioning an Acrobat Sign for Government (SignGov) account requires
 
 <InlineAlert slots="text" />
 
-For an itemized list of differences between the Acrobat Sign and Sign Gov instances, see [Sign Gov and Commercial Comparison](../diffs.md)s
+For an itemized list of differences between the Acrobat Sign and Sign Gov instances, see [Sign Gov and Commercial Comparison](diffs.md)s
 
 ![home.png](../images/home.png)
