@@ -5,9 +5,6 @@ title: "APIs and Applications - Acrobat Sign for Government: Developer"
 
 ## Basic details
 
-
-
-
 ### Send API call to the right place
 
 Acrobat Sign Commercial and Acrobat Sign for Government services reside on different top-level domains. Both the domain and extension are different:
@@ -17,10 +14,10 @@ Acrobat Sign Commercial and Acrobat Sign for Government services reside on diffe
 
 ### Endpoint summary
 
--  GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize): Start the authorization code flow to login and consent to application permissions 
+-  GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize): Start the authorization code flow to login and consent to application permissions
 -  POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token): Obtain an access_token and, except for impersonation, a `refresh_token` upon successful completion and redirect back from the authorization code flow 
--  POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token): Validate an existing token 
--  POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token): Invalidate/revoke a particular token 
+-  POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token): Validate an existing token
+-  POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token): Invalidate/revoke a particular token
 -  GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout): Invalidate/revoke all tokens related to the user to which the token belongs
 
 <InlineAlert slots="text" />
@@ -39,11 +36,11 @@ Since it’s inefficient to have every user get an OAuth token, admins benefit w
 
 Note that impersonation in Acrobat Sign for Government varies from the commercial instance. Sign Gov:
 
--  Does not support the `x-api-user` header for impersonation due to security Okta restrictions. 
--  Supports OAuth only–not integration keys. 
--  Supports impersonation from account-admin scoped tokens, not group-admin tokens. 
--  Both direct customers and Acrobat Sign Embed partners have to ask Adobe to enable impersonation for an application. 
-    - Impersonation is enabled on an application via the `acc_imp` scope. 
+-  Does not support the `x-api-user` header for impersonation due to security Okta restrictions.
+-  Supports OAuth only–not integration keys.
+-  Supports impersonation from account-admin scoped tokens, not group-admin tokens.
+-  Both direct customers and Acrobat Sign Embed partners have to ask Adobe to enable impersonation for an application.
+    - Impersonation is enabled on an application via the `acc_imp` scope.
     - Refresh tokens are enabled via `offline_access` scope.
 
 <InlineAlert slots="text" />
@@ -54,10 +51,10 @@ Both the commercial and government Acrobat Sign instances enable the use of `aut
 
 For impersonation, API applications need to exchange the Sign admin token for another user-impersonation token. Usage details:
 
-- Only admins can generate an `admin_token` and associated `admin_refresh_token`. 
-- The admin uses the `admin_token` to generate an `impersonation_token`. An `admin_token` can only be used to generate the impersonation token for users in the same account as the account admin for which the admin token was generated. 
-- The lifespan of the admin_token is 5 min. 
-- The `admin_refresh_token` lifetime is unlimited but will expire if not used for more than 30 days. 
+- Only admins can generate an `admin_token` and associated `admin_refresh_token`.
+- The admin uses the `admin_token` to generate an `impersonation_token`. An `admin_token` can only be used to generate the impersonation token for users in the same account as the account admin for which the admin token was generated.
+- The lifespan of the admin_token is 5 min.
+- The `admin_refresh_token` lifetime is unlimited but will expire if not used for more than 30 days.
 - The `admin_refresh_token` should be persisted in a secure storage location (for headless/background processing).
 
 ## APIs
@@ -70,8 +67,8 @@ This is a starting point for browser-based OpenID Connect flows such as authoriz
 
 #### Request
 
-- **Method**: GET 
-- **Authorization required**: No 
+- **Method**: GET
+- **Authorization required**: No
 - **Available versions**: https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize
 
 **Request QueryParameters**
@@ -84,7 +81,6 @@ This is a starting point for browser-based OpenID Connect flows such as authoriz
 | scope     | Yes | String                               |          | The permissions (space separated, spaces becoming + or %20 when URL-encoded) that the user will be asked to approve; for example: &scope=email,openid. |
 | state          | Yes           | String |          | A value to be returned as a query parameter. This will be used to implement CSRF protection on the client side. It can contain alphanumeric, comma, period, underscore, and hyphen characters. |
 | login_hint         | Yes   | String          |          | The email of the user trying to log in which may help identify tenants by their email domain. |
-
 
 #### Response
 
@@ -102,23 +98,14 @@ The following is returned as URL query parameters from the identity provider (Ok
 | expires_in | Number of seconds until the access_token expires. This is only returned if the response included an access_token.                                                     |
 | state      | The unmodified state value from the request.                                                                                                                          |
 
-
-
-
 #### Error response
 
 The API returns the following URL query parameters on error:
-
-
 
 | Parameter  | Description                              |
 |------------|------------------------------------------|
 | error       | The error code, if something went wrong. |
 | error_description | Additional error information (if any).                                         |
-
-
-
-
 
 ##### Error Codes
 
@@ -137,8 +124,8 @@ The API returns the following URL query parameters on error:
 
 #### Common Request Aspects
 
-- **Method**: POST 
-- **Authorization required**: No 
+- **Method**: POST
+- **Authorization required**: No
 - **Content-Type**: `application/x-www-form-urlencoded`
 - **Available versions**: https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token
 

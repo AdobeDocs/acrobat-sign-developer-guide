@@ -25,7 +25,7 @@ Existing Acrobat Sign APIs return the entire list of resources (agreements, widg
 
 **Sample Response**
 
-```
+```javascript
 {
     "userAgreementList": [{
       "displayDate": "2017-04-17T06:07:19-07:00",
@@ -76,7 +76,7 @@ In addition, this also helps to resolve conflicts in the case of concurrent upda
 
 **Sample GET Operation (ETag in Request Header)**
 
-```
+```http
 URI : GET https://api.na1.echosign.com:443/api/rest/v6/agreements/CBJCHBCAABAAQonMXhG-V6w-rheRViZNFGxmCgEEf3k0
 
 Headers : Authorization: Bearer <access-token>
@@ -93,7 +93,7 @@ The _response header_ below represents the second scenario, in which the resourc
 
 **Response Header**
 
-```
+```http
 Date: Mon, 12 Feb 2018 09:45:24 GMT
 Server: Apache
 ETag: D27e5290dc3a748068e42a59f4dfc6f6b1d5eaba1
@@ -109,7 +109,7 @@ Update or delete operations will have a similar workflow. The clients are requir
 
 **Sample PUT Operation (ETag In Request Header)**
 
-```
+```http
 URI : PUT  https://api.na1.echosign.com:443/api/rest/v6/agreements/CBJCHBCAABAAQonMXhG-V6w-rheRViZNFGxmCgEEf3k0/status
 
 Headers : Authorization: Bearer <access-token>
@@ -124,7 +124,7 @@ The response below indicates that we are trying to update an older version (_obs
 
 **Sample PUT Operation (ETag In Request Header)**
 
-```
+```json
 {
     "code": "RESOURCE_MODIFIED",
     "message": "Resource is already modified with newer version"
@@ -251,7 +251,7 @@ One of the common workflows used by Acrobat Sign clients is to create an agreeme
 
 **Polling For Signing Url**
 
-```
+```javascript
 var APIConfig = {
     "apiBaseUrl": "<base-uri-for-client>",
     "accessToken": "Bearer <valid-access-token>",
@@ -335,7 +335,7 @@ Some operations on a newly created agreement like downloading agreement document
 
 **Polling For Signing URL**
 
-```
+```javascript
 var APIConfig = {
     "apiBaseUrl": "<base-uri-for-client>",
     "accessToken": "Bearer <valid-access-token>",
@@ -453,7 +453,7 @@ The new document visibility feature allows senders to control the exposure of ag
 
 **Document Visibility Example**
 
-```
+```javascript
 {
     "fileInfos": [{
             "transientDocumentId": "<first-transient-document>"
@@ -500,7 +500,7 @@ This example illustrates a stepwise creation of an agreement:
 
 **Step 1: POST /agreements to create an initial draft**
 
-```
+```javascript
 {
     "fileInfos": [{
         "transientDocumentId": "<a-valid-transient-resource-id>"
@@ -516,7 +516,7 @@ The step above creates a draft. Notice that we have not assigned any participant
 
 **Step 2: PUT /agreements/{agreementId} to complete this draft**
 
-```
+```javascript
 {
     "fileInfos": [{
         "transientDocumentId": "<a-valid-transient-resource-id>"
@@ -541,7 +541,7 @@ The next step finalizes the draft into an agreement.
 
 **Step 3: PUT /agreements/{agreementId}/state to complete this draft**
 
-```
+```javascript
 {
   "state": "IN_PROCESS"
 }
@@ -578,7 +578,7 @@ There are a number of _views_ associated with a resource. For example, an agreem
 
 _Request - POST /agreements/{agreementId}/views_
 
-```
+```javascript
 {
     "names": "DOCUMENT",
     "commonViewConfiguration": {
@@ -592,7 +592,7 @@ _Request - POST /agreements/{agreementId}/views_
 
 _Response - POST /agreements/{agreementId}/views_
 
-```
+```javascript
 [
     {
         "name": "DOCUMENT",
@@ -613,7 +613,7 @@ The suppress email feature, in a broader sense, enables us to specify which emai
 
 **POST /agreements with email configuration**
 
-```
+```javascript
 {
     "fileInfos": [{
         "transientDocumentId": "<a-valid-transient-resource-id>"
@@ -662,6 +662,7 @@ Acrobat Sign version 6 includes many changes to the API model.
 *   Returns all the users associated with an agreement: participant set, cc’s, shared participants, and sender.
 
 [GET /agreements/{agreementId}/members/participantSets/{participantSetId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getParticipantSet)
+
 *   Returns a detailed participant set object.
 
 [GET /agreements/{agreementId}/reminders](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementReminders)
@@ -697,6 +698,7 @@ Acrobat Sign version 6 includes many changes to the API model.
 *   Returns the requested views such as manage page view, agreement documents view, post send page view associated with an agreement in the requested configuration.
 
 [POST /libraryDocuments/{libraryDocumentId}/views](https://corporate.na1.echosign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView)
+
 *   Returns the requested views, such as manage page view, library documents view, and send page view of this library document in the requested configuration.
 
 [POST /megaSigns/{megaSignId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/megaSigns/getMegaSignView)
@@ -915,14 +917,14 @@ Was: [POST /reminders](https://secure.na1.echosign.com/public/docs/restapi/v5#!/
 [POST /transientDocuments](https://secure.echosign.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument)
 
 *   Returns an `UNSUPPORTED_MEDIA_TYPE` error for unsupported media types in Acrobat Sign.
-    
+
 [POST /widgets](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/createWidget)
 
 *   The request body is now consistent with this API’s GET/PUT counterpart. A common agreement model is used across all these APIs.
 
 *   Form fields layer template and Merge Fields support have been removed in v6 for widget creation.
 
-*   The `signatureFlow` parameter has been dropped and the workflow is inferred through the order in the `additionalParticipantSetsInfo` parameter. 
+*   The `signatureFlow` parameter has been dropped and the workflow is inferred through the order in the `additionalParticipantSetsInfo` parameter.
 
 Enables a participant to reject an agreement.
 
@@ -945,7 +947,9 @@ This is functionally the same as before, but the API structure is revamped to ma
 ### Removed APIs
 
 [DELETE /agreements/{agreementId}](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/deleteAgreement)  
+
 *   The equivalent functionality of removing an agreement permanently from a user’s manage page can be achieved through the combination of [DELETE /agreements/{agreementId}/documents](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/deleteDocuments) and [PUT /visibility](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementVisibility).
 
 [GET /agreements/{agreementId}/documents/{documentId}/url](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl)  
+
 *   The v5 API had the redundant functionality of providing combined agreement docs, which can be achieved through the [GET /document](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocument) API.

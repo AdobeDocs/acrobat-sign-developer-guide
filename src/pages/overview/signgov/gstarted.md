@@ -1,6 +1,5 @@
----
+
 title: "Getting Started - Acrobat Sign for Government: Developer"
----
 
 # Getting Started
 
@@ -15,13 +14,11 @@ While optional, Adobe recommends:
 
 ## Account provisioning
 
-
 ![process1.png](../images/process1.png)
 
 Adobe provisions your account once the formal setup process kicks off. You can simultaneously gather the required information and configure your systems as needed.
 
 ## Okta tenant setup
-
 
 ![process2.png](../images/process2.png)
 
@@ -68,11 +65,10 @@ For more detail, see https://helpx.adobe.com/sign/fedramp/okta/okta-claim-domain
 The Acrobat Sign team is responsible for enabling Solutions for Government API applications. The app registration process requires that you provide the following details:
 
 -  Whether you need a customer (single-tenant) or partner (multi-tenant) API app.
--  A [redirect URL](https://git.corp.adobe.com/pages/dc/acrobat-sign-sdk/developer_guide/gstarted.html#configure-the-redirect-uri) which links the app instance to the correct Acrobat Sign account. 
--  A [list of required scopes](https://git.corp.adobe.com/pages/dc/acrobat-sign-sdk/developer_guide/gstarted.html#configure-scopes) that define what resources and actions are available to your app. 
--  An app name. 
+-  A [redirect URL](https://git.corp.adobe.com/pages/dc/acrobat-sign-sdk/developer_guide/gstarted.html#configure-the-redirect-uri) which links the app instance to the correct Acrobat Sign account.
+-  A [list of required scopes](https://git.corp.adobe.com/pages/dc/acrobat-sign-sdk/developer_guide/gstarted.html#configure-scopes) that define what resources and actions are available to your app.
+-  An app name.
 -  Whether or not you require impersonation. Some clients provide a single impersonation token for all user actions while others prefer that users act on behalf of themselves. For example, a legal department may use a shared token while users in another organization will personally send and sign as individuals.
-
 
 ## Register the API application
 
