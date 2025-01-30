@@ -1,4 +1,6 @@
-# 2016 REST v6 Release Notes 
+
+# 2016 REST v6 Release Notes
+
 Last update: Jun 13, 2024.
 
 <InlineAlert slots="text" />

@@ -1,17 +1,16 @@
-# Latest API Release Notes 
+
+# Latest API Release Notes
+
 Last update: Jun 21, 2024.
 
 <InlineAlert slots="text" />
 
 For non-developer product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
 
+## System requirement changes
 
-System requirement changes
-----------------------------------------------------------------
+ For browser and product UI system requirements, see <https://helpx.adobe.com/sign/system-requirements.html>.
 
- For browser and product UI system requirements, see <https://helpx.adobe.com/sign/system-requirements.html>. 
- 
- 
 ## New or updated developer assets
 
 <table border="1" columnWidths="20,80">
@@ -48,9 +47,6 @@ System requirement changes
         </tr>
     </tbody>
 </table>
-
-
-
 
 ## Webhook Changes
 
@@ -204,7 +200,6 @@ System requirement changes
     </tbody>
 </table>
 
-
 ## REST API changes
 
 <table border="1" columnWidths="20,80">
@@ -301,11 +296,8 @@ System requirement changes
     </tbody>
 </table>
                                                                                                                                          |
+## Bug fixes
 
-
-
-Bug fixes
-----------------------------------------------------
 
 ### July 2023
 
