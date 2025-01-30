@@ -15,6 +15,53 @@ v5 and SOAP-based apps will continue to function, but all versions prior to v6 a
 REST API Enhancements
 ----------------------------------------------------------------------------
 
+### Pagination Support
+
+Existing Acrobat Sign APIs return the entire list of resources (agreements, widgets, or library documents) that a user has in a GET call. For some users with a large number of transactions this resource list becomes too big for consumption. The v6 APIs have introduced pagination support to all these resources with a client-configurable page size. This will be especially useful to our mobile clients and integrations who are constrained by their consumption capacity. This sample shows pagination in a request and response:
+
+**Sample Request**
+
+`GET https://api.na1.echosign.com:443/api/rest/v6/agreements?pageSize=50`
+
+**Sample Response**
+
+```
+{
+    "userAgreementList": [{
+      "displayDate": "2017-04-17T06:07:19-07:00",
+      "displayUserSetInfos": [
+        {
+          "displayUserSetMemberInfos": [
+            {
+              "company": "Adobe",
+              "email": "adobe.sign.user@adobe.com",
+              "fullName": "AdobeSign User"
+            }
+          ]
+        }
+      ],
+      "esign": true,
+      "agreementId": "3AAABLblqZhDqIcUs4nFgivebIUdzuZyBrjO_VP_hHDhkrGhXxKuQ5Hi7C07vRbNzxP9TdTdRHzHdQLDsPJrjfXEuKe7jjEAl",
+      "latestVersionId": "3AAABLblqZhACieamyoCl7qNWZTaU3WaoY3a9BL7-09sosH88HyRFfGmYc91jpQk-LXLVGlgEudioxgPlCprAScifamX16-QD",
+      "name": "SampleAgreement",
+      "status": "SIGNED"
+    },
+    {...},
+    .
+    .
+    .],
+    "page": {
+        "nextCursor": "qJXXj2UAUX1X9rTSqoUOlkhsdo*"
+    }
+}
+```
+
+The subsequent GET /resources calls would just need to add <strong>nextCursor</strong> as <strong>query param</strong> in the URL for fetching the next set of resources.
+
+**Sample Request**
+
+`GET https://api.na1.echosign.com:443/api/rest/v6/agreements?pageSize=50&cursor=qJXXj2UAUX1X9rTSqoUOUOlkhsdo*`
+
 ### Constant IDs
 
 Our Partners and Integrators have requested that the identifiers remain constant in the lifetime of a resource. This is because they tend to store these resource IDs and do a match later, which can break with ID changes. The v6 APIs address this by ensuring that IDs stay constant through time and across all API callers for a given resource. This will enable clients to build their own metadata associated with an Acrobat Sign resource ID.
@@ -92,39 +139,25 @@ The response below indicates that we are trying to update an older version (_obs
 The ETag value required to be passed in any PUT or DELETE API can be obtained from a corresponding GET operation on the same entity. The table below mentions these modification (PUT or DELETE) APIs along with the corresponding GET APIs that provides the ETag value for these modification requests.
 
 
+| **Update/Deletion API**                               | **Corresponding GET endpoint**                        |
+|-------------------------------------------------------|------------------------------------------------------|
+| PUT /agreements/{agreementId}                         | GET /agreements/{agreementId}                        |
+| POST /agreements/{agreementId}/formFields             | GET /agreements/{agreementId}/formFields             |
+| PUT /agreements/{agreementId}/formFields              | GET /agreements/{agreementId}/formFields             |
+| PUT /agreements/{agreementId}/formFields/mergeInfo    | GET /agreements/{agreementId}/formFields/mergeInfo   |
+| PUT /agreements/{agreementId}/members/participantSets/{participantSetId} | GET /agreements/{agreementId}/members/participantSets/{participantSetId} |
+| PUT /agreements/{agreementId}/state                   | GET /agreements/{agreementId}                        |
+| DELETE /agreements/{agreementId}/documents            | GET /agreements/{agreementId}/documents              |
+| PUT /libraryDocuments/{libraryDocumentId}             | GET /libraryDocuments/{libraryDocumentId}            |
+| PUT /libraryDocuments/{libraryDocumentId}/state       | GET /libraryDocuments/{libraryDocumentId}            |
+| PUT /widgets/{widgetId}                               | GET /widgets/{widgetId}                              |
+| PUT /widgets/{widgetId}/state                         | GET /widgets/{widgetId}                              |
+| PUT /megaSigns/{megaSignId}/state                     | GET /megaSigns/{megaSignId}                          |
+| DELETE /users/{userId}/signatures/{signatureId}       | GET /users/{userId}/signatures/{signatureId}         |
+| PUT /webhooks/{webhookId}                             | GET /webhooks/{webhookId}                            |
+| PUT /webhooks/{webhookId}/state                       | GET /webhooks/{webhookId}                            |
+| DELETE /webhooks/{webhookId}                          | GET /webhooks/{webhookId}                            |
 
-* Update/Deletion API: PUT /agreements/{agreementId}
-  * Corresponding GET endpoint: GET /agreements/{agreementId}
-* Update/Deletion API: POST /agreements/{agreementId}/formFields
-  * Corresponding GET endpoint: GET /agreements/{agreementId}/formFields
-* Update/Deletion API: PUT /agreements/{agreementId}/formFields
-  * Corresponding GET endpoint: GET /agreements/{agreementId}/formFields
-* Update/Deletion API: PUT /agreements/{agreementId}/formFields/mergeInfo
-  * Corresponding GET endpoint: GET /agreements/{agreementId}/formFields/mergeInfo
-* Update/Deletion API: PUT /agreements/{agreementId}/members/participantSets/{participantSetId}
-  * Corresponding GET endpoint: GET /agreements/{agreementId}/members/participantSets/{participantSetId}
-* Update/Deletion API: PUT /agreements/{agreementId}/state
-  * Corresponding GET endpoint: GET /agreements/{agreementId}
-* Update/Deletion API: DELETE /agreements/{agreementId}/documents
-  * Corresponding GET endpoint: GET /agreements/{agreementId}/documents
-* Update/Deletion API: PUT /libraryDocuments/{libraryDocumentId}
-  * Corresponding GET endpoint: GET /libraryDocuments/{libraryDocumentId}
-* Update/Deletion API: PUT /libraryDocuments/{libraryDocumentId}/state
-  * Corresponding GET endpoint: GET /libraryDocuments/{libraryDocumentId}
-* Update/Deletion API: PUT /widgets/{widgetId}
-  * Corresponding GET endpoint: GET /widgets/{widgetId}
-* Update/Deletion API: PUT /widgets/{widgetId}/state
-  * Corresponding GET endpoint: GET /widgets/{widgetId}
-* Update/Deletion API: PUT /megaSigns/{megaSignId}/state
-  * Corresponding GET endpoint: GET /megaSigns/{megaSignId}
-* Update/Deletion API: DELETE /users/{userId}/signatures/{signatureId}
-  * Corresponding GET endpoint: GET /users/{userId}/signatures/{signatureId}
-* Update/Deletion API: PUT /webhooks/{webhookId}
-  * Corresponding GET endpoint: GET /webhooks/{webhookId}
-* Update/Deletion API: PUT /webhooks/{webhookId}/state
-  * Corresponding GET endpoint: GET /webhooks/{webhookId}
-* Update/Deletion API: DELETE /webhooks/{webhookId}
-  * Corresponding GET endpoint: GET /webhooks/{webhookId}
 
 
 ### GET, PUT, POST consistency
@@ -400,6 +433,13 @@ The polling frequency can vary from clients to clients depending on their use ca
 |> 100KB and < 2 MB|1s                 |
 |> 2MB             |2s                 |
 
+### Authorization header
+
+The Acrobat Sign API accepts an authorization token in the <span style="color: red;">access-token</span> header; however, from v6 onwards we will be migrating to the standard <span style="color: red;">Authorization</span> header. The Authorization header will hold the user’s authorization token in this format:
+
+<span style="color:red">Authorization: Bearer &lt;access-token&gt;</span>
+
+Clients can continue using their older access token, but in the <span style="color: red;">authorization</span>header using this format.
 
 New Features
 ----------------------------------------------------------
@@ -412,14 +452,11 @@ This feature enables users associated with an agreement to share the agreement a
 
 The authoring APIs are a set of APIs that allow a user to _author_ the documents of an agreement before sending them out. The authoring operation here refers to creating, editing or placing form fields along with their configurations (assignee, conditions, data type, and more) in the agreement documents. The v6 APIs have these capabilities and a client can now leverage these APIs to create their own agreement authoring experience. The table below lists the APIs in this set along with the functionality that they provide.
 
-
-
-* Authoring API: POST /agreements/{agreementId}/formFields
-  * Functionality: Adds forms to an agreement from the given template. The response would contain the information of all the newly added form fields.
-* Authoring API: GET /agreements/{agreementId}/formFields
-  * Functionality: Retrieves all the form fields present in an agreement.
-* Authoring API: PUT /agreements/{agreementId}/formFields
-  * Functionality: Updates and configures(say location, default value, background, etc.) the present form fields in the agreement documents.
+| **Authoring API**                                      | **Functionality**                                                                 |
+|--------------------------------------------------------|----------------------------------------------------------------------------------|
+| [POST /agreements/{agreementId}/formFields](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/addTemplateFieldsToAgreement) | Adds forms to an agreement from the given template. The response would contain the information of all the newly added form fields. |
+| [GET /agreements/{agreementId}/formFields](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getFormFields) | Retrieves all the form fields present in an agreement.                          |
+| [PUT /agreements/{agreementId}/formFields](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateFormFields) | Updates and configures (e.g., location, default value, background, etc.) the present form fields in the agreement documents. |
 
 
 ### Document visibility
@@ -526,6 +563,19 @@ The next step finalizes the draft into an agreement.
 
 ```
 
+### Notes management
+
+The v6 Acrobat Sign APIs has endpoints to manage notes in an agreement. Clients can add notes to an agreement and retrieve them using these API’s. The table below lists all these APIs and their operation.
+
+| Notes API                                              | Functionality                                                                  |
+|--------------------------------------------------------|--------------------------------------------------------------------------------|
+| [GET /agreements/{agreementId}/me/note](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementNoteForApiUser) | Retrieves the latest note on an agreement for the user.                         |
+| [PUT /agreements/{agreementId}/me/note](https://secure.echosign.com/public/docs/restapi/v6) | Updates the latest note associated with an agreement.                           |
+| [GET /libraryDocuments/{libraryDocumentId}/me/note](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocumentNoteForApiUser) | Retrieves the latest note on a library template for the user.                   |
+| [PUT /libraryDocuments/{libraryDocumentId}/me/note](https://secure.echosign.com/public/docs/restapi/v6) | Updates the latest note of a library document for the API user.                |
+| [GET /widgets/{widgetId}/me/note](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetNoteForApiUser) | Retrieves the latest note of a widget for the API user.                         |
+| [PUT /widgets/{widgetId}/me/note](https://secure.echosign.com/public/docs/restapi/v6) | Updates the latest note of a widget for the API user.                           |
+
 
 ### Reminders
 
@@ -625,62 +675,136 @@ Acrobat Sign version 6 includes many changes to the API model.
 
 ### New APIs
 
-Retrieves the latest note on an agreement for the user.
+[GET /agreements/{agreementId}/me/note](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementNoteForApiUser)
 
-Returns all the users associated with an agreement: participant set, cc’s, shared participants, and sender.
+*   Retrieves the latest note on an agreement for the user.
 
-Returns a detailed participant set object.
 
-Lists all the reminders on an agreement.
+[GET /agreements/{agreementId}/members](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAllMembers)
 
-Retrieves the latest note on a library template for the user.
+*   Returns all the users associated with an agreement: participant set, cc’s, shared participants, and sender.
 
-Retrieves the file stream of the original CSV file that was uploaded by the sender while creating the MegaSign.
 
-Lists all the events of a MegaSign.
+[GET /agreements/{agreementId}/members/participantSets/{participantSetId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getParticipantSet)
+*   Returns a detailed participant set object.
 
-Lists all the groups to which the user identified by the userId belongs.
 
-Creates form fields in an agreement using a library template.
+[GET /agreements/{agreementId}/reminders](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementReminders)
 
-Allows users to share agreements with other users.
+*   Lists all the reminders on an agreement.
 
-Returns the requested views such as manage page view, agreement documents view, post send page view associated with an agreement in the requested configuration.
 
-Returns the requested views, such as manage page view, library documents view, and send page view of this library document in the requested configuration.
+[GET /libraryDocuments/{libraryDocumentId}/me/note](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocumentNoteForApiUser)
 
-Provides all the views associated with a megaSign, such as manage page view, documents view, etc.
+*   Retrieves the latest note on a library template for the user.
 
-Provides all the views associated with a user, like profile page view, account page view, or manage page view.
 
-Returns the requested views, such as manage page view, widget documents view, and post send page view associated with a widget in the requested configuration.
+[GET /megaSigns/{megaSignId}/childAgreementsInfo/{childAgreementsInfoFileId}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/megaSigns/getChildAgreementsInfoFile)
 
-Updates the data of an agreement, such as name, participants, etc.
+*   Retrieves the file stream of the original CSV file that was uploaded by the sender while creating the MegaSign.
 
-Edit or modify an existing form field on an agreement document.
 
-Manage the visibility of an agreement in `GET /agreements`.
+[GET /megaSigns/{megaSignId}/events](https://secure.na1.echosign.com/public/docs/restapi/v6#!/megaSigns/getEvents)
 
-Updates an existing participant set of an agreement. Adds some more capability to the existing recipient update feature:
+*   Lists all the events of a MegaSign.
 
-1.  Allows replacing a specific participant in the set instead of choosing between either replacing all participants or no one.
-    
-2.  Allows sender to replace participants who are not the current signer as well.
-    
 
-Transitions an agreement from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transitions are allowed. An allowed transition would follow the following sequence: `DRAFT` -> `AUTHORING` -> `IN_PROCESS` -> `CANCELLED`.
+[GET /users/{userId}/groups](https://secure.echosign.com/public/docs/restapi/v6#!/users/getGroupsOfUser)
 
-[PUT /libraryDocuments/{libraryDocumentId}](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/updateLibraryDocument) Updates the data of a library document, such as name, type, scope, etc.
+*   Lists all the groups to which the user identified by the userId belongs.
 
-A new API to control visibility of an agreement in the `GET /libraryDocuments` response.
 
-Transitions a library document from one state to another: for example, `AUTHORING` to `ACTIVE`. Note that not all transitions are allowed. An allowed transition would follow the following sequence: `AUTHORING` -> `ACTIVE`.
+[POST /agreements/{agreementId}/formFields](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/postFormFields)
 
-Transitions a MegaSign from one state to another: for example, `IN_PROCESS` to `CANCELLED`. Note that not all transition are allowed. An allowed transition would follow the following sequence: `IN_PROCESS` -> `CANCELLED`.
+*   Creates form fields in an agreement using a library template.
 
-Migrates the user to a different group or updates their role in the existing group.
 
-Transitions a widget from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transition are allowed. An allowed transition would follow one of the following sequences: `DRAFT` -> `AUTHORING` -> `ACTIVE`, `ACTIVE` <-> `INACTIVE`, `DRAFT` -> `CANCELLED`.
+[POST /agreements/{agreementId}/members/share](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/createShareOnAgreement)
+
+*   Allows users to share agreements with other users.
+
+
+[POST /agreements/{agreementId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementView)
+
+*   Returns the requested views such as manage page view, agreement documents view, post send page view associated with an agreement in the requested configuration.
+
+
+[POST /libraryDocuments/{libraryDocumentId}/views](https://corporate.na1.echosign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView)
+*   Returns the requested views, such as manage page view, library documents view, and send page view of this library document in the requested configuration.
+
+
+[POST /megaSigns/{megaSignId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/megaSigns/getMegaSignView)
+
+*   Provides all the views associated with a megaSign, such as manage page view, documents view, etc.
+
+
+[POST /users/{userId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/users/getUserViews)
+
+*   Provides all the views associated with a user, like profile page view, account page view, or manage page view.
+
+
+[POST /widgets/{widgetId}/views](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView)
+
+*   Returns the requested views, such as manage page view, widget documents view, and post send page view associated with a widget in the requested configuration.
+
+
+[PUT /agreements/{agreementId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreement)
+
+*   Updates the data of an agreement, such as name, participants, etc.
+
+
+[PUT /agreements/{agreementId}/formFields](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateFormFields)
+
+*   Edit or modify an existing form field on an agreement document.
+
+
+[PUT /agreements/{agreementId}/me/visibility](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementVisibility)
+
+*   Manage the visibility of an agreement in `GET /agreements`.
+
+
+[PUT /agreements/{agreementId}/members/participantSets/{participantSetId}](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateParticipantSet)
+
+*   Updates an existing participant set of an agreement. Adds some more capability to the existing recipient update feature:
+
+1. Allows replacing a specific participant in the set instead of choosing between either replacing all participants or no one.
+2. Allows sender to replace participants who are not the current signer as well.
+
+
+[PUT /agreements/{agreementId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementState)
+
+*   Transitions an agreement from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transitions are allowed. An allowed transition would follow the following sequence: `DRAFT` -> `AUTHORING` -> `IN_PROCESS` -> `CANCELLED`.
+
+
+[PUT /libraryDocuments/{libraryDocumentId}](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/updateLibraryDocument)
+
+*   Updates the data of a library document, such as name, type, scope, etc.
+
+
+[PUT /libraryDocuments/{libraryDocumentId}/me/visibility](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/updateLibraryDocumentVisibility)
+
+*   A new API to control visibility of an agreement in the `GET /libraryDocuments` response.
+
+
+[PUT /libraryDocuments/{libraryDocumentId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/updateLibraryDocumentState)
+
+*   Transitions a library document from one state to another: for example, `AUTHORING` to `ACTIVE`. Note that not all transitions are allowed. An allowed transition would follow the following sequence: `AUTHORING` -> `ACTIVE`.
+
+
+[PUT /megaSigns/{megaSignId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/megaSigns/updateMegaSignState)
+
+*   Transitions a MegaSign from one state to another: for example, `IN_PROCESS` to `CANCELLED`. Note that not all transition are allowed. An allowed transition would follow the following sequence: `IN_PROCESS` -> `CANCELLED`.
+
+
+[PUT /users/{userId}/groups](https://secure.echosign.com/public/docs/restapi/v6#!/users/updateGroupsOfUser)
+
+*   Migrates the user to a different group or updates their role in the existing group.
+
+
+[PUT /widgets/{widgetId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/updateWidgetState)
+
+*   Transitions a widget from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transitions are allowed. An allowed transition would follow one of the following sequences: `DRAFT` -> `AUTHORING` -> `ACTIVE`, `ACTIVE` <-> `INACTIVE`, `DRAFT` -> `CANCELLED`.
+
 
 ### Updated APIs
 
@@ -886,4 +1010,8 @@ This is functionally the same as before, but the API structure is revamped to ma
 
 ### Removed APIs
 
-The v5 API had the redundant functionality of providing combined agreement docs, which can be achieved through the [GET /document](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocument) API.
+[DELETE /agreements/{agreementId}](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/deleteAgreement)  
+*   The equivalent functionality of removing an agreement permanently from a user’s manage page can be achieved through the combination of [DELETE /agreements/{agreementId}/documents](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/deleteDocuments) and [PUT /visibility](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementVisibility).
+
+[GET /agreements/{agreementId}/documents/{documentId}/url](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl)  
+*   The v5 API had the redundant functionality of providing combined agreement docs, which can be achieved through the [GET /document](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocument) API.
