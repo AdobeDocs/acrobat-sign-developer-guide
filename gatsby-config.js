@@ -66,6 +66,10 @@ module.exports = {
         }]
       },
       {
+        title: 'Webhook Reference',
+        path: 'overview/acrobat_sign_events/index.md'
+      },
+      {
         title: 'Solutions for Government',
         path: 'overview/signgov/index.md'
       },
@@ -75,6 +79,37 @@ module.exports = {
       }
     ],
     subPages: [
+      {
+        title: "Webhook Reference",
+        subTitle: '',
+        path: 'overview/acrobat_sign_events/index.md',
+        pages: [
+          {
+            title: 'Webhooks in Acrobat Sign',
+            path: 'overview/acrobat_sign_events/index.md'
+          },
+          {
+            title: 'Webhook Event Payload Overview',
+            path: 'overview/acrobat_sign_events/webhookpayloadoverview.md'
+          },
+          {
+            title: 'Agreement Events',
+            path: 'overview/acrobat_sign_events/webhookeventsagreements.md'
+          },
+          {
+            title: 'Library Events',
+            path: 'overview/acrobat_sign_events/webhookeventslibrary.md'
+          },
+          {
+            title: 'Bulk Signing Events',
+            path: 'overview/acrobat_sign_events/webhookeventsmegasign.md'
+          },
+          {
+            title: 'Web Form Events',
+            path: 'overview/acrobat_sign_events/webhooks-oauth-2.0.md'
+          }
+        ]
+      },
       {
         title: "Sign for Government",
         subTitle: '',
