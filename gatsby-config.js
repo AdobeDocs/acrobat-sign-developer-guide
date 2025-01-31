@@ -47,7 +47,7 @@ module.exports = {
         title: 'Documentation',
         menu: [{
           title: 'API Release Notes',
-          path: 'http://google.com'
+          path: 'overview/releasenotes/index.md'
         },{
           title: 'API Reference (v.6)',
           path: 'https://secure.na1.adobesign.com/public/docs/restapi/v6'
@@ -130,6 +130,25 @@ module.exports = {
           {
             title: 'Sign Gov and Commerical Comparison',
             path: 'overview/signgov/diffs.md'
+          }
+        ]
+      },
+	  {
+        title: "API Release Notes",
+        subTitle: '',
+        path: 'overview/releasenotes/index.md',
+		pages: [
+          {
+            title: 'Acrobat Sign API Release Notes',
+            path: 'overview/releasenotes/index.md'
+          },
+          {
+            title: 'Latest API Release Notes',
+            path: 'overview/releasenotes/acrobatsignreleasenotes.md'
+          },
+          {
+            title: '2016 REST v6 Release Notes',
+            path: 'overview/releasenotes/v6releasenotes.md'
           }
         ]
       }
