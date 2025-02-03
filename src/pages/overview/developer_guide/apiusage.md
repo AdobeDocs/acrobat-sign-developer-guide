@@ -743,7 +743,7 @@ Alternatively, go to **Group Setup** > **Post Agreement Completion URL**.
 
 JSON payload examples:
 
-  * Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.
+  - Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.
 
 > **“postSignOption”**: {
 >  
@@ -752,7 +752,7 @@ JSON payload examples:
 >
 > }
 
-  * Redirect with no delay after signing (immediate redirect):
+  - Redirect with no delay after signing (immediate redirect):
 
 > **“postSignOption”**: {
 >  
@@ -761,7 +761,7 @@ JSON payload examples:
 >
 > }
 
-  * Redirect with a delay of 2 seconds after signing:
+  - Redirect with a delay of 2 seconds after signing:
 
 > **“postSignOption”**: {
 >  
@@ -770,7 +770,7 @@ JSON payload examples:
 >
 > }
 
-  * Redirect with no delay after signing (null delay - immediate redirect):
+  - Redirect with no delay after signing (null delay - immediate redirect):
 
 > **“postSignOption”**: {
 >  
