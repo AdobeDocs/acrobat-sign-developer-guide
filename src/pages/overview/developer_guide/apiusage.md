@@ -22,15 +22,15 @@ retrieved by your application.
 
 While getting the authorization code from the Acrobat Sign service, you also
 received the API access point as part of a query parameter (See [Create an authorization request link](gstarted.md#create-an-authorization-request-link)).
- 
-```http    
+
+```http
     https://secure.echosign.com/public/oauth?
        redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&
        response_type=code&
        client_id=xxxxxxxxxx&
        state=xxxxxxxxxx&
        scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account
- ```   
+ ```
 
 For all future service calls, Acrobat Sign sends the requests to this access
 point.
@@ -44,7 +44,7 @@ specify the recipients and other sending options required for sending the
 document for signing. Your application can also specify a callback URL that
 will be used by Acrobat Sign to notify when the signature process is complete.
   
-```http    
+```http
     POST /api/rest/v6/transientDocuments HTTP/1.1
     Host: api.na1.echosign.com
     Authorization: Bearer MvyABjNotARealTokenHkYyi
@@ -52,16 +52,16 @@ will be used by Acrobat Sign to notify when the signature process is complete.
     Content-Disposition: form-data; name=";File"; filename="MyPDF.pdf"
     
     <PDF CONTENT>
-```    
+```
 
 You will get the following JSON body containing the <span style="color: red;">transientDocumentId</span> that
 will uniquely represent the uploaded document:
   
-```json    
+```json
     {
         "transientDocumentId":"3AAABLblqZhBVYbgJbl--NotArEaLID_zjaBYK"
     }
-```    
+```
 
 The document uploaded through this call is termed as a _transient document_
 since it is available only for 7 days after the upload.
@@ -77,8 +77,8 @@ parties for signing. For this to happen, you need to create an _agreement._
 
 For creating an agreement, send a POST request to the <span style="color: red;">/agreements</span> endpoint
 with the following JSON body:
- 
-```json    
+
+```json
     POST /api/rest/v6/agreements HTTP/1.1
     Host: api.na1.echosign.com
     Authorization: Bearer 3AAABLblNOTREALTOKENLDaV
@@ -98,7 +98,7 @@ with the following JSON body:
         "signatureType": "ESIGN",
         "state": "IN_PROCESS"
     }
-```    
+```
 
 Replace the value for the following attributes with the correct values:
 
@@ -139,13 +139,13 @@ Replace the value for the following attributes with the correct values:
             <td><span style="color: red;">state</span></td>
             <td>
             The state in which the agreement should land. The possible values are  
-            <span style="color: red;"> AUTHORING</span>, <span style="color: red;">DRAFT</span>, or 
+            <span style="color: red;"> AUTHORING</span>, <span style="color: red;">DRAFT</span>, or
             <span style="color: red;"> IN_PROCESS</span>. You can use:<br />
             a) <span style="color: red;">DRAFT</span> to incrementally build the agreement before sending out,<br />
             b) <span style="color: red;">AUTHORING</span> to add or edit form fields in the agreement,<br />
             c) <span style="color: red;">IN_PROCESS</span> to immediately send the agreement.<br /><br />
-            You can use the <span style="color: red;">PUT /agreements/{"{"}agreementId{"}"}/state</span> endpoint 
-            to transition an agreement between the above-mentioned states. An allowed transition would follow 
+            You can use the <span style="color: red;">PUT /agreements/{"{"}agreementId{"}"}/state</span> endpoint
+            to transition an agreement between the above-mentioned states. An allowed transition would follow
             this sequence: <span style="color: red;">DRAFT → AUTHORING → IN_PROCESS → CANCELLED</span>.
             </td>
         </tr>
@@ -154,11 +154,11 @@ Replace the value for the following attributes with the correct values:
 
 You will get the following response containing the <span style="color: red;">id</span>:
 
-```json    
+```json
     {
         "id": "<an-adobe-sign-generated-id>"
     }
-```    
+```
 
 The returned <span style="color: red;">agreementId</span> must be used to refer to the agreement in all
 subsequent API calls. This ID must be used to retrieve up-to-date status of
@@ -196,16 +196,16 @@ with the appropriate event whenever the agreement status changes.
 ![_images/sign_devguide_2.png](_images/sign_devguide_2.png)
 
 You can also get the current status of an agreement by sending a GET request to <span style="color: red;">/agreements/{agreementid}</span>:
-    
-```http    
+
+```http
     GET /api/rest/v6/agreements/3AAABLblqZNOTREALAGREEMENTID5_BjiH HTTP/1.1
     Host: api.na1.echosign.com
     Authorization: Bearer 3AAANOTREALTOKENMS-4ATH
-```    
+```
 
 You need to provide your access token in the <span style="color: red;">Authorization</span> header and the <span style="color: red;">agreementId</span> in the API call itself. You will get the following JSON response:
-    
-```json    
+
+```json
     {
       "id": "<an-adobe-sign-generated-id>",
       "name": "MyTestAgreement",
@@ -226,7 +226,7 @@ You need to provide your access token in the <span style="color: red;">Authoriza
       "status": "OUT_FOR_SIGNATURE",
       "documentVisibilityEnabled": false
     }
-```    
+```
 
 By default, the webhook URL is called whenever an event involving a particular
 transaction occurs in Acrobat Sign. The webhook event includes the ID of the
@@ -257,8 +257,8 @@ agreement. When you send a reminder, the signers will get the same
 notification email that was originally sent.
 
 ![_images/sign_devguide_3.png](_images/sign_devguide_3.png)
-    
-```json    
+
+```json
     POST /api/rest/v6/agreements/{agreementId}/reminders HTTP/1.1
     Host: api.na1.echosign.com
     Authorization: Bearer 3AAABLblNOTREALTOKENLDaV
@@ -270,16 +270,16 @@ notification email that was originally sent.
       "nextSentDate": "< The date when the reminder is scheduled to be sent next.>",
       "status": "< valid status of reminder (ACTIVE)>"
     }
-```    
+```
 
 Note that you need to provide the <span style="color: red;">agreementId</span> in the request URL. You will
 get the following response from the server:
- 
-```json    
+
+```json
     {
        id: <An identifier of the reminder resource created on the server>
     }
-```    
+```
 
 [TRY IT OUT](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant)
 
@@ -295,12 +295,12 @@ The signed agreement can also be retrieved by sending a GET request to <span sty
 The returned document ID can be used in the <span style="color: red;">/agreements/&#123;agreementId&#125;/documents/&#123;documentId&#125;</span> call to retrieve the file stream of a document of the agreement. Depending on your application, you can also retrieve the form field data that your signer may have entered when signing the document by sending a GET request to <span style="color: red;">/agreements/&#123;agreementId&#125;/formData</span>. The data can be used to update your calling application with the information provided by the signer during signing.
 
 Send the following GET request to retrieve the signed agreement:
-   
-```http    
+
+```http
     GET /api/rest/v6/agreements/3AAA5NOTREALIDiH/combinedDocument HTTP/1.1
     Host: api.na1.echosign.com:443
     Authorization: Bearer 3AAABLblqZhB9BF
-```    
+```
 
 The response body will contain the content of the PDF file, which you can save locally through your application.
 
@@ -313,7 +313,7 @@ the <span style="color: red;">versionId</span> attribute when invoking <span sty
 
 To create a widget through the API, you must first call /transientDocuments, then send a POST request to upload the document. This is a multipart request consisting of file name,MIME type, and the file stream. The returned <span style="color: red;">transientDocumentId</span> is to be used to refer to the document in the widget creation call (<span style="color: red;">/widgets</span>, POST). The API endpoint, in addition to the widget key, returns an embed-code, which can be used for embedding the widget within your application, as well as a URL at which the widget gets hosted. The URL can be posted within your application for users to navigate to for signing a document.
   
-```json    
+```json
     POST /api/rest/v6/widgets HTTP/1.1
     Host: api.na1.echosign.com
     Authorization: Bearer 3AAABLblqZNotRelaTOKEN
@@ -328,23 +328,23 @@ To create a widget through the API, you must first call /transientDocuments, the
         },
         "state": "A valid state in which the widget should land (ACTIVE/AUTHORING/DRAFT)"
     }
-```    
+```
 
 You will get the following JSON response:
-   
-```json    
+
+```json
     {
         id: <The unique identifier of widget which can be used to retrieve the data entered by the signers.>
     }
-```    
+```
 
 Now, the Widget URL can be circulated to the parents for signing. At any time,
 to get information about the Widget, send a GET request to <span style="color: red;">/widgets/&#123;widgetId&#125;</span>.
-   
-```http    
+
+```http
     GET /api/rest/v6/widgets/3AAANotTheRealID6o HTTP/1.1
     Host: api.na1.echosign.com
-```    
+```
 
 You will get a JSON response containing details about the widget, including
 participants’ information and status.
@@ -360,16 +360,16 @@ OUT](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/)
 
 When the agreement is ready for signing, invoke <span style="color: red;">GET /agreements/&#123;agreementId&#125;/signingUrls</span>
  to get the signing URL:
-   
-```http    
+
+```http
     GET /api/rest/v6/agreements/3AANotRealIDQN8_gg/signingUrls HTTP/1.1
     Host: api.na1.echosign.com
     Authorization: Bearer 3AAABLblqZNotRelaTOKEN
-```    
+```
 
 You will get the following JSON response containing the signing URL:
-   
-```json    
+
+```json
     {
       "signingUrlSetInfos": [
         {
@@ -382,7 +382,7 @@ You will get the following JSON response containing the signing URL:
         }
       ]
     }
-```    
+```
 
 Getting the signing URL becomes useful for scenarios involving in-person
 signing. Load the signing URL in a browser window on a mobile device and get
@@ -414,7 +414,7 @@ FormFieldGenerator to a specific document.
 **To add form fields to specific documents in an agreement** :
 
   1. Send a POST request to the transientDocuments endpoint for all the documents (Document A and Document B in the current example) you want to include in the agreement.
- 
+
      You get each agreement’s unique ID as a response, which is required for
      associating a document to the FormFieldGenerator.
 
@@ -530,11 +530,11 @@ FormFieldGenerator to a specific document.
 
 You’ll get the following response containing the <span style="color: red;">id</span>:
 
-```json    
+```json
     {
         "id": "<an-adobe-sign-generated-id>"
     }
-```    
+```
 
 Once the agreement id is generated, you can open the agreement to verify the
 placement of the signature fields, as shown below. The signers get the ‘After’
@@ -578,7 +578,7 @@ or completed agreements. To generate a template:
 ]
 }
 ```
-   
+
  > d. Select **Try it out!**.
 
    You’ll get the following response containing the template id.
@@ -633,7 +633,7 @@ an agreement. To do so:
 
 ![_images/private-message-1.png](_images/private-message-1.png)
 
-> b. For the *File parameter*, select **Browse** and then select the agreement to which you want to add a message.  
+> b. For the _File parameter_, select **Browse** and then select the agreement to which you want to add a message.  
 > c. Select **Try it out!**.  
 > d. From the response body, copy the <span style="color: red;">transientDocumentID</span>.  
 
@@ -688,12 +688,11 @@ an agreement. To do so:
 > b. Select **Try it out!**  
 > c. Once the widget is created, copy the ID from the Response body.  
 
-
   3. To get the agreement URL:
 
 > a. Go to the [POST /widgets/{id}/views](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/getWidgetView) and request OAuth access token for widget_read:self.  
-> b. In the *widgetID* field, paste the copied ID.  
-> c. In the *WidgetViewInfo* field, enter the following JSON and select **Try it out!**:  
+> b. In the _widgetID_ field, paste the copied ID.  
+> c. In the _WidgetViewInfo_ field, enter the following JSON and select **Try it out!**:  
 
 ```json
 {
@@ -746,7 +745,7 @@ JSON payload examples:
 
   * Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.
 
-> **“postSignOption”**: {  
+> **“postSignOption”**: {
 >  
 >
 > “redirectUrl”:”<https://www.adobe.com>”
@@ -755,7 +754,7 @@ JSON payload examples:
 
   * Redirect with no delay after signing (immediate redirect):
 
-> **“postSignOption”**: {  
+> **“postSignOption”**: {
 >  
 >
 > “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: 0
@@ -764,7 +763,7 @@ JSON payload examples:
 
   * Redirect with a delay of 2 seconds after signing:
 
-> **“postSignOption”**: {  
+> **“postSignOption”**: {
 >  
 >
 > “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: 2
@@ -773,7 +772,7 @@ JSON payload examples:
 
   * Redirect with no delay after signing (null delay - immediate redirect):
 
-> **“postSignOption”**: {  
+> **“postSignOption”**: {
 >  
 >
 > “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: null
@@ -787,7 +786,7 @@ JSON payload to create an agreement with Post Sign Redirect Options that
 redirects each signer upon signing to “<https://www.adobe.com>” after a delay
 of 5 seconds:
 
-```json    
+```json
     {
     "ccs": [],
     "createdDate": "",
@@ -1014,19 +1013,19 @@ of 5 seconds:
     "authoringRequested": true,
     "signatureFlow": "HYBRID"
     }
-```    
+```
 
-Once a signer signs the agreement, they are redirected to the set URL after a specified delay. 
+Once a signer signs the agreement, they are redirected to the set URL after a specified delay.
 The redirect Url reflects the status of the agreement, as shown below.
 
 ![_images/agreement-signed-redirect-2.png](_images/agreement-signed-redirect-2.png)
 
 ## Add Agreement Redirect Options
 
-You can redirect signers to a specific URL with a custom delay when they 
+You can redirect signers to a specific URL with a custom delay when they
 decline an agreement. (DECLINED event) using the new payload object called
 redirectOptions. While creating an agreement, you must provide the redirect
-information (delay in seconds, URL) as part of the payload. Alternatively,
+information (delay in seconds, URL) as part of the payload. Alternatively ,
 Account Admins can set redirect information at the account and group levels
 using Acrobat Sign Account Setup page. Unlike Post Sign Options, Agreement
 Redirect Options allows you to also specify the action which is an alias for
@@ -1063,7 +1062,7 @@ signer is immediately redirected upon declining the agreement.
 
 Here are examples of JSON payloads for different redirect scenarios:
 
-  * Redirect upon declining with no delay (immediate redirect):
+  - Redirect upon declining with no delay (immediate redirect):
 
 > **“redirectOptions”: {**
 >  
@@ -1072,7 +1071,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 >
 > }
 
-  * Redirect upon declining with no delay (null delay - immediate redirect):
+  - Redirect upon declining with no delay (null delay - immediate redirect):
 
 > **“redirectOptions”: {**
 >  
@@ -1081,7 +1080,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 >
 > }
 
-  * Redirect upon declining with no delay (default delay is zero seconds - immediate redirect):
+  - Redirect upon declining with no delay (default delay is zero seconds - immediate redirect):
 
 > **“redirectOptions”: {**
 >  
@@ -1090,7 +1089,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 >
 > }
 
-  * Redirect upon declining with a delay of 1 second:
+  - Redirect upon declining with a delay of 1 second:
 
 > **“redirectOptions”: {**
 >  
@@ -1099,7 +1098,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 >
 > }
 
-  * Redirect upon declining with a delay of exactly 5 seconds:
+  - Redirect upon declining with a delay of exactly 5 seconds:
 
 > **“redirectOptions”: {**
 >  
@@ -1112,8 +1111,7 @@ JSON payload to create an agreement with Redirect Options that redirects a
 signer that declines the agreement to “<https://www.adobe.com>” after a delay
 of 5 seconds:
 
-    
-```json    
+```json
     {
     "ccs": [],
     "createdDate": "",
@@ -1343,7 +1341,7 @@ of 5 seconds:
     "authoringRequested": true,
     "signatureFlow": "HYBRID"
     }
- ```   
+ ```
 
 If a signer declines an agreement, they are redirected to the set URL after a
 specified delay. The redirect Url reflects the status of the agreement, as
@@ -1372,20 +1370,20 @@ rate. Higher tiers of service have higher throttle thresholds.
 
 ### REST API Response
 
-```json    
+```json
     {
     "code":"THROTTLING_TOO_MANY_REQUESTS",
     "message":"<error_message_with_wait_time> (apiActionId=<api_action_id>)"
     "retryAfter": <wait_time_in_seconds>
     }
-```    
+```
 
 Also, a _Retry-After_ HTTP header will be added into the response ([see
 RFC-7231 Section 7.1.3](https://tools.ietf.org/html/rfc7231#section-7.1.3))
 
- ```text  
+ ```text
     Retry-After: <wait_time_in_seconds>
- ``` 
+ ```
 
 is the minimum time in seconds the client must wait until it can make the next
 request. When the _retryAfter_ timer expires, the client’s resource count is
@@ -1397,6 +1395,3 @@ request again and it should go through without being blocked.
 It is recommended that developers design workflows that can handle the HTTP
 429 exceptions gracefully and use the retry-time from either the response body
 or from the “Retry-After” header to recover from such errors.
-
-
-
