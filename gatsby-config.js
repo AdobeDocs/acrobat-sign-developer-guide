@@ -53,7 +53,7 @@ module.exports = {
           path: 'https://secure.na1.adobesign.com/public/docs/restapi/v6'
         },{
           title: 'Core Dev Guide',
-          path: 'http://google.com'
+          path: 'overview/developer_guide/index.md'
         },{
           title: 'Webhook Reference',
           path: 'overview/acrobat_sign_events/index.md'
@@ -103,6 +103,33 @@ module.exports = {
           {
             title: 'Web Form Events',
             path: 'overview/acrobat_sign_events/webhooks-oauth-2.0.md'
+          }
+        ]
+      },
+      {
+        title: "Core Dev Guide",
+        subTitle: '',
+        path: 'overview/developer_guide/index.md',
+        pages: [
+          {
+            title: 'Acrobat Sign API Overview',
+            path: 'overview/developer_guide/index.md'
+          },
+          {
+            title: 'Create an Application Quickstart',
+            path: 'overview/developer_guide/gstarted.md'
+          },
+          {
+            title: 'Managing OAuth Tokens',
+            path: 'overview/developer_guide/oauth.md'
+          },
+          {
+            title: 'Example Scenarios',
+            path: 'overview/developer_guide/scenarios.md'
+          },
+          {
+            title: 'API Usage',
+            path: 'overview/developer_guide/apiusage.md'
           }
         ]
       },
