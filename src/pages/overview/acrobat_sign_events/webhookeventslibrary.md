@@ -3,9 +3,7 @@ title: Library Events — Acrobat Sign Webhook Guide
 ---
 # Library Events
 
-
 ## Common payload elements
-
 
 ### Minimum payload for library events
 
@@ -113,7 +111,6 @@ The following returns for a library event if all the conditional parameters are 
 
 ## LIBRARY_ALL
 
-
 Web app name: Not available in the UI
 
 If you want to subscribe to all library events, subscribe to LIBRARY_ALL.
@@ -122,9 +119,7 @@ If you want to subscribe to all library events, subscribe to LIBRARY_ALL.
 
 LIBRARY_ALL retrieves all agreement events, including events added in the future.
 
-
 ## LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM
-
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Library](#payload-attributes-inherited-from-library)</span>.***
 
@@ -219,7 +214,6 @@ LIBRARY_ALL retrieves all agreement events, including events added in the future
 ```
 
 ## LIBRARY_DOCUMENT_CREATED
-
 
 Web app name: Not available in the UI
 
@@ -327,7 +321,6 @@ Web app name: Not available in the UI
 ```
 
 ## LIBRARY_DOCUMENT_MODIFIED
-
 
 Web app name: Not available in the UI
 

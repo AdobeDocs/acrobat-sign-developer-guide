@@ -2,6 +2,7 @@
 title: Bulk Signing Events — Acrobat Sign Webhook Guide
 ---
 # Bulk Signing Events
+
 <InlineAlert slots="text" />
 
 The Sign in Bulk feature was previously named “Megasign”. Hence the use of “megasign” in code samples, event names, and the REST APIs.
@@ -163,7 +164,6 @@ If you want to subscribe to all library events, subscribe to MEGASIGN_ALL.
 <InlineAlert slots="text" />
 
 MEGASIGN_ALL retrieves all agreement events, including events added in the future.
-
 
 ## MEGASIGN_CREATED
 
