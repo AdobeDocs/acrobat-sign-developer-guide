@@ -193,7 +193,6 @@ The following returns for an agreement event if all the conditional parameters a
 
 ## AGREEMENT_ALL
 
-
 Web app name: Agreement all events
 
 To subscribe to all agreement events, subscribe to AGREEMENT_ALL.
@@ -203,7 +202,6 @@ To subscribe to all agreement events, subscribe to AGREEMENT_ALL.
 AGREEMENT_ALL retrieves all agreement events, including events added in the future.
 
 ## AGREEMENT_CREATED
-
 
 Web app name: Agreement created
 
@@ -377,7 +375,6 @@ Triggers when an agreement or draft is created.
 
 ## AGREEMENT_RESTARTED
 
-
 Web app name: Agreement restarted.
 
 Triggers when an agreement is restarted.
@@ -505,7 +502,6 @@ Triggers when an agreement is restarted.
 ```
 
 ## AGREEMENT_SHARED
-
 
 Web app name: Agreement shared
 
@@ -699,7 +695,6 @@ Triggers when an agreement has been shared by a participant.
 
 ## AGREEMENT_UNSHARED
 
-
 Web app name: Agreement unshared
 
 Triggers when an agreement has been unshared.
@@ -892,7 +887,6 @@ Triggers when an agreement has been unshared.
 
 ## AGREEMENT_UNSHARED_AUTO
 
-
 Web app name: Agreement unshared auto
 
 Triggers when an agreement has been automatically unshared.
@@ -1084,7 +1078,6 @@ Triggers when an agreement has been automatically unshared.
 ```
 
 ## AGREEMENT_MODIFIED
-
 
 Web app name: Agreement modified
 
@@ -1280,7 +1273,6 @@ Triggers when an agreement in an "in-process" un-signed agreement has been repla
 
 ## AGREEMENT_PARTICIPANT_COMPLETED
 
-
 Web app name: Agreement participant completed
 
 Triggers when a participant completes their action.
@@ -1409,7 +1401,6 @@ Triggers when a participant completes their action.
 
 ## AGREEMENT_PARTICIPANT_REPLACED
 
-
 Web app name: Agreement participant replaced
 
 Triggers when an agreement’s participant is replaced.
@@ -1537,7 +1528,6 @@ Triggers when an agreement’s participant is replaced.
 ```
 
 ## AGREEMENT_ACTION_REPLACED_SIGNER
-
 
 Web app name: Agreement participant replaced
 
@@ -1730,7 +1720,6 @@ Triggers when an agreement signer changes.
 ```
 
 ## AGREEMENT_ACTION_DELEGATED
-
 
 Web app name: Agreement delegated
 
@@ -1939,7 +1928,6 @@ Triggers when an agreement is delegated by a participant.
 
 ## AGREEMENT_ACTION_REQUESTED
 
-
 Web app name: Agreement sent
 
 Triggers when an agreement is sent to a participant.
@@ -2134,7 +2122,6 @@ Triggers when an agreement is sent to a participant.
 
 ## AGREEMENT_ACTION_COMPLETED
 
-
 Web app name: Agreement participant completed
 
 Triggers when a participant completes their action.
@@ -2321,7 +2308,6 @@ Triggers when a participant completes their action.
 ```
 
 ## AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM
-
 
 Web app name: Agreement creation failed
 
@@ -2544,7 +2530,6 @@ Triggers when an agreement is auto-canceled due to a conversion problem.
 
 ## AGREEMENT_DOCUMENTS_DELETED
 
-
 Web app name: Agreement deleted
 
 Triggers when agreement documents are deleted.
@@ -2696,7 +2681,6 @@ Triggers when agreement documents are deleted.
 ```
 
 ## AGREEMENT_EMAIL_BOUNCED
-
 
 Web app name: Agreement email bounced
 
@@ -2889,7 +2873,6 @@ Triggers when an agreement email gets bounced.
 ```
 
 ## AGREEMENT_EMAIL_VIEWED
-
 
 Web app name: Agreement email viewed
 
@@ -3241,7 +3224,6 @@ Triggers when the maximum number of Email OTP authentication attempts exceeds.
 
 ## AGREEMENT_REMINDER_INITIATED
 
-
 Web app name: Agreement reminder initiated
 
 Triggers when an agreement reminder is initiated.
@@ -3402,7 +3384,6 @@ Triggers when an agreement reminder is initiated.
 ```
 
 ## AGREEMENT_REMINDER_SENT
-
 
 Web app name: Agreement reminder sent
 
@@ -4466,7 +4447,6 @@ Triggers when a signer acknowledges modification before signing.
 
 ## AGREEMENT_READY_TO_VAULT
 
-
 Web app name: Not available in the UI
 
 Triggers when an agreement is ready to vault.
@@ -4594,7 +4574,6 @@ Triggers when an agreement is ready to vault.
 ```
 
 ## AGREEMENT_VAULTED
-
 
 Web app name: Agreement vaulted
 
@@ -4768,7 +4747,6 @@ Triggers when an agreement is vaulted.
 
 ## AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER
 
-
 Web app name: Agreement signer name changed by signer
 
 Triggers when a recipient changes their name value during the e-signing process from the name value provided when the agreement was created.
@@ -4920,7 +4898,6 @@ Triggers when a recipient changes their name value during the e-signing process 
 ```
 
 ## AGREEMENT_WORKFLOW_COMPLETED
-
 
 Web app name: Agreement workflow completed
 
@@ -5098,7 +5075,6 @@ Triggers when an agreement workflow is completed successfully, and all participa
 
 ## AGREEMENT_DELETED
 
-
 Web app name: Agreement deleted
 
 Triggers when agreement documents are deleted.
@@ -5226,8 +5202,6 @@ Triggers when agreement documents are deleted.
 ```
 
 ## AGREEMENT_RECALLED
-
-
 
 + Updated: July, 2023
 + Web app name: Agreement cancelled
@@ -5592,7 +5566,6 @@ Triggers when agreement documents are deleted.
 
 ## AGREEMENT_REJECTED
 
-
 Web app name: Agreement rejected
 
 Triggers when an agreement is rejected by a participant.
@@ -5930,7 +5903,6 @@ Triggers when an agreement is rejected by a participant.
 ```
 
 ## AGREEMENT_EXPIRED
-
 
 Web app name: Agreement expired
 
@@ -6280,7 +6252,6 @@ Triggers when an agreement expires.
 
 ## AGREEMENT_EXPIRATION_UPDATED
 
-
 Web app name: Not available in the UI
 
 Triggers when an agreement’s expiration date is updated.
@@ -6411,7 +6382,6 @@ TBD
 ```
 
 ## AGREEMENT_DOCUMENTS_VIEWED
-
 
 + Implemented: July, 2023
 + Web app name: Not available in the UI
@@ -6560,7 +6530,6 @@ TBD
 ```
 
 ## AGREEMENT_DOCUMENTS_VIEWED_PASSWORD_PROTECTED
-
 
 + Implemented: July, 2023
 + Web app name: Not available in the UI

@@ -10,12 +10,14 @@ Webhook notification payloads are delivered using the <span style="color: #e74c3
 ## Payload size and truncation
 
 The payload size is restricted to 10 MB. If an event generates a larger payload, a webhook is triggered but the conditional parameters attributes, if they’re in the request, will be removed to reduce the size of the payload. Also, a **conditionalParametersTrimmed** array object will be included in the response for this case to tell the client which conditionalParameters info is removed. The truncation occurs in the following order:
+
 + **includeSignedDocuments**
 + **includeParticipantsInfo**
 + **includeDocumentsInfo**
 + **includeDetailedInfo**
 
 The truncation order is as follows:
+
 + Signed documents in a base 64 encoded format
 + Participant info
 + Document info

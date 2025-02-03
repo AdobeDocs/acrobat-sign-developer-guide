@@ -56,7 +56,7 @@ module.exports = {
           path: 'http://google.com'
         },{
           title: 'Webhook Reference',
-          path: 'http://google.com'
+          path: 'overview/acrobat_sign_events/index.md'
         },{
           title: 'Acrobat Sign Embed',
           path: 'http://google.com'
@@ -64,10 +64,6 @@ module.exports = {
           title: 'SDK Downloads',
           path: 'http://google.com'
         }]
-      },
-      {
-        title: 'Webhook Reference',
-        path: 'overview/acrobat_sign_events/index.md'
       },
       {
         title: 'Solutions for Government',

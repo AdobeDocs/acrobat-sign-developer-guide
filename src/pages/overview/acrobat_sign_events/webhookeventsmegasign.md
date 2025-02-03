@@ -8,7 +8,6 @@ The Sign in Bulk feature was previously named “Megasign”. Hence the use of �
 
 ## Common payload elements
 
-
 ### Minimum payload for bulk signing events
 
 The following returns for a bulk signing event if all the conditional parameters are set to false while creating webhooks:
@@ -168,7 +167,6 @@ MEGASIGN_ALL retrieves all agreement events, including events added in the futur
 
 ## MEGASIGN_CREATED
 
-
 Web app name: Send in Bulk created
 
 Triggers when a bulk signing event is created.
@@ -282,12 +280,9 @@ Triggers when a bulk signing event is created.
 
 ## MEGASIGN_RECALLED
 
-
-
 + Updated: July, 2023
 + Web app name: Send in Bulk recalled
 + Triggers when a send in bulk action is recalled
-
 
 ***Event-specific payload attributes***
 
@@ -418,7 +413,6 @@ Triggers when a bulk signing event is created.
 
 ## MEGASIGN_SHARED
 
-
 Web app name: Send in Bulk shared
 
 Triggers when a send in bulk reminder is sent to recipients.
@@ -538,7 +532,6 @@ Triggers when a send in bulk reminder is sent to recipients.
 
 ## MEGASIGN_REMINDER_INITIATED
 
-
 Introduced: November 8, 2022
 
 Web app name: Send in Bulk reminder initiated
@@ -620,7 +613,6 @@ Triggers when a Send in Bulk reminder is triggered and reminder emails are suppr
 ```
 
 ## MEGASIGN_REMINDER_SENT
-
 
 Introduced: November 8, 2022
 
