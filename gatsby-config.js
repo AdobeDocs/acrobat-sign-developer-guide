@@ -129,11 +129,11 @@ module.exports = {
           }
         ]
       },
-    {
+	  {
         title: "API Release Notes",
         subTitle: '',
         path: 'overview/releasenotes/index.md',
-    pages: [
+		pages: [
           {
             title: 'Acrobat Sign API Release Notes',
             path: 'overview/releasenotes/index.md'
@@ -160,4 +160,3 @@ module.exports = {
     }
   ]
 };
-
