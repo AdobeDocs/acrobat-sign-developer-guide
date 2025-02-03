@@ -202,7 +202,7 @@ if($clientid == "BGBQIIE7H253K6") # gitleaks:allow //Replace 'BGBQIIE7H253K6' wi
 
 ```json
 {
-    "xAdobeSignClientId": "BGBQIIE7H253K6"
+    "xAdobeSignClientId": "BGBQIIE7H253K6" /* gitleaks:allow */
 }
 ```
 
