@@ -102,6 +102,10 @@ module.exports = {
           },
           {
             title: 'Web Form Events',
+            path: 'overview/acrobat_sign_events/webhookeventswidget.md'
+          },
+          {
+            title: 'Webhooks OAuth 2.0 User Guide',
             path: 'overview/acrobat_sign_events/webhooks-oauth-2.0.md'
           }
         ]
