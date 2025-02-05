@@ -16,7 +16,7 @@ module.exports = {
     pages: [
       {
         title: 'Adobe Acrobat Sign',
-        path: '/'
+        path: 'overview/index.md'
       },
       {
         title: 'Resources',
@@ -172,6 +172,17 @@ module.exports = {
           {
             title: '2016 REST v6 Release Notes',
             path: 'overview/releasenotes/v6releasenotes.md'
+          }
+        ]
+      },
+	  {
+        title: "Acrobat Sign Embed Home",
+        subTitle: '',
+        path: 'overview/embedpartner/index.md',
+		pages: [
+          {
+            title: 'Developing with Acrobat Sign Embed',
+            path: 'overview/embedpartner/index.md'
           }
         ]
       }
