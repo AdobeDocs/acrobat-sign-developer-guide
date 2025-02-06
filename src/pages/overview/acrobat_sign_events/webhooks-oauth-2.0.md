@@ -54,6 +54,7 @@ curl --location 'https://api.na1.adobesignpreview.com/api/rest/v6/accounts/CBJCH
     }
 }'
 ```
+
 <InlineNestedAlert variant="info" header="false" iconPosition="right">
 
 Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the authorization server URL to get the access_token before a webhook notification. A standard response from the authorization server contains the following fields:
@@ -167,7 +168,7 @@ The webhookUrlInfo is not required when creating a webhook linked to a webhookEn
 ```json
 POST /api/rest/v6/webhooks HTTP/1.1
 Host: api.na1.echosign.com
-Authorization: 3AAABLKmtbUBUicE9oSp05
+Authorization: 3AAABLKmtbUBUicE9oSp05 /* gitleaks:allow */
 Content-Type: application/json
 
 {
@@ -249,6 +250,7 @@ Example webhookEndpointUrl: https: //yourDomain.com/webhook?agreementID=
 You can link this webhookEndpointUrl to any new webhooks you create by using the id from the response in webhookEndpointInfo. Include domainPrefix and urlSuffix if you’re using wildcards. After associating the webhookEndpoint resource using the webhookEndpointId, with domainPrefix as “dev-01” and urlSuffix as “agreement123,” the resulting webhookUrl for /api/rest/v6/webhooks will be as follows: https: //dev-01.yourDomain.com/webhook?agreementId=agreement123
 
 You will get the following response containing the id:
+
 ```json
 {
     "id": "e6a238bc-1c67-463c-992c-9edc9ba637a7"
