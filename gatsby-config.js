@@ -62,7 +62,7 @@ module.exports = {
           path: 'http://google.com'
         },{
           title: 'SDK Downloads',
-          path: 'http://google.com'
+          path: 'overview/sdks/index.md'
         }]
       },
       {
@@ -176,6 +176,37 @@ module.exports = {
           {
             title: '2016 REST v6 Release Notes',
             path: 'overview/releasenotes/v6releasenotes.md'
+          }
+        ]
+      },
+      {
+        title: "SDK Downloads",
+        subTitle: '',
+        path: 'overview/sdks/index.md',
+        pages: [
+          {
+            title: 'Acrobat Sign SDK Downloads',
+            path: 'overview/sdks/index.md'
+          },
+          {
+            title: 'Acrobat Sign JavaScript SDK',
+            path: 'overview/sdks/js.md'
+          },
+          {
+            title: 'Acrobat Sign JAVA SDK',
+            path: 'overview/sdks/java.md'
+          },
+          {
+            title: 'C#: Acrobat Sign SDK',
+            path: 'overview/sdks/csharp.md'
+          },
+          {
+            title: 'Acrobat Sign OpenAPI SDK',
+            path: 'overview/sdks/openapi.md'
+          },
+          {
+            title: 'Acrobat Sign REST API Samples',
+            path: 'overview/sdks/rest.md'
           }
         ]
       }
