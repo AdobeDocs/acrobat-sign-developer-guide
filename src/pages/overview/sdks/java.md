@@ -182,5 +182,3 @@ It’s recommended to create an instance of *ApiClient* per thread and per user 
 ## Reporting issues
 
 Please report issues on the [Acrobat Sign Developer Forum.](https://www.adobe.com/go/acrobatsigndevforum)
-
-
