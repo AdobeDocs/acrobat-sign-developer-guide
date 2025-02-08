@@ -52,9 +52,9 @@ npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 You should now be able to <span style="color: #e74c3c">require('swagger-js-client')</span> in javascript files from the directory you ran the last command above from.
 
 ### git
-<!-- remark-validate-links-disable -->
-If the library is hosted at a git repository, for example, at [<span style="color: #2980b9">https://github.com/GIT_USER_ID/GIT_REPO_ID</span>]([https://github.com/GIT_USER_ID/GIT_REPO_ID), then install it via:
-<!-- remark-validate-links-enable -->
+
+If the library is hosted at a git repository, for example, at <!-- remark-ignore -->[<span style="color: #2980b9">https://github.com/GIT_USER_ID/GIT_REPO_ID</span>](https://github.com/GIT_USER_ID/GIT_REPO_ID), then install it via:
+
 ```bash
 npm install GIT_USER_ID/GIT_REPO_ID --save
 ```
