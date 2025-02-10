@@ -76,7 +76,7 @@ up!](https://partners.adobe.com/exchangeprogram/documentcloud/prereg.html)
 
 Need a quick overview? Check out the following:
 
-  * [Solution Brief](solutionbrief.pdf)
+  * [Solution Brief](./solutionbrief.pdf)
   * [e-signature tech blog](https://blog.adobe.com/en/publish/2022/10/11/6-reasons-embed-e-signature-workflows-into-your-software-applications-mobile-apps-websites)
   * 20-minute [on-demand webinar](https://event.on24.com/wcc/r/3966769/432EB50523B5DF5B3DF83EAE744CE3C6)
   * Customer success stories:
