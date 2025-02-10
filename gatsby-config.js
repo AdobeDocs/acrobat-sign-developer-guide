@@ -62,7 +62,7 @@ module.exports = {
           path: 'http://google.com'
         },{
           title: 'SDK Downloads',
-          path: 'http://google.com'
+          path: 'overview/sdks/index.md'
         }]
       },
       {
@@ -148,6 +148,10 @@ module.exports = {
           },
           {
             title: 'Web Form Events',
+            path: 'overview/acrobat_sign_events/webhookeventswidget.md'
+          },
+          {
+            title: 'Webhooks OAuth 2.0 User Guide',
             path: 'overview/acrobat_sign_events/webhooks-oauth-2.0.md'
           }
         ]
@@ -183,6 +187,37 @@ module.exports = {
           {
             title: 'Developing with Acrobat Sign Embed',
             path: 'overview/embedpartner/index.md'
+          }
+        ]
+      },
+      {
+        title: "SDK Downloads",
+        subTitle: '',
+        path: 'overview/sdks/index.md',
+        pages: [
+          {
+            title: 'Acrobat Sign SDK Downloads',
+            path: 'overview/sdks/index.md'
+          },
+          {
+            title: 'Acrobat Sign JavaScript SDK',
+            path: 'overview/sdks/js.md'
+          },
+          {
+            title: 'Acrobat Sign JAVA SDK',
+            path: 'overview/sdks/java.md'
+          },
+          {
+            title: 'C#: Acrobat Sign SDK',
+            path: 'overview/sdks/csharp.md'
+          },
+          {
+            title: 'Acrobat Sign OpenAPI SDK',
+            path: 'overview/sdks/openapi.md'
+          },
+          {
+            title: 'Acrobat Sign REST API Samples',
+            path: 'overview/sdks/rest.md'
           }
         ]
       }
