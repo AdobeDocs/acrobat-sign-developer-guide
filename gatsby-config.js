@@ -76,33 +76,21 @@ module.exports = {
     ],
     subPages: [
       {
-        title: "Webhook Reference",
+        title: "API Release Notes",
         subTitle: '',
-        path: 'overview/acrobat_sign_events/index.md',
-        pages: [
+        path: 'overview/releasenotes/index.md',
+		pages: [
           {
-            title: 'Webhooks in Acrobat Sign',
-            path: 'overview/acrobat_sign_events/index.md'
+            title: 'Acrobat Sign API Release Notes',
+            path: 'overview/releasenotes/index.md'
           },
           {
-            title: 'Webhook Event Payload Overview',
-            path: 'overview/acrobat_sign_events/webhookpayloadoverview.md'
+            title: 'Latest API Release Notes',
+            path: 'overview/releasenotes/acrobatsignreleasenotes.md'
           },
           {
-            title: 'Agreement Events',
-            path: 'overview/acrobat_sign_events/webhookeventsagreements.md'
-          },
-          {
-            title: 'Library Events',
-            path: 'overview/acrobat_sign_events/webhookeventslibrary.md'
-          },
-          {
-            title: 'Bulk Signing Events',
-            path: 'overview/acrobat_sign_events/webhookeventsmegasign.md'
-          },
-          {
-            title: 'Web Form Events',
-            path: 'overview/acrobat_sign_events/webhooks-oauth-2.0.md'
+            title: '2016 REST v6 Release Notes',
+            path: 'overview/releasenotes/v6releasenotes.md'
           }
         ]
       },
@@ -134,6 +122,37 @@ module.exports = {
         ]
       },
       {
+        title: "Webhook Reference",
+        subTitle: '',
+        path: 'overview/acrobat_sign_events/index.md',
+        pages: [
+          {
+            title: 'Webhooks in Acrobat Sign',
+            path: 'overview/acrobat_sign_events/index.md'
+          },
+          {
+            title: 'Webhook Event Payload Overview',
+            path: 'overview/acrobat_sign_events/webhookpayloadoverview.md'
+          },
+          {
+            title: 'Agreement Events',
+            path: 'overview/acrobat_sign_events/webhookeventsagreements.md'
+          },
+          {
+            title: 'Library Events',
+            path: 'overview/acrobat_sign_events/webhookeventslibrary.md'
+          },
+          {
+            title: 'Bulk Signing Events',
+            path: 'overview/acrobat_sign_events/webhookeventsmegasign.md'
+          },
+          {
+            title: 'Web Form Events',
+            path: 'overview/acrobat_sign_events/webhooks-oauth-2.0.md'
+          }
+        ]
+      },
+      {
         title: "Sign for Government",
         subTitle: '',
         path: 'overview/signgov/index.md',
@@ -157,26 +176,7 @@ module.exports = {
         ]
       },
 	  {
-        title: "API Release Notes",
-        subTitle: '',
-        path: 'overview/releasenotes/index.md',
-		pages: [
-          {
-            title: 'Acrobat Sign API Release Notes',
-            path: 'overview/releasenotes/index.md'
-          },
-          {
-            title: 'Latest API Release Notes',
-            path: 'overview/releasenotes/acrobatsignreleasenotes.md'
-          },
-          {
-            title: '2016 REST v6 Release Notes',
-            path: 'overview/releasenotes/v6releasenotes.md'
-          }
-        ]
-      },
-	  {
-        title: "Acrobat Sign Embed Home",
+        title: "Acrobat Sign Embed",
         subTitle: '',
         path: 'overview/embedpartner/index.md',
 		pages: [
