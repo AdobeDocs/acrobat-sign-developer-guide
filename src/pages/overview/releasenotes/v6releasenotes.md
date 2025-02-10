@@ -3,13 +3,17 @@
 
 Last update: Jun 13, 2024.
 
-<InlineAlert slots="text" />
+<InlineAlert slots="header, text" />
+
+Tip
 
 For non-developer product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
 
 The 2016 (to present) REST v6 Acrobat Sign APIs release introduces numerous enhancements and features. To help developers migrate from older API versions to Version 6, we have tabulated the v6 APIs against their closest counterparts in previous versions in the [API Change Log](#api-change-log). In the change log, we have documented enhancements, features, and any changes from the prior version. In addition to the information compiled here, refer to the [Acrobat Sign API Reference](https://www.adobe.com/go/acrobatsignapireference) for a quick reference for the Acrobat Sign APIs. This page lists all our APIs in a easily discoverable format, and lets you try them out without having to write any code!
 
-<InlineAlert slots="text" />
+<InlineAlert slots="header, text" />
+
+Note
 
 v5 and SOAP-based apps will continue to function, but all versions prior to v6 are deprecated.
 
@@ -425,11 +429,11 @@ The polling frequency can vary from clients to clients depending on their use ca
 
 ### Authorization header
 
-The Acrobat Sign API accepts an authorization token in the <span style="color: red;">access-token</span> header; however, from v6 onwards we will be migrating to the standard <span style="color: red;">Authorization</span> header. The Authorization header will hold the user’s authorization token in this format:
+The Acrobat Sign API accepts an authorization token in the <span style="color: #e74c3c;">access-token</span> header; however, from v6 onwards we will be migrating to the standard <span style="color: #e74c3c;">Authorization</span> header. The Authorization header will hold the user’s authorization token in this format:
 
 <span style="color:red">Authorization: Bearer &lt;access-token&gt;</span>
 
-Clients can continue using their older access token, but in the <span style="color: red;">authorization</span>header using this format.
+Clients can continue using their older access token, but in the <span style="color: #e74c3c;">authorization</span>header using this format.
 
 ## New Features
 

@@ -3,7 +3,9 @@
 
 Last update: Jun 21, 2024.
 
-<InlineAlert slots="text" />
+<InlineAlert slots="header, text" />
+
+Tip
 
 For non-developer product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
 
@@ -97,8 +99,8 @@ For non-developer product feature and UI changes, refer to [this link](https://h
             <td>July 18, 2023</td>
             <td>
                 <strong>Updated Webhooks</strong><br />
-                &#8226; AGREEMENT_RECALLED: Additional payload values now include <span style="color: red;">comments</span> and <span style="color: red;">notifyOthers</span>.<br />
-                &#8226; MEGASIGN_RECALLED: Additional payload values now include <span style="color: red;">comments</span> and <span style="color: red;">notifyOthers</span>.
+                &#8226; AGREEMENT_RECALLED: Additional payload values now include <span style="color: #e74c3c;">comments</span> and <span style="color: #e74c3c;">notifyOthers</span>.<br />
+                &#8226; MEGASIGN_RECALLED: Additional payload values now include <span style="color: #e74c3c;">comments</span> and <span style="color: #e74c3c;">notifyOthers</span>.
             </td>
         </tr>
         <tr>
@@ -110,7 +112,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
         <tr>
             <td>July 18, 2023</td>
             <td>
-                All <span style="color: red;">/search</span> API calls are subject to volume throttling at the rate of:<br />
+                All <span style="color: #e74c3c;">/search</span> API calls are subject to volume throttling at the rate of:<br />
                 &#8226; 1000 calls per minute<br />
                 &#8226; 2500 calls per hour<br />
                 &#8226; 7200 calls per day<br />
@@ -120,7 +122,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
         <tr>
             <td>March 14, 2023</td>
             <td>
-                <span style="color: red;">initiatingUserId</span> and <span style="color: red;">initiatingUserEmail</span>: Accounts on Webhooks 2.0 will populate the <span style="color: red;">initiatingUserId</span> and <span style="color: red;">initiatingUserEmail</span> fields in the notification payload. Accounts that remain on the classic webhooks experience after March 14, 2023 will see unpopulated fields present in the payload.
+                <span style="color: #e74c3c;">initiatingUserId</span> and <span style="color: #e74c3c;">initiatingUserEmail</span>: Accounts on Webhooks 2.0 will populate the <span style="color: #e74c3c;">initiatingUserId</span> and <span style="color: #e74c3c;">initiatingUserEmail</span> fields in the notification payload. Accounts that remain on the classic webhooks experience after March 14, 2023 will see unpopulated fields present in the payload.
             </td>
         </tr>
         <tr>
@@ -164,7 +166,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
         <tr>
             <td>Sept. 13</td>
             <td>
-                POST /agreements/&#123;agreementId&#125;/ endpoint now supports an optional redirect URL that sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new <span style="color: red;">postSendOption.redirectUrl</span> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) You must configure a Sign setting to allow these URLs to avoid open redirect security issues. The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill & Sign flows.
+                POST /agreements/&#123;agreementId&#125;/ endpoint now supports an optional redirect URL that sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new <span style="color: #e74c3c;">postSendOption.redirectUrl</span> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) You must configure a Sign setting to allow these URLs to avoid open redirect security issues. The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill & Sign flows.
             </td>
         </tr>
 		<tr>
@@ -174,7 +176,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
         <tr>
             <td>June</td>
             <td>
-                AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <span style="color: red;">POST /webhooks</span> API call.
+                AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <span style="color: #e74c3c;">POST /webhooks</span> API call.
             </td>
         </tr>
         <tr>
@@ -245,7 +247,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
         <tr>
             <td>July 18, 2023</td>
             <td>
-                <span style="color: red;">GET /combined</span> document returns merged field data; Merged (prefilled) data can be visually validated using the <span style="color: red;">GET /agreements/&#123;agreementId&#125;/combinedDocument</span> call and including the <span style="color: red;">includeMergedFieldData</span> parameter. The downloaded PDF includes the form field data that has already been merged via <span style="color: red;">PUT /formfields/mergeInfo</span> call.
+                <span style="color: #e74c3c;">GET /combined</span> document returns merged field data; Merged (prefilled) data can be visually validated using the <span style="color: #e74c3c;">GET /agreements/&#123;agreementId&#125;/combinedDocument</span> call and including the <span style="color: #e74c3c;">includeMergedFieldData</span> parameter. The downloaded PDF includes the form field data that has already been merged via <span style="color: #e74c3c;">PUT /formfields/mergeInfo</span> call.
             </td>
         </tr>
         <tr>
@@ -274,7 +276,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
         <tr>
             <td>July, 2023</td>
             <td>
-                Devs can <a href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">improve the delegation process</a> by updating the delegation API to use the v6 REST endpoint <span style="color: red;">delegatedParticipantSets</span>. Customers should see no impact beyond enforcing the required name values configuration during delegation.
+                Devs can <a href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">improve the delegation process</a> by updating the delegation API to use the v6 REST endpoint <span style="color: #e74c3c;">delegatedParticipantSets</span>. Customers should see no impact beyond enforcing the required name values configuration during delegation.
             </td>
         </tr>
         <tr>
@@ -304,7 +306,7 @@ Refer to the [Resolved issue list](https://helpx.adobe.com/sign/release-notes/ad
 
 ### March 2023
 
-4383351: Copying a web form between environments (e.g., Sandbox to production) results in fields that do not display on the final agreement. Fix: The <span style="color: red;">PUT /widgets/{widgetId}/formFields</span> API call has been improved to ensure the fields are properly placed.
+4383351: Copying a web form between environments (e.g., Sandbox to production) results in fields that do not display on the final agreement. Fix: The <span style="color: #e74c3c;">PUT /widgets/{widgetId}/formFields</span> API call has been improved to ensure the fields are properly placed.
 
 4399995: A bulk signing URL through the API needs to be composed with a vanity URL instead of the generic and secure URL to let the signer navigate to the Bulk Sign UI without an extra login experience if the signer has already been SAML authenticated. Fix: The code has been improved to allow the vanity URL when employing Send in Bulk API calls.
 
@@ -318,13 +320,13 @@ For product UI changes, see [https://helpx.adobe.com/sign/release-notes/adobe-si
 
 4355581: The reporting API for the new report system has been updated to better manage reports with null values. This enables account scoped report charts to list the reports showing their report ID.
 
-4331709: Bug: A MISC\_SERVER\_ERROR is generated when replacing a recipient with a userID that is auto-delegating their agreements to a user that is not an active userID in the system. Fix: Code has been improved to successfully identify and create the auto-delegate <span style="color: red;">userID</span> as a single-use user for the transaction.
+4331709: Bug: A MISC\_SERVER\_ERROR is generated when replacing a recipient with a userID that is auto-delegating their agreements to a user that is not an active userID in the system. Fix: Code has been improved to successfully identify and create the auto-delegate <span style="color: #e74c3c;">userID</span> as a single-use user for the transaction.
 
 ### June 2022
 
 4333689 Web form creators are unable to delegate countersignature for web forms from the modern manage page due to the API not providing a signable reply when the signature is attempted.
 
-4352684 The API call <span style="color: red;">PUT /widgets/{widgetId}/formFields</span> is not working for the SIGNATURE field.
+4352684 The API call <span style="color: #e74c3c;">PUT /widgets/{widgetId}/formFields</span> is not working for the SIGNATURE field.
 
 4353564/4361472: The ability to create new accounts via POST/account was broken due to upstream settings updates.
 
