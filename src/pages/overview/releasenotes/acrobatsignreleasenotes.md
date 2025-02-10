@@ -357,3 +357,7 @@ For product UI changes, see [https://helpx.adobe.com/sign/release-notes/adobe-si
 4308773 Signing on the iOS mobile application could result in an “AUTO\_CANCELLED\_CONVERSION\_PROBLEM” after the recipient signature was completed due to offline sync events that cause queued requests to be sent multiple times. Server-side code has been added to evaluate if a successful conversion process has completed for the same participation ID when a conversion times out, allowing for graceful resolution of conflicts.
 
 4319974 The Locale selector on the signing page was still visible when the signingurl is retrieved using GET /signingurl v6 REST API due to the API call falling back to the application value instead of the session value. The API call has been updated to retrieve the setting value from the session (API user) instead of the application
+
+© Copyright 2024, Adobe Inc. Last update: Jun 21, 2024.
+
+![](../_static/adobelogo.png

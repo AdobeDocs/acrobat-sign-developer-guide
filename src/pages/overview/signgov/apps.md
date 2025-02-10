@@ -1,6 +1,10 @@
 
 # APIs and Applications
+
+Last update: Aug 04, 2023.
+
 ## Basic details
+
 ### Send API call to the right place
 Acrobat Sign Commercial and Acrobat Sign for Government services reside on different top-level domains. Both the domain and extension are different:
 
@@ -8,7 +12,6 @@ Acrobat Sign Commercial and Acrobat Sign for Government services reside on diffe
     
 *   US Government Cloud, FedRAMP Moderate compliant (note **.us**): `https://secure.na1.adobesign.us`
     
-
 ### Endpoint summary
 > *   GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize): Start the authorization code flow to login and consent to application permissions
 >     
@@ -423,3 +426,7 @@ The following signer authentication mechanisms are available:
 *   Government ID
     
 *   Digital Identity Gateway
+
+------------------------------------
+© Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023. 
+![](../_static/adobelogo.png

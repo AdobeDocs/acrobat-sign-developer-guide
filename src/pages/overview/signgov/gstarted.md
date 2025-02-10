@@ -1,7 +1,7 @@
 
-title: "Getting Started - Acrobat Sign for Government: Developer"
-
 # Getting Started
+
+Last update: Aug 04, 2023.
 
 New Solutions for Government customers should follow the process below to onboard with Acrobat Sign.
 
@@ -94,3 +94,6 @@ For more information, refer to these resources:
 -  [Developer Guide](https://www.adobe.com/go/acrobatsigndeveloper)
 -  [Webhook Reference](https://www.adobe.com/go/acrobatsignwebhook)
 -  [Postman collections](https://www.adobe.com/go/acrobatsignpostman)
+
+© Copyright 2023, Adobe Inc. Last update: Aug 04, 2023.
+![](../_static/adobelogo.png

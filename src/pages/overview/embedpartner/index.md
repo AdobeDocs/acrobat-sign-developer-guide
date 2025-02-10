@@ -1,6 +1,8 @@
 
 # Developing with Acrobat Sign Embed
 
+Last update: Feb 06, 2025.
+
 While most customers create and use a
 single Acrobat Sign account, an embed partner is any entity whose end product
 needs to access multiple Acrobat Sign accounts or initiates signing actions on

@@ -957,3 +957,7 @@ This is functionally the same as before, but the API structure is revamped to ma
 [GET /agreements/{agreementId}/documents/{documentId}/url](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl)  
 
 *   The v5 API had the redundant functionality of providing combined agreement docs, which can be achieved through the [GET /document](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocument) API.
+
+© Copyright 2024, Adobe Inc. Last update: Jun 13, 2024.
+
+![](../_static/adobelogo.png

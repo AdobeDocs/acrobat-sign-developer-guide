@@ -10,3 +10,7 @@ Welcome to the Acrobat Sign API Release Notes. The details here describe API cha
 Tip
 
 For product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
+
+© Copyright 2024, Adobe Inc. Last update: Jun 13, 2024.
+
+![](../_static/adobelogo.png

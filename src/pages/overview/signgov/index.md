@@ -1,7 +1,7 @@
 
-title: Sign for Government- Developer Overview
-
 # Sign for Government: Developer Overview
+
+Last update: Feb 06, 2025. 
 
 <p>
 
@@ -28,3 +28,9 @@ Note that provisioning an Acrobat Sign for Government (SignGov) account requires
 For an itemized list of differences between the Acrobat Sign and Sign Gov instances, see [Sign Gov and Commercial Comparison](diffs.md)s
 
 ![home.png](../images/home.png)
+
+© Copyright 2025, Adobe Inc. Last update: Feb 06, 2025. 
+
+![](../_static/adobelogo.png
+
+

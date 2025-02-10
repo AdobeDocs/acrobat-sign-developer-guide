@@ -1,6 +1,8 @@
 
 # Sign Gov and Commercial Comparison
 
+Last update: Aug 04, 2023.
+
 The Acrobat Sign commercial and Sign Gov instances differ in some key ways as described below. 
 
 Differences between Acrobat Sign Gov and Commercial
@@ -79,3 +81,7 @@ Sign Gov customers will see minor web application
 differences between their view and the Commercial view. For example, not all
 account settings apply in the Sign Gov environment, and these are removed from
 the user interface. ![_images/webappui.png](_images/webappui.png)
+
+------------------------------------
+© Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023. 
+![](../_static/adobelogo.png
