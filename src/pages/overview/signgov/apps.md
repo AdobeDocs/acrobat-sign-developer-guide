@@ -16,7 +16,7 @@ Acrobat Sign Commercial and Acrobat Sign for Government services reside on diffe
 ### Endpoint summary
 
 > *   GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize): Start the authorization code flow to login and consent to application permissions
->     
+>
 > *   POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token): Obtain an access\_token and, except for impersonation, a `refresh_token` upon successful completion and redirect back from the authorization code flow
 >
 > *   POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate\_token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token): Validate an existing token
