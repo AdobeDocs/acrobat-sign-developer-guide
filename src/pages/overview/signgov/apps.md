@@ -10,21 +10,21 @@ Last update: Aug 04, 2023.
 Acrobat Sign Commercial and Acrobat Sign for Government services reside on different top-level domains. Both the domain and extension are different:
 
 *   Commercial Cloud, PCI and HIPAA compliant (note **.com**): `https://secure.adobesign.com`
-    
+
 *   US Government Cloud, FedRAMP Moderate compliant (note **.us**): `https://secure.na1.adobesign.us`
-    
+
 ### Endpoint summary
 
 > *   GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize): Start the authorization code flow to login and consent to application permissions
 >     
 > *   POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token): Obtain an access\_token and, except for impersonation, a `refresh_token` upon successful completion and redirect back from the authorization code flow
->     
+>
 > *   POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate\_token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token): Validate an existing token
->     
+>
 > *   POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate\_token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token): Invalidate/revoke a particular token
->     
+>
 > *   GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout): Invalidate/revoke all tokens related to the user to which the token belongs
->     
+>
 
 <InlineAlert slots="header, text" />
 
@@ -51,11 +51,11 @@ Note that impersonation in Acrobat Sign for Government varies from the commercia
 *   Supports impersonation from account-admin scoped tokens, not group-admin tokens.
 
 *   Both direct customers and Acrobat Sign Embed partners have to ask Adobe to enable impersonation for an application.
-    
+
     > *   Impersonation is enabled on an application via the `acc_imp` scope.
-    >     
+    >
     > *   Refresh tokens are enabled via `offline_access` scope.
-    >     
+    >
 
 <InlineAlert slots="header, text" />
 
@@ -94,7 +94,7 @@ This is a starting point for browser-based OpenID Connect flows such as authoriz
 *   **Available versions**: `https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize`
 
 **Request QueryParameters**
-   
+
 | Parameter | Required | Data Type | Default | Description |
 | --- | --- | --- | --- | --- |
 | client\_id | Yes | String |     | Identifies the application/client pre-registered with Authorization Server |
@@ -202,7 +202,7 @@ Exchanges a previously acquired token for an account/group admin inside an organ
 | client\_assertion | No  | String | The assertion related to the `client_assertion_type` above. It must be present if the `client_secret` is not provided. The audience used to generate this assertion must be `token_endpoint` provided as a part of application onboarding. |
 | client\_secret | No  | String | The secret related to the `client_assertion_type`. It must be present if BOTH `client_assertion_type` and `client_assertion` are not provided. |
 | grant\_type | Yes | String | Should have the value as `:urn:ietf:params:oauth:grant-type:token- exchange` |
-| scope | Yes | String | A space-separated list of scopes (%20 when URL-encoded) that the client wants to includ in the access token. Please note:*   The scopes being requested must be a subset of the actor\_token scopes*   Impersonation scopes can’t be requested (`acc_imp`, `group_imp`), even though they will be granted to `actor_token`. |
+| scope | Yes | String | A space-separated list of scopes (%20 when URL-encoded) that the client wants to includ in the access token. Please note:*The scopes being requested must be a subset of the actor\_token scopes*   Impersonation scopes can’t be requested (`acc_imp`, `group_imp`), even though they will be granted to `actor_token`. |
 | actor\_token\_type | Yes | String | This should have have a value such as `access_token`. Though not specified to be passed in tables above the `access_toke` is granted for 3.1 and 3.2 as well. |
 | subject\_token\_type | Yes | String | Should have the value as: `jwt` |
 | subject\_token | Yes | String | For passing the subject user information for which impersonation is requested. It uses an unsecured user info `jwt_token` as per RFC 7519. A sample value for a subject with user ID [service-fedramp-dev@adobesignintegrationsdemo.com](mailto:service-fedramp-dev%40adobesignintegrationsdemo.com) might be:eyJhbGciOiJub25lIn0\=.eyJ1c2VyX2VtYWlsIj<  snip  \>5pbnRlZ3JhdGlvbnNkZW1vLmNvbSJ9Copy to clipboardThe value is obtained by doing a base64 encode of {“alg”:”none”} and concatenating it with a base64 encode of {“user\_email”:”[service-fedramp-dev@adobesignintegrationsdemo.com](mailto:service-fedramp-dev%40adobesignintegrationsdemo.com)”} separated by a period (.) as follows:{“alg”:”none”}.{“user\_email”:”[service-fedramp-dev@adobesignintegrationsdemo.com](mailto:service-fedramp-dev%40adobesignintegrationsdemo.com)”} |
@@ -408,7 +408,7 @@ API Applications using Sign Views in iframes or WebViews must leverage the click
 *   The domain suffix will also support a full origin such as `https://secure.adobesign.com`, but it will not support a wildcard (\*) domain prefix.
 
 *   You can also use multiple domains as comma-separated values.
-    
+
 <InlineAlert slots="header, text" />
 
 Tip

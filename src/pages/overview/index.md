@@ -9,7 +9,7 @@ Last update: Apr 30, 2023.
 
 |               |               |               |
 | ------------- | ------------- | ------------- |
-| [![](portfoliofiles/images/devedition.png)Dev Account Form](https://www.adobe.com/go/acrobatsigndevedition) | [![](portfoliofiles/images/quickstart.png)Application Quickstart](./developer_guide) | [![](portfoliofiles/images/rest.png)REST API Reference ](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
+| [![](portfoliofiles/images/devedition.png)Dev Account Form](https://www.adobe.com/go/acrobatsigndevedition) | [![](portfoliofiles/images/quickstart.png)Application Quickstart](./developer_guide) | [![](portfoliofiles/images/rest.png)REST API Reference](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
 | [![](portfoliofiles/images/security1.png)Security and Compliance](https://www.adobe.com/trust/resources.html)| [![](portfoliofiles/images/helpx.png)Web App: End User Help](https://helpx.adobe.com/support/sign.html) | |
 
 ## Developer Guides
