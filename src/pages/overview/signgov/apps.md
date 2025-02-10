@@ -6,6 +6,7 @@ Last update: Aug 04, 2023.
 ## Basic details
 
 ### Send API call to the right place
+
 Acrobat Sign Commercial and Acrobat Sign for Government services reside on different top-level domains. Both the domain and extension are different:
 
 *   Commercial Cloud, PCI and HIPAA compliant (note **.com**): `https://secure.adobesign.com`
@@ -13,6 +14,7 @@ Acrobat Sign Commercial and Acrobat Sign for Government services reside on diffe
 *   US Government Cloud, FedRAMP Moderate compliant (note **.us**): `https://secure.na1.adobesign.us`
     
 ### Endpoint summary
+
 > *   GET [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize): Start the authorization code flow to login and consent to application permissions
 >     
 > *   POST [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token): Obtain an access\_token and, except for impersonation, a `refresh_token` upon successful completion and redirect back from the authorization code flow
@@ -31,9 +33,11 @@ Note
 These APIs follow an underscore naming convention, as opposed to camelCase, for parameters as they relate to OAuth, Adobe Identity, and Okta APIs with this similar naming convention. Sign Gov OAuth endpoints must be used–not direct Okta OAuth APIs. However, you may find the OAuth docs helpful: [https://developer.okta.com/docs/reference/api/oidc/#endpoints](https://developer.okta.com/docs/reference/api/oidc/#endpoints)
 
 ### Debugging
+
 It’s recommended to pass an `x-request-id` header with APIs as a way to track requests for debugging.
 
 ## Impersonation
+
 Some workflows are more efficient (and even possible) when a holder of one token can act on behalf of other users; in other words, when a user or client can perform actions on behalf of other users or clients (impersonate them). Impersonation occurs when the subject of the authentication identified by the original credentials differs from the one that will perform a certain action. An application or API cannot determine from a token if the subject is the logged in entity, so it’s often advantageous to use anonymous tokens to get work done.
 
 Since it’s inefficient to have every user get an OAuth token, admins benefit when a token is available to all users. In Sign Gov, admins exchange their admin token for a user-specific token since, unlike the Acrobat Sign commercial instance, `x-api-user` is unsupported. Doing so avoids having every user log in, get a unique token, and so on.
@@ -41,18 +45,18 @@ Since it’s inefficient to have every user get an OAuth token, admins benefit w
 Note that impersonation in Acrobat Sign for Government varies from the commercial instance. Sign Gov:
 
 *   Does not support the `x-api-user` header for impersonation due to security Okta restrictions.
-    
+
 *   Supports OAuth only–not integration keys.
-    
+
 *   Supports impersonation from account-admin scoped tokens, not group-admin tokens.
-    
+
 *   Both direct customers and Acrobat Sign Embed partners have to ask Adobe to enable impersonation for an application.
     
     > *   Impersonation is enabled on an application via the `acc_imp` scope.
     >     
     > *   Refresh tokens are enabled via `offline_access` scope.
     >     
-    
+
 <InlineAlert slots="header, text" />
 
 Note
@@ -60,36 +64,37 @@ Note
 Both the commercial and government Acrobat Sign instances enable the use of `autoLogin: true` for Sign /view APIs by the `user_login` scope.
 
 ### How to use impersonation
+
 For impersonation, API applications need to exchange the Sign admin token for another user-impersonation token. Usage details:
 
 *   Only admins can generate an `admin_token` and associated `admin_refresh_token`.
-    
+
 *   The admin uses the `admin_token` to generate an `impersonation_token`. An `admin_token` can only be used to generate the impersonation token for users in the same account as the account admin for which the admin token was generated.
-    
+
 *   The lifespan of the admin\_token is 5 min.
-    
+
 *   The `admin_refresh_token` lifetime is unlimited but will expire if not used for more than 30 days.
-    
+
 *   The `admin_refresh_token` should be persisted in a secure storage location (for headless/background processing).
-    
 
 ## APIs
+
 ### Authorize
+
 **Summary:** The request redirects the user agent to the specified (or default) identity provider for authentication. The actual UI that is displayed to the user depends on your client type in your respective identity provider.
 
 This is a starting point for browser-based OpenID Connect flows such as authorization code flow. This request authenticates the user and returns an authorization code to the client application as a part of the callback response (redirect URI).
 
 #### Request
+
 *   **Method**: GET
-    
+
 *   **Authorization required**: No
-    
+
 *   **Available versions**: `https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize`
-    
 
 **Request QueryParameters**
-
-    
+   
 | Parameter | Required | Data Type | Default | Description |
 | --- | --- | --- | --- | --- |
 | client\_id | Yes | String |     | Identifies the application/client pre-registered with Authorization Server |
@@ -100,14 +105,15 @@ This is a starting point for browser-based OpenID Connect flows such as authoriz
 | login\_hint | Yes | String |     | The email of the user trying to log in which may help identify tenants by their email domain. |
 
 #### Response
+
 Once the user is authenticated by the identity provider, determines whether authorization can be granted, then **redirects the user agent to the URI that you have supplied or configured for your client’s start page.** The redirect contains the authorization grant, in the form of the code or token appropriate to your grant type.
 
 **Note:** When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can’t use AJAX with this endpoint but you can have a link or button directly or indirectly via JS navigates to the `/authorize` URL: [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=…&response\_type=…&scope=…&state=…&login\_hint=](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=...&response_type=...&scope=...&state=...&login_hint=)…&redirectUri=&lt;insert url here&gt;
 
 #### Success Response
+
 The following is returned as URL query parameters from the identity provider (Okta or Adobe IMS) as part of a 302 redirect:
 
- 
 | Parameter | Description |
 | --- | --- |
 | code | An opaque value that can be used to redeem tokens from the token endpoint. `code` is returned if the `response_type` includes `code` |
@@ -115,9 +121,9 @@ The following is returned as URL query parameters from the identity provider (Ok
 | state | The unmodified `state` value from the request. |
 
 #### Error response
+
 The API returns the following URL query parameters on error:
 
- 
 | Parameter | Description |
 | --- | --- |
 | error | The error code, if something went wrong. |
@@ -125,7 +131,6 @@ The API returns the following URL query parameters on error:
 
 **Error Codes**
 
- 
 | error | error\_description |
 | --- | --- |
 | invalid\_client | The specified client ID is invalid. |
@@ -136,24 +141,25 @@ The API returns the following URL query parameters on error:
 | internal\_server\_error | Service Error |
 
 ### Token
+
 **Summary:** This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. Please refer to specific `grant_type` flows for a list of required parameters.
 
 #### Common Request Aspects
+
 *   **Method**: POST
-    
+
 *   **Authorization required**: No
-    
+
 *   **Content-Type:**: `application/x-www-form-urlencoded`
-    
+
 *   **Available versions**: `https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token`
-    
 
 #### Request with Authorization Code
+
 For the authorization code flow, calling `/token` is the second step of the flow.
 
 **Request Body Parameters**
 
-   
 | Parameter | Required | Data Type | Description |
 | --- | --- | --- | --- |
 | client\_id | Yes | String | Your client ID. |
@@ -171,9 +177,9 @@ Tip
 If you want the response to this request to include a refresh token, you must have the scope `offline_access` enabled. In the authorization code flow, this means that you need to include `offline_access` as part of `scope` in your GET request to `/authorize`.
 
 #### Request with Refresh Token
+
 **Request Body Parameters**
 
-   
 | Parameter | Required | Data Type | Description |
 | --- | --- | --- | --- |
 | client\_id | Yes | String | Your client ID. |
@@ -184,11 +190,11 @@ If you want the response to this request to include a refresh token, you must ha
 | refresh\_token | Yes | String | The value is a valid refresh token that was returned from this endpoint previously. |
 
 ##### Request Impersonation
+
 Exchanges a previously acquired token for an account/group admin inside an organization and scope to one for a selected user inside the organization. The parameters are based on RFC 8693.
 
 **Request Body Parameters**
 
-   
 | Parameter | Required | Data Type | Description |
 | --- | --- | --- | --- |
 | client\_id | Yes | String | Your client ID. |
@@ -203,9 +209,9 @@ Exchanges a previously acquired token for an account/group admin inside an organ
 | actor\_token | Yes | String | The admin token for which impersonation is requested. **Note**: The passed admin token should have an impersonation scope of `acc_imp` or `group_imp`. |
 
 #### Success Response
+
 The API returns the following JSON attributes on success:
 
- 
 | Parameter | Description |
 | --- | --- |
 | access\_token | An access token. |
@@ -215,9 +221,9 @@ The API returns the following JSON attributes on success:
 | refresh\_token | Refresh Token, which can be used to get a fresh Access Token. This would not be returned from an impersonation flow token generation. |
 
 #### Error response
+
 The API returns the following JSON attributes on error:
 
- 
 | Parameter | Description |
 | --- | --- |
 | error | The error code, if something went wrong. |
@@ -225,7 +231,6 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
-  
 | error | error\_code | error\_description |
 | --- | --- | --- |
 | invalid\_client | 400 | The client credentials are invalid or expired. |
@@ -238,21 +243,21 @@ The API returns the following JSON attributes on error:
 | internal\_server\_error | 500 | Service Error |
 
 ### Validate Token
+
 **Summary:** This endpoint takes an access, ID, or refresh token, and returns a boolean that indicates whether it is active or not. If the token is active, additional data about the token is also returned. If the token is invalid, expired, or revoked, it is considered inactive.
 
 #### Common request elements
+
 *   **Method**: POST
-    
+
 *   **Authorization required**: No
-    
+
 *   **Content-Type:**: application/x-www-form-urlencoded
-    
+
 *   **Available versions**: `https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token`
-    
 
 **Request Body Parameters**
 
-   
 | Parameter | Required | Data Type | Description |
 | --- | --- | --- | --- |
 | client\_id | Yes | String | Your client ID. |
@@ -263,9 +268,9 @@ The API returns the following JSON attributes on error:
 | type | Yes | String | Type Of token being passed(Accepted Values :access\_token, `id_token,` `authorization_code,` `refresh_token` .) |
 
 #### Success Response
+
 The API returns the following JSON attributes on success:
 
- 
 | Parameter | Description |
 | --- | --- |
 | scope | A space-delimited list of scopes |
@@ -285,9 +290,9 @@ The API returns the following JSON attributes on success:
 | user\_id | The user ID. This parameter is returned only if the token is an access token and the subject is an end user. |
 
 #### Error response
+
 The API returns the following JSON attributes on error:
 
- 
 | Parameter | Description |
 | --- | --- |
 | error | Error Code |
@@ -295,7 +300,6 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
-  
 | error | error\_code | error\_description |
 | --- | --- | --- |
 | invalid\_client | 400 | The client credentials are invalid. |
@@ -304,21 +308,21 @@ The API returns the following JSON attributes on error:
 | internal\_server\_error | 500 | Service Error |
 
 ### Invalidate Token
+
 **Summary:** The API takes an access or refresh token and revokes it.
 
 #### Request
+
 *   **Method**: POST
-    
+
 *   **Authorization required**: No
-    
+
 *   **Content-Type:**: application/x-www-form-urlencoded
-    
+
 *   **Available versions**: `https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token`
-    
 
 **Request Body Parameters**
 
-   
 | Parameter | Required | Data Type | Description |
 | --- | --- | --- | --- |
 | client\_id | No  | String | Your client ID. |
@@ -329,12 +333,13 @@ The API returns the following JSON attributes on error:
 | token\_type | Yes | String | Type Of token being passed(Accepted Values :access\_token, `id_token,` `authorization_code,` `refresh_token` .) |
 
 #### Success Response
+
 On success, the response has the HTTP **200** (OK) status code. This means only that the authorization was accepted, but it does not indicate the success or failure of the operation. The validate token API can be used to confirm that the token was successfully invalidated.
 
 #### Error Response
+
 The API returns the following JSON attributes on error:
 
- 
 | Parameter | Description |
 | --- | --- |
 | error | Error Code |
@@ -342,7 +347,6 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
-  
 | error | error\_code | error\_description |
 | --- | --- | --- |
 | invalid\_client | 400 | The client credentials are invalid. |
@@ -351,21 +355,21 @@ The API returns the following JSON attributes on error:
 | internal\_server\_error | 500 | Service Error |
 
 ### Logout
+
 This endpoint logs the web browser user out of the identity provider if the subject matches that in the current identity provider session. An optional `redirect_uri` may be specified to redirect the browser after the logout is performed. Otherwise, the browser is redirected to the identity provider sign-in page.
 
 Logout is meant to be used as a URL link navigation from an interactive web browser UI, whereas Invalidate Token is meant to be used as a service API call.
 
 #### Request
+
 *   **Request method**: GET
-    
+
 *   **Authorization required**: No
-    
+
 *   **Available versions**: `https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout`
-    
 
 **Request Query Parameters**
 
-   
 | Parameter | Required | Data Type | Description |
 | --- | --- | --- | --- |
 | client\_id | Yes | String | Your client ID. |
@@ -373,12 +377,13 @@ Logout is meant to be used as a URL link navigation from an interactive web brow
 | redirect\_uri | No  | String | User will be redirected here at the end of the logout process. |
 
 #### Success Response
+
 After internal redirects, the identity provider redirects the user agent back to the supplied `redirect_uri` location (if provided).
 
 #### Error response
+
 The API returns the following JSON attributes on error:
 
- 
 | Parameter | Description |
 | --- | --- |
 | error | The error code, if something went wrong. |
@@ -386,7 +391,6 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
- 
 | error | error\_description |
 | --- | --- |
 | invalid\_client | The specified client ID is invalid. |
@@ -394,14 +398,15 @@ The API returns the following JSON attributes on error:
 | internal\_server\_error | Service Error |
 
 ## Clickjacking defense for sign views
+
 API Applications using Sign Views in iframes or WebViews must leverage the clickjacking defense for Sign APIs. To do so, use the `frameParent` property with Sign `POST .../agreements/.../views`
 
 *   `frameParent: <domain suffix`; for example, “adobe.com”.
-    
+
 *   The domain suffix is the domain to at least the 2nd level; for example, “adobe.com” but NOT just the top level “com”.
-    
+
 *   The domain suffix will also support a full origin such as `https://secure.adobesign.com`, but it will not support a wildcard (\*) domain prefix.
-    
+
 *   You can also use multiple domains as comma-separated values.
     
 <InlineAlert slots="header, text" />
@@ -411,22 +416,23 @@ Tip
 See [https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView).
 
 ## Signer authentication mechanisms
+
 The following signer authentication mechanisms are available:
 
 *   Email
-    
+
 *   Password
-    
+
 *   Phone
-    
+
 *   Knowledge-Based Authentication (KBA)
-    
+
 *   Acrobat Sign
-    
+
 *   Government ID
-    
+
 *   Digital Identity Gateway
 
 ------------------------------------
-© Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023. 
+© Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023.
 ![](../_static/adobelogo.png

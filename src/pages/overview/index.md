@@ -4,15 +4,15 @@
 Last update: Apr 30, 2023.
 
 ![](portfoliofiles/images/banner.png)
-      
+
 ## Getting Started
 
 |               |               |               |
 | ------------- | ------------- | ------------- |
-| [![](portfoliofiles/images/devedition.png)Dev Account Form ](https://www.adobe.com/go/acrobatsigndevedition) | [![](portfoliofiles/images/quickstart.png)Application Quickstart ](./developer_guide) | [![](portfoliofiles/images/rest.png) REST API Reference ](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
-| [![](portfoliofiles/images/security1.png)Security and Compliance ](https://www.adobe.com/trust/resources.html)| [![](portfoliofiles/images/helpx.png)Web App: End User Help](https://helpx.adobe.com/support/sign.html) | |
+| [![](portfoliofiles/images/devedition.png)Dev Account Form](https://www.adobe.com/go/acrobatsigndevedition) | [![](portfoliofiles/images/quickstart.png)Application Quickstart](./developer_guide) | [![](portfoliofiles/images/rest.png)REST API Reference ](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
+| [![](portfoliofiles/images/security1.png)Security and Compliance](https://www.adobe.com/trust/resources.html)| [![](portfoliofiles/images/helpx.png)Web App: End User Help](https://helpx.adobe.com/support/sign.html) | |
 
-## Developer Guides 
+## Developer Guides
 
 |               |               |               |
 | ------------- | ------------- | ------------- |
@@ -42,7 +42,7 @@ Last update: Apr 30, 2023.
 
 |               |               |               |
 | ------------- | ------------- | ------------- |
-| [![](portfoliofiles/images/solutionbrief.png)Solution Brief](./embedpartner/solutionbrief.pdf) | [![](portfoliofiles/images/quickstart.png) Quickstart](https://opensource.adobe.com/acrobat-sign/embedpartner/gstarted.html) | [![](portfoliofiles/images/oauth.png)Provisioning FAQ](https://opensource.adobe.com/acrobat-sign/embedpartner/provisioningfaq.html) |
+| [![](portfoliofiles/images/solutionbrief.png)Solution Brief](./embedpartner/solutionbrief.pdf) | [![](portfoliofiles/images/quickstart.png)Quickstart](https://opensource.adobe.com/acrobat-sign/embedpartner/gstarted.html) | [![](portfoliofiles/images/oauth.png)Provisioning FAQ](https://opensource.adobe.com/acrobat-sign/embedpartner/provisioningfaq.html) |
 | [![](portfoliofiles/images/postmanembed.png)Postman Examples](mailto:acrobatsignembed@adobe.com) | [![](portfoliofiles/images/certified.png)App Certification](https://adobe.na1.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC6C5oHcS7JEZRkhhFwlvbQ9BEo2-MNiYCNvGtJqdBnD-BkDf8YeeykaXrJ9mePk38*) | [![](portfoliofiles/images/oem.png)Contact us](mailto:signembed@adobe.com) |
 | [![](portfoliofiles/images/partner.png)Partner Program Sign-up](https://www.adobe.com/documentcloud/integrations/isv-partner-form.html) | | |
 

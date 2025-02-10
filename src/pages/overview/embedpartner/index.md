@@ -64,13 +64,13 @@ up!](https://partners.adobe.com/exchangeprogram/documentcloud/prereg.html)
      *   PUT /accounts/{accountId|me}/signingReasons/{signingReasonId} - Updates the identified signing reason (signingReasonId) from the identified account (accountId).
 
      *   DELETE /accounts/{accountId|me}/signingReasons/{signingReasonId} - Removes the identified signing reason (signingReasonId) from the identified account (accountId).
-         
+
 **August, 2023**
 
-Release of new APIs and a new onboarding process that streamlines application set up and deployment.
+ *   Release of new APIs and a new onboarding process that streamlines application set up and deployment.
 
- *   New partners should refer to Embed 2.0 documentation.
- *   Existing customers will eventually migrate to the new platform. For more details, contact your Product Success Manager.
+     *   New partners should refer to Embed 2.0 documentation.
+     *   Existing customers will eventually migrate to the new platform. For more details, contact your Product Success Manager.
 
 ## Benefits and overview
 
@@ -84,7 +84,7 @@ Need a quick overview? Check out the following:
     * [AmericsourceBergen](https://business.adobe.com/customer-success-stories/lash-group-case-study.html)
     * [IMM/eSign](https://business.adobe.com/customer-success-stories/imm-case-study.html)
 
-![_images/solutionbrief.png](_images/solutionbrief.png) 
+![_images/solutionbrief.png](_images/solutionbrief.png)
 
 ## Build and deploy in four easy steps
 
@@ -94,4 +94,3 @@ Need a quick overview? Check out the following:
 
 (C) Copyright 2023, Adobe Inc..  Last update: Jan 15, 2025.
 ![](../_static/adobelogo.png)
-
