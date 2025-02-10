@@ -15,7 +15,7 @@ Top-level domain | <span style="color: #e74c3c;">https://secure.na1.adobesign.us
 Authentication mechanisms | OAuth only | Commercial accounts can use the legacy API keys, integration keys, and OAuth.  
 OAuth | Does not support <span style="color: #e74c3c;">x-api-user</span> | Supports <span style="color: #e74c3c;">x-api-user</span>  
 OAuth APIs | Uses only the APIs described here. | Uses [commercial APIs](https://secure.na1.adobesign.com/public/static/oauthDoc.jsp)  
-Impersonation | Exchange admin token for a user-specific token since <span style="color: #e74c3c;">x-api-user</span> is unsupported. See [Impersonation](apps.html#impersonation). | Use an admin token with an <span style="color: #e74c3c;">x-api-user</span> header to impersonate users by their <span style="color: #e74c3c;">userId</span> or <span style="color: #e74c3c;">email</span>.  
+Impersonation | Exchange admin token for a user-specific token since <span style="color: #e74c3c;">x-api-user</span> is unsupported. See [Impersonation](apps.md#impersonation). | Use an admin token with an <span style="color: #e74c3c;">x-api-user</span> header to impersonate users by their <span style="color: #e74c3c;">userId</span> or <span style="color: #e74c3c;">email</span>.  
 Login hint parameter | The <span style="color: #e74c3c;">login_hint</span> query parameter is optional. | The <span style="color: #e74c3c;">login_hint</span> query parameter is required.  
 Endpoints | See below. | See below.  
 

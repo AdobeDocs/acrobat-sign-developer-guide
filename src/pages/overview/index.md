@@ -16,7 +16,7 @@ Last update: Apr 30, 2023.
 
 |               |               |               |
 | ------------- | ------------- | ------------- |
-| [![](portfoliofiles/images/devguide.png)Developer Guide](https://www.adobe.com/go/acrobatsigndevguide) | [![](portfoliofiles/images/webhookref.png)Webhook and Event Reference](./acrobat_sign_events/index.html) | [![](portfoliofiles/images/webhookapi.png)REST API Reference](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
+| [![](portfoliofiles/images/devguide.png)Developer Guide](https://www.adobe.com/go/acrobatsigndevguide) | [![](portfoliofiles/images/webhookref.png)Webhook and Event Reference](./acrobat_sign_events/index.md) | [![](portfoliofiles/images/webhookapi.png)REST API Reference](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
 
 ## Postman
 
