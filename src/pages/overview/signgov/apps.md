@@ -349,8 +349,8 @@ Exchanges a previously acquired token for an account/group admin inside an organ
             <td>String</td>
             <td>
                 Specifies the type of value of client assertion. Refer to the Okta docs{" "}
-                <a href="https://developer.okta.com/docs/reference/api/oidc/">here</a>. 
-                For example: <span style={{ color: "#e74c3c" }}>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</span>. 
+                <a href="https://developer.okta.com/docs/reference/api/oidc/">here</a>.
+                For example: <span style={{ color: "#e74c3c" }}>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</span>.
                 This must be present if <span style={{ color: "#e74c3c" }}>client_secret</span> is not provided.
             </td>
         </tr>
@@ -480,8 +480,8 @@ The API returns the following JSON attributes on error:
             <td>String</td>
             <td>
                 Specifies the type of value of client assertion. Refer to the Okta docs{" "}
-                <a href="https://developer.okta.com/docs/reference/api/oidc/">here</a>. 
-                For example: <span style={{ color: "#e74c3c" }}>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</span>. 
+                <a href="https://developer.okta.com/docs/reference/api/oidc/">here</a>.
+                For example: <span style={{ color: "#e74c3c" }}>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</span>.
                 This must be present if <span style={{ color: "#e74c3c" }}>client_secret</span> is not provided.
             </td>
         </tr>
@@ -490,9 +490,9 @@ The API returns the following JSON attributes on error:
             <td>No</td>
             <td>String</td>
             <td>
-                The assertion related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span> above. 
-                It must be present if the <span style={{ color: "#e74c3c" }}>client_secret</span> is not provided. 
-                The audience used to generate this assertion must be <span style={{ color: "#e74c3c" }}>token_endpoint</span> 
+                The assertion related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span> above.
+                It must be present if the <span style={{ color: "#e74c3c" }}>client_secret</span> is not provided.
+                The audience used to generate this assertion must be <span style={{ color: "#e74c3c" }}>token_endpoint</span>
                 provided as a part of application onboarding.
             </td>
         </tr>
@@ -501,7 +501,7 @@ The API returns the following JSON attributes on error:
             <td>No</td>
             <td>String</td>
             <td>
-                The secret related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span>. 
+                The secret related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span>.
                 It must be present if BOTH <span style={{ color: "#e74c3c" }}>client_assertion_type</span> and{" "}
                 <span style={{ color: "#e74c3c" }}>client_assertion</span> are not provided.
             </td>
@@ -604,8 +604,8 @@ The API returns the following JSON attributes on error:
             <td>String</td>
             <td>
                 Specifies the type of value of client assertion. Refer to the Okta docs{" "}
-                <a href="https://developer.okta.com/docs/reference/api/oidc/">here</a>. 
-                For example: <span style={{ color: "#e74c3c" }}>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</span>. 
+                <a href="https://developer.okta.com/docs/reference/api/oidc/">here</a>.
+                For example: <span style={{ color: "#e74c3c" }}>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</span>.
                 This must be present if <span style={{ color: "#e74c3c" }}>client_secret</span> is not provided.
             </td>
         </tr>
@@ -614,9 +614,9 @@ The API returns the following JSON attributes on error:
             <td>No</td>
             <td>String</td>
             <td>
-                The assertion related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span> above. 
-                It must be present if the <span style={{ color: "#e74c3c" }}>client_secret</span> is not provided. 
-                The audience used to generate this assertion must be <span style={{ color: "#e74c3c" }}>token_endpoint</span> 
+                The assertion related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span> above.
+                It must be present if the <span style={{ color: "#e74c3c" }}>client_secret</span> is not provided.
+                The audience used to generate this assertion must be <span style={{ color: "#e74c3c" }}>token_endpoint</span>
                 provided as a part of application onboarding.
             </td>
         </tr>
@@ -625,7 +625,7 @@ The API returns the following JSON attributes on error:
             <td>No</td>
             <td>String</td>
             <td>
-                The secret related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span>. 
+                The secret related to the <span style={{ color: "#e74c3c" }}>client_assertion_type</span>.
                 It must be present if BOTH <span style={{ color: "#e74c3c" }}>client_assertion_type</span> and{" "}
                 <span style={{ color: "#e74c3c" }}>client_assertion</span> are not provided.
             </td>
