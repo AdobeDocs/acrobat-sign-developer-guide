@@ -1,5 +1,7 @@
 # Glossary
 
+##
+
 **Transient document** The document that is used to create an agreement or a web form. The document is first uploaded to Acrobat Sign by the sender. This is referred to as _transient_ since it is available for use only for 7 days after the upload.
 
 **Library template** A library template can be reused or repurposed multiple times. Acrobat Sign supports two types of library templates:

@@ -1,5 +1,7 @@
 # Web Message Events
 
+##
+
 Acrobat Sign capabilities can be incorporated into external applications by directly embedding the Acrobat Sign user interface (UI) within these applications. Acrobat Sign also supports sending events (status updates) to the third-party application pages so that the external application is aware of the actions that the user is performing with the Acrobat Sign UI. These events are passed between the controller window and a receiver window running on different domains for event communication.
 
 This page provides a guide to all the events supported by Acrobat Sign.
@@ -94,6 +96,7 @@ The following table lists the Acrobat Sign supported UI events that can be embed
     </tr>
 </table>
 
+
 ### Session events
 
 <br/>
@@ -121,7 +124,7 @@ The following table lists the Acrobat Sign supported UI events that can be embed
             <li><strong>message:</strong> 'POST_SESSION_TIMEOUT'</li>
             <li><strong>warningTimeMinutes:</strong> &lt;float&gt;</li>
             <li><strong>expirationTimeMinutes:</strong> &lt;float&gt;</li>
-          </ul>
+          </ul>          
         </td>
         <td>This event is triggered when the user's session times out.</td>
     </tr>
@@ -166,6 +169,7 @@ The following table lists the Acrobat Sign supported UI events that can be embed
         <td>This event fires when the user clicks the “Send another document” button.</td>
     </tr>
 </table>
+
 
 ## Using events
 

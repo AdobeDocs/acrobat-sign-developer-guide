@@ -1,5 +1,7 @@
 # REST API Samples
 
+##
+
 The samples included in this section are Java clients of the Acrobat Sign REST API that demonstrate how to use the API as well as some of its key capabilities.
 
 ## The package
@@ -723,6 +725,7 @@ public class SendAgreementUsingLibraryDocument {
 ## Send an Agreement Using a Transient Document
 
 This sample client demonstrates how to send an agreement using a transient document ID. See the postTransientDocument method in the file /util/RestApiAgreements.java for a definition of transient documents.
+
 
 **IMPORTANT:**
 

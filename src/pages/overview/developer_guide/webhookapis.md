@@ -1,5 +1,7 @@
 # Webhook APIs
 
+## 
+
 Webhook APIs are the means by which your integration communicates with the Acrobat Sign service about webhooks. Use the various API endpoints to create, delete, modify, and retrieve status information about your webhooks.
 
 Acrobat Sign APIs include the endpoints described below.
@@ -1076,6 +1078,7 @@ Although the response headers are not shown above, you can observe them by mocki
 In the JSON response body, pass the key <span style="color: red;">xAdobeSignClientId</span> with its value being the same client ID that was sent in the request header.
 
 1. Replace the index.js file with the following:
+
 
 ```javascript
 module.exports = function (context, req) {
