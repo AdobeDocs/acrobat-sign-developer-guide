@@ -3,8 +3,6 @@ title: Acrobat Sign API Overview
 ---
 # Acrobat Sign API Overview
 
-##
-
 Welcome to the Acrobat Sign developer documentation. The details here help you create and manage signing workflows for your organization and customers. It provides essential tools to help you leverage Adobe’s broad developer and product ecosystem, including PDF, Acrobat, and other products across mobile devices, the desktop and the web.
 
 <InlineAlert slots="text" />

@@ -1,7 +1,5 @@
 # WebhookEndpoint APIs
 
-## 
-
 WebhookEndpoint APIs are the means by which your integration communicates with the Acrobat Sign service about webhookEndpoints to support OAuth2.0 in the Webhooks. Use the various API endpoints to create, delete, modify, and retrieve information about your webhookEndpoints. The account level setting, WEBHOOK_OAUTH20_ROLLOUT, needs to be set to use this feature.
 
 Acrobat Sign APIs include the endpoints described below.
@@ -61,7 +59,7 @@ Acrobat Sign APIs include the endpoints described below.
   </tr>
   <tr>
     <td>Response object</td>
-    <td> WebhookEndpointResponse <span style="color: red;">{`{ 
+    <td>WebhookEndpointResponse<span style="color: red;">{`{
   "id": ""
 }` }</span>
     </td>
@@ -71,7 +69,6 @@ Acrobat Sign APIs include the endpoints described below.
     <td>201</td>
   </tr>
 </table>
-
 
 **Error codes**
 
@@ -256,8 +253,6 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
   </tbody>
 </table>
 
-
-
 ## GET /webhookEndpoints/{webhookEndpointId}
 
 <br/>
@@ -321,7 +316,6 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
   </tr>
 </table>
 
-
 **Error codes**
 
 Be aware that APIs may return new errors or evolve existing error codes. Clients should be ready to handle errors they may not fully comprehend using default procedures.
@@ -365,8 +359,6 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
     </tr>
   </tbody>
 </table>
-
-
 
 ## PUT /webhookEndpoints/{webhookEndpointId}
 
@@ -431,7 +423,6 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
   </tr>
 </table>
 
-
 **Error codes**
 
 Be aware that APIs may return new errors or evolve existing error codes. Clients should be ready to handle errors they may not fully comprehend using default procedures.
@@ -482,7 +473,6 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
   </tr>
 </table>
 
-
 ## DELETE /webhookEndpoints/{webhookEndpointId}
 
 <br/>
@@ -520,7 +510,6 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
     <td>204</td>
   </tr>
 </table>
-
 
 **Error codes**
 
@@ -639,6 +628,3 @@ Any API request may return any of these standard error codes:
     <td>Some miscellaneous server error has occurred.</td>
   </tr>
 </table>
-
-
-
