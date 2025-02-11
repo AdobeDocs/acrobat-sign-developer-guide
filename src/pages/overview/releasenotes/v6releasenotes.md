@@ -960,4 +960,4 @@ This is functionally the same as before, but the API structure is revamped to ma
 
 © Copyright 2024, Adobe Inc. Last update: Jun 13, 2024.
 
-![](../_static/adobelogo.png
+![](../_static/adobelogo.png)

@@ -360,4 +360,4 @@ For product UI changes, see [https://helpx.adobe.com/sign/release-notes/adobe-si
 
 © Copyright 2024, Adobe Inc. Last update: Jun 21, 2024.
 
-![](../_static/adobelogo.png
+![](../_static/adobelogo.png)

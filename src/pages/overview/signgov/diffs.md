@@ -84,4 +84,4 @@ the user interface. ![_images/webappui.png](_images/webappui.png)
 
 ------------------------------------
 © Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023.
-![](../_static/adobelogo.png
+![](../_static/adobelogo.png)
