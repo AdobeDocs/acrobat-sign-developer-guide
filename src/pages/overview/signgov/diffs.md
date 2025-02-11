@@ -1,5 +1,7 @@
+<<<<<<< Updated upstream
 
 # Sign Gov and Commercial Comparison
+<<<<<<< Updated upstream
 
 Last update: Aug 04, 2023.
 
@@ -85,3 +87,14 @@ the user interface. ![_images/webappui.png](_images/webappui.png)
 ------------------------------------
 © Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023.
 ![](../_static/adobelogo.png
+=======
+=======
+---
+title: gfgf
+---
+# Acrobat Sign API Overview
+
+
+Welcome to the Acrobat Sign developer documentation. The details here help you create and manage signing workflows for your organization and customers. It provides essential tools to help you leverage Adobe’s broad developer and product ecosystem, including PDF, Acrobat, and other products across mobile devices, the desktop and the web.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

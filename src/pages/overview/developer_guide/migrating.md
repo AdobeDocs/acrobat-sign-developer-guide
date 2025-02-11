@@ -78,7 +78,6 @@ SenderInfo is represented through <span style="color: red;">x-api-user</span>. F
     </tbody>
 </table>
 
-
 From v6 onwards, the interactive views can be specified and obtained from the <span style="color: red;">POST /agreements/&#123;agrId&#125;/views</span> endpoint for the interactive behavior.
 
 <br/>
@@ -131,7 +130,6 @@ MegaSign allows sending the same agreement to multiple recipients and creating a
     </tbody>
 </table>
 
-
 From v6 onwards, the interactive views can be specified and obtained from the <span style="color: red;">POST /agreements/&#123;agrId&#125;/views</span> endpoint for the interactive behavior.
 
 <br/>
@@ -148,7 +146,7 @@ From v6 onwards, the interactive views can be specified and obtained from the <s
             <td><a href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant">/agreements/&#123;agrId&#125;/reminders, POST</a></td>
         </tr>
     </tbody>
-</table> 
+</table>
 
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
@@ -167,7 +165,6 @@ From v6 onwards, the interactive views can be specified and obtained from the <s
 </table>
 
 To delete the documents of agreements, use the <span style="color: red;">DELETE /agreements/&#123;agrId&#125;/documents</span> endpoint; and to remove it from Manage Page(GET /agreements), use <span style="color: red;">PUT /agreements/&#123;agrId&#125;/visibility</span>
-
 
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
@@ -346,7 +343,6 @@ Retrieve the URL of the **combined document**.
         </tr>
     </tbody>
 </table>
-
 
 Retrieve the URL of an **individual document**.
 
@@ -624,7 +620,6 @@ Use <span style="color: red;">x-api-user</span> for specifying the user whose li
     </tbody>
 </table>
 
-
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
     <thead>
@@ -693,7 +688,6 @@ Get all child agreement IDs of the parent MegaSign.
     </tbody>
 </table>
 
-
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
     <thead>
@@ -709,7 +703,6 @@ Get all child agreement IDs of the parent MegaSign.
     </tr>
     </tbody>
 </table>
-
 
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
@@ -758,7 +751,6 @@ Get all child agreement IDs of the parent MegaSign.
     </tr>
     </tbody>
 </table>
-
 
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
@@ -828,7 +820,6 @@ Specify the new <span style="color: red;">groupId</span> in the request.
     </tbody>
 </table>
 
-
 Use PersonalizedSigningViewConfiguration for specifying personalization options
 
 <br/>
@@ -863,7 +854,6 @@ Use PersonalizedSigningViewConfiguration for specifying personalization options
     </tbody>
 </table>
 
-
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
     <thead>
@@ -879,7 +869,6 @@ Use PersonalizedSigningViewConfiguration for specifying personalization options
     </tr>
     </tbody>
 </table>
-
 
 Use PersonalizedSigningViewConfiguration for specifying personalization options
 
@@ -1025,7 +1014,6 @@ issueAccessToken - [Auth has replaced access tokens](gstarted.md).
     </tbody>
 </table>
 
-
 #### Status Methods
 
 <br/>
@@ -1124,7 +1112,6 @@ issueAccessToken - [Auth has replaced access tokens](gstarted.md).
     </tbody>
 </table>
 
-
 #### User Methods
 
 <br/>
@@ -1142,7 +1129,6 @@ issueAccessToken - [Auth has replaced access tokens](gstarted.md).
     </tr>
     </tbody>
 </table>
-
 
 <br/>
 <table border="1" style="width: auto; border-collapse: collapse;">
