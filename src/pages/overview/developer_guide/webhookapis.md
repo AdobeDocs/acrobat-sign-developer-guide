@@ -906,6 +906,7 @@ exports.handler = function index(event, context, callback) {
 
   //Validate it
   if (clientid =="BGBQIIE7H253K6") //Replace 'BGBQIIE7H253K6' with the client id of the application using which the webhook is created
+  // gitleaks:allow
   {
     var response = {
         statusCode: 200,
@@ -933,7 +934,7 @@ exports.handler = function index(event, context, callback) {
  var clientid = event.headers['X-AdobeSign-ClientId'];
 
  //Validate it
- if (clientid =="BGBQIIE7H253K6") //Replace 'BGBQIIE7H253K6' with the client id of the application using which the webhook is created
+ if (clientid =="BGBQIIE7H253K6") //Replace 'BGBQIIE7H253K6' with the client id of the application using which the webhook is created 
  {
    var responseBody = {
         xAdobeSignClientId : clientid
