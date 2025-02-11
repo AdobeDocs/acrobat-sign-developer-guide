@@ -223,8 +223,8 @@ Webhooks, as responsive functions, are ideally suited to hosting in the cloud. S
 
 + Adobe I/O Runtime (based on Apache OpenWhisk)
 + IBM Cloud Functions (based on Apache OpenWhisk)
-+ Microsoft Azure Functions (See [Using Azure functions](https://opensource.adobe.com/acrobat-sign/developer_guide/webhookapis.html#using-azure-functions))
-+ Amazon AWS Lambda Functions (See [Using AWS functions](https://opensource.adobe.com/acrobat-sign/developer_guide/webhookapis.html##using-aws-lambda-functions))
++ Microsoft Azure Functions (See [Using Azure functions](../developer_guide/webhookapis.md#using-azure-functions))
++ Amazon AWS Lambda Functions (See [Using AWS functions](../developer_guide/webhookapis.md#using-aws-lambda-functions))
 
 These platforms let you host webhook code in the cloud where it’s always ready to respond to Acrobat Sign. Using cloud-based functions offloads the most demanding functionality of your application to the cloud, and lets you build apps that can focus on functionality for the user without worrying about network loads and management.
 

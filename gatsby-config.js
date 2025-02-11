@@ -118,6 +118,30 @@ module.exports = {
           {
             title: 'API Usage',
             path: 'overview/developer_guide/apiusage.md'
+          },
+          {
+            title: 'Webhook APIs',
+            path: 'overview/developer_guide/webhookapis.md'
+          },
+          {
+            title: 'WebhookEndpoint APIs',
+            path: 'overview/developer_guide/webhook-endpoint-api.md'
+          },
+          {
+            title: 'REST API Samples',
+            path: 'overview/developer_guide/samples.md'
+          },
+          {
+            title: 'Web Message Events',
+            path: 'overview/developer_guide/events.md'
+          },
+          {
+            title: 'Migrating and Updating Apps',
+            path: 'overview/developer_guide/migrating.md'
+          },
+          {
+            title: 'Glossary',
+            path: 'overview/developer_guide/glossary.md'
           }
         ]
       },
