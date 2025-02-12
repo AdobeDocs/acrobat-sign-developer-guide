@@ -126,14 +126,17 @@ OAuth access_token of the new account.)
 
 > Response:
 
->    ```http
-    {
-    “access_token”: “3AAABLblqZhODF_hH3MB3ocmzzB8T- ppWKZTLvb-3WXsl0”,
-    “refresh_token”: “3AAABLblqZhBXZeXJLc_ kSjfNrgzlYiwi5CBFaYaPc-kxdA*”,
-    “api_access_point”: “https://api.na3.adobesign.com/”, “web_access_point”: “https://embedprovisiontest.na3. adobesign.com/”,
-    “token_type”: “Bearer”, “expires_in”: 3600
-    }
-    ```
+>  
+> ```http  
+> {  
+>   “access_token”: “3AAABLblqZhODF_hH3MB3ocmzzB8T- ppWKZTLvb-3WXsl0”,  
+>   “refresh_token”: “3AAABLblqZhBXZeXJLc_ kSjfNrgzlYiwi5CBFaYaPc-kxdA*”,  
+>   “api_access_point”: “https://api.na3.adobesign.com/”,  
+>   “web_access_point”: “https://embedprovisiontest.na3. adobesign.com/”,  
+>   “token_type”: “Bearer”,  
+>   “expires_in”: 3600  
+> }  
+> ```  
 
 The partner app stores token and api_access_point/shard information for the
 new account and refreshes tokens as needed.
@@ -152,12 +155,14 @@ new account and refreshes tokens as needed.
 
 > Response:
 
->    ```http
-    {
-    “access_token”: “3AAABLblqZhDpbkeOfkTY7Jk8YLe- haxGbcndSLQF”,
-    “token_type”: “Bearer”, “expires_in”: 3600
-    }
-    ```
+>  
+> ```http  
+> {  
+>   “access_token”: “3AAABLblqZhDpbkeOfkTY7Jk8YLe- haxGbcndSLQF”,  
+>   “token_type”: “Bearer”,  
+>   “expires_in”: 3600  
+> }  
+> ```  
 
 ![_images/provworkflow.png](_images/provworkflow.png)
 
