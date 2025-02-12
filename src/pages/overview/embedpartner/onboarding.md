@@ -1,6 +1,6 @@
-Last update: Aug 23, 2023.
-
 # Onboarding Overview 
+
+Last update: Aug 23, 2023.
 
 The Acrobat Sign Partner Program provides the tools and
 resources you need to deliver solutions that integrate with Acrobat Sign. 

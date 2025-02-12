@@ -1,11 +1,23 @@
+
+# Provisioning Design and FAQ v.1.0
+
 Last update: Aug 30, 2023.
-Provisioning Design and FAQ v.1.0¶ Tip Your feedback is welcome and is a key
+
+<InlineAlert slots="header, text" />
+
+Tip
+
+Your feedback is welcome and is a key
 driver as documentation evolves. Send suggestions to
-[acrobatsignembed@adobe.com](mailto:acrobatsignembed%40adobe.com). The
-following guidelines will help you understand how to use the Adobe Acrobat
+[acrobatsignembed@adobe.com](mailto:acrobatsignembed%40adobe.com).
+
+The following guidelines will help you understand how to use the Adobe Acrobat
 Sign account provisioning API to create new accounts for your customers.
 [Download the PDF](223014.3-Adobe-Provisioning-Considerations-v2.pdf).
-Provisioning FAQs¶ **Managing OAuth tokens for your customer accounts** In
+
+## Provisioning FAQs
+
+ **Managing OAuth tokens for your customer accounts** In
 addition to managing e-sign workflows on your customers’ behalf, your multi-
 tenant SaaS application can create and manage new accounts for your customers.
 This will involve storing and retrieving the OAuth tokens your partner app
@@ -45,12 +57,11 @@ use for POST/account:
 
   * GET/baseUris—Returns the shard inside of apiAccessPoint, based on the Bearer Token provided in the Authorization header
 
-    
-    
+    ```http
     {
     “apiAccessPoint”: “https://api.na4.adobesign.com/”, “webAccessPoint”: “https://joesBikeShop.na4.adobesign.com/”
     }
-    
+    ```
 
   * The provisioning use case uses your provisioning integration key as the Bearer Token to return the appropriate shard for your calls to POST/accounts.
   * The shard identified in apiAccessPoint above, is “na4” and would be used as follows: POST/<https://api.na4.adobesign>. com/api/rest/v6/accounts.
@@ -61,17 +72,16 @@ OAuth access_token of the new account.)
 
   * POST/token—Returns the shard within api_access_point, (“na3” in the case below) as well as the access_token and refresh_token that you will need to store for each customer that grants account access to your partner app
 
-    
-    
+    ```http
     {
     “access_token”: “3AAABLblqZhCRAx7kdeCpju3Vh94mmZ0LIYtggGIKgODF_ hH3MB3ocmzzB8T”,
     “refresh_token”: “3AAABLblqZhBXZeXJLc_kSjfNrgzlYiwi5CBFrsU kMWrt2oOWi8llaYaPc-kxdA*”,
     “api_access_point”: “https://api.na3.adobesign.com/”, “web_access_point”: “https://joesBikeShop.na3.adobesign.com/”, “token_type”: “Bearer”,
     “expires_in”: 3600
     }
-    
+    ```
 
-New account provisioning flow¶
+## New account provisioning flow
 
   1. GET/ <https://secure.adobesign.com/api/rest/v6/baseUris>—Uses your provisioning integration key to return baseUris (aka {{apiAccessPoint}}) for POST/accounts
   2. POST/ {{apiAccessPoint}}/api/rest/v6/accounts:
@@ -103,8 +113,7 @@ New account provisioning flow¶
      * Uses this Authorization Code (along with the Partner app ClientId and ClientSecret) to initiate the OAuth flow:
   7. POST/token
 
-    
-    
+    ```http
     curl --location --request POST 'https://api.na4.adobesign. com//oauth/v2/token' \
     --header 'Content-Type: application/x-www-form- urlencoded' \
     --header 'Authorization: Bearer 3AAJl1pbkP0WPsYtnPMVee- haxGbcndSLQF' \
@@ -113,27 +122,25 @@ New account provisioning flow¶
     --data-urlencode 'client_ secret=xxxxxxxxxx' \
     --data-urlencode 'grant_type=authorization_code' \
     --data-urlencode 'redirect_uri=https://oauth.pstmn.io/v1/ callback'
-    
+    ```
 
-Response:
+> Response:
 
-    
-    
+>    ```http
     {
     “access_token”: “3AAABLblqZhODF_hH3MB3ocmzzB8T- ppWKZTLvb-3WXsl0”,
     “refresh_token”: “3AAABLblqZhBXZeXJLc_ kSjfNrgzlYiwi5CBFaYaPc-kxdA*”,
     “api_access_point”: “https://api.na3.adobesign.com/”, “web_access_point”: “https://embedprovisiontest.na3. adobesign.com/”,
     “token_type”: “Bearer”, “expires_in”: 3600
     }
-    
+    ```
 
 The partner app stores token and api_access_point/shard information for the
 new account and refreshes tokens as needed.
 
   8. POST/refresh
 
-    
-    
+    ```http
     curl --location --request POST 'https://api.na4.adobesign.com// oauth/v2/refresh' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Bearer 3AAABLblqZhDnssmTBKy7_ JTp0BYiTZ3bcndSLQF' \
@@ -141,17 +148,16 @@ new account and refreshes tokens as needed.
     --data-urlencode 'client_ secret=xxxxxxxxxx' \
     --data-urlencode 'refresh_ token=xxxxxxxxxx*' \
     --data-urlencode 'grant_type=refresh_token'
-    
+    ```
 
-Response:
+> Response:
 
-    
-    
+>    ```http
     {
     “access_token”: “3AAABLblqZhDpbkeOfkTY7Jk8YLe- haxGbcndSLQF”,
     “token_type”: “Bearer”, “expires_in”: 3600
     }
-    
+    ```
 
 ![_images/provworkflow.png](_images/provworkflow.png)
 

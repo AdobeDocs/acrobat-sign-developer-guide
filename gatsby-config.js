@@ -59,7 +59,7 @@ module.exports = {
           path: 'overview/acrobat_sign_events/index.md'
         },{
           title: 'Acrobat Sign Embed',
-          path: 'http://google.com'
+          path: 'overview/embedpartner/index.md'
         },{
           title: 'SDK Downloads',
           path: 'overview/sdks/index.md'
@@ -211,6 +211,14 @@ module.exports = {
           {
             title: 'Developing with Acrobat Sign Embed',
             path: 'overview/embedpartner/index.md'
+          },
+		  {
+            title: 'Onboarding Overview ',
+            path: 'overview/embedpartner/onboarding.md'
+          },
+		  {
+            title: 'Provisioning Design and FAQ v.1.0',
+            path: 'overview/embedpartner/provisioningfaq.md'
           }
         ]
       },
