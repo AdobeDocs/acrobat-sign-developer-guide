@@ -165,4 +165,3 @@ new account and refreshes tokens as needed.
 
 (C) Copyright 2023, Adobe Inc..  Last update: Aug 30, 2023.
 ![](../_static/adobelogo.png)
-
