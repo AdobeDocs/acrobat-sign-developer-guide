@@ -113,16 +113,17 @@ OAuth access_token of the new account.)
      * Uses this Authorization Code (along with the Partner app ClientId and ClientSecret) to initiate the OAuth flow:
   7. POST/token
 
-    ```http
-    curl --location --request POST 'https://api.na4.adobesign. com//oauth/v2/token' \
-    --header 'Content-Type: application/x-www-form- urlencoded' \
-    --header 'Authorization: Bearer 3AAJl1pbkP0WPsYtnPMVee- haxGbcndSLQF' \
-    --data-urlencode 'code=CBNCKBAAHBCAABAAC3FJuIrvk- 1SxOFKHkCI2-OoCq2gTxHC' \
-    --data-urlencode 'client_id=xxxxxxxxxx' \
-    --data-urlencode 'client_ secret=xxxxxxxxxx' \
-    --data-urlencode 'grant_type=authorization_code' \
-    --data-urlencode 'redirect_uri=https://oauth.pstmn.io/v1/ callback'
-    ```
+>  
+> ```http  
+> curl --location --request POST 'https://api.na4.adobesign. com//oauth/v2/token' \  
+> --header 'Content-Type: application/x-www-form- urlencoded' \  
+> --header 'Authorization: Bearer 3AAJl1pbkP0WPsYtnPMVee- haxGbcndSLQF' \  
+> --data-urlencode 'code=CBNCKBAAHBCAABAAC3FJuIrvk- 1SxOFKHkCI2-OoCq2gTxHC' \  
+> --data-urlencode 'client_id=xxxxxxxxxx' \  
+> --data-urlencode 'client_ secret=xxxxxxxxxx' \  
+> --data-urlencode 'grant_type=authorization_code' \  
+> --data-urlencode 'redirect_uri=https://oauth.pstmn.io/v1/ callback'  
+> ```  
 
 > Response:
 
@@ -143,15 +144,16 @@ new account and refreshes tokens as needed.
 
   8. POST/refresh
 
-    ```http
-    curl --location --request POST 'https://api.na4.adobesign.com// oauth/v2/refresh' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --header 'Authorization: Bearer 3AAABLblqZhDnssmTBKy7_ JTp0BYiTZ3bcndSLQF' \
-    --data-urlencode 'client_id=xxxxxxxxxx' \
-    --data-urlencode 'client_ secret=xxxxxxxxxx' \
-    --data-urlencode 'refresh_ token=xxxxxxxxxx*' \
-    --data-urlencode 'grant_type=refresh_token'
-    ```
+>  
+> ```http  
+> curl --location --request POST 'https://api.na4.adobesign.com// oauth/v2/refresh' \  
+> --header 'Content-Type: application/x-www-form-urlencoded' \  
+> --header 'Authorization: Bearer 3AAABLblqZhDnssmTBKy7_ JTp0BYiTZ3bcndSLQF' \  
+> --data-urlencode 'client_id=xxxxxxxxxx' \  
+> --data-urlencode 'client_ secret=xxxxxxxxxx' \  
+> --data-urlencode 'refresh_ token=xxxxxxxxxx*' \  
+> --data-urlencode 'grant_type=refresh_token'  
+> ```  
 
 > Response:
 
