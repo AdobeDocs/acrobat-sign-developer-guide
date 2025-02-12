@@ -42,7 +42,7 @@ Last update: Apr 30, 2023.
 
 |               |               |               |
 | ------------- | ------------- | ------------- |
-| [![](portfoliofiles/images/solutionbrief.png)Solution Brief](./embedpartner/solutionbrief.pdf) | [![](portfoliofiles/images/quickstart.png)Quickstart](./embedpartner/gstarted.md) | [![](portfoliofiles/images/oauth.png)Provisioning FAQ](./embedpartner/provisioningfaq.md) |
+| [![](portfoliofiles/images/solutionbrief.png)Solution Brief](./embedpartner/solutionbrief.pdf) | [![](portfoliofiles/images/quickstart.png)Quickstart](./embedpartner) | [![](portfoliofiles/images/oauth.png)Provisioning FAQ](./embedpartner/provisioningfaq.md) |
 | [![](portfoliofiles/images/postmanembed.png)Postman Examples](mailto:acrobatsignembed@adobe.com) | [![](portfoliofiles/images/certified.png)App Certification](https://adobe.na1.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC6C5oHcS7JEZRkhhFwlvbQ9BEo2-MNiYCNvGtJqdBnD-BkDf8YeeykaXrJ9mePk38*) | [![](portfoliofiles/images/oem.png)Contact us](mailto:signembed@adobe.com) |
 | [![](portfoliofiles/images/partner.png)Partner Program Sign-up](https://www.adobe.com/documentcloud/integrations/isv-partner-form.html) | | |
 
