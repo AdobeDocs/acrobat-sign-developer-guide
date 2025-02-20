@@ -12,7 +12,7 @@ Embed 2.0 Partners can set up a webhook for their channel and listen to all the 
 
 - OAuth2.0 features are not supported for Channel webhooks.
 
-- Channel-level webhooks support Rate limiting. The following are the limits for concurrent requests: 
+- Channel-level webhooks support Rate limiting. The following are the limits for concurrent requests:
   - Webhook API: A maximum of 10 concurrent Create Channel webhook API requests are permitted.
   - Webhook Notifications: A maximum of 50 concurrent webhook notifications can be sent out to the channel webhook.
 

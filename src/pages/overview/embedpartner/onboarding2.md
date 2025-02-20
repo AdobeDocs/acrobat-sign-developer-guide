@@ -119,7 +119,6 @@ It might take a while for the DNS change to fully go through, potentially up to 
 
   [Go to Admin Console](https://adminconsole.adobe.com/).
 
-
 2. Go to **Settings > Identity Settings > Directories**.
 3. Choose **Create Directory**.
 
@@ -201,26 +200,26 @@ The allocation count assigned to the child organization doesn’t limit the numb
 
 7. Verify your configuration as follows:
 
-  1. Admin user receives a welcome email with subject “Your administrator rights for the Adobe Admin Console for the [your] Child Org”.
+1. Admin user receives a welcome email with subject “Your administrator rights for the Adobe Admin Console for the [your] Child Org”.
 
-  ![allocate-transaction-4.png](_images/allocate-transaction-4.png)
+![allocate-transaction-4.png](_images/allocate-transaction-4.png)
 
-  2. Select **Get Started**.
-  3. On the dialog that opens, enter the password and then select **Continue**.
+2. Select **Get Started**.
+3. On the dialog that opens, enter the password and then select **Continue**.
 
-  ![allocate-transaction-5.png](_images/allocate-transaction-5.png)
+![allocate-transaction-5.png](_images/allocate-transaction-5.png)
 
-  4. Select **Join team**.
+4. Select **Join team**.
 
-  ![allocate-transaction-6.png](_images/allocate-transaction-6.png)
+![allocate-transaction-6.png](_images/allocate-transaction-6.png)
 
-  5. Select the Child Org profile to sign in.
+5. Select the Child Org profile to sign in.
 
-  ![allocate-transaction-7.png](_images/allocate-transaction-7.png)
+![allocate-transaction-7.png](_images/allocate-transaction-7.png)
 
-  6. On the admin console with child Org profile, validate the profile and also the product and transactions allocated.
+6. On the admin console with child Org profile, validate the profile and also the product and transactions allocated.
 
-  ![allocate-transaction-3.png](_images/allocate-transaction-3.png)
+![allocate-transaction-3.png](_images/allocate-transaction-3.png)
 
 ## Create a technical account
 
