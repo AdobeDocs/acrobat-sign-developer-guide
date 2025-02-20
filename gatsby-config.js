@@ -219,6 +219,26 @@ module.exports = {
 		  {
             title: 'Provisioning Design and FAQ v.1.0',
             path: 'overview/embedpartner/provisioningfaq.md'
+          },
+          {
+            title: 'Embed Partner Onboarding v 2.0',
+            path: 'overview/embedpartner/onboarding2.md'
+          },
+          {
+            title: 'Embed 2.0 API',
+            path: 'overview/embedpartner/embedapi2.md'
+          },
+          {
+            title: 'Channel Webhooks User Guide',
+            path: 'overview/embedpartner/channel_webhooks.md'
+          },
+          {
+            title: 'Certifying Your Partner App 2.0',
+            path: 'overview/embedpartner/partnercertification2.md'
+          },
+          {
+            title: 'How-to Video Tutorials 2.0',
+            path: 'overview/embedpartner/videos2.md'
           }
         ]
       },
