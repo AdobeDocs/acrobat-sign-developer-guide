@@ -319,7 +319,7 @@ Subject identifies the principal for which the JWT token [https://jwt.io/introdu
 **Sample subject token (jwt)**
 
 ```json
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN1YmplY3RfZW1haWxAc2lnbmVtYmVkcGFydG5lci5jb20ifQ.TEST-PLACEHOLDER-KEY
+<example-jwt-token>
 
 Payload:
 
@@ -340,7 +340,7 @@ You can use libraries [https://jwt.io/libraries](https://jwt.io/libraries) based
 client_id:<IMS_client_id>
 client_secret:<client_secret>
 grant_type:urn:ietf:params:oauth:grant-type:token-exchange
-subject_token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3R1c2VyZW1haWxAam9lc2Jpa2VzaG9wLmNvbSJ9.smfBPHgx68LXnwzKV_t2DurHyHT1aPlzFB8nxo_RiBY
+subject_token:<example-jwt-token>
 subject_token_type:jwt
 actor_token_type:access_token
 actor_token:<technical_account_token>
