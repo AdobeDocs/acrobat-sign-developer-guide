@@ -318,6 +318,7 @@ Subject identifies the principal for which the JWT token [https://jwt.io/introdu
 
 **Sample subject token (jwt)**
 
+<!-- gitleaks:allow -->
 ```json
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN1YmplY3RfZW1haWxAc2lnbmVtYmVkcGFydG5lci5jb20ifQ.IOqyTkveGBDhfmanxttJnrcO-X8iYK1yyu7mU5Eb3dY
 
