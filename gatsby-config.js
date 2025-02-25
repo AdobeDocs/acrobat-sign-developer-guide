@@ -79,7 +79,7 @@ module.exports = {
         title: "API Release Notes",
         subTitle: '',
         path: 'overview/releasenotes/index.md',
-		pages: [
+        pages: [
           {
             title: 'Acrobat Sign API Release Notes',
             path: 'overview/releasenotes/index.md'
@@ -203,20 +203,20 @@ module.exports = {
           }
         ]
       },
-	  {
+      {
         title: "Acrobat Sign Embed",
         subTitle: '',
         path: 'overview/embedpartner/index.md',
-		pages: [
+        pages: [
           {
             title: 'Developing with Acrobat Sign Embed',
             path: 'overview/embedpartner/index.md'
           },
-		  {
+          {
             title: 'Onboarding Overview ',
             path: 'overview/embedpartner/onboarding.md'
           },
-		  {
+          {
             title: 'Provisioning Design and FAQ v.1.0',
             path: 'overview/embedpartner/provisioningfaq.md'
           },
