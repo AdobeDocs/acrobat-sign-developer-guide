@@ -221,6 +221,18 @@ module.exports = {
             path: 'overview/embedpartner/provisioningfaq.md'
           },
           {
+            title: 'Partner Application Quickstart v.1.0',
+            path: 'overview/embedpartner/gstarted.md'
+          },
+          {
+            title: 'Certifying Your Partner App v.1.0',
+            path: 'overview/embedpartner/partnercertification.md'
+          },
+          {
+            title: 'How-to Video Tutorials',
+            path: 'overview/embedpartner/videos.md'
+          },
+          {
             title: 'Embed Partner Onboarding v 2.0',
             path: 'overview/embedpartner/onboarding2.md'
           },
