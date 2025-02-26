@@ -54,7 +54,7 @@ Your new partner application is *uncertified* until you complete the partner cer
 <iframe
   style="margin: 2em 0 2em 0; position: relative; z-index: 10;"
   allowfullscreen
-  width="960"
+  width="100%"
   height="540"
   src="https://video.tv.adobe.com/v/38178/?mute=true"
   frameborder="0">
@@ -67,7 +67,7 @@ The OAuth process requires that the client application request permissions from 
 Once you have created your application, configure OAuth as follows:
 
 + Click **Configure OAuth for the Application** link to configure your OAuth integration.
-+ Specify a secure (https) redirect URL to your servers/website (see [Configure the redirect URI on your server](./gstarted.md#configuri)).
++ Specify a secure (https) redirect URL to your servers/website (see [Configure the redirect URI on your server](./gstarted.md#config-redirect-uri)).
 
 ### Configure scopes
 
@@ -184,7 +184,7 @@ https://secure.echosign.com/public/oauth/v2?
     </tbody>
 </table>
 
-## Configure the redirect URI on your server
+## Configure the redirect URI on your server {#config-redirect-uri}
 
 Next, create a public redirect URI on your servers that captures the account details and code sent from your app’s authorization request so that the workflow connects to the customer’s Acrobat Sign account. The request URL that links your customer’s app instance to the Acrobat Sign account contains the permission parameters and account level (self, group, or account) that your API integration needs to enable the specified actions.
 
