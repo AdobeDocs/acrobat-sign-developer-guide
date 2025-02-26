@@ -132,7 +132,7 @@ Your app must include a link your customers use to initiate the OAuth request pr
 
 For partner apps the Base URI (Acrobat Sign endpoint) should NOT contain the “shard” of an account (i.e.: na1, na2, eu1, jp1, etc.)
 
-```
+```text
 https://secure.echosign.com/public/oauth/v2?
    redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&
    response_type=code&
