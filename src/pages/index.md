@@ -1,84 +1,49 @@
----
-title: Overview - Cat Analytics
-description: This is the overview page of Cat Analytics
-contributors:
-  - https://github.com/icaraps 
----
 
-<HeroSimple slots="heading, text"/>
+# Acrobat Sign Developer
 
-# Cat Analytics API
+![](portfoliofiles/images/banner.png)
 
-Cat Product API offers limitless ways to integrate your most important customer data into key business processes. Cat Product API offer limitless ways.
+## Getting Started
 
-<Resources slots="heading, links"/>
+|               |               |               |
+| ------------- | ------------- | ------------- |
+| [![](portfoliofiles/images/devedition.png)Dev Account Form](https://www.adobe.com/go/acrobatsigndevedition) | [![](portfoliofiles/images/quickstart.png)Application Quickstart](./developer_guide) | [![](portfoliofiles/images/rest.png)REST API Reference](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
+| [![](portfoliofiles/images/security1.png)Security and Compliance](https://www.adobe.com/trust/resources.html)| [![](portfoliofiles/images/helpx.png)Web App: End User Help](https://helpx.adobe.com/support/sign.html) | |
 
-#### Resources
+## Developer Guides
 
-* [Quickstart Guide](https://developer.adobe.com)
-* [Cat Analytics Github Repo](https://github.com/AdobeDocs/dev-site)
+|               |               |               |
+| ------------- | ------------- | ------------- |
+| [![](portfoliofiles/images/devguide.png)Developer Guide](./developer_guide) | [![](portfoliofiles/images/webhookref.png)Webhook and Event Reference](./acrobat_sign_events/index.md) | [![](portfoliofiles/images/webhookapi.png)REST API Reference](https://secure.na1.adobesign.com/public/docs/restapi/v6) |
 
-## Overview
+## Postman
 
-This documentation provides instructions for Catt Analytics 2.0 APIs. For working with Cat Analytics APIs, see [Cat Analytics API Documentation](https://github.com/AdobeDocs/dev-site).
+|               |               |               |
+| ------------- | ------------- | ------------- |
+| [![](portfoliofiles/images/postman1.png)Acrobat Sign Postman Collections](https://www.postman.com/adobe/workspace/adobe-acrobat-sign/overview) | [![](portfoliofiles/images/postman4.png)Postman Overview](./developer_guide) | [![](portfoliofiles/images/postman3.png)Getting Started with Postman](./developer_guide) |
+| [![](portfoliofiles/images/postman2.png)How to use Postman](https://learning.postman.com/docs/getting-started/introduction/) | | |
 
-The Cat Analytics APIs are a collection of APIs that power Cat Analytics products like Cat Workspace.
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+## SDKs
 
-## Discover
+|               |               |               |
+| ------------- | ------------- | ------------- |
+| [![](portfoliofiles/images/sdk.png)SDK Downloads and Docs](./sdks) | [![](portfoliofiles/images/sdknew.png)Coming Soon!] | [![](portfoliofiles/images/devguide.png)Developer Guide](./developer_guide) |
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+## Sign for Government
 
-### Get Started
+|               |               |               |
+| ------------- | ------------- | ------------- |
+| [![](portfoliofiles/images/quickstart.png)Quickstart](./signgov/gstarted.md) | [![](portfoliofiles/images/devguide.png)Developer Guide](./developer_guide) | [![](portfoliofiles/images/security1.png)Acrobat Sign Security Overview](https://www.adobe.com/content/dam/cc/en/security/pdfs/AdobeSign_SecurityOverview.pdf) |
+| [![](portfoliofiles/images/fedramp.png)FedRAMP Compliance](https://www.adobe.com/content/dam/cc/en/security/pdfs/AdobeSign_SecurityOverview.pdf) | | |
 
-[Quickstart Guide](guides/)
+## Sign Embed
 
-Get started with the Cat Analytics APIs.
+|               |               |               |
+| ------------- | ------------- | ------------- |
+| [![](portfoliofiles/images/solutionbrief.png)Solution Brief](./embedpartner/solutionbrief.pdf) | [![](portfoliofiles/images/quickstart.png)Quickstart](./embedpartner) | [![](portfoliofiles/images/oauth.png)Provisioning FAQ](./embedpartner/provisioningfaq.md) |
+| [![](portfoliofiles/images/postmanembed.png)Postman Examples](mailto:acrobatsignembed@adobe.com) | [![](portfoliofiles/images/certified.png)App Certification](https://adobe.na1.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC6C5oHcS7JEZRkhhFwlvbQ9BEo2-MNiYCNvGtJqdBnD-BkDf8YeeykaXrJ9mePk38*) | [![](portfoliofiles/images/oem.png)Contact us](mailto:signembed@adobe.com) |
+| [![](portfoliofiles/images/partner.png)Partner Program Sign-up](https://www.adobe.com/documentcloud/integrations/isv-partner-form.html) | | |
 
-<DiscoverBlock slots="heading, link, text"/>
+- - -
 
-### Guides
-
-[Calculated Metrics API](guides/dummy_metrics_api/)
-
-Returns information on the user's company that is necessary for making other Cat Analytics API calls.
-
-<DiscoverBlock slots="link, text"/>
-
-[Segments API](guides/dummy_oauth_client/)
-
-Provides configuration guidance and best practices for the /segments endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Reporting Guide API](guides/dummy_using_postman/)
-
-Provides configuration guidance and best practices for the /reports endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Migrating from 1.4 to 2.0](guides/migrating/)
-
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### API References
-
-[Try the API](api/)
-
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
-
-## Contributing
-
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
-
-## API Requests & Rate Limits
-
-The timeout for API requests through adobe.io is currently *60 seconds*.
-
-The default rate limit for an Cat Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`.
+![](_static/adobelogo.png)
