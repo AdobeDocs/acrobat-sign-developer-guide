@@ -48,6 +48,4 @@ Last update: Apr 30, 2023.
 
 - - -
 
-© Copyright 2022, Adobe Inc. Last update: April 30, 2023.
-
 ![](_static/adobelogo.png)

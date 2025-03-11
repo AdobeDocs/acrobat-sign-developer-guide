@@ -95,5 +95,4 @@ For more information, refer to these resources:
 -  [Webhook Reference](https://www.adobe.com/go/acrobatsignwebhook)
 -  [Postman collections](https://www.adobe.com/go/acrobatsignpostman)
 
-© Copyright 2023, Adobe Inc. Last update: Aug 04, 2023.
 ![](../_static/adobelogo.png/0
