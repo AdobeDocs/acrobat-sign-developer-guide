@@ -45,5 +45,3 @@
 | [![](overview/portfoliofiles/images/partner.png)Partner Program Sign-up](https://www.adobe.com/documentcloud/integrations/isv-partner-form.html) |                                                                                                                                                                                                                          |                                                                                                             |
 
 - - -
-
-![](overview/_static/adobelogo.png)
