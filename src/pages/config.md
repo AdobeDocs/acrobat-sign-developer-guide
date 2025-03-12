@@ -3,7 +3,7 @@
 
 - versions:
     - [v2.0](/) selected
-    - [v1.4](https://github.com/AdobeDocs/dev-site) 
+    - [v1.4](https://github.com/AdobeDocs/dev-site)
 
 - pages:
     - [Adobe Acrobat Sign](/overview)
@@ -31,7 +31,7 @@
     - [Support](/support/)
 
 - subPages:
-    - [API Release Notes](/overview/releasenotes) 
+    - [API Release Notes](/overview/releasenotes)
         - [Acrobat Sign API Release Notes](/overview/releasenotes)
         - [Latest API Release Notes](/overview/releasenotes/acrobatsignreleasenotes)
         - [2016 REST v6 Release Notes](/overview/releasenotes/v6releasenotes)
