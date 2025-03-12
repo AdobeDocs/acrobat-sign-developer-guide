@@ -13,99 +13,287 @@
 module.exports = {
   pathPrefix: process.env.PATH_PREFIX || '/acrobat-sign/developer-guide/',
   siteMetadata: {
-    versions: [
-      {
-        title: 'v2.0',
-        selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/dev-site'
-      }
-    ],
     pages: [
       {
-        title: 'Cat Analytics',
-        path: '/'
+        title: 'Adobe Acrobat Sign',
+        path: 'overview/index.md'
       },
       {
-        title: 'Guides',
-        path: '/guides/'
+        title: 'Resources',
+        menu: [{
+          title: 'Free Dev Account Sign-Up',
+          path: 'https://www.adobe.com/sign/developer-form.html'
+        },{
+          title: 'FAQs and Tech Tips',
+          path: 'https://www.adobe.com/go/acrobatsigntechblog'
+        },{
+          title: 'Application Certification Form',
+          path: 'https://www.adobe.com/go/esign-dev-cert'
+        },{
+          title: 'Integration Guides',
+          path: 'https://www.adobe.com/go/acrobatsignintegrations'
+        },{
+          title: '3rd Party Integrations',
+          path: 'https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT'
+        },{
+          title: 'Security and Compliance',
+          path: 'https://www.adobe.com/trust/resources.html'
+        },{
+          title: 'Forum',
+          path: 'https://www.adobe.com/go/acrobatsigndevforum'
+        }]
       },
       {
-        title: 'API Reference',
-        menu: [
-          {
-            title: 'Cat Reference v2.0',
-            description: 'Cat Reporting API',
-            path: '/api/index.md'
-          },
-          {
-            title: 'Cat Reference v1.4',
-            description: 'Cat API Spec',
-            path: '/api/1-4.md'
-          }
-        ]
+        title: 'Documentation',
+        menu: [{
+          title: 'API Release Notes',
+          path: 'overview/releasenotes/index.md'
+        },{
+          title: 'API Reference (v.6)',
+          path: 'https://secure.na1.adobesign.com/public/docs/restapi/v6'
+        },{
+          title: 'Core Dev Guide',
+          path: 'overview/developer_guide/index.md'
+        },{
+          title: 'Webhook Reference',
+          path: 'overview/acrobat_sign_events/index.md'
+        },{
+          title: 'Acrobat Sign Embed',
+          path: 'overview/embedpartner/index.md'
+        },{
+          title: 'SDK Downloads',
+          path: 'overview/sdks/index.md'
+        }]
       },
       {
-        title: 'Support',
-        path: '/support/'
+        title: 'Solutions for Government',
+        path: 'overview/signgov/index.md'
+      },
+      {
+        title: 'Postman workspace',
+        path: 'https://www.adobe.com/go/acrobatsignpostman'
       }
     ],
     subPages: [
       {
-        title: 'Get Started',
-        path: '/guides/',
+        title: "API Release Notes",
+        subTitle: '',
+        path: 'overview/releasenotes/index.md',
         pages: [
           {
-            title: 'Dummy an OAuth Client',
-            path: '/guides/dummy_oauth_client/'
+            title: 'Acrobat Sign API Release Notes',
+            path: 'overview/releasenotes/index.md'
           },
           {
-            title: 'Dummy OAuth using POSTMAN',
-            path: '/guides/dummy_using_postman/'
+            title: 'Latest API Release Notes',
+            path: 'overview/releasenotes/acrobatsignreleasenotes.md'
+          },
+          {
+            title: '2016 REST v6 Release Notes',
+            path: 'overview/releasenotes/v6releasenotes.md'
           }
         ]
       },
       {
-        title: 'Cat Metrics API',
-        path: '/guides/dummy_metrics_api/'
-      },
-      {
-        title: 'Migrating',
-        path: '/guides/migrating/'
-      },
-      {
-        title: 'Overview',
-        path: '/support/',
-        header: true,
+        title: "Core Dev Guide",
+        subTitle: '',
+        path: 'overview/developer_guide/index.md',
         pages: [
           {
-            title: 'Help',
-            path: '/support/'
+            title: 'Acrobat Sign API Overview',
+            path: 'overview/developer_guide/index.md'
           },
           {
-            title: 'FAQ',
-            path: '/support/FAQ/'
+            title: 'Create an Application Quickstart',
+            path: 'overview/developer_guide/gstarted.md'
           },
           {
-            title: 'How to contribute',
-            path: '/support/contribute/'
+            title: 'Managing OAuth Tokens',
+            path: 'overview/developer_guide/oauth.md'
+          },
+          {
+            title: 'Example Scenarios',
+            path: 'overview/developer_guide/scenarios.md'
+          },
+          {
+            title: 'API Usage',
+            path: 'overview/developer_guide/apiusage.md'
+          },
+          {
+            title: 'Webhook APIs',
+            path: 'overview/developer_guide/webhookapis.md'
+          },
+          {
+            title: 'WebhookEndpoint APIs',
+            path: 'overview/developer_guide/webhook-endpoint-api.md'
+          },
+          {
+            title: 'REST API Samples',
+            path: 'overview/developer_guide/samples.md'
+          },
+          {
+            title: 'Web Message Events',
+            path: 'overview/developer_guide/events.md'
+          },
+          {
+            title: 'Migrating and Updating Apps',
+            path: 'overview/developer_guide/migrating.md'
+          },
+          {
+            title: 'Glossary',
+            path: 'overview/developer_guide/glossary.md'
           }
         ]
       },
       {
-        title: 'Community',
-        path: '/support/community/',
-        header: true,
+        title: "Webhook Reference",
+        subTitle: '',
+        path: 'overview/acrobat_sign_events/index.md',
         pages: [
           {
-            title: 'Information',
-            path: '/support/community/'
+            title: 'Webhooks in Acrobat Sign',
+            path: 'overview/acrobat_sign_events/index.md'
+          },
+          {
+            title: 'Webhook Event Payload Overview',
+            path: 'overview/acrobat_sign_events/webhookpayloadoverview.md'
+          },
+          {
+            title: 'Agreement Events',
+            path: 'overview/acrobat_sign_events/webhookeventsagreements.md'
+          },
+          {
+            title: 'Library Events',
+            path: 'overview/acrobat_sign_events/webhookeventslibrary.md'
+          },
+          {
+            title: 'Bulk Signing Events',
+            path: 'overview/acrobat_sign_events/webhookeventsmegasign.md'
+          },
+          {
+            title: 'Web Form Events',
+            path: 'overview/acrobat_sign_events/webhookeventswidget.md'
+          },
+          {
+            title: 'Webhooks OAuth 2.0 User Guide',
+            path: 'overview/acrobat_sign_events/webhooks-oauth-2.0.md'
+          }
+        ]
+      },
+      {
+        title: "Sign for Government",
+        subTitle: '',
+        path: 'overview/signgov/index.md',
+        pages: [
+          {
+            title: 'Developer Overview',
+            path: 'overview/signgov/index.md'
+          },
+          {
+            title: 'Getting Started',
+            path: 'overview/signgov/gstarted.md'
+          },
+          {
+            title: 'APIs and Applications',
+            path: 'overview/signgov/apps.md'
+          },
+          {
+            title: 'Sign Gov and Commerical Comparison',
+            path: 'overview/signgov/diffs.md'
+          }
+        ]
+      },
+      {
+        title: "Acrobat Sign Embed",
+        subTitle: '',
+        path: 'overview/embedpartner/index.md',
+        pages: [
+          {
+            title: 'Developing with Acrobat Sign Embed',
+            path: 'overview/embedpartner/index.md'
+          },
+          {
+            title: 'Onboarding Overview ',
+            path: 'overview/embedpartner/onboarding.md'
+          },
+          {
+            title: 'Provisioning Design and FAQ v.1.0',
+            path: 'overview/embedpartner/provisioningfaq.md'
+          },
+          {
+            title: 'Partner Application Quickstart v.1.0',
+            path: 'overview/embedpartner/gstarted.md'
+          },
+          {
+            title: 'Certifying Your Partner App v.1.0',
+            path: 'overview/embedpartner/partnercertification.md'
+          },
+          {
+            title: 'How-to Video Tutorials',
+            path: 'overview/embedpartner/videos.md'
+          },
+          {
+            title: 'Embed Partner Onboarding v 2.0',
+            path: 'overview/embedpartner/onboarding2.md'
+          },
+          {
+            title: 'Embed 2.0 API',
+            path: 'overview/embedpartner/embedapi2.md'
+          },
+          {
+            title: 'Channel Webhooks User Guide',
+            path: 'overview/embedpartner/channel_webhooks.md'
+          },
+          {
+            title: 'Certifying Your Partner App 2.0',
+            path: 'overview/embedpartner/partnercertification2.md'
+          },
+          {
+            title: 'How-to Video Tutorials 2.0',
+            path: 'overview/embedpartner/videos2.md'
+          }
+        ]
+      },
+      {
+        title: "SDK Downloads",
+        subTitle: '',
+        path: 'overview/sdks/index.md',
+        pages: [
+          {
+            title: 'Acrobat Sign SDK Downloads',
+            path: 'overview/sdks/index.md'
+          },
+          {
+            title: 'Acrobat Sign JavaScript SDK',
+            path: 'overview/sdks/js.md'
+          },
+          {
+            title: 'Acrobat Sign JAVA SDK',
+            path: 'overview/sdks/java.md'
+          },
+          {
+            title: 'C#: Acrobat Sign SDK',
+            path: 'overview/sdks/csharp.md'
+          },
+          {
+            title: 'Acrobat Sign OpenAPI SDK',
+            path: 'overview/sdks/openapi.md'
+          },
+          {
+            title: 'Acrobat Sign REST API Samples',
+            path: 'overview/sdks/rest.md'
           }
         ]
       }
     ]
   },
-  plugins: [`@adobe/gatsby-theme-aio`]
+  plugins: [`@adobe/gatsby-theme-aio`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: "pages"
+      }
+    }
+  ]
 };
