@@ -1,10 +1,6 @@
 - pathPrefix:
     - /acrobat-sign/developer-guide/
 
-- versions:
-    - [v2.0](/) selected
-    - [v1.4](https://github.com/AdobeDocs/dev-site)
-
 - pages:
     - [Adobe Acrobat Sign](/overview)
     - Resources
