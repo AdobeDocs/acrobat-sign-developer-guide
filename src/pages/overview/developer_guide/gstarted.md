@@ -86,28 +86,12 @@ To set the scopes:
 The following modifiers are available:
 
 <div>
-<table border="1" columnWidths="20,80" >
-  <thead>
-    <tr>
-      <th>Modifier</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>self</td>
-      <td>Perform the specified action on behalf of the authorizing user. This is the default: for example, <span style="color: red;">agreement_send:self</span> is the same scope as <span style="color: red;">agreement_send</span>.</td>
-    </tr>
-    <tr>
-      <td>group</td>
-      <td>Perform the specified action on behalf of any user in the same group as the authorizing user. The authorizing user must be a group admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign.</td>
-    </tr>
-    <tr>
-      <td>account</td>
-      <td>Perform the specified action on behalf of any user in the same account as the authorizing user. The authorizing user must be an account admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign.</td>
-    </tr>
-  </tbody>
-</table>
+| Modifier | Description |
+|---|---|
+| self | Perform the specified action on behalf of the authorizing user. This is the default: for example, agreement_send:self is the same scope as agreement_send. |
+| group | Perform the specified action on behalf of any user in the same group as the authorizing user. The authorizing user must be a group admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign. |
+| account | Perform the specified action on behalf of any user in the same account as the authorizing user. The authorizing user must be an account admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign. |
+
 </div>
 
 ## Create an authorization request link
@@ -125,48 +109,14 @@ https://secure.echosign.com/public/oauth?
    scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account
 ```
 
-<table border="1" columnWidths="20,30,10,40" >
-    <thead>
-        <tr>
-            <th>Parameter</th>
-            <th>Value</th>
-            <th>Required?</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>response_type</td>
-            <td>code</td>
-            <td>Yes</td>
-            <td>The value must always be <em>code</em>. Tells the process you’re looking for the OAuth code on the redirect URI once your customer logs in and accepts the auth permissions.</td>
-        </tr>
-        <tr>
-            <td>client_id</td>
-            <td>Your ID obtained from the OAuth configuration page.</td>
-            <td>Yes</td>
-            <td>Identifies to Acrobat Sign what application your customer is requesting a token for (the one for your app/platform).</td>
-        </tr>
-        <tr>
-            <td>redirect_uri</td>
-            <td>Your custom, secure, and absolute URI; for example, <a href="https://your-oAuthInteraction-Server/your-oAuth-Page.html">https://your-oAuthInteraction-Server/your-oAuth-Page.html</a>.</td>
-            <td>Yes</td>
-            <td>Redirects users here at the end of the authorization process. The value must belong to the set of values specified on the OAuth Configuration page.</td>
-        </tr>
-        <tr>
-            <td>scope</td>
-            <td>A space-delimited set of permissions specified during the OAuth configuration setup on the Configure OAuth page.</td>
-            <td>Yes</td>
-            <td>The permissions that the user will be asked to approve.</td>
-        </tr>
-        <tr>
-            <td>state</td>
-            <td>Any string</td>
-            <td>No</td>
-            <td>This value returns to the client as a parameter at the end of the authorization process. While not required, use of the <span style="color: red;">state</span> parameter <em>is highly recommended</em> to protect against CSRF <a href="https://tools.ietf.org/html/rfc6749#section-10.12">as described in the RFC</a>. You can use it to pass a unique ID that will be passed to the redirect URI so your system knows which client/instance requested the token and where to save it inside your platform.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter | Value | Required? | Description |
+|---|---|---|---|
+| response_type | code | Yes | The value must always be code. Tells the process you’re looking for the OAuth code on the redirect URI once your customer logs in and accepts the auth permissions. |
+| client_id | Your ID obtained from the OAuth configuration page. | Yes | Identifies to Acrobat Sign what application your customer is requesting a token for (the one for your app/platform). |
+| redirect_uri | Your custom, secure, and absolute URI; for example, [https://your-oAuthInteraction-Server/your-oAuth-Page.html](https://your-oAuthInteraction-Server/your-oAuth-Page.html). | Yes | Redirects users here at the end of the authorization process. The value must belong to the set of values specified on the OAuth Configuration page. |
+| scope | A space-delimited set of permissions specified during the OAuth configuration setup on the Configure OAuth page. | Yes | The permissions that the user will be asked to approve. |
+| state | Any string | No | This value returns to the client as a parameter at the end of the authorization process. While not required, use of the state parameter is highly recommended to protect against CSRF [as described in the RFC](https://tools.ietf.org/html/rfc6749#section-10.12). You can use it to pass a unique ID that will be passed to the redirect URI so your system knows which client/instance requested the token and where to save it inside your platform. |
+
 
 ## Configure the redirect URI on your server
 
@@ -190,53 +140,23 @@ When your customer initiates the OAuth process by clicking your app’s Sign lin
 
 ***Success***
 
-<table border="1" columnWidths="20,80">
-    <thead>
-        <tr>
-            <th><strong>Parameter</strong></th>
-            <th><strong>Value</strong></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>code</td>
-            <td>The authorization code which the client must use when requesting access tokens.</td>
-        </tr>
-        <tr>
-            <td>state</td>
-            <td>The value of state initially passed in, if any.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter | Value |
+|---|---|
+| code | The authorization code which the client must use when requesting access tokens. |
+| state | The value of state initially passed in, if any. |
+
 
 ***Failure***
 
-<table border="1" columnWidths="20,80">
-    <thead>
-        <tr>
-            <th><strong>Parameter</strong></th>
-            <th><strong>Value</strong></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>error</td>
-            <td>
-                <ul>
-                    <li><strong>INVALID_REQUEST</strong>: The request is not well-formed due to missing or invalid parameters.</li>
-                    <li><strong>UNAUTHORIZED_CLIENT</strong>: OAuth is not enabled for this application or the application isn’t active.</li>
-                    <li><strong>INVALID_SCOPE</strong>: The requested scopes are not syntactically valid.</li>
-                    <li><strong>ACCESS_DENIED</strong>: The user declined to grant access or wasn’t able to (for example, they weren’t an admin).</li>
-                    <li><strong>SERVER_ERROR</strong>: An internal error occurred while processing the request.</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>state</td>
-            <td>The value of state initially passed in, if any.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter | Value |
+|---|---|
+| error | INVALID_REQUEST: The request is not well-formed due to missing or invalid parameters.
+                    UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active.
+                    INVALID_SCOPE: The requested scopes are not syntactically valid.
+                    ACCESS_DENIED: The user declined to grant access or wasn’t able to (for example, they weren’t an admin).
+                    SERVER_ERROR: An internal error occurred while processing the request. |
+| state | The value of state initially passed in, if any. |
+
 
 ## The customer experience
 
@@ -258,32 +178,13 @@ state=uhuhygtf576534&
 web_access_point=https%3A%2F%2Fsecure.na1.echosign.com%2F
 ```
 
-<table border="1" columnWidths="30,70">
-    <thead>
-        <tr>
-            <th><strong>Name</strong></th>
-            <th><strong>Description</strong></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>code</strong></td>
-            <td>In this example, CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP is the code your system uses to make the actual API call to get tokens. <strong>It is valid for only 5 minutes.</strong></td>
-        </tr>
-        <tr>
-            <td><strong>api_access_point</strong></td>
-            <td>The encoded URL which is the base URL for the account where you will need to start your REST calls for uploading docs, creating templates, getting agreement “views”, sending agreements, etc. The <span style="color: red;">.na1.</span> part tells your system which “shard” the customer’s application resides. Adobe uses AWS and AZURE to host the product, and customer’s accounts may be on one of many shards in various geo-locations. Once you have tokens you need to make all your REST calls to the shard where their account lives.</td>
-        </tr>
-        <tr>
-            <td><strong>state</strong></td>
-            <td>The string your system provided which identifies the instance of your application/platform making this request. <span style="color: red;">state</span> provides a way for you to return your customer to the app as well as know for which app instance you need to store tokens.</td>
-        </tr>
-        <tr>
-            <td><strong>web_access_point</strong></td>
-            <td>The URL where your customer logs in.</td>
-        </tr>
-    </tbody>
-</table>
+| Name | Description |
+|---|---|
+| code | In this example, CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP is the code your system uses to make the actual API call to get tokens. It is valid for only 5 minutes. |
+| api_access_point | The encoded URL which is the base URL for the account where you will need to start your REST calls for uploading docs, creating templates, getting agreement “views”, sending agreements, etc. The .na1. part tells your system which “shard” the customer’s application resides. Adobe uses AWS and AZURE to host the product, and customer’s accounts may be on one of many shards in various geo-locations. Once you have tokens you need to make all your REST calls to the shard where their account lives. |
+| state | The string your system provided which identifies the instance of your application/platform making this request. state provides a way for you to return your customer to the app as well as know for which app instance you need to store tokens. |
+| web_access_point | The URL where your customer logs in. |
+
 
 ## Getting the access token
 
@@ -315,37 +216,12 @@ The response returns the following JSON body containing the access token and the
 }
 ```
 
-<table border="1" columnWidths="30,70">
-    <thead>
-        <tr style="background-color: #e0e0e0;">
-            <th><strong>Name</strong></th>
-            <th><strong>Value</strong></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>access_token</strong></td>
-            <td>Use this token to access any Acrobat Sign API endpoint.</td>
-        </tr>
-        <tr>
-            <td><strong>refresh_token</strong></td>
-            <td>If your access token expires, use the refresh token to request a new access token. Keep your client ID and secret handy to request a new access token from a refresh token.</td>
-        </tr>
-        <tr>
-            <td><strong>token_type</strong></td>
-            <td>Always “Bearer”</td>
-        </tr>
-        <tr>
-            <td><strong>expires_in</strong></td>
-            <td>The number of milliseconds in which the access token expires.</td>
-        </tr>
-        <tr>
-            <td><strong>api_access_point</strong></td>
-            <td>Use this endpoint for Sign API access; it’s the base URI to be used for subsequent calls (/oauth/v2/refresh and /oauth/v2/revoke).</td>
-        </tr>
-        <tr>
-            <td><strong>web_access_point</strong></td>
-            <td>Use this endpoint to open Sign Web, e.g. web_access_point + “/public/login” OR web_access_point + “/public/logout”.</td>
-        </tr>
-    </tbody>
-</table>
+| Name | Value |
+|---|---|
+| access_token | Use this token to access any Acrobat Sign API endpoint. |
+| refresh_token | If your access token expires, use the refresh token to request a new access token. Keep your client ID and secret handy to request a new access token from a refresh token. |
+| token_type | Always “Bearer” |
+| expires_in | The number of milliseconds in which the access token expires. |
+| api_access_point | Use this endpoint for Sign API access; it’s the base URI to be used for subsequent calls (/oauth/v2/refresh and /oauth/v2/revoke). |
+| web_access_point | Use this endpoint to open Sign Web, e.g. web_access_point + “/public/login” OR web_access_point + “/public/logout”. |
+

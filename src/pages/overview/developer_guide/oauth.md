@@ -37,63 +37,22 @@ Content-Type: application/x-www-form-urlencoded
   grant_type=refresh_token
 ```
 
-<table border="1" columnWidths="20,30,20,30">
-    <thead>
-        <tr>
-            <th>Parameter</th>
-            <th>Value</th>
-            <th>Required?</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>grant_type</td>
-            <td>refresh_token</td>
-            <td>yes</td>
-            <td>The value must always be <span style="color: red;">refresh_token</span>.</td>
-        </tr>
-        <tr>
-            <td>client_id</td>
-            <td>The ID obtained from the OAuth configuration page.</td>
-            <td>yes</td>
-            <td>Identifies the application.</td>
-        </tr>
-        <tr>
-            <td>client_secret</td>
-            <td>The ID obtained from the OAuth configuration page.</td>
-            <td>yes</td>
-            <td>Authenticates the application.</td>
-        </tr>
-        <tr>
-            <td>refresh_token</td>
-            <td>The refresh token received during the previous step.</td>
-            <td>yes</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+| Parameter | Value | Required? | Description |
+|---|---|---|---|
+| grant_type | refresh_token | yes | The value must always be refresh_token. |
+| client_id | The ID obtained from the OAuth configuration page. | yes | Identifies the application. |
+| client_secret | The ID obtained from the OAuth configuration page. | yes | Authenticates the application. |
+| refresh_token | The refresh token received during the previous step. | yes |  |
+
 
 ## Revoking a token
 
 You can revoke both access tokens and refresh tokens. If an access token is revoked and it has a corresponding refresh token, the refresh token is also revoked. When a refresh token is revoked, all the access tokens issued from that refresh token are also revoked. Revoke tokens via a POST call to the /oauth/v2/revoke endpoint (using the <span style="color: red;">api_access_point</span> retrieved in the Access Token Request step) with the following:
 
-<table border="1" columnWidths="20,50,30" >
-    <thead>
-        <tr>
-            <th><strong>Parameter</strong></th>
-            <th>Value</th>
-            <th>Required?</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>token</td>
-            <td>OAuth access or refresh token</td>
-            <td>yes</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter | Value | Required? |
+|---|---|---|
+| token | OAuth access or refresh token | yes |
+
 
 ```text
 POST /oauth/v2/revoke HTTP/1.1
@@ -105,29 +64,9 @@ token=2AAABLKmtbUAK7FeMV0hAiLf_W5x38LM67PXHapM*&
 
 If request succeeds, an HTTP success code 200 returns without any body. If the request fails, the following error codes are returned in JSON format:
 
-<table border="1" columnWidths="30,30,40" >
-    <thead>
-        <tr>
-            <th>HTTP Status Code</th>
-            <th>Error Code</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>400</td>
-            <td>INVALID_REQUEST</td>
-            <td>Empty or missing token</td>
-        </tr>
-        <tr>
-            <td>400</td>
-            <td>EXPIRED_TOKEN</td>
-            <td>The token is expired or already revoked</td>
-        </tr>
-        <tr>
-            <td>400</td>
-            <td>INVALID_TOKEN</td>
-            <td>This is not a valid OAuth access or refresh token</td>
-        </tr>
-    </tbody>
-</table>
+| HTTP Status Code | Error Code | Description |
+|---|---|---|
+| 400 | INVALID_REQUEST | Empty or missing token |
+| 400 | EXPIRED_TOKEN | The token is expired or already revoked |
+| 400 | INVALID_TOKEN | This is not a valid OAuth access or refresh token |
+

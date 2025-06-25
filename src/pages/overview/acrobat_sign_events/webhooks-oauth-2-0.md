@@ -110,54 +110,17 @@ To enable webhookEndpoints/ API configuration at the account level, omit the app
 
 &nbsp;5. Replace the value for the following attributes with the correct values:
 
-***Attributes***
-
-<table columnWidths="25,75">
-    <thead>
-        <tr>
-            <th>Attribute</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>name</td>
-            <td>Name of the webhookEndpoint resource that you want to create. It’s length cannot be more than 255 characters.</td>
-        </tr>
-        <tr>
-            <td>description</td>
-            <td>Optionally, add a description for the webhookEndpoint.</td>
-        </tr>
-        <tr>
-            <td>webhookEndpointUrl</td>
-            <td>This is a webhookEndpoint URL pattern that you would like to be mapped to one or more webhook(s) that belong to the same account. See <a href="#webhookendpointurl-details" style="color: #2980B9">webhookEndpointUrl details</a>.</td>
-        </tr>
-        <tr>
-            <td>applicationIds</td>
-            <td>(Optional) You can provide one or more Application IDs (alphanumeric) that needs to be associated. If you don’t inlcude applicationIDs attribute, the webhookEndpoints/ is configured at account level.</td>
-        </tr>
-        <tr>
-            <td>authorizationServerUrl</td>
-            <td>URL of the authorization server for getting the access token.</td>
-        </tr>
-        <tr>
-            <td>clientId</td>
-            <td>clientId for the authorization server.</td>
-        </tr>
-        <tr>
-            <td>clientSecret</td>
-            <td>client secret for the authorization server.</td>
-        </tr>
-        <tr>
-            <td>scope</td>
-            <td>scope, if any, needed for the authorization server.</td>
-        </tr>
-        <tr>
-            <td>customHeaders</td>
-            <td>A map of key-value pairs that you want in webhook notification request for increased personalization.</td>
-        </tr>
-    </tbody>
-</table>
+| Attribute | Description |
+|-----------|-------------|
+| name | Name of the webhookEndpoint resource that you want to create. It's length cannot be more than 255 characters. |
+| description | Optionally, add a description for the webhookEndpoint. |
+| webhookEndpointUrl | This is a webhookEndpoint URL pattern that you would like to be mapped to one or more webhook(s) that belong to the same account. See [webhookEndpointUrl details](#webhookendpointurl-details). |
+| applicationIds | (Optional) You can provide one or more Application IDs (alphanumeric) that needs to be associated. If you don't inlcude applicationIDs attribute, the webhookEndpoints/ is configured at account level. |
+| authorizationServerUrl | URL of the authorization server for getting the access token. |
+| clientId | clientId for the authorization server. |
+| clientSecret | client secret for the authorization server. |
+| scope | scope, if any, needed for the authorization server. |
+| customHeaders | A map of key-value pairs that you want in webhook notification request for increased personalization. |
 
 &nbsp;6. To associate the [webhookEndpointUrl details](#webhookendpointurl-details) for a new webhook, send a POST request to /api/rest/v6/webhooks with the following JSON body:
 
@@ -188,44 +151,15 @@ Content-Type: application/json
 
 Replace the value for the following attributes with the correct values:
 
-<table columnWidths="30,70">
-    <thead>
-        <tr>
-            <th>Attribute</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>name</td>
-            <td>Name of the webhookEndpoint resource that you want to create. It’s length cannot be more than 255 characters.</td>
-        </tr>
-        <tr>
-            <td>scope</td>
-            <td>Scope of webhook. This attribute can’t be modified in PUT request. The possible values are ACCOUNT, GROUP, USER or RESOURCE.</td>
-        </tr>
-        <tr>
-            <td>state</td>
-            <td>The state in which the webhook should be created. The possible values are ACTIVE, INACTIVE and DELETED.</td>
-        </tr>
-        <tr>
-            <td>webhookSubscriptionEvents</td>
-            <td>Any valid Event(s) that a webhook would need to be notified.</td>
-        </tr>
-        <tr>
-            <td>webhookEndpointId</td>
-            <td>The webhookEndpointId that to be associated with this webhook.</td>
-        </tr>
-        <tr>
-            <td>domainPrefix</td>
-            <td>Optional URL subdomain value. This value will be used to replace the first wildcard (*).</td>
-        </tr>
-        <tr>
-            <td>urlSuffix</td>
-            <td>Optional Url Suffix to append to the WebhookEndpointId. This value will be used to replace the wildcard (*) at the end.</td>
-        </tr>
-    </tbody>
-</table>
+| Attribute | Description |
+|-----------|-------------|
+| name | Name of the webhookEndpoint resource that you want to create. It's length cannot be more than 255 characters. |
+| scope | Scope of webhook. This attribute can't be modified in PUT request. The possible values are ACCOUNT, GROUP, USER or RESOURCE. |
+| state | The state in which the webhook should be created. The possible values are ACTIVE, INACTIVE and DELETED. |
+| webhookSubscriptionEvents | Any valid Event(s) that a webhook would need to be notified. |
+| webhookEndpointId | The webhookEndpointId that to be associated with this webhook. |
+| domainPrefix | Optional URL subdomain value. This value will be used to replace the first wildcard (*). |
+| urlSuffix | Optional Url Suffix to append to the WebhookEndpointId. This value will be used to replace the wildcard (*) at the end. |
 
 You will get the following response containing the id of the webhook created:
 

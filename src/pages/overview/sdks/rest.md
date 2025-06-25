@@ -4,7 +4,7 @@ title: Acrobat Sign REST API Samples — Acrobat Sign SDK Downloads
 
 # Acrobat Sign REST API Samples
 
-<br />
+
 <span style="font-size: 16px">These sample Java clients of the Acrobat Sign REST APIs demonstrate how to use the API as well as some of its key capabilities.</span>
 
 The samples are arranged according to the version of the Acrobat Sign REST API’s that they use. For example, the samples for v6 REST API’s are under the v6 folder.

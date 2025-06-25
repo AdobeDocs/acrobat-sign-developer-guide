@@ -11,185 +11,42 @@ The following returns for an agreement event if all the conditional parameters a
 
 ***Minimum payload for agreements***
 
-<table columnWidths="20,10,38,32">
-    <thead>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Possible enums</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">id</span></td>
-            <td>String</td>
-            <td>The unique identifier of agreement that can be used to query status and download signed documents.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">name</span></td>
-            <td>String</td>
-            <td>The name of the agreement that will be used to identify it in emails and on the website.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">status</span></td>
-            <td>Enum</td>
-            <td>The current status of the agreement.</td>
-            <td>OUT_FOR_SIGNATURE, SIGNED, APPROVED, ACCEPTED, DELIVERED, FORM_FILLED, ABORTED, EXPIRED, OUT_FOR_APPROVAL, OUT_FOR_ACCEPTANCE, OUT_FOR_DELIVERY, OUT_FOR_FORM_FILLING, or CANCELLED</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter Name | Type   | Description                                                                                                           | Possible enums                                                                                                                                                                      |
+|----------------|--------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`           | String | The unique identifier of agreement that can be used to query status and download signed documents.                   |                                                                                                                                                                                     |
+| `name`         | String | The name of the agreement that will be used to identify it in emails and on the website.                             |                                                                                                                                                                                     |
+| `status`       | Enum   | The current status of the agreement.                                                                                  | OUT_FOR_SIGNATURE, SIGNED, APPROVED, ACCEPTED, DELIVERED, FORM_FILLED, ABORTED, EXPIRED, OUT_FOR_APPROVAL, OUT_FOR_ACCEPTANCE, OUT_FOR_DELIVERY, OUT_FOR_FORM_FILLING, CANCELLED |
+
 
 ### Payload attributes inherited from Agreement
 
 ***Inherited payload attributes***
 
-<table columnWidths="30,12,38,20">
-    <thead>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Possible Enums</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">id</span></td>
-            <td>String</td>
-            <td>The unique identifier of the agreement, which can be used to query the status and download signed documents.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">name</span></td>
-            <td>String</td>
-            <td>The name of the agreement that will be used to identify it, in emails and on the website.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">signatureType</span></td>
-            <td>Enum</td>
-            <td>Specifies the type of signature requested on the agreement—written or e-signature.</td>
-            <td>ESIGN, WRITTEN</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">status</span></td>
-            <td>Enum</td>
-            <td>The current status of the agreement.</td>
-            <td>OUT_FOR_SIGNATURE, OUT_FOR_DELIVERY, OUT_FOR_ACCEPTANCE, OUT_FOR_FORM_FILLING, OUT_FOR_APPROVAL, AUTHORING, CANCELLED, SIGNED, APPROVED, DELIVERED, ACCEPTED, FORM_FILLED, EXPIRED, ARCHIVED, PREFILL, WIDGET_WAITING_FOR_VERIFICATION, DRAFT, DOCUMENTS_NOT_YET_PROCESSED, WAITING_FOR_FAXING, WAITING_FOR_VERIFICATION</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">ccs</span></td>
-            <td>Array of Strings</td>
-            <td>Email IDs of cc: participants of the agreement.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">deviceInfo</span></td>
-            <td>Object</td>
-            <td>Device info of the offline device. It will only be returned in the case of offline agreement creation.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">documentVisibilityEnabled</span></td>
-            <td>Boolean</td>
-            <td>Determines whether limited document visibility is enabled or not. Will never be returned in offline agreement creation.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">createdDate</span></td>
-            <td>Date</td>
-            <td>Agreement creation date.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">expirationTime</span></td>
-            <td>Timestamp</td>
-            <td>The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">externalId</span></td>
-            <td>Object</td>
-            <td>A unique identifier provided by an external system search for your transaction through the API.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">postSignOption</span></td>
-            <td>Object</td>
-            <td>Determines the URL and associated properties for the success page the user will be taken to after completing the signing process. Will never be returned in offline agreement creation.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">firstReminderDelay</span></td>
-            <td>Integer</td>
-            <td>Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">locale</span></td>
-            <td>String</td>
-            <td>The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">message</span></td>
-            <td>String</td>
-            <td>The message associated with the agreement that the sender has provided.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">reminderFrequency</span></td>
-            <td>Enum</td>
-            <td>Specifies how often reminders will be sent to the recipients.</td>
-            <td>DAILY_UNTIL_SIGNED, WEEKLY_UNTIL_SIGNED</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">senderEmail</span></td>
-            <td>String</td>
-            <td>Email of the sender.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">vaultingInfo</span></td>
-            <td>Object</td>
-            <td>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">workflowId</span></td>
-            <td>String</td>
-            <td>Identifier of the custom workflow that defines the routing path of an agreement. Will not be returned in offline agreement creation.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantSetsInfo</span></td>
-            <td>Object</td>
-            <td>Returns a list of one or more participant sets. A participant set may have one or more participants. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">documentsInfo</span></td>
-            <td>Object</td>
-            <td>Returns the IDs of the documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true. In such a case try calling the v6 {`GET /agreements/{agreementId}/documents`} API to get the details of the documents of an agreement.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">supportingDocuments</span></td>
-            <td>Object</td>
-            <td>Returns the supporting documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true, In such a case try calling the v6 {`GET /agreements/{agreementId}/documents`} API to get the details of the supporting documents of an agreement.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">conditionalParametersTrimmed</span></td>
-            <td>Array of Strings</td>
-            <td>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+| Parameter Name | Type | Description | Possible Enums |
+|---|---|---|---|
+| id | String | The unique identifier of the agreement, which can be used to query the status and download signed documents. |  |
+| name | String | The name of the agreement that will be used to identify it, in emails and on the website. |  |
+| signatureType | Enum | Specifies the type of signature requested on the agreement—written or e-signature. | ESIGN, WRITTEN |
+| status | Enum | The current status of the agreement. | OUT_FOR_SIGNATURE, OUT_FOR_DELIVERY, OUT_FOR_ACCEPTANCE, OUT_FOR_FORM_FILLING, OUT_FOR_APPROVAL, AUTHORING, CANCELLED, SIGNED, APPROVED, DELIVERED, ACCEPTED, FORM_FILLED, EXPIRED, ARCHIVED, PREFILL, WIDGET_WAITING_FOR_VERIFICATION, DRAFT, DOCUMENTS_NOT_YET_PROCESSED, WAITING_FOR_FAXING, WAITING_FOR_VERIFICATION |
+| ccs | Array of Strings | Email IDs of cc: participants of the agreement. |  |
+| deviceInfo | Object | Device info of the offline device. It will only be returned in the case of offline agreement creation. |  |
+| documentVisibilityEnabled | Boolean | Determines whether limited document visibility is enabled or not. Will never be returned in offline agreement creation. |  |
+| createdDate | Date | Agreement creation date. |  |
+| expirationTime | Timestamp | The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document. |  |
+| externalId | Object | A unique identifier provided by an external system search for your transaction through the API. |  |
+| postSignOption | Object | Determines the URL and associated properties for the success page the user will be taken to after completing the signing process. Will never be returned in offline agreement creation. |  |
+| firstReminderDelay | Integer | Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation. |  |
+| locale | String | The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender. |  |
+| message | String | The message associated with the agreement that the sender has provided. |  |
+| reminderFrequency | Enum | Specifies how often reminders will be sent to the recipients. | DAILY_UNTIL_SIGNED, WEEKLY_UNTIL_SIGNED |
+| senderEmail | String | Email of the sender. |  |
+| vaultingInfo | Object | Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider. |  |
+| workflowId | String | Identifier of the custom workflow that defines the routing path of an agreement. Will not be returned in offline agreement creation. |  |
+| participantSetsInfo | Object | Returns a list of one or more participant sets. A participant set may have one or more participants. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold. |  |
+| documentsInfo | Object | Returns the IDs of the documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true. In such a case try calling the v6 {`GET /agreements/{agreementId}/documents`} API to get the details of the documents of an agreement. |  |
+| supportingDocuments | Object | Returns the supporting documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true, In such a case try calling the v6 {`GET /agreements/{agreementId}/documents`} API to get the details of the supporting documents of an agreement. |  |
+| conditionalParametersTrimmed | Array of Strings | If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned. |  |
+
 
 ## AGREEMENT_ALL
 
@@ -209,47 +66,15 @@ Triggers when an agreement or draft is created.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the originator of the agreement who sent the agreement on behalf of the sender in the case of account sharing.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the originator of the agreement who sent the agreement on behalf of the sender in the case of account sharing.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| participantUserEmail | String | The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserEmail | String | The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| initiatingUserId | String | The user ID of the sharee of the originator of the agreement who sent the agreement on behalf of the sender in the case of account sharing. |
+| initiatingUserEmail | String | The user email of the sharee of the originator of the agreement who sent the agreement on behalf of the sender in the case of account sharing. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -509,47 +334,15 @@ Triggers when an agreement has been shared by a participant.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user to whom the agreement is shared.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user to whom the agreement is shared.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user by whom the agreement is shared. This can be sender, signer or delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user to whom the agreement is shared. |
+| participantUserEmail | String | The user email of the user to whom the agreement is shared. |
+| actingUserId | String | The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee. |
+| actingUserEmail | String | The user email of the user by whom the agreement is shared. This can be sender, signer or delegatee. |
+| initiatingUserId | String | The user ID of the sharee of the user on whose behalf this agreement is shared in case of account sharing. |
+| initiatingUserEmail | String | The user email of the sharee of the user on whose behalf this agreement is shared in case of account sharing. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -701,47 +494,15 @@ Triggers when an agreement has been unshared.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user to whom the agreement is shared.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user to whom the agreement is shared.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user by whom the agreement is shared. This can be sender, signer or delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user to whom the agreement is shared. |
+| participantUserEmail | String | The user email of the user to whom the agreement is shared. |
+| actingUserId | String | The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee. |
+| actingUserEmail | String | The user email of the user by whom the agreement is shared. This can be sender, signer or delegatee. |
+| initiatingUserId | String | The user ID of the sharee of the user on whose behalf this agreement is shared in case of account sharing. |
+| initiatingUserEmail | String | The user email of the sharee of the user on whose behalf this agreement is shared in case of account sharing. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -893,47 +654,15 @@ Triggers when an agreement has been automatically unshared.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user to whom the agreement is shared.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user to whom the agreement is shared.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user by whom the agreement is shared. This can be sender, signer or delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user to whom the agreement is shared. |
+| participantUserEmail | String | The user email of the user to whom the agreement is shared. |
+| actingUserId | String | The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee. |
+| actingUserEmail | String | The user email of the user by whom the agreement is shared. This can be sender, signer or delegatee. |
+| initiatingUserId | String | The user ID of the sharee of the user on whose behalf this agreement is shared in case of account sharing. |
+| initiatingUserEmail | String | The user email of the sharee of the user on whose behalf this agreement is shared in case of account sharing. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -1087,47 +816,15 @@ Triggers when an agreement in an "in-process" un-signed agreement has been repla
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the originator of the agreement who modified the agreement on behalf of the sender in the case of account sharing.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the originator of the agreement who modified the agreement on behalf of the sender in the case of account sharing.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| participantUserEmail | String | The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserEmail | String | The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| initiatingUserId | String | The user ID of the sharee of the originator of the agreement who modified the agreement on behalf of the sender in the case of account sharing. |
+| initiatingUserEmail | String | The user email of the sharee of the originator of the agreement who modified the agreement on behalf of the sender in the case of account sharing. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -1535,47 +1232,15 @@ Triggers when an agreement signer changes.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the replaced signer.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the replaced signer.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The ID of the originator of the agreement.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The email of the originator of the agreement.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the replaced signer. |
+| participantUserEmail | String | The user email of the replaced signer. |
+| actingUserId | String | The ID of the originator of the agreement. |
+| actingUserEmail | String | The email of the originator of the agreement. |
+| initiatingUserId | String | The user ID of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing. |
+| initiatingUserEmail | String | The user email of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -1727,60 +1392,16 @@ Triggers when an agreement is delegated by a participant.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Possible enums</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">subEvent</span></td>
-            <td>String</td>
-            <td>Subevent.</td>
-            <td>DELEGATED, AUTO_DELEGATED</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the delegator.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the delegator.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description | Possible enums |
+|---|---|---|---|
+| subEvent | String | Subevent. | DELEGATED, AUTO_DELEGATED |
+| participantUserId | String | The user ID of the delegatee. |  |
+| participantUserEmail | String | The user email of the delegatee. |  |
+| actingUserId | String | The user ID of the delegator. |  |
+| actingUserEmail | String | The user email of the delegator. |  |
+| initiatingUserId | String | Never part of the payload. |  |
+| initiatingUserEmail | String | Never part of the payload. |  |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -1934,47 +1555,15 @@ Triggers when an agreement is sent to a participant.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user to whom the action is requested. User could be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user to whom the action is requested. User could be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user to whom the action is requested. User could be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the user to whom the action is requested. User could be the signer or the delegatee. |
+| actingUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserEmail | String | The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -2128,60 +1717,16 @@ Triggers when a participant completes their action.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Possible Enums</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">actionType</span></td>
-            <td>String</td>
-            <td>Action type for the event.</td>
-            <td>ESIGNED, DIGSIGNED, WRITTEN_SIGNED, PRESIGNED, ACCEPTED, SIGNED, APPROVED, DELIVERED, FORM_FILLED, ACKNOWLEDGED, DIGITAL_SIGN_UIDAI_SIGNER_CONSENT</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the action taker. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the action taker. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the action taker. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the action taker. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description | Possible Enums |
+|---|---|---|---|
+| actionType | String | Action type for the event. | ESIGNED, DIGSIGNED, WRITTEN_SIGNED, PRESIGNED, ACCEPTED, SIGNED, APPROVED, DELIVERED, FORM_FILLED, ACKNOWLEDGED, DIGITAL_SIGN_UIDAI_SIGNER_CONSENT |
+| participantUserId | String | The user ID of the action taker. This can be the signer or the delegatee. |  |
+| participantUserEmail | String | The user email of the action taker. This can be the signer or the delegatee. |  |
+| actingUserId | String | The user ID of the action taker. This can be the signer or the delegatee. |  |
+| actingUserEmail | String | The user email of the action taker. This can be the signer or the delegatee. |  |
+| initiatingUserId | String | Never part of the payload. |  |
+| initiatingUserEmail | String | Never part of the payload. |  |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -2315,47 +1860,15 @@ Triggers when an agreement is auto-canceled due to a conversion problem.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| participantUserEmail | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserEmail | String | When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String |  |
+
 
 <CodeBlock slots="heading, code" repeat="2" languages="JSON, JSON" />
 
@@ -2536,47 +2049,15 @@ Triggers when agreement documents are deleted.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the originator of the agreement who deleted the documents on behalf of the sender in the case of account sharing.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the originator of the agreement who deleted the documents on behalf of the sender in the case of account sharing.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| participantUserEmail | String | The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| actingUserEmail | String | The user email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |
+| initiatingUserId | String | The user ID of the sharee of the originator of the agreement who deleted the documents on behalf of the sender in the case of account sharing. |
+| initiatingUserEmail | String | The user email of the sharee of the originator of the agreement who deleted the documents on behalf of the sender in the case of account sharing. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -2688,47 +2169,15 @@ Triggers when an agreement email gets bounced.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user for which the email bounced. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user for which the email bounced. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user for which the email bounced. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user for which the email bounced. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user for which the email bounced. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the user for which the email bounced. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the user for which the email bounced. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the user for which the email bounced. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -2880,47 +2329,15 @@ Triggers when an agreement email is viewed by a recipient.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user who viewed the email. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user who viewed the email. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user who viewed the email. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user who viewed the email. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the user who viewed the email. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the user who viewed the email. This can be the signer or the delegatee. |
+| actingUserEmail | String |  |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -3552,47 +2969,15 @@ Triggers when an offline agreement syncs.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user for whom the signing URL is fetched. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the user for whom the signing URL is fetched. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the user for whom the signing URL is fetched. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the user for whom the signing URL is fetched. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -3746,47 +3131,15 @@ Triggers when an agreement participant is authenticated through web or social id
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the authenticated user. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the authenticated user. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the authenticated user. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the authenticated user. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -3938,47 +3291,15 @@ Triggers when an agreement participant is authenticated through knowledge-based 
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the authenticated user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the authenticated user. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the authenticated user. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the authenticated user. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the authenticated user. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -4261,47 +3582,15 @@ Triggers when a signer acknowledges modification before signing.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the user who acknowledged the agreement modifications. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the user who acknowledged the agreement modifications. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the user who acknowledged the agreement modifications. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the user who acknowledged the agreement modifications. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -4581,47 +3870,15 @@ Triggers when an agreement is vaulted.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the most recent signing user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the most recent signing user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the most recent signing user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the most recent signing user. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the most recent signing user. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the most recent signing user. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the most recent signing user. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the most recent signing user. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -4905,47 +4162,15 @@ Triggers when an agreement workflow is completed successfully, and all participa
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the last action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the last action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the last action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the last action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the last action taker. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the last action taker. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the last action taker. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the last action taker. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
@@ -5209,72 +4434,18 @@ Triggers when agreement documents are deleted.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="23,10,34,34">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Possible Enums</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">subEvent</span></td>
-            <td>String</td>
-            <td>Subevent.</td>
-            <td>RECALLED, MAX_SIGNING_KBA_ATTEMPTS_EXCEEDED, MAX_SIGNING_PASSWORD_ATTEMPTS_EXCEEDED, MAX_SIGNING_PHONE_ATTEMPTS_EXCEEDED</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user ID email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the originator of the agreement who recalled the agreement on behalf of the sender in the case of account sharing.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the sharee of the originator of the agreement who recalled the agreement on behalf of the sender in the case of account sharing.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the sharee of the originator of the agreement who recalled the agreement on behalf of the sender in the case of account sharing.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">comment</span></td>
-            <td>String</td>
-            <td>Any arbitrary comment.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">notifyOthers</span></td>
-            <td>Boolean</td>
-            <td>True or false (default) depending on whether recipients should be notified that the transaction(s) have been cancelled. This field is set when an agreement is cancelled using the <span style="color: #e74c3c">PUT {`/agreements/{agreementId}/state`}</span> API.</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description | Possible Enums |
+|---|---|---|---|
+| subEvent | String | Subevent. | RECALLED, MAX_SIGNING_KBA_ATTEMPTS_EXCEEDED, MAX_SIGNING_PASSWORD_ATTEMPTS_EXCEEDED, MAX_SIGNING_PHONE_ATTEMPTS_EXCEEDED |
+| participantUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |  |
+| participantUserEmail | String | The user ID email of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |  |
+| actingUserId | String | The user ID of the sender or originator of the agreement. When this agreement is created by signing a widget, then this will be details of the creator of the widget. |  |
+| actingUserEmail | String | The user email of the sharee of the originator of the agreement who recalled the agreement on behalf of the sender in the case of account sharing. |  |
+| initiatingUserId | String | The user ID of the sharee of the originator of the agreement who recalled the agreement on behalf of the sender in the case of account sharing. |  |
+| initiatingUserEmail | String | The user email of the sharee of the originator of the agreement who recalled the agreement on behalf of the sender in the case of account sharing. |  |
+| comment | String | Any arbitrary comment. |  |
+| notifyOthers | Boolean | True or false (default) depending on whether recipients should be notified that the transaction(s) have been cancelled. This field is set when an agreement is cancelled using the PUT {`/agreements/{agreementId}/state`} API. |  |
+
 
 <CodeBlock slots="heading, code" repeat="3" languages="JSON, JSON, JSON" />
 
@@ -5572,47 +4743,15 @@ Triggers when an agreement is rejected by a participant.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the action taker. This can be the signer or the delegatee.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description |
+|---|---|---|
+| participantUserId | String | The user ID of the action taker. This can be the signer or the delegatee. |
+| participantUserEmail | String | The user email of the action taker. This can be the signer or the delegatee. |
+| actingUserId | String | The user ID of the action taker. This can be the signer or the delegatee. |
+| actingUserEmail | String | The user email of the action taker. This can be the signer or the delegatee. |
+| initiatingUserId | String | Never part of the payload. |
+| initiatingUserEmail | String | Never part of the payload. |
+
 
 <CodeBlock slots="heading, code" repeat="3" languages="JSON, JSON, JSON" />
 
@@ -5910,60 +5049,16 @@ Triggers when an agreement expires.
 
 ***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
 
-<table columnWidths="22,8,70">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Possible Enums</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: #e74c3c">subEvent</span></td>
-            <td>String</td>
-            <td>Subevent.</td>
-            <td>EXPIRED, EXPIRED_AUTOMATICALLY</td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user for which agreement expired. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">participantUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user for which agreement expired. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserId</span></td>
-            <td>String</td>
-            <td>The user ID of the user for which agreement expired. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">actingUserEmail</span></td>
-            <td>String</td>
-            <td>The user email of the user for which agreement expired. This can be the signer or the delegatee.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserId</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><span style="color: #e74c3c">initiatingUserEmail</span></td>
-            <td>String</td>
-            <td>Never part of the payload.</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+| Parameter name | Type | Description | Possible Enums |
+|---|---|---|---|
+| subEvent | String | Subevent. | EXPIRED, EXPIRED_AUTOMATICALLY |
+| participantUserId | String | The user ID of the user for which agreement expired. This can be the signer or the delegatee. |  |
+| participantUserEmail | String | The user email of the user for which agreement expired. This can be the signer or the delegatee. |  |
+| actingUserId | String | The user ID of the user for which agreement expired. This can be the signer or the delegatee. |  |
+| actingUserEmail | String | The user email of the user for which agreement expired. This can be the signer or the delegatee. |  |
+| initiatingUserId | String | Never part of the payload. |  |
+| initiatingUserEmail | String | Never part of the payload. |  |
+
 
 <CodeBlock slots="heading, code" repeat="3" languages="JSON, JSON, JSON" />
 

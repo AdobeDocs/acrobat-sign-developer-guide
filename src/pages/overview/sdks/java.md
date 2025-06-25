@@ -4,7 +4,7 @@ title: Acrobat Sign JAVA SDK — Acrobat Sign SDK Downloads
 
 # Acrobat Sign JAVA SDK
 
-<br />
+
 <span style="font-size: 16px">The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s JAVA SDK and samples for these APIs.</span>
 
 ## Prerequisites

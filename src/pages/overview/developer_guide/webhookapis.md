@@ -6,29 +6,13 @@ Acrobat Sign APIs include the endpoints described below.
 
 ## POST /webhooks
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Entity</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>Creates a webhook</td>
-  </tr>
-  <tr>
-    <td>Endpoint operation</td>
-    <td>/webhooks</td>
-  </tr>
-  <tr>
-    <td>OAuth scopes</td>
-    <td>webhook_write</td>
-  </tr>
-  <tr>
-    <td>Request object</td>
-    <td>
-      <pre><code>
-{`{
+
+| Entity | Value |
+|---|---|
+| Description | Creates a webhook |
+| Endpoint operation | /webhooks |
+| OAuth scopes | webhook_write |
+| Request object | {`{
     "name": "",
     "scope": "",
     "state": "",
@@ -62,27 +46,12 @@ Acrobat Sign APIs include the endpoints described below.
           "includeParticipantsInfo": false
       }
     }
-}`}
-      </code></pre>
-    </td>
-  </tr>
-  <tr>
-    <td>Response header</td>
-    <td>Location Header specifying the resource location of the webhook</td>
-  </tr>
-  <tr>
-    <td>Response content type</td>
-    <td>application/json</td>
-  </tr>
-  <tr>
-    <td>Response object</td>
-    <td>WebhookCreationResponse <span style="color: red;"> &#123; "id" : "" &#125; </span></td>
-  </tr>
-  <tr>
-    <td>HTTPS status code</td>
-    <td>201</td>
-  </tr>
-</table>
+}`} |
+| Response header | Location Header specifying the resource location of the webhook |
+| Response content type | application/json |
+| Response object | WebhookCreationResponse  { "id" : "" } |
+| HTTPS status code | 201 |
+
 
 **Error codes**
 
@@ -90,69 +59,21 @@ Please note that new errors could be returned from APIs or existing error codes 
 
 ***Error codes***
 
-<br/>
-<table border="1" columnWidths="10,50,40">
-  <tr>
-    <th>Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_ARGUMENTS</td>
-    <td>One or more arguments to the method are invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_WEBHOOK_URL</td>
-    <td>The Webhook URL specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_RESOURCE_ID</td>
-    <td>Resource Id specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_RESOURCE_TYPE</td>
-    <td>The resource type is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_WEBHOOK_CONDITIONAL_PARAMS</td>
-    <td>The conditional parameters specified are invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>MISSING_REQUIRED_PARAM</td>
-    <td>The required parameters are missing.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>WEBHOOK_LIMIT_EXCEEDED</td>
-    <td>This webhook can’t be created. The events array &#123; events &#125; has reached the maximum number of active webhooks.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>DUPLICATE_WEBHOOK_CONFIGURATION</td>
-    <td>There is already a webhook registered with the same configuration.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_WEBHOOK_STATE</td>
-    <td>The webhook state specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_WEBHOOK_SUBSCRIPTION_EVENTS</td>
-    <td>One or more webhook subscription events specified are invalid.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>WEBHOOK_CREATION_NOT_ALLOWED</td>
-    <td>Webhook creation is not allowed.</td>
-  </tr>
-</table>
+
+| Code | Error Code | Message |
+|---|---|---|
+| 400 | INVALID_ARGUMENTS | One or more arguments to the method are invalid. |
+| 400 | INVALID_WEBHOOK_URL | The Webhook URL specified is invalid. |
+| 400 | INVALID_RESOURCE_ID | Resource Id specified is invalid. |
+| 400 | INVALID_RESOURCE_TYPE | The resource type is invalid. |
+| 400 | INVALID_WEBHOOK_CONDITIONAL_PARAMS | The conditional parameters specified are invalid. |
+| 400 | MISSING_REQUIRED_PARAM | The required parameters are missing. |
+| 400 | WEBHOOK_LIMIT_EXCEEDED | This webhook can’t be created. The events array { events } has reached the maximum number of active webhooks. |
+| 400 | DUPLICATE_WEBHOOK_CONFIGURATION | There is already a webhook registered with the same configuration. |
+| 400 | INVALID_WEBHOOK_STATE | The webhook state specified is invalid. |
+| 400 | INVALID_WEBHOOK_SUBSCRIPTION_EVENTS | One or more webhook subscription events specified are invalid. |
+| 403 | WEBHOOK_CREATION_NOT_ALLOWED | Webhook creation is not allowed. |
+
 
 This API will be used to create a webhook on a particular resource in Acrobat Sign.
 
@@ -177,84 +98,38 @@ webhookInfo {
 }
 ```
 
-<br/>
-<table border="1" columnWidths="20,80">
-  <tr>
-    <th>Attribute</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>webhookEndpointId</td>
-    <td>The webhookEndpointId that is to be associated with this webhook.</td>
-  </tr>
-  <tr>
-    <td>domainPrefix</td>
-    <td>Optional URL subdomain value. This value will be used to replace the first wildcard (*).</td>
-  </tr>
-  <tr>
-    <td>urlSuffix</td>
-    <td>Optional URL suffix to append to the WebhookEndpointId. This value will be used to replace the wildcard (*) at the end.</td>
-  </tr>
-</table>
+
+| Attribute | Description |
+|---|---|
+| webhookEndpointId | The webhookEndpointId that is to be associated with this webhook. |
+| domainPrefix | Optional URL subdomain value. This value will be used to replace the first wildcard (*). |
+| urlSuffix | Optional URL suffix to append to the WebhookEndpointId. This value will be used to replace the wildcard (*) at the end. |
+
 
 **webhookEndpointInfo Error codes**
 
 You should be prepared to handle new errors that may be returned from APIs or changes in existing error codes. It is important to note that error codes can evolve over time. You must be prepared to implement default error handling for unclear error events.
 
-<br/>
-<table border="1" columnWidths="10,60,30">
-  <tr>
-    <th>Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_JSON</td>
-    <td>An invalid JSON was specified.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>INVALID_WEBHOOK_ENDPOINT_ID</td>
-    <td>WebhookEndpointId is not found. Request id: &lt;hash&gt;</td>
-  </tr>
-</table>
+
+| Code | Error Code | Message |
+|---|---|---|
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 404 | INVALID_WEBHOOK_ENDPOINT_ID | WebhookEndpointId is not found. Request id: <hash> |
+
 
 ## GET /webhooks
 
-<br/>
-<table border="1" columnWidths="20,80">
-  <tr>
-    <th>Entity</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>Get a list of webhooks created by the access token user</td>
-  </tr>
-  <tr>
-    <td>OAuth scopes</td>
-    <td>webhook_read</td>
-  </tr>
-  <tr>
-    <td>Query parameters</td>
-    <td>
-     <ul>
-      <li><span style="color: red;">showInactiveWebhooks</span>: boolean: A query parameter to fetch all the inactive webhooks along with the active webhooks.</li>
-      <li><span style="color: red;">scope</span>: Scope of the webhook. The possible values are <span style="color: red;">ACCOUNT</span>, <span style="color: red;">GROUP</span>, <span style="color: red;">USER</span>, or <span style="color: red;">RESOURCE</span>.</li>
-      <li><span style="color: red;">resourceType</span>: The type of resource on which webhook was created. The possible values are <span style="color: red;">AGREEMENT</span>, <span style="color: red;">WIDGET</span>, and <span style="color: red;">MEGASIGN</span>.</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Response content type</td>
-    <td>application/json</td>
-  </tr>
-  <tr>
-    <td>Response object</td>
-    <td>
-    WebhooksInfo
-    <pre><code>
+
+| Entity | Value |
+|---|---|
+| Description | Get a list of webhooks created by the access token user |
+| OAuth scopes | webhook_read |
+| Query parameters | showInactiveWebhooks: boolean: A query parameter to fetch all the inactive webhooks along with the active webhooks.
+      scope: Scope of the webhook. The possible values are ACCOUNT, GROUP, USER, or RESOURCE.
+      resourceType: The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, and MEGASIGN. |
+| Response content type | application/json |
+| Response object | WebhooksInfo
+    
     {`{
     "userWebhookList": [
       {
@@ -295,14 +170,9 @@ You should be prepared to handle new errors that may be returned from APIs or ch
     "page": {
       "nextCursor": " "
     }
-}`}</code></pre>
-    </td>
-  </tr>
-  <tr>
-    <td>HTTPS status code</td>
-    <td>200</td>
-  </tr>
-</table>
+}`} |
+| HTTPS status code | 200 |
+
 
 **Error codes**
 
@@ -310,59 +180,24 @@ Please note that new errors could be returned from APIs or existing error codes 
 
 ***Error codes***
 
-<br/>
-<table border="1" columnWidths="10,30,60">
-  <tr>
-    <th>HTTPS Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_ARGUMENTS</td>
-    <td>One or more arguments to the method are invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_CURSOR</td>
-    <td>The page cursor provided is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_PAGE_SIZE</td>
-    <td>Page size is either invalid or not within the permissible range.</td>
-  </tr>
-</table>
+
+| HTTPS Status Code | Error Code | Message |
+|---|---|---|
+| 400 | INVALID_ARGUMENTS | One or more arguments to the method are invalid. |
+| 400 | INVALID_CURSOR | The page cursor provided is invalid. |
+| 400 | INVALID_PAGE_SIZE | Page size is either invalid or not within the permissible range. |
+
 
 ## GET /webhooks/{webhookId}
 
-<br/>
-<table border="1" columnWidths="20,80">
-  <tr>
-    <th>Entity</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>List details of a webhook.</td>
-  </tr>
-  <tr>
-    <td>Endpoint operation</td>
-    <td>/webhhooks/&#123;webhookId&#125;</td>
-  </tr>
-  <tr>
-    <td>OAuth scopes</td>
-    <td>webhook_read</td>
-  </tr>
-  <tr>
-    <td>Response content type</td>
-    <td>application/json</td>
-  </tr>
-  <tr>
-    <td>Response object</td>
-    <td>
-      <pre><code>
-  {`{
+
+| Entity | Value |
+|---|---|
+| Description | List details of a webhook. |
+| Endpoint operation | /webhhooks/{webhookId} |
+| OAuth scopes | webhook_read |
+| Response content type | application/json |
+| Response object | {`{
     "scope": "",
     "webhookSubscriptionEvents": [
         ""
@@ -395,15 +230,9 @@ Please note that new errors could be returned from APIs or existing error codes 
             "includeParticipantsInfo": false
         }
     }
-  }`}
-      </code></pre>
-    </td>
-  </tr>
-  <tr>
-    <td>HTTPS status code</td>
-    <td>200</td>
-  </tr>
-</table>
+  }`} |
+| HTTPS status code | 200 |
+
 
 **Error codes**
 
@@ -411,24 +240,12 @@ Please note that new errors could be returned from APIs or existing error codes 
 
 ***Error codes***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>Code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>304</td>
-    <td>RESOURCE_NOT_MODIFIED</td>
-    <td>The resource is not modified.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>INVALID_WEBHOOK_ID</td>
-    <td>The webhookId specified is invalid.</td>
-  </tr>
-</table>
+
+| Code | Error code | Message |
+|---|---|---|
+| 304 | RESOURCE_NOT_MODIFIED | The resource is not modified. |
+| 404 | INVALID_WEBHOOK_ID | The webhookId specified is invalid. |
+
 
 <InlineAlert slots="text" />
 
@@ -448,32 +265,14 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
 
 ## PUT /webhooks/{webhookId}
 
-<br/>
-<table border="1" columnWidths="20,80">
-  <tr>
-    <th>Entity</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>This endpoint is used to update the webhook resource.</td>
-  </tr>
-  <tr>
-    <td>Endpoint operation</td>
-    <td>/webhooks/&#123;webhookId&#125;</td>
-  </tr>
-  <tr>
-    <td>OAuth scopes</td>
-    <td>webhook_write</td>
-  </tr>
-  <tr>
-    <td>Request header</td>
-    <td>Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guideline.</td>
-  </tr>
-  <tr>
-    <td>Request body</td>
-    <td>
-      <pre><code>{`{
+
+| Entity | Value |
+|---|---|
+| Description | This endpoint is used to update the webhook resource. |
+| Endpoint operation | /webhooks/{webhookId} |
+| OAuth scopes | webhook_write |
+| Request header | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guideline. |
+| Request body | {`{
   "name": "",
   "scope": "",
   "state": "",
@@ -507,22 +306,11 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
         "includeParticipantsInfo": false
     }
   }
-}`}</code></pre>
-    </td>
-  </tr>
-  <tr>
-    <td>Response content type</td>
-    <td>application/json</td>
-  </tr>
-  <tr>
-    <td>Response object</td>
-    <td>Empty response</td>
-  </tr>
-  <tr>
-    <td>HTTPS status code</td>
-    <td>204</td>
-  </tr>
-</table>
+}`} |
+| Response content type | application/json |
+| Response object | Empty response |
+| HTTPS status code | 204 |
+
 
 **Error codes**
 
@@ -530,64 +318,20 @@ Please note that new errors could be returned from APIs or existing error codes 
 
 ***Error codes***
 
-<br/>
-<table border="1" columnWidths="10,50,40">
-  <tr>
-    <th>HTTPS Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">MISSING_REQUIRED_PARAM</span></td>
-    <td>Required parameters are missing.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">DUPLICATE_WEBHOOK_CONFIGURATION</span></td>
-    <td>There is already a webhook registered with same configuration.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">INVALID_JSON</span></td>
-    <td>An invalid JSON was specified.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">INVALID_WEBHOOK_CONDITIONAL_PARAMS</span></td>
-    <td>The webhook conditional parameters specified are invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">INVALID_WEBHOOK_SUBSCRIPTION_EVENTS</span></td>
-    <td>One or more webhook subscription events specified are invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">MISSING_IF_MATCH_HEADER</span></td>
-    <td>The If-Match header missing.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">UPDATE_NOT_ALLOWED</span></td>
-    <td>The webhook you are trying to update cannot be modified.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">WEBHOOK_LIMIT_EXCEEDED</span></td>
-    <td>This webhook can’t be activated. The resource has reached the maximum number of active webhooks.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td><span style="color: red;">INVALID_WEBHOOK_ID</span></td>
-    <td>The <span style="color: red;">webhookId</span> is invalid.</td>
-  </tr>
-  <tr>
-    <td>412</td>
-    <td><span style="color: red;">RESOURCE_MODIFIED</span></td>
-    <td>The resource is already modified with a newer version.</td>
-  </tr>
-</table>
+
+| HTTPS Status Code | Error Code | Message |
+|---|---|---|
+| 400 | MISSING_REQUIRED_PARAM | Required parameters are missing. |
+| 400 | DUPLICATE_WEBHOOK_CONFIGURATION | There is already a webhook registered with same configuration. |
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 400 | INVALID_WEBHOOK_CONDITIONAL_PARAMS | The webhook conditional parameters specified are invalid. |
+| 400 | INVALID_WEBHOOK_SUBSCRIPTION_EVENTS | One or more webhook subscription events specified are invalid. |
+| 400 | MISSING_IF_MATCH_HEADER | The If-Match header missing. |
+| 400 | UPDATE_NOT_ALLOWED | The webhook you are trying to update cannot be modified. |
+| 400 | WEBHOOK_LIMIT_EXCEEDED | This webhook can’t be activated. The resource has reached the maximum number of active webhooks. |
+| 404 | INVALID_WEBHOOK_ID | The webhookId is invalid. |
+| 412 | RESOURCE_MODIFIED | The resource is already modified with a newer version. |
+
 
 Only events and conditional parameters can be modified. The webhook URL can’t be modified once the webhook is created. The modification can also be done in the INACTIVE state.
 
@@ -608,47 +352,18 @@ webhookInfo {
 
 ## PUT /webhooks/{webhookId}/state
 
-<br/>
-<table border="1" columnWidths="20,80">
-  <tr>
-    <th>Entity</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>This endpoint will update the state of a webhook identified by webhookId in the path.</td>
-  </tr>
-  <tr>
-    <td>Endpoint operation</td>
-    <td>/webhooks/&#123;webhookId&#125;/state</td>
-  </tr>
-  <tr>
-    <td>OAuth scopes</td>
-    <td>webhook_write</td>
-  </tr>
-  <tr>
-    <td>Request header</td>
-    <td>Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines.</td>
-  </tr>
-  <tr>
-    <td>Request body</td>
-    <td>
-      <span style="color: red;">&#123; "state": ""&#125;</span>
-    </td>
-  </tr>
-  <tr>
-    <td>Response content type</td>
-    <td>application/json</td>
-  </tr>
-  <tr>
-    <td>Response object</td>
-    <td>Empty response</td>
-  </tr>
-  <tr>
-    <td>HTTPS status code</td>
-    <td>204</td>
-  </tr>
-</table>
+
+| Entity | Value |
+|---|---|
+| Description | This endpoint will update the state of a webhook identified by webhookId in the path. |
+| Endpoint operation | /webhooks/{webhookId}/state |
+| OAuth scopes | webhook_write |
+| Request header | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines. |
+| Request body | { "state": ""} |
+| Response content type | application/json |
+| Response object | Empty response |
+| HTTPS status code | 204 |
+
 
 **Error codes**
 
@@ -656,84 +371,30 @@ Please note that new errors could be returned from APIs or existing error codes 
 
 ***Error codes***
 
-<br/>
-<table border="1" columnWidths="10,50,40">
-  <tr>
-    <th>HTTPS status code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">MISSING_REQUIRED_PARAM</span></td>
-    <td>Required parameters are missing.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">DUPLICATE_WEBHOOK_CONFIGURATION</span></td>
-    <td>There is already a webhook registered with the same configuration.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">INVALID_JSON</span></td>
-    <td>An invalid JSON was specified.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">MISSING_IF_MATCH_HEADER</span></td>
-    <td>The If-Match header is missing.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">UPDATE_NOT_ALLOWED</span></td>
-    <td>The webhook you are trying to update cannot be modified.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">WEBHOOK_LIMIT_EXCEEDED</span></td>
-    <td>This webhook can’t be activated. The resource has reached the maximum number of active webhooks.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td><span style="color: red;">INVALID_WEBHOOK_ID</span></td>
-    <td>The <span style="color: red;">webhookId</span> is invalid.</td>
-  </tr>
-  <tr>
-    <td>412</td>
-    <td><span style="color: red;">RESOURCE_MODIFIED</span></td>
-    <td>The resource is already modified with a newer version.</td>
-  </tr>
-</table>
+
+| HTTPS status code | Error code | Message |
+|---|---|---|
+| 400 | MISSING_REQUIRED_PARAM | Required parameters are missing. |
+| 400 | DUPLICATE_WEBHOOK_CONFIGURATION | There is already a webhook registered with the same configuration. |
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 400 | MISSING_IF_MATCH_HEADER | The If-Match header is missing. |
+| 400 | UPDATE_NOT_ALLOWED | The webhook you are trying to update cannot be modified. |
+| 400 | WEBHOOK_LIMIT_EXCEEDED | This webhook can’t be activated. The resource has reached the maximum number of active webhooks. |
+| 404 | INVALID_WEBHOOK_ID | The webhookId is invalid. |
+| 412 | RESOURCE_MODIFIED | The resource is already modified with a newer version. |
+
 
 ## DELETE /webhooks/{webhookId}
 
-<br/>
-<table border="1" columnWidths="20,80">
-  <tr>
-    <th>Entity</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>This endpoint is used to delete the webhook resource. This is the terminal state of the webhook and the action is irreversible.</td>
-  </tr>
-  <tr>
-    <td>Endpoint operation</td>
-    <td>/webhooks/&lbrace;webhookId&rbrace;</td>
-  </tr>
-  <tr>
-    <td>OAuth scopes</td>
-    <td>webhook_delete</td>
-  </tr>
-  <tr>
-    <td>Request header</td>
-    <td>Standard header</td>
-  </tr>
-  <tr>
-    <td>HTTPS status code</td>
-    <td>204</td>
-  </tr>
-</table>
+
+| Entity | Value |
+|---|---|
+| Description | This endpoint is used to delete the webhook resource. This is the terminal state of the webhook and the action is irreversible. |
+| Endpoint operation | /webhooks/&lbrace;webhookId&rbrace; |
+| OAuth scopes | webhook_delete |
+| Request header | Standard header |
+| HTTPS status code | 204 |
+
 
 **Error codes**
 
@@ -741,131 +402,47 @@ Please note that new errors could be returned from APIs or existing error codes 
 
 ***Error codes***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>Code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>FORBIDDEN</td>
-    <td>Delete is not allowed.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>INVALID_WEBHOOK_ID</td>
-    <td>The webhookId is invalid.</td>
-  </tr>
-</table>
+
+| Code | Error code | Message |
+|---|---|---|
+| 403 | FORBIDDEN | Delete is not allowed. |
+| 404 | INVALID_WEBHOOK_ID | The webhookId is invalid. |
+
 
 ## Standard API request error codes
 
 Any API request may return any of these standard error codes:
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTPS status code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">BAD_REQUEST</span></td>
-    <td>The request provided is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">INVALID_JSON</span></td>
-    <td>An invalid JSON was specified.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">INVALID_ON_BEHALF_OF_USER_HEADER</span></td>
-    <td>The value provided in the <span style="color: red;">x-on-behalf-of-user</span> header is in invalid format.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">INVALID_X_API_USER_HEADER</span></td>
-    <td>The value provided in <span style="color: red;">x-api-user</span> header is in invalid format.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td><span style="color: red;">MISC_ERROR</span></td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td><span style="color: red;">UNAUTHORIZED</span></td>
-    <td>You cannot work on behalf of this user.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td><span style="color: red;">UNVERIFIED_USER</span></td>
-    <td>The user has registered but has not verified their email address. The user must use the Acrobat Sign website to complete verification.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td><span style="color: red;">NO_AUTHORIZATION_HEADER</span></td>
-    <td>The authorization header was not provided.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td><span style="color: red;">INVALID_ACCESS_TOKEN</span></td>
-    <td>The access token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td><span style="color: red;">INVALID_USER</span></td>
-    <td>An invalid user ID or email was provided in the <span style="color: red;">x-user header</span>.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td><span style="color: red;">INVALID_ON_BEHALF_OF_USER</span></td>
-    <td>An invalid user ID or email was provided in the <span style="color: red;">x-on-behalf-of-user header</span>.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td><span style="color: red;">API_TERMS_NOT_ACCEPTED</span></td>
-    <td>Your account is locked because an administrator has not agreed to Acrobat Sign’s Terms of Use. Please contact your administrator to activate your account.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td><span style="color: red;">PERMISSION_DENIED</span></td>
-    <td>The API caller does not have the permission to execute this operation.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td><span style="color: red;">MISC_SERVER_ERROR</span></td>
-    <td>Some miscellaneous server error has occurred.</td>
-  </tr>
-</table>
+
+| HTTPS status code | Error code | Message |
+|---|---|---|
+| 400 | BAD_REQUEST | The request provided is invalid. |
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 400 | INVALID_ON_BEHALF_OF_USER_HEADER | The value provided in the x-on-behalf-of-user header is in invalid format. |
+| 400 | INVALID_X_API_USER_HEADER | The value provided in x-api-user header is in invalid format. |
+| 400 | MISC_ERROR | Some miscellaneous error has occurred. |
+| 401 | UNAUTHORIZED | You cannot work on behalf of this user. |
+| 401 | UNVERIFIED_USER | The user has registered but has not verified their email address. The user must use the Acrobat Sign website to complete verification. |
+| 401 | NO_AUTHORIZATION_HEADER | The authorization header was not provided. |
+| 401 | INVALID_ACCESS_TOKEN | The access token provided is invalid or has expired. |
+| 401 | INVALID_USER | An invalid user ID or email was provided in the x-user header. |
+| 401 | INVALID_ON_BEHALF_OF_USER | An invalid user ID or email was provided in the x-on-behalf-of-user header. |
+| 403 | API_TERMS_NOT_ACCEPTED | Your account is locked because an administrator has not agreed to Acrobat Sign’s Terms of Use. Please contact your administrator to activate your account. |
+| 404 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| 500 | MISC_SERVER_ERROR | Some miscellaneous server error has occurred. |
+
 
 ## Standard API request headers
 
 Every API request will have the following standard headers. If Any API in the list above does not have one or more of the following headers, the API will explicitly document this fact.
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Header Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><span style="color: red;">AUTHORIZATION</span></td>
-    <td>An access token with the correct scopes.</td>
-  </tr>
-  <tr>
-    <td><span style="color: red;">x-api-user</span></td>
-    <td>The userId or email of the API caller using the account or group token in the format <span style="color: red;">userid:&#123;userId&#125;</span> <b>OR</b> <span style="color: red;">email:&#123;email&#125;</span>. If it is not specified, then the caller is inferred from the token.</td>
-  </tr>
-  <tr>
-    <td><span style="color: red;">x-on-behalf-of-user</span></td>
-    <td>Account sharing: The user on whose behalf the API caller is working.</td>
-  </tr>
-</table>
+
+| Header Name | Description |
+|---|---|
+| AUTHORIZATION | An access token with the correct scopes. |
+| x-api-user | The userId or email of the API caller using the account or group token in the format userid:{userId} OR email:{email}. If it is not specified, then the caller is inferred from the token. |
+| x-on-behalf-of-user | Account sharing: The user on whose behalf the API caller is working. |
+
 
 ## Using AWS Lambda Functions
 

@@ -16,13 +16,13 @@ The Acrobat Sign Embed 2.0 frictionless model release exposes new APIs for strea
 Adobe provisions Embed 2.0 customers with access to both the Global and Admin Consoles so they can:
 
 - Use the consoles for managing all licensed Adobe products.
-- Create and assign roles for partner’s users (e.g. developers; not customers).
+- Create and assign roles for partner's users (e.g. developers; not customers).
 - Set up Federated directory and define Identity Provider (IdP).
-- Claim domains (e.g. ‘oempartner.com’) for use with all customers (e.g. [bob.smith_joesbikeshop@oempartner.com](mailto:bob.smith_joesbikeshop%40oempartner.com))
+- Claim domains (e.g. 'oempartner.com') for use with all customers (e.g. [bob.smith_joesbikeshop@oempartner.com](mailto:bob.smith_joesbikeshop%40oempartner.com))
 
 <InlineAlert slots="text" />
 
-Adobe creates and assigns a Sign ‘channel’ for exclusive partner use. All customer accounts will inherit from this channel’s settings. You will collaborate with the Acrobat Sign partner team to define set of ‘global’ settings for all of your customers.
+Adobe creates and assigns a Sign 'channel' for exclusive partner use. All customer accounts will inherit from this channel's settings. You will collaborate with the Acrobat Sign partner team to define set of 'global' settings for all of your customers.
 
 As described in the [onboarding guide](onboarding.md), creating a technical account involves these high level steps in the Developer Console:
 
@@ -45,88 +45,34 @@ The rest of this document provides details about new Embed 2.0 APIs.
 
 **Get Base_uri**
 
-Acrobat Sign APIs come with location awareness, so it’s important to use the correct geographic access point when calling resource-based APIs to ensure success. We highly recommend that clients store the base endpoint URL for each environment. This way, you can retrieve the appropriate geographic access points ([https://api.na1.adobesign.com](https://api.na1.adobesign.com), [https://api.eu1.adobesign.com](https://api.eu1.adobesign.com) for your resource-based API calls. Before making any API calls, make sure to include the valid access point returned as part of the base endpoint API in your request.
+Acrobat Sign APIs come with location awareness, so it's important to use the correct geographic access point when calling resource-based APIs to ensure success. We highly recommend that clients store the base endpoint URL for each environment. This way, you can retrieve the appropriate geographic access points ([https://api.na1.adobesign.com](https://api.na1.adobesign.com), [https://api.eu1.adobesign.com](https://api.eu1.adobesign.com) for your resource-based API calls. Before making any API calls, make sure to include the valid access point returned as part of the base endpoint API in your request.
 
 ***Base API Host***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Environment</th>
-    <th>Base API Host</th>
-  </tr>
-  <tr>
-    <td>Sandbox Production</td>
-    <td><a href="https://api.adobesignsandbox.com">https://api.adobesignsandbox.com</a></td>
-  </tr>
-  <tr>
-    <td>Production</td>
-    <td><a href="https://api.adobesign.com">https://api.adobesign.com</a></td>
-  </tr>
-</table>
+| Environment | Base API Host |
+|-------------|---------------|
+| Sandbox Production | [https://api.adobesignsandbox.com](https://api.adobesignsandbox.com) |
+| Production | [https://api.adobesign.com](https://api.adobesign.com) |
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>GET</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;Base Api Host&#125;/api/rest/v6/baseUris</td>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>Very first API call to fetch geographical aware access points before you can call further APIs.</td>
-  </tr>
-  <tr>
-    <td>Authentication</td>
-    <td>Valid user/technical account token</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Auth API Headers</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>BaseUri Response</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>BaseUri Error Codes</td>
-  </tr>
-</table>
+| Item | Value |
+|------|-------|
+| HTTP Method | GET |
+| Endpoint Operation | {Base Api Host}/api/rest/v6/baseUris |
+| Description | Very first API call to fetch geographical aware access points before you can call further APIs. |
+| Authentication | Valid user/technical account token |
+| Request Header | Auth API Headers |
+| Response Object | BaseUri Response |
+| HTTP Status Code | 200 |
+| Error Code | BaseUri Error Codes |
 
 ***Response Object***
 
-<br/>
-<table border="1" columnWidths="30,20,50">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>apiAccessPoint</td>
-    <td>String</td>
-    <td>The access point from where other APIs need to be accessed. In case other APIs are accessed from a different endpoint, it will be considered an invalid request.</td>
-  </tr>
-  <tr>
-    <td>webAccessPoint</td>
-    <td>String</td>
-    <td>Web access point acting as base host domain for all web-based calls.</td>
-  </tr>
-</table>
+| Parameter Name | Type | Description |
+|----------------|------|-------------|
+| apiAccessPoint | String | The access point from where other APIs need to be accessed. In case other APIs are accessed from a different endpoint, it will be considered an invalid request. |
+| webAccessPoint | String | Web access point acting as base host domain for all web-based calls. |
 
 **BaseUri: Sample Response**
 
@@ -141,24 +87,10 @@ Acrobat Sign APIs come with location awareness, so it’s important to use the c
 
 ***Error codes***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_ACCESS_TOKEN</td>
-    <td>Access token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>NO_AUTHORIZATION_HEADER</td>
-    <td>Authorization header not provided.</td>
-  </tr>
-</table>
+| HTTP Status Code | Error Code | Message |
+|------------------|------------|---------|
+| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
+| 401 | NO_AUTHORIZATION_HEADER | Authorization header not provided. |
 
 ## Authentication: Token APIs
 
@@ -171,150 +103,44 @@ Call these APIs via the AdobeSignAuthService for user token generation and valid
 
 ***Common header attributes***
 
-<br/>
-<table border="1" columnWidths="20,40,40">
-  <tr>
-    <th>Header Name</th>
-    <th>Values</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>content-type</td>
-    <td>application/x-www-form-urlencoded</td>
-    <td>The resource media type.</td>
-  </tr>
-  <tr>
-    <td>x-request-id</td>
-    <td>String</td>
-    <td>A string value needed to track a given request.</td>
-  </tr>
-</table>
+| Header Name | Values | Description |
+|-------------|--------|-------------|
+| content-type | application/x-www-form-urlencoded | The resource media type. |
+| x-request-id | String | A string value needed to track a given request. |
 
 ### Create an Embed user token
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>POST</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;apiAccessPoint&#125;/api/gateway/adobesignauthservice/api/v1/token</td>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>API to generate Sign Embed user Token.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Auth API Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>Create token parameters</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>Create token response</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>Generate Token - Error response</td>
-  </tr>
-</table>
+| Item | Value |
+|------|-------|
+| HTTP Method | POST |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/token |
+| Description | API to generate Sign Embed user Token. |
+| Request Header | Auth API Headers |
+| Request Object | Create token parameters |
+| Response Object | Create token response |
+| HTTP Status Code | 200 |
+| Error Code | Generate Token - Error response |
 
 #### Request
 
 ***Request Parameters***
 
-<br/>
-<table border="1" columnWidths="20,10,5,55,10">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Default Value</th>
-    <th>Description</th>
-    <th>Mandatory Fields by POST</th>
-  </tr>
-  <tr>
-    <td>client_id</td>
-    <td>String</td>
-    <td></td>
-    <td>IMS Client Id</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>client_secret</td>
-    <td>String</td>
-    <td></td>
-    <td>IMS client secret</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>grant_type</td>
-    <td>String</td>
-    <td></td>
-    <td>Auth Grant type</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>subject_token</td>
-    <td>String</td>
-    <td></td>
-    <td>Unsigned JWT token of the user with email as payload. Refer below section for more details.</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>subject_token_type</td>
-    <td>String</td>
-    <td></td>
-    <td>jwt: subject token type</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>actor_token_type</td>
-    <td>String</td>
-    <td></td>
-    <td>access_token - actor Token type</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>actor_token</td>
-    <td>String</td>
-    <td></td>
-    <td>Technical account token with mandatory scope: sign_oem_user_impersonate.</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>scope</td>
-    <td>String</td>
-    <td></td>
-    <td>
-      Scopes requested for the user access token. It must be a subset of the scopes that are available in the technical account token:  
-      openid, AdobeID, agreement_read, agreement_sign, agreement_write, agreement_send, agreement_retention, agreement_vault,  
-      sign_library_read, sign_library_write, sign_library_retention, widget_read, widget_write, workflow_read, workflow_write,  
-      sign_user_write, sign_user_read, sign_user_login, sign_webhook_read, sign_webhook_write, sign_webhook_retention.  
-      <strong>The following scopes are not allowed for user access token:</strong>  
-      sign_account_read, sign_account_write, sign_oem_user_impersonate, ee.GROUP_SIGN_OEM, user_management_sdk.
-    </td>
-    <td>Required</td>
-  </tr>
-</table>
+| Parameter Name | Type | Default Value | Description | Mandatory Fields by POST |
+|----------------|------|---------------|-------------|--------------------------|
+| client_id | String | | IMS Client Id | Required |
+| client_secret | String | | IMS client secret | Required |
+| grant_type | String | | Auth Grant type | Required |
+| subject_token | String | | Unsigned JWT token of the user with email as payload. Refer below section for more details. | Required |
+| subject_token_type | String | | jwt: subject token type | Required |
+| actor_token_type | String | | access_token - actor Token type | Required |
+| actor_token | String | | Technical account token with mandatory scope: sign_oem_user_impersonate. | Required |
+| scope | String | | Scopes requested for the user access token. It must be a subset of the scopes that are available in the technical account token: openid, AdobeID, agreement_read, agreement_sign, agreement_write, agreement_send, agreement_retention, agreement_vault, sign_library_read, sign_library_write, sign_library_retention, widget_read, widget_write, workflow_read, workflow_write, sign_user_write, sign_user_read, sign_user_login, sign_webhook_read, sign_webhook_write, sign_webhook_retention. The following scopes are not allowed for user access token: sign_account_read, sign_account_write, sign_oem_user_impersonate, ee.GROUP_SIGN_OEM, user_management_sdk. | Required |
 
 **Generating Subject Token**
 
-Subject identifies the principal for which the JWT token [https://jwt.io/introduction](https://jwt.io/introduction) belongs & access token is being minted by exchanging technical account token(actor token). Subject is scoped to be locally unique in context of authorization server identified by email. The jwt token belonging to this subject is termed subject_token which is an unsigned one and has “email” as claim.
+Subject identifies the principal for which the JWT token [https://jwt.io/introduction](https://jwt.io/introduction) belongs & access token is being minted by exchanging technical account token(actor token). Subject is scoped to be locally unique in context of authorization server identified by email. The jwt token belonging to this subject is termed subject_token which is an unsigned one and has "email" as claim.
 
 **Sample subject token (jwt)**
 
@@ -328,7 +154,7 @@ Payload:
 }
 ```
 
-For quick testing, copy this sample value and paste in jwt.io, Navigate to right hand payload section & update “email”. The jwt token at left side will be updated automatically. You can use this as subject token in token exchange api
+For quick testing, copy this sample value and paste in jwt.io, Navigate to right hand payload section & update "email". The jwt token at left side will be updated automatically. You can use this as subject token in token exchange api
 
 **How to generate programmatically?**
 
@@ -351,34 +177,14 @@ scope:sign_webhook_retention,widget_write,workflow_read,agreement_send,agreement
 
 ***Response Parameters***
 
-<br/>
-<table border="1" columnWidths="20,20,60">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>access_token</td>
-    <td>String</td>
-    <td>User Access Token value</td>
-  </tr>
-  <tr>
-    <td>token_type</td>
-    <td>String</td>
-    <td>Token type: <span style="color: red;">access_token</span></td>
-  </tr>
-  <tr>
-    <td>expires_in</td>
-    <td>Long</td>
-    <td>Duration before expiry in seconds. The user token expires in 5 minutes.</td>
-  </tr>
-  <tr>
-    <td>scope</td>
-    <td>String</td>
-    <td>Scope available in the user access token.</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description |
+|---|---|---|
+| access_token | String | User Access Token value |
+| token_type | String | Token type: access_token |
+| expires_in | Long | Duration before expiry in seconds. The user token expires in 5 minutes. |
+| scope | String | Scope available in the user access token. |
+
 
 **Sample Response**
 
@@ -395,124 +201,43 @@ scope:sign_webhook_retention,widget_write,workflow_read,agreement_send,agreement
 
 ***Error codes for create an embed user token***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>BAD_REQUEST</td>
-    <td>The request provided is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_REQUEST</td>
-    <td>&lt;required param name&gt; is missing or invalid.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_AUTHENTICATING_TOKEN</td>
-    <td>actor_token is missing or invalid.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>AUTHENTICATION_FAILED</td>
-    <td>Partner is not onboarded successfully.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>PERMISSION_DENIED</td>
-    <td>The API caller does not have the permission to execute this operation.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error Code | Message |
+|---|---|---|
+| 400 | BAD_REQUEST | The request provided is invalid. |
+| 400 | INVALID_REQUEST | <required param name> is missing or invalid. |
+| 401 | INVALID_AUTHENTICATING_TOKEN | actor_token is missing or invalid. |
+| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ### Validate Embed User token
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>POST</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;apiAccessPoint&#125;/api/gateway/adobesignauthservice/api/v1/validate_token</td>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>API to check the validity of the user token.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Auth API Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>Validate token request</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>Validate token Response</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>Error Response - Validate Token</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | POST |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/validate_token |
+| Description | API to check the validity of the user token. |
+| Request Header | Auth API Headers |
+| Request Object | Validate token request |
+| Response Object | Validate token Response |
+| HTTP Status Code | 200 |
+| Error Code | Error Response - Validate Token |
+
 
 #### Request
 
 ***Request Parameters***
 
-<br/>
-<table border="1" columnWidths="20,20,10,30,20">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Default Value</th>
-    <th>Description</th>
-    <th>Mandatory Fields by POST</th>
-  </tr>
-  <tr>
-    <td>client_id</td>
-    <td>String</td>
-    <td></td>
-    <td>IMS Client Id</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>token</td>
-    <td>String</td>
-    <td></td>
-    <td>User access token</td>
-    <td>Required</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td></td>
-    <td>Token type</td>
-    <td>Required</td>
-  </tr>
-</table>
+| Parameter Name | Type | Default Value | Description | Mandatory Fields by POST |
+|----------------|------|---------------|-------------|--------------------------|
+| client_id | String | | IMS Client Id | Required |
+| token | String | | User access token | Required |
+| type | String | | Token type | Required |
 
 **Sample request**
 
@@ -526,24 +251,12 @@ type:access_token
 
 ***Response Parameters***
 
-<br/>
-<table border="1" columnWidths="20,30,50">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>valid</td>
-    <td>boolean</td>
-    <td>Returns if the token is valid or not.</td>
-  </tr>
-  <tr>
-    <td>expires_at</td>
-    <td>long</td>
-    <td>Token Expiry time in Epoc sec.</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description |
+|---|---|---|
+| valid | boolean | Returns if the token is valid or not. |
+| expires_at | long | Token Expiry time in Epoc sec. |
+
 
 **Sample Response**
 
@@ -558,78 +271,34 @@ type:access_token
 
 ***Error codes for validate account***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>BAD_REQUEST</td>
-    <td>The request provided is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_REQUEST</td>
-    <td>&lt;required param name&gt; is missing or invalid.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error Code | Message |
+|---|---|---|
+| 400 | BAD_REQUEST | The request provided is invalid. |
+| 400 | INVALID_REQUEST | <required param name> is missing or invalid. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 #### Common attributes
 
 ***Account & User APIs: Common headers for Partner APIs***
 
-<br/>
-<table border="1" columnWidths="20,30,50">
-  <tr>
-    <th>Header Name</th>
-    <th>Value</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>Bearer &lt;Technical Account Token&gt;</td>
-    <td>Technical account token that is generated by the partner and the Partner is onboarded beforehand.</td>
-  </tr>
-  <tr>
-    <td>content-type</td>
-    <td>application/json</td>
-    <td>Media type of the resource.</td>
-  </tr>
-  <tr>
-    <td>x-request-id</td>
-    <td>String</td>
-    <td>A string value needed to track a given request.</td>
-  </tr>
-</table>
+
+| Header Name | Value | Description |
+|---|---|---|
+| Authorization | Bearer <Technical Account Token> | Technical account token that is generated by the partner and the Partner is onboarded beforehand. |
+| content-type | application/json | Media type of the resource. |
+| x-request-id | String | A string value needed to track a given request. |
+
 
 ***Common headers for Auth token APIs***
 
-<br/>
-<table border="1" columnWidths="20,30,50">
-  <tr>
-    <th>Header Name</th>
-    <th>Value</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>content-type</td>
-    <td>application/x-www-form-urlencoded</td>
-    <td>Media type of the resource.</td>
-  </tr>
-  <tr>
-    <td>x-request-id</td>
-    <td>String</td>
-    <td>A string value needed to track a given request.</td>
-  </tr>
-</table>
+
+| Header Name | Value | Description |
+|---|---|---|
+| content-type | application/x-www-form-urlencoded | Media type of the resource. |
+| x-request-id | String | A string value needed to track a given request. |
+
 
 ## Register APIs
 
@@ -643,86 +312,33 @@ You can call the following API to register your partner application by directly 
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>POST</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td><span style="color: red;">&#123;apiAccessPoint&#125;/api/gateway/signembed/v1/partners</span></td>
-  </tr>
-  <tr>
-    <td>Authentication/Authorization</td>
-    <td>Values:
-    <ul>
-    <li>Valid Technical Account Token</li>
-    <li>Mandatory scopes in token: <span style="color: red;">sign_user_write, sign_user_read, sign_account_write, sign_account_read, sign_oem_user_impersonate</span></li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>API to register the Partner with Acrobat Sign. This would be called once as part of Partner onboarding.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>RegisterPartnerRequest</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>RegisterPartnerResponse</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>201</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>Error Response - Register Partner</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | POST |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/partners |
+| Authentication/Authorization | Values:
+    
+    Valid Technical Account Token
+    Mandatory scopes in token: sign_user_write, sign_user_read, sign_account_write, sign_account_read, sign_oem_user_impersonate |
+| Description | API to register the Partner with Acrobat Sign. This would be called once as part of Partner onboarding. |
+| Request Header | Partner APIs Common Headers |
+| Request Object | RegisterPartnerRequest |
+| Response Object | RegisterPartnerResponse |
+| HTTP Status Code | 201 |
+| Error Code | Error Response - Register Partner |
+
 
 #### Request
 
 ***Register Partner request parameters***
 
-<br/>
-<table border="1" columnWidths="15,15,20,30,20">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Default</th>
-    <th>Description</th>
-    <th>Requirement</th>
-    <th>Validations/Comments</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>NA</td>
-    <td>Identifiable partner name</td>
-    <td>Required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>domains</td>
-    <td>List&lt;String&gt;</td>
-    <td>List of all the domains claimed/trusted by the partner org</td>
-    <td>List of domains claimed/trusted by the partner organization</td>
-    <td>Optional</td>
-    <td>domain regex validation Validated against the domains claimed/trusted by the partner org</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Default | Description | Requirement | Validations/Comments |
+|---|---|---|---|---|---|
+| name | String | NA | Identifiable partner name | Required |  |
+| domains | List<String> | List of all the domains claimed/trusted by the partner org | List of domains claimed/trusted by the partner organization | Optional | domain regex validation Validated against the domains claimed/trusted by the partner org |
+
 
 **Register partner sample request**
 
@@ -740,75 +356,20 @@ You can call the following API to register your partner application by directly 
 
 ***Register partner response parameters***
 
-<br/>
-<table border="1" columnWidths="20,20,10,50">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Default</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>imsClientId</td>
-    <td>String</td>
-    <td></td>
-    <td>The client ID associated with the technical account</td>
-  </tr>
-  <tr>
-    <td>created</td>
-    <td>Date</td>
-    <td></td>
-    <td>Created date in ISO format</td>
-  </tr>
-  <tr>
-    <td>domains</td>
-    <td>List&lt;String&gt;</td>
-    <td></td>
-    <td>List of domains claimed/trusted by the partner</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td></td>
-    <td>Id for the Partner</td>
-  </tr>
-  <tr>
-    <td>modified</td>
-    <td>Date</td>
-    <td></td>
-    <td>Last modified date in ISO format</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td></td>
-    <td>Identifiable partner name</td>
-  </tr>
-  <tr>
-    <td>orgGuid</td>
-    <td>String</td>
-    <td></td>
-    <td>Id of the IMS organization</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>String</td>
-    <td>INACTIVE</td>
-    <td>Status of the Partner</td>
-  </tr>
-  <tr>
-    <td>technicalAccountId</td>
-    <td>String</td>
-    <td></td>
-    <td>Technical account ID associated with the technical account</td>
-  </tr>
-  <tr>
-    <td>updatedBy</td>
-    <td>String</td>
-    <td></td>
-    <td>Technical account ID associated with the technical account</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Default | Description |
+|---|---|---|---|
+| imsClientId | String |  | The client ID associated with the technical account |
+| created | Date |  | Created date in ISO format |
+| domains | List<String> |  | List of domains claimed/trusted by the partner |
+| id | String |  | Id for the Partner |
+| modified | Date |  | Last modified date in ISO format |
+| name | String |  | Identifiable partner name |
+| orgGuid | String |  | Id of the IMS organization |
+| status | String | INACTIVE | Status of the Partner |
+| technicalAccountId | String |  | Technical account ID associated with the technical account |
+| updatedBy | String |  | Technical account ID associated with the technical account |
+
 
 **Register partner sample response**
 
@@ -834,59 +395,19 @@ You can call the following API to register your partner application by directly 
 
 ***Error codes for register partner response***
 
-<br/>
-<table border="1" columnWidths="10,50,40">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_PARAMETER</td>
-    <td>The &lt;param_name&gt; value specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>DOMAIN_NOT_ELIGIBLE</td>
-    <td>One or more domains are not allowed for the given partner.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_JSON</td>
-    <td>An invalid JSON was specified.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>MISSING_REQUIRED_PARAM</td>
-    <td>Required parameter &lt;param name&gt; is missing.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_ACCESS_TOKEN</td>
-    <td>Access token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>MISSING_SCOPES</td>
-    <td>The token does not contain the required scopes.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>ORG_DOMAINS_NOT_FOUND</td>
-    <td>Org does not have any owned or trusted federated domains.</td>
-  </tr>
-  <tr>
-    <td>409</td>
-    <td>TECHNICAL_ACCOUNT_ID_ALREADY_EXISTS</td>
-    <td>Partner already exists for this Technical Account Id.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error Code | Message |
+|---|---|---|
+| 400 | INVALID_PARAMETER | The <param_name> value specified is invalid. |
+| 400 | DOMAIN_NOT_ELIGIBLE | One or more domains are not allowed for the given partner. |
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 400 | MISSING_REQUIRED_PARAM | Required parameter <param name> is missing. |
+| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
+| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 404 | ORG_DOMAINS_NOT_FOUND | Org does not have any owned or trusted federated domains. |
+| 409 | TECHNICAL_ACCOUNT_ID_ALREADY_EXISTS | Partner already exists for this Technical Account Id. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ## Account APIs
 
@@ -901,169 +422,58 @@ Call these APIs directly using a technical account token to create or update an 
 
 ***Common header attributes***
 
-<br/>
-<table border="1" columnWidths="20,40,40">
-  <tr>
-    <th>Header Name</th>
-    <th>Values</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>Bearer &lt;Technical Account Token&gt;</td>
-    <td>Technical account token that is generated by the partner and the Partner is onboarded beforehand.</td>
-  </tr>
-  <tr>
-    <td>content-type</td>
-    <td>application/json</td>
-    <td>The resource media type.</td>
-  </tr>
-  <tr>
-    <td>x-request-id</td>
-    <td>String</td>
-    <td>A string value needed to track a given request</td>
-  </tr>
-</table>
+
+| Header Name | Values | Description |
+|---|---|---|
+| Authorization | Bearer <Technical Account Token> | Technical account token that is generated by the partner and the Partner is onboarded beforehand. |
+| content-type | application/json | The resource media type. |
+| x-request-id | String | A string value needed to track a given request |
+
 
 ### Create Account
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>POST</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;apiAccessPoint&#125;/api/gateway/signembed/v1/accounts</td>
-  </tr>
-  <tr>
-    <td>Authentication/Authorization</td>
-    <td>Valid technical account token. Required scopes in token: <span style="color: red;">sign_account_write</span>.</td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to create new accounts for their customers.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>AccountProvisionRequest</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>AccountProvisionResponse</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>201</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>Error Response: Create Account</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | POST |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/accounts |
+| Authentication/Authorization | Valid technical account token. Required scopes in token: sign_account_write. |
+| Audience | Partner will call this API to create new accounts for their customers. |
+| Request Header | Partner APIs Common Headers |
+| Request Object | AccountProvisionRequest |
+| Response Object | AccountProvisionResponse |
+| HTTP Status Code | 201 |
+| Error Code | Error Response: Create Account |
+
 
 #### Request
 
 ***Account create-update request parameters***
 
-<br/>
-<table border="1" columnWidths="20,20,10,30,20,20">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Default</th>
-    <th>Description</th>
-    <th>Needed in POST/PUT</th>
-    <th>Updatable by PUT</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>NA</td>
-    <td>Account ID of the Account</td>
-    <td>Required and Permitted only in PUT</td>
-    <td>Immutable</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>NA</td>
-    <td>Name of the account. The name must only include numbers and letters. No special characters or spaces are allowed.</td>
-    <td>Required</td>
-    <td>mutable</td>
-  </tr>
-  <tr>
-    <td>company</td>
-    <td>String</td>
-    <td>""</td>
-    <td>Name of the company</td>
-    <td>Optional</td>
-    <td>mutable</td>
-  </tr>
-  <tr>
-    <td>consumables</td>
-    <td>List&lt;Consumable&gt;</td>
-    <td>[ ]</td>
-    <td>List of Consumables</td>
-    <td>Optional</td>
-    <td>mutable</td>
-  </tr>
-  <tr>
-    <td>countryCode</td>
-    <td>String</td>
-    <td>NA</td>
-    <td>Target Country for Account Provisioning. Ex US, FR, GB</td>
-    <td>Required</td>
-    <td>Immutable</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Default | Description | Needed in POST/PUT | Updatable by PUT |
+|---|---|---|---|---|---|
+| id | String | NA | Account ID of the Account | Required and Permitted only in PUT | Immutable |
+| name | String | NA | Name of the account. The name must only include numbers and letters. No special characters or spaces are allowed. | Required | mutable |
+| company | String | "" | Name of the company | Optional | mutable |
+| consumables | List<Consumable> | [ ] | List of Consumables | Optional | mutable |
+| countryCode | String | NA | Target Country for Account Provisioning. Ex US, FR, GB | Required | Immutable |
+
 
 ***Consumable***
 
-<br/>
-<table border="1" columnWidths="10,10,10,40,15,15">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Default Value</th>
-    <th>Description</th>
-    <th>Needed in POST/PUT</th>
-    <th>Updatable by PUT</th>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>NA</td>
-    <td>Name of consumable supported in Embed Accounts.
-    <ul>
-    <li>KBA_ANNUAL</li>
-    <li>PHONE_AUTH_ANNUAL</li>
-    <li>SEAT</li>
-    </ul>
-    </td>
-    <td>Required</td>
-    <td>mutable</td>
-  </tr>
-  <tr>
-    <td>attributes</td>
-    <td>Object</td>
-    <td>N/A</td>
-    <td>Properties for each consumable type</td>
-    <td>Required</td>
-    <td>mutable</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Default Value | Description | Needed in POST/PUT | Updatable by PUT |
+|---|---|---|---|---|---|
+| type | String | NA | Name of consumable supported in Embed Accounts.
+    
+    KBA_ANNUAL
+    PHONE_AUTH_ANNUAL
+    SEAT | Required | mutable |
+| attributes | Object | N/A | Properties for each consumable type | Required | mutable |
+
 
 **Sample Account Provisioning Request**
 
@@ -1097,19 +507,11 @@ Call these APIs directly using a technical account token to create or update an 
 
 #### Account creation response object
 
-<br/>
-<table border="1">
-  <tr>
-    <th>Parameter Name</th>
-    <th>REST Object</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>accountId</td>
-    <td>String</td>
-    <td>Account ID</td>
-  </tr>
-</table>
+
+| Parameter Name | REST Object | Description |
+|---|---|---|
+| accountId | String | Account ID |
+
 
 **Sample account creation response**
 
@@ -1123,107 +525,37 @@ Call these APIs directly using a technical account token to create or update an 
 
 ***Error codes for AccountCreateErrorResponse***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>MISSING_REQUIRED_PARAMS</td>
-    <td>Required parameter &lt;param name&gt; is missing.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_JSON</td>
-    <td>An invalid JSON was specified.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_PARAMETER</td>
-    <td>The &lt;param_name&gt; value specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_ACCESS_TOKEN</td>
-    <td>Access token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>MISSING_SCOPES</td>
-    <td>The token does not contain the required scopes.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>AUTHENTICATION_FAILED</td>
-    <td>Partner is not onboarded successfully.</td>
-  </tr>
-  <tr>
-    <td>409</td>
-    <td>ACCOUNT_ALREADY_EXISTS</td>
-    <td>Account with this name already exists.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>ACCOUNT_COULD_NOT_BE_CONFIGURED</td>
-    <td>Account with accountId &#123;account id&#125; could not be configured properly.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error code | Message |
+|---|---|---|
+| 400 | MISSING_REQUIRED_PARAMS | Required parameter <param name> is missing. |
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 400 | INVALID_PARAMETER | The <param_name> value specified is invalid. |
+| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
+| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 409 | ACCOUNT_ALREADY_EXISTS | Account with this name already exists. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+| 500 | ACCOUNT_COULD_NOT_BE_CONFIGURED | Account with accountId {account id} could not be configured properly. |
+
 
 ### Update Account
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>PUT</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;apiAccessPoint&#125;/api/gateway/signembed/v1/accounts/&lt;accountId&gt;</td>
-  </tr>
-  <tr>
-    <td>Authentication/Authorization</td>
-    <td>Valid technical account token. Required scopes: <span style="color: red;">sign_account_write</span></td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to update existing Embed account.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>AccountUpdateRequest</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>No Content</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>204</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>ErrorCodes - Update Account</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | PUT |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/accounts/<accountId> |
+| Authentication/Authorization | Valid technical account token. Required scopes: sign_account_write |
+| Audience | Partner will call this API to update existing Embed account. |
+| Request Header | Partner APIs Common Headers |
+| Request Object | AccountUpdateRequest |
+| Response Object | No Content |
+| HTTP Status Code | 204 |
+| Error Code | ErrorCodes - Update Account |
+
 
 #### Request
 
@@ -1263,160 +595,54 @@ Account update request parameters
 
 ***Error codes for AccountUpdateErrorResponse***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>MISSING_REQUIRED_PARAMS</td>
-    <td>Missing required parameters &lt;required param name&gt;.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_PARAMETER</td>
-    <td>The &lt;param_name&gt; value specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_INPUT</td>
-    <td>An invalid input is provided.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_JSON</td>
-    <td>An invalid JSON was specified.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_ACCESS_TOKEN</td>
-    <td>Access token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>MISSING_SCOPES</td>
-    <td>The token does not contain the required scopes.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>AUTHENTICATION_FAILED</td>
-    <td>Partner is not onboarded successfully.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>PERMISSION_DENIED</td>
-    <td>The API caller does not have the permission to execute this operation.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>ACCOUNT_NOT_FOUND</td>
-    <td>Account does not exist.</td>
-  </tr>
-  <tr>
-    <td>409</td>
-    <td>ACCOUNT_ALREADY_EXISTS</td>
-    <td>An account with this name already exists.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error code | Message |
+|---|---|---|
+| 400 | MISSING_REQUIRED_PARAMS | Missing required parameters <required param name>. |
+| 400 | INVALID_PARAMETER | The <param_name> value specified is invalid. |
+| 400 | INVALID_INPUT | An invalid input is provided. |
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
+| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| 404 | ACCOUNT_NOT_FOUND | Account does not exist. |
+| 409 | ACCOUNT_ALREADY_EXISTS | An account with this name already exists. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ### Get Account
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>GET</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;apiAccessPoint&#125;/api/gateway/signembed/v1/accounts/&lt;accountId&gt;</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>Valid technical account token. Required Scopes in token: sign_account_read</td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to fetch account details for their customers.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>(No content provided)</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>GetAccountResponse</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>ErrorCodes - get Account</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | GET |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/accounts/<accountId> |
+| Authorization | Valid technical account token. Required Scopes in token: sign_account_read |
+| Audience | Partner will call this API to fetch account details for their customers. |
+| Request Header | Partner APIs Common Headers |
+| Request Object | (No content provided) |
+| Response Object | GetAccountResponse |
+| HTTP Status Code | 200 |
+| Error Code | ErrorCodes - get Account |
+
 
 #### Response
 
 ***Response Object GetAccountResponse***
 
-<br/>
-<table border="1" columnWidths="30,30,40">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>account ID</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>Name of the account</td>
-  </tr>
-  <tr>
-    <td>company</td>
-    <td>String</td>
-    <td>Name of the company</td>
-  </tr>
-  <tr>
-    <td>consumables</td>
-    <td>List&lt;Consumable&gt;</td>
-    <td>List of Consumables with values. For example, KBA, PHONE_AUTH, and SEATS.</td>
-  </tr>
-  <tr>
-    <td>countryCode</td>
-    <td>String</td>
-    <td>Target Country for Account Provisioning. Ex US, FR, GB</td>
-  </tr>
-  <tr>
-    <td>created</td>
-    <td>Date</td>
-    <td>Account created date in ISO format.</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description |
+|---|---|---|
+| id | String | account ID |
+| name | String | Name of the account |
+| company | String | Name of the company |
+| consumables | List<Consumable> | List of Consumables with values. For example, KBA, PHONE_AUTH, and SEATS. |
+| countryCode | String | Target Country for Account Provisioning. Ex US, FR, GB |
+| created | Date | Account created date in ISO format. |
+
 
 **Sample account creation GetAccountResponse**
 
@@ -1453,192 +679,72 @@ Account update request parameters
 
 ***Error codes for AccountGetErrorResponse***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_INPUT</td>
-    <td>An invalid input is provided.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_ACCESS_TOKEN</td>
-    <td>Access token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>MISSING_SCOPES</td>
-    <td>The token does not contain the required scopes.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>AUTHENTICATION_FAILED</td>
-    <td>Partner is not onboarded successfully.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>PERMISSION_DENIED</td>
-    <td>The API caller does not have the permission to execute this operation.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>ACCOUNT_NOT_FOUND</td>
-    <td>Account does not exist.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error code | Message |
+|---|---|---|
+| 400 | INVALID_INPUT | An invalid input is provided. |
+| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
+| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| 404 | ACCOUNT_NOT_FOUND | Account does not exist. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ### Get All Accounts
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>GET</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>/v1/accounts?isLegacy=&#123;true/false&#125;&pagesSize=&#123;&#125;&pageNumber=&#123;&#125;</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>
-    <ul>
-    <li>Valid Technical Account Token.</li>
-    <li>Mandatory Scope in token - sign_account_read</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to fetch paginated list of accounts for all their customers.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>GetAccountsResponse</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>ErrorCodes - get Account</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | GET |
+| Endpoint Operation | /v1/accounts?isLegacy={true/false}&pagesSize={}&pageNumber={} |
+| Authorization | Valid Technical Account Token.
+    Mandatory Scope in token - sign_account_read |
+| Audience | Partner will call this API to fetch paginated list of accounts for all their customers. |
+| Request Header | Partner APIs Common Headers |
+| Request Object | GetAccountsResponse |
+| HTTP Status Code | 200 |
+| Error Code | ErrorCodes - get Account |
+
 
 ***Query Params***
 
-<br/>
-<table border="1" columnWidths="15,10,20,15,40">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Needed</th>
-    <th>Data Range</th>
-  </tr>
-  <tr>
-    <td>pageNumber</td>
-    <td>Integer</td>
-    <td>pageNumber to navigate through pages</td>
-    <td>Optional</td>
-    <td>
-    <strong>default:0</strong>
-      <ul>
-        <li>If pageNumber is less than 0, throw <strong>INVALID_PARAMETER</strong> exception</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>pageSize</td>
-    <td>Integer</td>
-    <td>pageSize to limit the number of records that will be fetched.</td>
-    <td>Optional</td>
-    <td>
-    <strong>default:20 max:100</strong>
-      <ul>
-        <li>If pageSize is less than 1, throw <strong>INVALID_PARAMETER</strong> exception</li>
-        <li>If pageSize is more than 100, throw <strong>PAGE_SIZE_LIMIT_EXCEEDED</strong> exception</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>isLegacy</td>
-    <td>boolean</td>
-    <td>Return legacy accounts that are on old Sign Embed Models.</td>
-    <td>Optional</td>
-    <td>
-    <strong>default:false</strong>
-      <ul>
-        <li>If isLegacy value is not a boolean, throw <strong>INVALID_PARAMETER</strong> exception</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description | Needed | Data Range |
+|---|---|---|---|---|
+| pageNumber | Integer | pageNumber to navigate through pages | Optional | default:0
+      
+        If pageNumber is less than 0, throw INVALID_PARAMETER exception |
+| pageSize | Integer | pageSize to limit the number of records that will be fetched. | Optional | default:20 max:100
+      
+        If pageSize is less than 1, throw INVALID_PARAMETER exception
+        If pageSize is more than 100, throw PAGE_SIZE_LIMIT_EXCEEDED exception |
+| isLegacy | boolean | Return legacy accounts that are on old Sign Embed Models. | Optional | default:false
+      
+        If isLegacy value is not a boolean, throw INVALID_PARAMETER exception |
+
 
 #### Response
 
 ***Response Object GetAccountResponse***
 
-<br/>
-<table border="1" columnWidths="20,30,50">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>accountList</td>
-    <td>List&lt;Account&gt;</td>
-    <td>List of Account details.</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description |
+|---|---|---|
+| accountList | List<Account> | List of Account details. |
+
 
 ***Account***
 
-<br/>
-<table border="1" columnWidths="20,30,50">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>accountId</td>
-    <td>String</td>
-    <td>Secure Account id to identify an Account</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>Name of the account</td>
-  </tr>
-  <tr>
-    <td>created</td>
-    <td>Date</td>
-    <td>Account created date in ISO format.</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description |
+|---|---|---|
+| accountId | String | Secure Account id to identify an Account |
+| name | String | Name of the account |
+| created | Date | Account created date in ISO format. |
+
 
 **Sample GetAccountsResponse**
 
@@ -1663,49 +769,17 @@ Account update request parameters
 
 ***Error Response for Get Accounts***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_PARAMETER</td>
-    <td>The pageSize specified must be greater than or equal to 1.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>PAGE_SIZE_LIMIT_EXCEEDED</td>
-    <td>Page size has exceeded the maximum length of 100.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_TOKEN</td>
-    <td>The token provided is invalid or expired.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>MISSING_SCOPES</td>
-    <td>The token does not contain the required scopes.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>AUTHENTICATION_FAILED</td>
-    <td>Partner is not onboarded successfully.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>PERMISSION_DENIED</td>
-    <td>The API caller does not have the permission to execute this operation.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error code | Message |
+|---|---|---|
+| 400 | INVALID_PARAMETER | The pageSize specified must be greater than or equal to 1. |
+| 400 | PAGE_SIZE_LIMIT_EXCEEDED | Page size has exceeded the maximum length of 100. |
+| 401 | INVALID_TOKEN | The token provided is invalid or expired. |
+| 401 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 401 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ## User APIs
 
@@ -1723,161 +797,40 @@ Common user header attributes are identical to the Account APIs.
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>POST</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;apiAccessPoint&#125;/api/gateway/signembed/v1/users</td>
-  </tr>
-  <tr>
-    <td>Authentication/ Authorization</td>
-    <td>Valid Technical Account Token or Sign Embed user Admin token. Mandatory Scopes required in token: <span style="color: red;">sign_user_write.</span></td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to add a new user to their customer’s account.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>Create User Request</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>Create User Response</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>201</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>ErrorCodes - Create User</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | POST |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/users |
+| Authentication/ Authorization | Valid Technical Account Token or Sign Embed user Admin token. Mandatory Scopes required in token: sign_user_write. |
+| Audience | Partner will call this API to add a new user to their customer's account. |
+| Request Header | Partner APIs Common Headers |
+| Request Object | Create User Request |
+| Response Object | Create User Response |
+| HTTP Status Code | 201 |
+| Error Code | ErrorCodes - Create User |
+
 
 #### Request
 
 ***Create-update user request parameters***
 
-<br/>
-<table border="1" columnWidths="15,15,10,20,20,15">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Default Value</th>
-    <th>Description</th>
-    <th>Mandatory Fields by POST/PUT</th>
-    <th>Update Allowed via PUT</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td></td>
-    <td>Id to uniquely identify a user.</td>
-    <td>Required and permitted only in a PUT call</td>
-    <td>Immutable</td>
-  </tr>
-  <tr>
-    <td>email</td>
-    <td>String</td>
-    <td></td>
-    <td>Email of the user.</td>
-    <td>Required</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>emailAlias</td>
-    <td>String</td>
-    <td></td>
-    <td>Email alias with customer domain displayed in the audit report.</td>
-    <td>Optional</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>firstName</td>
-    <td>String</td>
-    <td></td>
-    <td>First Name of the User.</td>
-    <td>Required</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>lastName</td>
-    <td>String</td>
-    <td></td>
-    <td>Last Name of the User.</td>
-    <td>Required</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>accountId</td>
-    <td>String</td>
-    <td></td>
-    <td>Account ID where the user needs to be added.</td>
-    <td>Required. Optional if User token is used for Authentication.</td>
-    <td>Immutable</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>String</td>
-    <td>ACTIVE</td>
-    <td>Status of the user.</td>
-    <td>Optional. Not supported in POST. Defaults to ACTIVE.</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>initials</td>
-    <td>String</td>
-    <td>“”</td>
-    <td>Initials of the user name.</td>
-    <td>Optional</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>phone</td>
-    <td>String</td>
-    <td>“”</td>
-    <td>Phone number of the user.</td>
-    <td>Optional</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>String</td>
-    <td>“”</td>
-    <td>Job Title of the user.</td>
-    <td>Optional</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>company</td>
-    <td>String</td>
-    <td>“”</td>
-    <td>Name of the company.</td>
-    <td>Optional</td>
-    <td>Mutable</td>
-  </tr>
-  <tr>
-    <td>roles</td>
-    <td>List&lt;String&gt;</td>
-    <td></td>
-    <td>User roles Values: ACCOUNT_ADMIN, PRIVACY_ADMI</td>
-    <td>Optional</td>
-    <td>Mutable</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Default Value | Description | Mandatory Fields by POST/PUT | Update Allowed via PUT |
+|---|---|---|---|---|---|
+| id | String |  | Id to uniquely identify a user. | Required and permitted only in a PUT call | Immutable |
+| email | String |  | Email of the user. | Required | Mutable |
+| emailAlias | String |  | Email alias with customer domain displayed in the audit report. | Optional | Mutable |
+| firstName | String |  | First Name of the User. | Required | Mutable |
+| lastName | String |  | Last Name of the User. | Required | Mutable |
+| accountId | String |  | Account ID where the user needs to be added. | Required. Optional if User token is used for Authentication. | Immutable |
+| status | String | ACTIVE | Status of the user. | Optional. Not supported in POST. Defaults to ACTIVE. | Mutable |
+| initials | String | " | Initials of the user name. | Optional | Mutable |
+| phone | String | " | Phone number of the user. | Optional | Mutable |
+| title | String | " | Job Title of the user. | Optional | Mutable |
+| company | String | " | Name of the company. | Optional | Mutable |
+| roles | List<String> |  | User roles Values: ACCOUNT_ADMIN, PRIVACY_ADMI | Optional | Mutable |
+
 
 **Sample user creation request body**
 
@@ -1904,139 +857,50 @@ Common user header attributes are identical to the Account APIs.
 
 **Create User Response**
 
-<br/>
-<table border="1">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>userId</td>
-    <td>String</td>
-    <td>User ID</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description |
+|---|---|---|
+| userId | String | User ID |
+
 
 #### Error
 
 ***Error codes for UserCreateErrorResponse***
 
-<br/>
-<table border="1" columnWidths="10,50,40">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>MISSING_REQUIRED_PARAMS</td>
-    <td>Required parameter &lt;param name&gt; is missing.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_PARAMETER</td>
-    <td>The &lt;param_name&gt; value specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>INVALID_ACCESS_TOKEN</td>
-    <td>Token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>MISSING_SCOPES</td>
-    <td>The token does not contain the required scopes.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>AUTHENTICATION_FAILED</td>
-    <td>Partner is not onboarded successfully.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>MAXIMUM_USERS_FOR_ACCOUNT_LIMIT_EXCEEDED</td>
-    <td>Maximum active user limit reached for the account.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>PERMISSION_DENIED</td>
-    <td>The API caller does not have permission to execute this operation.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>ACCOUNT_NOT_FOUND</td>
-    <td>Account does not exist.</td>
-  </tr>
-  <tr>
-    <td>409</td>
-    <td>USER_ALREADY_EXISTS</td>
-    <td>User with this email already exists.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>USER_COULD_NOT_BE_CREATED</td>
-    <td>User could not be created.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error Code | Message |
+|---|---|---|
+| 400 | MISSING_REQUIRED_PARAMS | Required parameter <param name> is missing. |
+| 400 | INVALID_PARAMETER | The <param_name> value specified is invalid. |
+| 401 | INVALID_ACCESS_TOKEN | Token provided is invalid or has expired. |
+| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 403 | MAXIMUM_USERS_FOR_ACCOUNT_LIMIT_EXCEEDED | Maximum active user limit reached for the account. |
+| 403 | PERMISSION_DENIED | The API caller does not have permission to execute this operation. |
+| 404 | ACCOUNT_NOT_FOUND | Account does not exist. |
+| 409 | USER_ALREADY_EXISTS | User with this email already exists. |
+| 500 | USER_COULD_NOT_BE_CREATED | User could not be created. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ### PUT User
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>PUT</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>&#123;apiAccessPoint&#125;/api/gateway/signembed/v1/users/&lt;userId&gt;</td>
-  </tr>
-  <tr>
-    <td>Authentication/Authorization</td>
-    <td>
-    <ul></ul>
-    <li>Valid Technical Account Token or Admin User Token.</li>
-    <li>Mandatory scopes in token: <span style="color: red;">sign_user_write</span>.</li>
-    </td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to update the user attributes in the customer’s account.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td>UpdateUserRequest</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>No Content</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>204</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>ErrorCode - Update User</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | PUT |
+| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/users/<userId> |
+| Authentication/Authorization | Valid Technical Account Token or Admin User Token.
+    Mandatory scopes in token: sign_user_write. |
+| Audience | Partner will call this API to update the user attributes in the customer's account. |
+| Request Header | Partner APIs Common Headers |
+| Request Object | UpdateUserRequest |
+| Response Object | No Content |
+| HTTP Status Code | 204 |
+| Error Code | ErrorCode - Update User |
+
 
 #### Request
 
@@ -2066,218 +930,65 @@ Common user header attributes are identical to the Account APIs.
 
 ***Error codes for UserUpdateErrorResponse***
 
-<br/>
-<table border="1" columnWidths="10,50,40">
-  <thead>
-    <tr>
-      <th>HTTP Status Code</th>
-      <th>Error Code</th>
-      <th>Message</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>400</td>
-      <td>MISSING_REQUIRED_PARAMS</td>
-      <td>Required parameter &lt;param name&gt; is missing.</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>INVALID_PARAMETER</td>
-      <td>The &lt;param_name&gt; value specified is invalid.</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>INVALID_JSON</td>
-      <td>An invalid JSON was specified.</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>INVALID_INPUT</td>
-      <td>An invalid input is provided.</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>INVALID_ACCESS_TOKEN</td>
-      <td>Access token provided is invalid or has expired.</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>MISSING_SCOPES</td>
-      <td>The token does not contain the required scopes.</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>AUTHENTICATION_FAILED</td>
-      <td>Partner is not onboarded successfully.</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>PERMISSION_DENIED</td>
-      <td>The API caller does not have the permission to execute this operation.</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>ACCOUNT_NOT_FOUND</td>
-      <td>Account does not exist.</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>USER_NOT_FOUND</td>
-      <td>User does not exist.</td>
-    </tr>
-    <tr>
-      <td>409</td>
-      <td>USER_ALREADY_EXISTS</td>
-      <td>User with this email already exists.</td>
-    </tr>
-    <tr>
-      <td>500</td>
-      <td>INTERNAL_SERVER_ERROR</td>
-      <td>Some miscellaneous error has occurred.</td>
-    </tr>
-    <tr>
-      <td>500</td>
-      <td>USER_COULD_NOT_BE_UPDATED</td>
-      <td>User could not be updated.</td>
-    </tr>
-  </tbody>
-</table>
+
+| HTTP Status Code | Error Code | Message |
+|---|---|---|
+| 400 | MISSING_REQUIRED_PARAMS | Required parameter <param name> is missing. |
+| 400 | INVALID_PARAMETER | The <param_name> value specified is invalid. |
+| 400 | INVALID_JSON | An invalid JSON was specified. |
+| 400 | INVALID_INPUT | An invalid input is provided. |
+| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
+| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| 404 | ACCOUNT_NOT_FOUND | Account does not exist. |
+| 404 | USER_NOT_FOUND | User does not exist. |
+| 409 | USER_ALREADY_EXISTS | User with this email already exists. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+| 500 | USER_COULD_NOT_BE_UPDATED | User could not be updated. |
+
 
 ### GET User
 
 ***Overview***
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>GET</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>/api/gateway/signembed/v1/users/&lt;userId&gt;</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>
-    <ul>
-    <li>Valid Technical Account Token or Admin User Token.</li>
-    <li>Mandatory scopes in token: <span style="color: red;">sign_user_read</span>.</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Mandatory Scopes</td>
-    <td>sign_user_read</td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to fetch details of a user.</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Request Object</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>Get User Response</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>ErrorCodes - Get User</td>
-  </tr>
-</table>
+
+| Item | Value |
+|---|---|
+| HTTP Method | GET |
+| Endpoint Operation | /api/gateway/signembed/v1/users/<userId> |
+| Authorization | Valid Technical Account Token or Admin User Token.
+    Mandatory scopes in token: sign_user_read. |
+| Mandatory Scopes | sign_user_read |
+| Audience | Partner will call this API to fetch details of a user. |
+| Request Header | Partner APIs Common Headers |
+| Request Object |  |
+| Response Object | Get User Response |
+| HTTP Status Code | 200 |
+| Error Code | ErrorCodes - Get User |
+
 
 #### Response
 
 ***Get user response attributes***
 
-<br/>
-<table border="1" columnWidths="20,20,60">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>Id to uniquely identify a user.</td>
-  </tr>
-  <tr>
-    <td>email</td>
-    <td>String</td>
-    <td>Email of the user.</td>
-  </tr>
-  <tr>
-    <td>emailAlias</td>
-    <td>String</td>
-    <td>Email alias with customer domain displayed in the audit report.</td>
-  </tr>
-  <tr>
-    <td>firstName</td>
-    <td>String</td>
-    <td>First Name of the User.</td>
-  </tr>
-  <tr>
-    <td>lastName</td>
-    <td>String</td>
-    <td>Last Name of the User.</td>
-  </tr>
-  <tr>
-    <td>accountId</td>
-    <td>String</td>
-    <td>Account ID of the user’s account.</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>String</td>
-    <td>Status of the user.</td>
-  </tr>
-  <tr>
-    <td>initials</td>
-    <td>String</td>
-    <td>Initials of the user name.</td>
-  </tr>
-  <tr>
-    <td>phone</td>
-    <td>String</td>
-    <td>Phone number of the user.</td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>String</td>
-    <td>Job Title of the user.</td>
-  </tr>
-  <tr>
-    <td>company</td>
-    <td>String</td>
-    <td>Name of the company.</td>
-  </tr>
-  <tr>
-    <td>roles</td>
-    <td>List&lt;String&gt;</td>
-    <td>ACCOUNT_ADMIN, PRIVACY_ADMIN: User roles values.</td>
-  </tr>
-  <tr>
-    <td>created</td>
-    <td>Date</td>
-    <td>User creation date in ISO format.</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description |
+|---|---|---|
+| id | String | Id to uniquely identify a user. |
+| email | String | Email of the user. |
+| emailAlias | String | Email alias with customer domain displayed in the audit report. |
+| firstName | String | First Name of the User. |
+| lastName | String | Last Name of the User. |
+| accountId | String | Account ID of the user's account. |
+| status | String | Status of the user. |
+| initials | String | Initials of the user name. |
+| phone | String | Phone number of the user. |
+| title | String | Job Title of the user. |
+| company | String | Name of the company. |
+| roles | List<String> | ACCOUNT_ADMIN, PRIVACY_ADMIN: User roles values. |
+| created | Date | User creation date in ISO format. |
+
 
 **Sample get user response**
 
@@ -2304,55 +1015,23 @@ Common user header attributes are identical to the Account APIs.
 
 ***Error codes for UserGetErrorResponse***
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Status Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_PARAMETER</td>
-    <td>The &lt;param_name&gt; value specified is invalid.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>INVALID_ACCESS_TOKEN</td>
-    <td>Access token provided is invalid or has expired.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>MISSING_SCOPES</td>
-    <td>The token does not contain the required scopes.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>AUTHENTICATION_FAILED</td>
-    <td>Partner is not onboarded successfully.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>PERMISSION_DENIED</td>
-    <td>The API caller does not have the permission to execute this operation.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>USER_NOT_FOUND</td>
-    <td>User does not exist.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>INTERNAL_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Status Code | Error Code | Message |
+|---|---|---|
+| 400 | INVALID_PARAMETER | The <param_name> value specified is invalid. |
+| 400 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
+| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
+| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
+| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| 404 | USER_NOT_FOUND | User does not exist. |
+| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ## Consumable APIs
 
 Adobe Acrobat Sign supports a variety of authentication methods to ensure the security and integrity of electronic signatures. These methods range from simple, single-factor authentication to more complex, multi-factor authentication options - ensuring that organizations can manage and budget their use according to their security needs and compliance requirements, while also providing flexibility to choose the appropriate level of authentication for different types of transactions.
 
-- Phone Authentication: A six-digit code is sent to the recipient’s phone via SMS or voice call, which must be entered to view the agreement. For details, [check Phone authentication](https://helpx.adobe.com/sign/config/send-settings/auth-methods/phone-auth.html).
+- Phone Authentication: A six-digit code is sent to the recipient's phone via SMS or voice call, which must be entered to view the agreement. For details, [check Phone authentication](https://helpx.adobe.com/sign/config/send-settings/auth-methods/phone-auth.html).
 
 - Knowledge-Based Authentication (KBA): This high-level authentication method is used mainly in financial institutions. It involves answering personal questions derived from public databases and is only available for recipients in the US. For details, [check Knowledge-based authentication](https://helpx.adobe.com/sign/config/send-settings/auth-methods/knowledge-based-auth.html).
 
@@ -2360,124 +1039,49 @@ Adobe Acrobat Sign supports a variety of authentication methods to ensure the se
 
 <InlineAlert slots="text" />
 
-Add-ons and transactions are referred to as “consumables” because they are resources that are used up or consumed as they are utilized. Each time a transaction is initiated, such as sending an electronic document for signature, it is considered consumed and is deducted from the user’s available transaction quota. Similarly, authentication services like Knowledge-Based Authentication or Phone Authentication are also treated as consumables, as they are used up on a per-recipient basis when employed in the signing process. This means that each time a recipient uses one of these methods, it counts against the total number of transactions available to the sender, which must be replenished as needed.
+Add-ons and transactions are referred to as "consumables" because they are resources that are used up or consumed as they are utilized. Each time a transaction is initiated, such as sending an electronic document for signature, it is considered consumed and is deducted from the user's available transaction quota. Similarly, authentication services like Knowledge-Based Authentication or Phone Authentication are also treated as consumables, as they are used up on a per-recipient basis when employed in the signing process. This means that each time a recipient uses one of these methods, it counts against the total number of transactions available to the sender, which must be replenished as needed.
 
 ### Consumables summary on integration
 
-<br/>
-<table border="1" columnWidths="30,70">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>HTTP Method</td>
-      <td>GET</td>
-    </tr>
-    <tr>
-      <td>Endpoint Operation</td>
-      <td>/v1/partners/me/consumableSummary</td>
-    </tr>
-    <tr>
-      <td>Authentication/ Authorization</td>
-      <td>Valid technical account token with ee.sign_group_oem</td>
-    </tr>
-    <tr>
-      <td>Audience</td>
-      <td>Partner will call this API to fetch count of consumables consumed within a given date range</td>
-    </tr>
-    <tr>
-      <td>Request Header</td>
-      <td>Partner APIs Common Headers</td>
-    </tr>
-    <tr>
-      <td>Query Params</td>
-      <td>FilterQueryParams</td>
-    </tr>
-    <tr>
-      <td>Response Object</td>
-      <td>ConsumableSummaryResponse</td>
-    </tr>
-    <tr>
-      <td>HTTP Status Code</td>
-      <td>200</td>
-    </tr>
-    <tr>
-      <td>Error Code</td>
-      <td>CommonErrorResponse</td>
-    </tr>
-  </tbody>
-</table>
+
+|  | Value |
+|---|---|
+| HTTP Method | GET |
+| Endpoint Operation | /v1/partners/me/consumableSummary |
+| Authentication/ Authorization | Valid technical account token with ee.sign_group_oem |
+| Audience | Partner will call this API to fetch count of consumables consumed within a given date range |
+| Request Header | Partner APIs Common Headers |
+| Query Params | FilterQueryParams |
+| Response Object | ConsumableSummaryResponse |
+| HTTP Status Code | 200 |
+| Error Code | CommonErrorResponse |
+
 
 **FilterRequestParams**
 
-<br/>
-<table border="1" columnWidths="20,15,20,15,30">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Required</th>
-    <th>Value Range</th>
-  </tr>
-  <tr>
-    <td>startDate</td>
-    <td>DateTime</td>
-    <td>DateTime in ISO-8601 format with UTC timezone</td>
-    <td>Yes</td>
-    <td>startDate should not be earlier than 2025-01-01T00:00:00Z</td>
-  </tr>
-  <tr>
-    <td>endDate</td>
-    <td>DateTime</td>
-    <td>DateTime in ISO-8601 format with UTC timezone</td>
-    <td>Yes</td>
-    <td>endDate should be greater than startDate but not more than 31 days from startDate. Ex: 2025-01-15T00:00:00Z</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description | Required | Value Range |
+|---|---|---|---|---|
+| startDate | DateTime | DateTime in ISO-8601 format with UTC timezone | Yes | startDate should not be earlier than 2025-01-01T00:00:00Z |
+| endDate | DateTime | DateTime in ISO-8601 format with UTC timezone | Yes | endDate should be greater than startDate but not more than 31 days from startDate. Ex: 2025-01-15T00:00:00Z |
+
 
 **ConsumableSummaryResponse**
 
-<br/>
-<table border="1" columnWidths="40,40,20">
-  <tr>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default Value</th>
-  </tr>
-  <tr>
-    <td>List&lt;ConsumableSummary&gt;</td>
-    <td>List of ConsumableSummary</td>
-    <td>[]</td>
-  </tr>
-</table>
+
+| Type | Description | Default Value |
+|---|---|---|
+| List<ConsumableSummary> | List of ConsumableSummary | [] |
+
 
 **ConsumableSummary**
 
-<br/>
-<table border="1" columnWidths="20,20,30,30">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Sample Value</th>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>Type of consumables</td>
-    <td>Ex: TXN, PHONE_AUTH</td>
-  </tr>
-  <tr>
-    <td>count</td>
-    <td>Long</td>
-    <td>Count of consumable consumed within given range</td>
-    <td>Ex: 100</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description | Sample Value |
+|---|---|---|---|
+| type | String | Type of consumables | Ex: TXN, PHONE_AUTH |
+| count | Long | Count of consumable consumed within given range | Ex: 100 |
+
 
 ***ConsumableSummaryResponse***
 
@@ -2498,53 +1102,20 @@ Add-ons and transactions are referred to as “consumables” because they are r
 
 ### Get consumables summary on account level
 
-<br/>
-<table border="1" columnWidths="40,60">
-  <tr>
-    <th></th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>GET</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>/v1/accounts/&#123;account_id&#125;/consumableSummary</td>
-  </tr>
-  <tr>
-    <td>Authentication/ Authorization</td>
-    <td>Valid Technical Account Token</td>
-  </tr>
-  <tr>
-    <td>Mandatory Scopes in token</td>
-    <td>sign_account_read, agreement_read</td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Query Params</td>
-    <td>AccountFilterQueryParams</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>ConsumableSummaryDetailsResponse</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>CommonErrorResponse</td>
-  </tr>
-</table>
+
+|  | Value |
+|---|---|
+| HTTP Method | GET |
+| Endpoint Operation | /v1/accounts/{account_id}/consumableSummary |
+| Authentication/ Authorization | Valid Technical Account Token |
+| Mandatory Scopes in token | sign_account_read, agreement_read |
+| Audience | Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account |
+| Request Header | Partner APIs Common Headers |
+| Query Params | AccountFilterQueryParams |
+| Response Object | ConsumableSummaryDetailsResponse |
+| HTTP Status Code | 200 |
+| Error Code | CommonErrorResponse |
+
 
 **ConsumableSummaryResponse**
 
@@ -2565,164 +1136,58 @@ Add-ons and transactions are referred to as “consumables” because they are r
 
 ### Get consumables summary details on account level
 
-<br/>
-<table border="1" columnWidths="40,60">
-  <tr>
-    <th></th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>HTTP Method</td>
-    <td>GET</td>
-  </tr>
-  <tr>
-    <td>Endpoint Operation</td>
-    <td>/v1/accounts/&#123;account_id&#125;/consumableSummaryDetails</td>
-  </tr>
-  <tr>
-    <td>Authentication/ Authorization</td>
-    <td>Valid Technical Account Token</td>
-  </tr>
-  <tr>
-    <td>Mandatory Scopes in token</td>
-    <td>sign_account_read, agreement_read</td>
-  </tr>
-  <tr>
-    <td>Audience</td>
-    <td>Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account</td>
-  </tr>
-  <tr>
-    <td>Request Header</td>
-    <td>Partner APIs Common Headers</td>
-  </tr>
-  <tr>
-    <td>Query Params</td>
-    <td>AccountFilterQueryParams</td>
-  </tr>
-  <tr>
-    <td>Response Object</td>
-    <td>ConsumableSummaryDetailsResponse</td>
-  </tr>
-  <tr>
-    <td>HTTP Status Code</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>Error Code</td>
-    <td>CommonErrorResponse</td>
-  </tr>
-</table>
+
+|  | Value |
+|---|---|
+| HTTP Method | GET |
+| Endpoint Operation | /v1/accounts/{account_id}/consumableSummaryDetails |
+| Authentication/ Authorization | Valid Technical Account Token |
+| Mandatory Scopes in token | sign_account_read, agreement_read |
+| Audience | Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account |
+| Request Header | Partner APIs Common Headers |
+| Query Params | AccountFilterQueryParams |
+| Response Object | ConsumableSummaryDetailsResponse |
+| HTTP Status Code | 200 |
+| Error Code | CommonErrorResponse |
+
 
 **AccountFilterQueryParams**
 
-<br/>
-<table border="1" columnWidths="15,15,30,10,30">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Required</th>
-    <th>Value Range</th>
-  </tr>
-  <tr>
-    <td>startDate</td>
-    <td>DateTime</td>
-    <td>DateTime in ISO-8601 format with UTC timezone</td>
-    <td>Yes</td>
-    <td>startDate should not be earlier than 2025-01-01T00:00:00Z</td>
-  </tr>
-  <tr>
-    <td>endDate</td>
-    <td>DateTime</td>
-    <td>DateTime in ISO-8601 format with UTC timezone</td>
-    <td>Yes</td>
-    <td>endDate should be greater than startDate but not more than 31 days from startDate. Ex: 2025-01-15T00:00:00Z</td>
-  </tr>
-  <tr>
-    <td>pageSize</td>
-    <td>Integer</td>
-    <td>Count of records to be returned per specific call</td>
-    <td>No</td>
-    <td>—</td>
-  </tr>
-  <tr>
-    <td>cursor</td>
-    <td>String</td>
-    <td>Reference to get next set of records with given pageSize. This is used to navigate through the pages. If not provided, returns the first page.</td>
-    <td>No</td>
-    <td></td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description | Required | Value Range |
+|---|---|---|---|---|
+| startDate | DateTime | DateTime in ISO-8601 format with UTC timezone | Yes | startDate should not be earlier than 2025-01-01T00:00:00Z |
+| endDate | DateTime | DateTime in ISO-8601 format with UTC timezone | Yes | endDate should be greater than startDate but not more than 31 days from startDate. Ex: 2025-01-15T00:00:00Z |
+| pageSize | Integer | Count of records to be returned per specific call | No | — |
+| cursor | String | Reference to get next set of records with given pageSize. This is used to navigate through the pages. If not provided, returns the first page. | No |  |
+
 
 **ConsumableSummaryDetailsResponse**
 
-<br/>
-<table border="1" columnWidths="40,40,20">
-  <tr>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default Value</th>
-  </tr>
-  <tr>
-    <td>List&lt;ConsumableSummaryDetails&gt;</td>
-    <td>List of ConsumableSummaryDetails</td>
-    <td>[]</td>
-  </tr>
-</table>
+
+| Type | Description | Default Value |
+|---|---|---|
+| List<ConsumableSummaryDetails> | List of ConsumableSummaryDetails | [] |
+
 
 **ConsumableSummaryDetails**
 
-<br/>
-<table border="1" columnWidths="20,25,30,25">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Sample Value</th>
-  </tr>
-  <tr>
-    <td>agreementId</td>
-    <td>String</td>
-    <td>Secure agreement identifier</td>
-    <td>Ex: CBJCHBCAABAA-N0tAR3aLID-u4R5RO</td>
-  </tr>
-  <tr>
-    <td>createdDate</td>
-    <td>DateTime</td>
-    <td>Agreement created time recorded in the system in UTC format</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>addonDetails</td>
-    <td>List&lt;AddonDetails&gt;</td>
-    <td>List of secondary consumables like add-ons with their count</td>
-    <td></td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description | Sample Value |
+|---|---|---|---|
+| agreementId | String | Secure agreement identifier | Ex: CBJCHBCAABAA-N0tAR3aLID-u4R5RO |
+| createdDate | DateTime | Agreement created time recorded in the system in UTC format |  |
+| addonDetails | List<AddonDetails> | List of secondary consumables like add-ons with their count |  |
+
 
 **AddonDetails**
 
-<br/>
-<table border="1" columnWidths="20,20,30,30">
-  <tr>
-    <th>Parameter Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Sample Value</th>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>Name of consumable</td>
-    <td>Ex: PHONE_AUTH, KBA</td>
-  </tr>
-  <tr>
-    <td>count</td>
-    <td>Long</td>
-    <td>Count of consumable consumed with an agreement</td>
-    <td>Ex: 100</td>
-  </tr>
-</table>
+
+| Parameter Name | Type | Description | Sample Value |
+|---|---|---|---|
+| type | String | Name of consumable | Ex: PHONE_AUTH, KBA |
+| count | Long | Count of consumable consumed with an agreement | Ex: 100 |
+
 
 **ConsumptionResponseReportResponseItemDetail**
 
@@ -2752,57 +1217,21 @@ Add-ons and transactions are referred to as “consumables” because they are r
 
 ### CommonErrorResponse
 
-<br/>
-<table border="1" columnWidths="10,40,50">
-  <tr>
-    <th>HTTP Code</th>
-    <th>Error Code</th>
-    <th>Message</th>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>BAD_REQUEST</td>
-    <td>The request provided is invalid</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>PERMISSION_DENIED</td>
-    <td>The API caller does not have the permission to execute this operation</td>
-  </tr>
-  <tr>
-    <td>429</td>
-    <td>TOO_MANY_REQUESTS</td>
-    <td>The request rate limit has reached</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>MISC_SERVER_ERROR</td>
-    <td>Some miscellaneous error has occurred.</td>
-  </tr>
-</table>
+
+| HTTP Code | Error Code | Message |
+|---|---|---|
+| 400 | BAD_REQUEST | The request provided is invalid |
+| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation |
+| 429 | TOO_MANY_REQUESTS | The request rate limit has reached |
+| 500 | MISC_SERVER_ERROR | Some miscellaneous error has occurred. |
+
 
 ### Partner APIs Common Headers
 
-<br/>
-<table border="1" columnWidths="30,30,40">
-  <tr>
-    <th>Header Name</th>
-    <th>Values</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>Bearer &lt;Technical Account Token&gt;</td>
-    <td>Technical account token that is generated by the partner</td>
-  </tr>
-  <tr>
-    <td>content-type</td>
-    <td>application/json</td>
-    <td>Media type of the resource</td>
-  </tr>
-  <tr>
-    <td>x-request-id</td>
-    <td>String</td>
-    <td>A unique string value needed to track a given request</td>
-  </tr>
-</table>
+
+| Header Name | Values | Description |
+|---|---|---|
+| Authorization | Bearer <Technical Account Token> | Technical account token that is generated by the partner |
+| content-type | application/json | Media type of the resource |
+| x-request-id | String | A unique string value needed to track a given request |
+

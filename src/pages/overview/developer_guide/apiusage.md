@@ -102,55 +102,24 @@ with the following JSON body:
 
 Replace the value for the following attributes with the correct values:
 
-<table border="1" columnWidths="30,70" >
-    <thead>
-        <tr>
-            <th>Attribute</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span style="color: red;">transientDocumentId</span></td>
-            <td>The unique ID representing the uploaded document.</td>
-        </tr>
-        <tr>
-            <td><span style="color: red;">name</span></td>
-            <td>The name of the agreement.</td>
-        </tr>
-        <tr>
-            <td><span style="color: red;">email</span></td>
-            <td>Recipient’s email address.</td>
-        </tr>
-        <tr>
-            <td><span style="color: red;">signatureType</span></td>
-            <td>The type of signature you would like to request. <span style="color: red;">ESIGN</span> and <span style="color: red;">WRITTEN</span>.</td>
-        </tr>
-        <tr>
-            <td><span style="color: red;">order</span></td>
-            <td>Index indicating the position at which this signing group needs to sign. Signing group to sign at first place is assigned 1 as index.</td>
-        </tr>
-        <tr>
-            <td><span style="color: red;">role</span></td>
-            <td>Role of the participant set. The possible values are: <span style="color:red;">SIGNER</span>, <span style="color:red;">APPROVER</span>, <span style="color:red;">ACCEPTOR</span>, <span style="color:red;">CERTIFIED_RECIPIENT</span>, <span style="color:red;">FORM_FILLER</span>, <span style="color:red;">DELEGATE_TO_SIGNER</span>, <span style="color:red;">DELEGATE_TO_APPROVER</span>, <span style="color:red;">DELEGATE_TO_ACCEPTOR</span>, <span style="color:red;">DELEGATE_TO_CERTIFIED_RECIPIENT</span>, <span style="color:red;">DELEGATE_TO_FORM_FILLER</span>, or <span style="color:red;">SHARE</span>.
-            </td>
-        </tr>
-        <tr>
-            <td><span style="color: red;">state</span></td>
-            <td>
-            The state in which the agreement should land. The possible values are  
-            <span style="color: red;"> AUTHORING</span>, <span style="color: red;">DRAFT</span>, or
-            <span style="color: red;"> IN_PROCESS</span>. You can use:<br />
-            a) <span style="color: red;">DRAFT</span> to incrementally build the agreement before sending out,<br />
-            b) <span style="color: red;">AUTHORING</span> to add or edit form fields in the agreement,<br />
-            c) <span style="color: red;">IN_PROCESS</span> to immediately send the agreement.<br /><br />
-            You can use the <span style="color: red;">PUT /agreements/{"{"}agreementId{"}"}/state</span> endpoint
+| Attribute | Description |
+|---|---|
+| transientDocumentId | The unique ID representing the uploaded document. |
+| name | The name of the agreement. |
+| email | Recipient’s email address. |
+| signatureType | The type of signature you would like to request. ESIGN and WRITTEN. |
+| order | Index indicating the position at which this signing group needs to sign. Signing group to sign at first place is assigned 1 as index. |
+| role | Role of the participant set. The possible values are: SIGNER, APPROVER, ACCEPTOR, CERTIFIED_RECIPIENT, FORM_FILLER, DELEGATE_TO_SIGNER, DELEGATE_TO_APPROVER, DELEGATE_TO_ACCEPTOR, DELEGATE_TO_CERTIFIED_RECIPIENT, DELEGATE_TO_FORM_FILLER, or SHARE. |
+| state | The state in which the agreement should land. The possible values are  
+             AUTHORING, DRAFT, or
+             IN_PROCESS. You can use:
+            a) DRAFT to incrementally build the agreement before sending out,
+            b) AUTHORING to add or edit form fields in the agreement,
+            c) IN_PROCESS to immediately send the agreement.
+            You can use the PUT /agreements/{"{"}agreementId{"}"}/state endpoint
             to transition an agreement between the above-mentioned states. An allowed transition would follow
-            this sequence: <span style="color: red;">DRAFT → AUTHORING → IN_PROCESS → CANCELLED</span>.
-            </td>
-        </tr>
-    </tbody>
-</table>
+            this sequence: DRAFT → AUTHORING → IN_PROCESS → CANCELLED. |
+
 
 You will get the following response containing the <span style="color: red;">id</span>:
 
