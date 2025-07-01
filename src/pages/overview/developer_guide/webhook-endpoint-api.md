@@ -49,8 +49,8 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 |---|---|---|
 | 400 | INVALID_JSON | An invalid JSON was specified. |
 | 400 | INVALID_WEBHOOK_ENDPOINT_URL | The webhook endpoint URL specified is too long. (or) The webhook endpoint URL specified is invalid. Please provide a well-formatted HTTPS-based URL. |
-| 400 | INVALID_AUTHORIZATION_SERVER_URL | The authorization server URL specified is invalid: <specific_error_message> |
-| 400 | MISSING_REQUIRED_PARAM | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request. (or) Request contains invalid applicationIds <comma separated applicationIds>. (or) Webhook endpoint OAuth configuration is missing. (or) Authorization server URL is missing. (or) Client Id sent to the authorization URL is missing. (or) Client secret sent to the authorization URL is missing. |
+| 400 | INVALID_AUTHORIZATION_SERVER_URL | The authorization server URL specified is invalid: &lt;specific_error_message&gt; |
+| 400 | MISSING_REQUIRED_PARAM | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request. (or) Request contains invalid applicationIds &lt;comma separated applicationIds&gt;. (or) Webhook endpoint OAuth configuration is missing. (or) Authorization server URL is missing. (or) Client Id sent to the authorization URL is missing. (or) Client secret sent to the authorization URL is missing. |
 | 403 | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook OAuth is not enabled for this account. |
 | 409 | DUPLICATE_WEBHOOK_ENDPOINT_FOR_APPLICATION | The webhook endpoint URL is already registered for the application. |
 
@@ -224,8 +224,8 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 |---|---|---|
 | 400 | INVALID_JSON | An invalid JSON was specified. |
 | 400 | INVALID_WEBHOOK_ENDPOINT_URL | The webhook endpoint url specified is too long. (or) The webhook endpoint url specified is invalid. Please provide a well-formatted https based url. |
-| 400 | INVALID_AUTHORIZATION_SERVER_URL | The authorization server url specified is invalid: <specific_error_message> |
-| 400 | MISSING_REQUIRED_PARAM | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request (or) Request contains invalid applicationIds <comma separated applicationIds> (or) Webhook endpoint oauth configuration is missing (or) Authorization server url is missing. (or) Client Id sent to the authorization url is missing. (or) Client secret sent to the authorization url is missing. |
+| 400 | INVALID_AUTHORIZATION_SERVER_URL | The authorization server url specified is invalid: &lt;specific_error_message&gt; |
+| 400 | MISSING_REQUIRED_PARAM | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request (or) Request contains invalid applicationIds &lt;comma separated applicationIds&gt; (or) Webhook endpoint oauth configuration is missing (or) Authorization server url is missing. (or) Client Id sent to the authorization url is missing. (or) Client secret sent to the authorization url is missing. |
 | 400 | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook oauth is not enabled for this account. |
 | 400 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
 | 400 | INVALID_WEBHOOK_ENDPOINT_ID | The webhook endpoint id specified is invalid. |

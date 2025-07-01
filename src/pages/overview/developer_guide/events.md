@@ -42,12 +42,12 @@ The following table lists the Acrobat Sign supported UI events that can be embed
 | Event Type | Data | Description |
 |---|---|---|
 | 'ESIGN', 'SESSION_TIMEOUT' | message: 'PRE_SESSION_TIMEOUT'
-            warningTimeMinutes: <float>
-            expirationTimeMinutes: <float> | This event is triggered two seconds before the session timeout dialogue is displayed to the user. The UI shows “Your session is about to expire” message. The warningTimeMinutes and expirationTimeMinutes values correspond to the warning & session timeout times in minutes. |
+            warningTimeMinutes: &lt;float&gt;
+            expirationTimeMinutes: &lt;float&gt; | This event is triggered two seconds before the session timeout dialogue is displayed to the user. The UI shows “Your session is about to expire” message. The warningTimeMinutes and expirationTimeMinutes values correspond to the warning & session timeout times in minutes. |
 | 'SESSION_TIMEOUT' | message: 'POST_SESSION_TIMEOUT'
-            warningTimeMinutes: <float>
-            expirationTimeMinutes: <float> | This event is triggered when the user's session times out. |
-| 'ERROR' | message: <varies> | This event fires when an error dialog or an error page is displayed to the user. A system error 500 or 503 is returned. |
+            warningTimeMinutes: &lt;float&gt;
+            expirationTimeMinutes: &lt;float&gt; | This event is triggered when the user's session times out. |
+| 'ERROR' | message: &lt;varies&gt; | This event fires when an error dialog or an error page is displayed to the user. A system error 500 or 503 is returned. |
 
 
 ### User action events

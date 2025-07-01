@@ -114,7 +114,7 @@ You should be prepared to handle new errors that may be returned from APIs or ch
 | Code | Error Code | Message |
 |---|---|---|
 | 400 | INVALID_JSON | An invalid JSON was specified. |
-| 404 | INVALID_WEBHOOK_ENDPOINT_ID | WebhookEndpointId is not found. Request id: <hash> |
+| 404 | INVALID_WEBHOOK_ENDPOINT_ID | WebhookEndpointId is not found. Request id: &lt;hash&gt; |
 
 
 ## GET /webhooks
