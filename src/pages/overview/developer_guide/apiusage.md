@@ -710,7 +710,7 @@ JSON payload examples:
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”
+> “redirectUrl”:”[https://www.adobe.com]”
 >
 > }
 ```
@@ -721,7 +721,7 @@ JSON payload examples:
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: 0
+> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: 0
 >
 > }
 ```
@@ -732,7 +732,7 @@ JSON payload examples:
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: 2
+> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: 2
 >
 > }
 ```
@@ -743,7 +743,7 @@ JSON payload examples:
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: null
+> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: null
 >
 > }
 ```
