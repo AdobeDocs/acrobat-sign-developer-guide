@@ -32,28 +32,28 @@ Existing Acrobat Sign APIs return the entire list of resources (agreements, widg
 ```javascript
 {
     "userAgreementList": [{
-      "displayDate": "2017-04-17T06:07:19-07:00",
-      "displayUserSetInfos": [
-        {
-          "displayUserSetMemberInfos": [
+        "displayDate": "2017-04-17T06:07:19-07:00",
+        "displayUserSetInfos": [
             {
-              "company": "Adobe",
-              "email": "adobe.sign.user@adobe.com",
-              "fullName": "AdobeSign User"
+                "displayUserSetMemberInfos": [
+                    {
+                        "company": "Adobe",
+                        "email": "adobe.sign.user@adobe.com",
+                        "fullName": "AdobeSign User"
+                    }
+                ]
             }
-          ]
-        }
-      ],
-      "esign": true,
-      "agreementId": "3AAABLblqZhDqIcUs4nFgivebIUdzuZyBrjO_VP_hHDhkrGhXxKuQ5Hi7C07vRbNzxP9TdTdRHzHdQLDsPJrjfXEuKe7jjEAl",
-      "latestVersionId": "3AAABLblqZhACieamyoCl7qNWZTaU3WaoY3a9BL7-09sosH88HyRFfGmYc91jpQk-LXLVGlgEudioxgPlCprAScifamX16-QD",
-      "name": "SampleAgreement",
-      "status": "SIGNED"
+        ],
+        "esign": true,
+        "agreementId": "3AAABLblqZhDqIcUs4nFgivebIUdzuZyBrjO_VP_hHDhkrGhXxKuQ5Hi7C07vRbNzxP9TdTdRHzHdQLDsPJrjfXEuKe7jjEAl",
+        "latestVersionId": "3AAABLblqZhACieamyoCl7qNWZTaU3WaoY3a9BL7-09sosH88HyRFfGmYc91jpQk-LXLVGlgEudioxgPlCprAScifamX16-QD",
+        "name": "SampleAgreement",
+        "status": "SIGNED"
     },
-    {...},
-    .
-    .
-    .],
+        {...},
+        .
+        .
+        .],
     "page": {
         "nextCursor": "qJXXj2UAUX1X9rTSqoUOlkhsdo*"
     }
@@ -130,8 +130,8 @@ The response below indicates that we are trying to update an older version (_obs
 
 ```json
 {
-    "code": "RESOURCE_MODIFIED",
-    "message": "Resource is already modified with newer version"
+  "code": "RESOURCE_MODIFIED",
+  "message": "Resource is already modified with newer version"
 }
 
 ```
@@ -173,21 +173,22 @@ One of the significant change in v6 API’s has been to make resource intensive 
 
 Refer the lists below all the asynchronous api’s and their corresponding GET api’s which clients can poll on till polling condition holds true.
 
-* * *
+<HorizontalLine />
 
 **Asynchronous API:** [POST /agreements](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/createAgreement)
 
 **GET API To Poll:** [GET /agreements/{agreementId}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo)
 
-**GET Response Body:** {
+**GET Response Body:**
+```{
 
-… “**status**”: “” }
+… “**status**”: “” }```
 
 **GET HTTP Status:** 200
 
 **Polling Condition On GET:** status == DOCUMENTS\_NOT\_YET\_PROCESSED
 
-* * *
+<HorizontalLine />
 
 **Asynchronous API:** [POST /agreements](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/createAgreement)
 
@@ -199,7 +200,7 @@ Refer the lists below all the asynchronous api’s and their corresponding GET a
 
 **Polling Condition On GET:** status == DOCUMENTS\_NOT\_YET\_PROCESSED
 
-* * *
+<HorizontalLine />
 
 **Asynchronous API:** [PUT /agreements/{agreementId}/state](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementState)
 
@@ -211,7 +212,7 @@ Refer the lists below all the asynchronous api’s and their corresponding GET a
 
 **Polling Condition On GET:** status != IN\_PROCESS
 
-* * *
+<HorizontalLine />
 
 **Asynchronous API:** [POST /widgets](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/createWidget)
 
@@ -223,7 +224,7 @@ Refer the lists below all the asynchronous api’s and their corresponding GET a
 
 **Polling Condition On GET:** status == DOCUMENTS\_NOT\_YET\_PROCESSED
 
-* * *
+<HorizontalLine />
 
 **Asynchronous API:** [PUT /widgets/{widgetId}/state](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/updateWidgetState)
 
@@ -235,7 +236,7 @@ Refer the lists below all the asynchronous api’s and their corresponding GET a
 
 **Polling Condition On GET:** status == DOCUMENTS\_NOT\_YET\_PROCESSED
 
-* * *
+<HorizontalLine />
 
 **Asynchronous API:** [POST /megaSigns](https://secure.na1.echosign.com/public/docs/restapi/v6#!/megaSigns/createMegaSign)
 
@@ -429,11 +430,11 @@ The polling frequency can vary from clients to clients depending on their use ca
 
 ### Authorization header
 
-The Acrobat Sign API accepts an authorization token in the <span style="color: #e74c3c;">access-token</span> header; however, from v6 onwards we will be migrating to the standard <span style="color: #e74c3c;">Authorization</span> header. The Authorization header will hold the user’s authorization token in this format:
+The Acrobat Sign API accepts an authorization token in the `access-token` header; however, from v6 onwards we will be migrating to the standard `Authorization` header. The Authorization header will hold the user’s authorization token in this format:
 
-<span style="color:red">Authorization: Bearer &lt;access-token&gt;</span>
+`Authorization: Bearer &lt;access-token&gt;`
 
-Clients can continue using their older access token, but in the <span style="color: #e74c3c;">authorization</span>header using this format.
+Clients can continue using their older access token, but in the `authorization` header using this format.
 
 ## New Features
 
@@ -762,7 +763,7 @@ Acrobat Sign version 6 includes many changes to the API model.
 
 [PUT /widgets/{widgetId}/state](https://secure.echosign.com/public/docs/restapi/v6#!/widgets/updateWidgetState)
 
-*   Transitions a widget from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transitions are allowed. An allowed transition would follow one of the following sequences: `DRAFT` -> `AUTHORING` -> `ACTIVE`, `ACTIVE` <-> `INACTIVE`, `DRAFT` -> `CANCELLED`.
+*   Transitions a widget from one state to another: for example, `DRAFT` to `IN_PROCESS`. Note that not all transitions are allowed. An allowed transition would follow one of the following sequences: `DRAFT` - > `AUTHORING` - > `ACTIVE`, `ACTIVE` < - > `INACTIVE`, `DRAFT` - > `CANCELLED`.
 
 ### Updated APIs
 
@@ -950,11 +951,11 @@ This is functionally the same as before, but the API structure is revamped to ma
 
 ### Removed APIs
 
-[DELETE /agreements/{agreementId}](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/deleteAgreement)  
+[DELETE /agreements/{agreementId}](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/deleteAgreement)
 
 *   The equivalent functionality of removing an agreement permanently from a user’s manage page can be achieved through the combination of [DELETE /agreements/{agreementId}/documents](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/deleteDocuments) and [PUT /visibility](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementVisibility).
 
-[GET /agreements/{agreementId}/documents/{documentId}/url](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl)  
+[GET /agreements/{agreementId}/documents/{documentId}/url](https://secure.echosign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl)
 
 *   The v5 API had the redundant functionality of providing combined agreement docs, which can be achieved through the [GET /document](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocument) API.
 

@@ -7,12 +7,13 @@ Acrobat Sign APIs include the endpoints described below.
 ## POST /webhooks
 
 
-| Entity | Value |
-|---|---|
-| Description | Creates a webhook |
-| Endpoint operation | /webhooks |
-| OAuth scopes | webhook_write |
-| Request object | {`{
+
+- Description: Creates a webhook
+- Endpoint operation: /webhooks
+- OAuth scopes: webhook_write
+- Request object:
+```
+{`{
     "name": "",
     "scope": "",
     "state": "",
@@ -46,11 +47,12 @@ Acrobat Sign APIs include the endpoints described below.
           "includeParticipantsInfo": false
       }
     }
-}`} |
-| Response header | Location Header specifying the resource location of the webhook |
-| Response content type | application/json |
-| Response object | WebhookCreationResponse  { "id" : "" } |
-| HTTPS status code | 201 |
+}`}
+```
+- Response header: Location Header specifying the resource location of the webhook
+- Response content type: application/json
+- Response object: `WebhookCreationResponse  { "id" : "" }`
+- HTTPS status code: 201
 
 
 **Error codes**
@@ -81,11 +83,11 @@ This API will be used to create a webhook on a particular resource in Acrobat Si
 - Group level webhooks can only be created by a Group admin and Account level webhooks can only be created by an Account admin.
 - The user can customize the events for which the webhook is triggered in this call.
 
-The <span style="color: red;">HTTP Location</span> header field is returned in the response to provide information about the location of a newly created resource. Multiple webhooks can be created on a single resource. *Also, multiple webhooks can share the same URL*.
+The `HTTP Location` header field is returned in the response to provide information about the location of a newly created resource. Multiple webhooks can be created on a single resource. *Also, multiple webhooks can share the same URL*.
 
 <InlineAlert slots="text" />
 
-Acrobat Sign now includes a new Object <span style="color: red;">webhookEndpointInfo</span> to associate a webhook to a webhookEndpoint. When using the webhookEndpointInfo, do not provide a webhookUrlInfo.
+Acrobat Sign now includes a new Object `webhookEndpointInfo` to associate a webhook to a webhookEndpoint. When using the webhookEndpointInfo, do not provide a webhookUrlInfo.
 
 ```json
 webhookInfo {
@@ -120,15 +122,15 @@ You should be prepared to handle new errors that may be returned from APIs or ch
 ## GET /webhooks
 
 
-| Entity | Value |
-|---|---|
-| Description | Get a list of webhooks created by the access token user |
-| OAuth scopes | webhook_read |
-| Query parameters | showInactiveWebhooks: boolean: A query parameter to fetch all the inactive webhooks along with the active webhooks.
-      scope: Scope of the webhook. The possible values are ACCOUNT, GROUP, USER, or RESOURCE.
-      resourceType: The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, and MEGASIGN. |
-| Response content type | application/json |
-| Response object | WebhooksInfo
+- Description: Get a list of webhooks created by the access token user
+- OAuth scopes: webhook_read
+- Query parameters: showInactiveWebhooks: boolean: A query parameter to fetch all the inactive webhooks along with the active webhooks.
+  scope: Scope of the webhook. The possible values are ACCOUNT, GROUP, USER, or RESOURCE.
+  resourceType: The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, and MEGASIGN.
+- Response content type | application/json
+- Response object:
+```
+WebhooksInfo
     
     {`{
     "userWebhookList": [
@@ -170,8 +172,9 @@ You should be prepared to handle new errors that may be returned from APIs or ch
     "page": {
       "nextCursor": " "
     }
-}`} |
-| HTTPS status code | 200 |
+}`}
+```
+- HTTPS status code: 200
 
 
 **Error codes**
@@ -191,13 +194,13 @@ Please note that new errors could be returned from APIs or existing error codes 
 ## GET /webhooks/{webhookId}
 
 
-| Entity | Value |
-|---|---|
-| Description | List details of a webhook. |
-| Endpoint operation | /webhhooks/{webhookId} |
-| OAuth scopes | webhook_read |
-| Response content type | application/json |
-| Response object | {`{
+- Description: List details of a webhook.
+- Endpoint operation: /webhhooks/{webhookId}
+- OAuth scopes: webhook_read
+- Response content type: application/json
+- Response object:
+```
+{`{
     "scope": "",
     "webhookSubscriptionEvents": [
         ""
@@ -230,8 +233,9 @@ Please note that new errors could be returned from APIs or existing error codes 
             "includeParticipantsInfo": false
         }
     }
-  }`} |
-| HTTPS status code | 200 |
+  }`}
+```
+- HTTPS status code: 200
 
 
 **Error codes**
@@ -266,13 +270,13 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
 ## PUT /webhooks/{webhookId}
 
 
-| Entity | Value |
-|---|---|
-| Description | This endpoint is used to update the webhook resource. |
-| Endpoint operation | /webhooks/{webhookId} |
-| OAuth scopes | webhook_write |
-| Request header | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guideline. |
-| Request body | {`{
+- Description: This endpoint is used to update the webhook resource.
+- Endpoint operation: /webhooks/{webhookId}
+- OAuth scopes: webhook_write
+- Request header: Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guideline.
+- Request body:
+```
+{`{
   "name": "",
   "scope": "",
   "state": "",
@@ -306,10 +310,11 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
         "includeParticipantsInfo": false
     }
   }
-}`} |
-| Response content type | application/json |
-| Response object | Empty response |
-| HTTPS status code | 204 |
+}`}
+```
+- Response content type: application/json
+- Response object: Empty response
+- HTTPS status code: 204
 
 
 **Error codes**
@@ -353,16 +358,14 @@ webhookInfo {
 ## PUT /webhooks/{webhookId}/state
 
 
-| Entity | Value |
-|---|---|
-| Description | This endpoint will update the state of a webhook identified by webhookId in the path. |
-| Endpoint operation | /webhooks/{webhookId}/state |
-| OAuth scopes | webhook_write |
-| Request header | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines. |
-| Request body | { "state": ""} |
-| Response content type | application/json |
-| Response object | Empty response |
-| HTTPS status code | 204 |
+- Description: This endpoint will update the state of a webhook identified by webhookId in the path.
+- Endpoint operation: /webhooks/{webhookId}/state
+- OAuth scopes: webhook_write
+- Request header: Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines.
+- Request body: `{ "state": ""}`
+- Response content type: application/json
+- Response object: Empty response
+- HTTPS status code: 204
 
 
 **Error codes**
@@ -468,7 +471,7 @@ To create an AWS Lambda function:
 
 ### Register your Acrobat Sign webhook
 
-Before registering a webhook, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see verifyintent. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <span style="color: red;">X-AdobeSign-ClientId</span>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a **2XX response code**, and it must send back the same client ID value in one of the following two ways: Also note the same behaviour for clientID is expected when the Webhook URL receives POST notifications.
+Before registering a webhook, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see verifyintent. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, `X-AdobeSign-ClientId`. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a **2XX response code**, and it must send back the same client ID value in one of the following two ways: Also note the same behaviour for clientID is expected when the Webhook URL receives POST notifications.
 
 **Case 1: Pass the client ID as X-AdobeSign-ClientId in the response header**
 
@@ -501,7 +504,7 @@ exports.handler = function index(event, context, callback) {
 
 **Case 2: Pass the client ID in the response body with the key xAdobeSignClientId**
 
-In the JSON response body, pass the key <span style="color: red;">xAdobeSignClientId</span> with its value being the same client ID that was sent in the request header.
+In the JSON response body, pass the key `xAdobeSignClientId` with its value being the same client ID that was sent in the request header.
 
 Replace the contents of the Index.js file with the following code snippet:
 
@@ -546,7 +549,7 @@ Note: If this is your first time in the API Gateway console, you’ll see a Gett
 
 3. Select **Create API**.
 4. From the Actions drop-down list, select **Create Resource**.
-5. Check the “Configure as proxy resource” option and enter “validate” as the Resource Name and “{proxy+}” in the Resource Path.
+5. Check the “Configure as proxy resource” option and enter `validate` as the Resource Name and `{proxy+}` in the Resource Path.
 6. Leave the “Enable API Gateway CORS” option unchecked and select **Create Resource**.
 7. Keep the Lambda Function Proxy selected as the Integration type and select the region where you have created your Lambda function in the Lambda region drop-down list (probably it’s the same region where you are creating the API Gateway).
 8. Enter “validate” as the Lambda Function and select **Save**.
@@ -572,7 +575,7 @@ Take note of this URL as you’ll need to enter it as your real-time webhook URL
 
 ### Ready to Use
 
-It’s done. Use the above URL with “/{nodeJSfunctionName}” appended as the webhook URL in your <span style="color: red;">POST /webhooks</span> API request. Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.
+It’s done. Use the above URL with “/{nodeJSfunctionName}” appended as the webhook URL in your `POST /webhooks` API request. Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.
 
 ## Using Azure Functions
 
@@ -611,7 +614,7 @@ This will create a new function that has the capability of handling incoming API
 #### Register the webhook
 
 Register the webhook
-Before registering a webhook successfully, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see verifyintent. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <span style="color: red;">X-AdobeSign-ClientId</span>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a **2XX response code**, and it must send back the same client ID value in one of the following two ways:
+Before registering a webhook successfully, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see verifyintent. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, `X-AdobeSign-ClientId`. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a **2XX response code**, and it must send back the same client ID value in one of the following two ways:
 
 **Case 1: Pass the client ID as \`\`X-AdobeSign-ClientId\`\` in the response header**
 
@@ -651,7 +654,7 @@ Although the response headers are not shown above, you can observe them by mocki
 
 **Case 2: Pass the client ID in the response body with the key \`\`xAdobeSignClientId\`\`**
 
-In the JSON response body, pass the key <span style="color: red;">xAdobeSignClientId</span> with its value being the same client ID that was sent in the request header.
+In the JSON response body, pass the key `xAdobeSignClientId` with its value being the same client ID that was sent in the request header.
 
 1. Replace the index.js file with the following:
 
@@ -687,7 +690,7 @@ module.exports = function (context, req) {
 
 ![sign_webhooks_azure_4.png](_images/sign_webhooks_azure_4.png)
 
-Note: The same behavior for <span style="color: red;">clientId</span> is expected when the Webhook URL receives POST notifications.
+Note: The same behavior for `clientId` is expected when the Webhook URL receives POST notifications.
 
 Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.
 

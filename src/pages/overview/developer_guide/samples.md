@@ -14,7 +14,7 @@ All sources are under the adobesign.api.rest.sample package (and sub packages) a
 
 Before using the samples, you need to obtain either an OAuth access token or an integration key. Please refer to the AdobeSign API page ([https://secure.echosign.com/account/echosignApi](https://secure.echosign.com/account/echosignApi)) for information on how to do this for your account.
 
-You can provide this token or key as a value to the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant (in the same class) which will be used to refresh the OAuth access token.
+You can provide this token or key as a value to the `OAUTH_ACCESS_TOKEN` constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the `OAUTH_REFRESH_TOKEN` constant (in the same class) which will be used to refresh the OAuth access token.
 
 If neither is provided, then a new OAuth access token will be requested from AdobeSign based on credentials provided in the OAuthCredentials.json file. Please refer to the AdobeSign OAuth page ([https://secure.echosign.com/public/static/oauthDoc.jsp](https://secure.echosign.com/public/static/oauthDoc.jsp)) for information on how to obtain OAuth credentials for your account.
 
@@ -25,23 +25,23 @@ Each sample client has a set of instructions (provided as class comments) that n
 The following steps outline one way this can be done using the command line on Windows.
 
 - Navigate to the top-most folder (the one containing “adobesign” and “lib”) so that it becomes the current directory.
-Compile the sources using the following command: <span style="color: red;">javac -sourcepath .;adobesign -cp lib/json_simple-1.1.jar adobesign/api/rest/sample/*.java</span>
-- To run a specific client, use the following command: <span style="color: red;"> java -cp .;lib/json_simple-1.1.jar adobesign.api.rest.sample.{name of client class}</span>
-- For example, to run GetUsersInAccount, use:<span style="color: red;"> java -cp .;lib/json_simple-1.1.jar adobesign.api.rest.sample.GetUsersInAccount</span>
+  Compile the sources using the following command: `javac -sourcepath .;adobesign -cp lib/json_simple-1.1.jar adobesign/api/rest/sample/*.java`
+- To run a specific client, use the following command: `java -cp .;lib/json_simple-1.1.jar adobesign.api.rest.sample.{name of client class}`
+- For example, to run GetUsersInAccount, use: `java -cp .;lib/json_simple-1.1.jar adobesign.api.rest.sample.GetUsersInAccount`
 
 You may also use an IDE of your choice. In that case, you will need to create a new project with sources taken from the adobesign folder and lib/json.jar set up as an input library.
 
 ### Output Path
 
-The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method <span style="color: red;">adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()</span>.
+The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method `adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()`.
 
 ## Create a New Widget with Countersigners
 
 This sample client demonstrates how to create a new widget.
 
 1. Before running this sample, check that you have modified the JSON files OAuthCredentials.json and CreateWidget.json with appropriate values. Which values need to be specified is indicated in the files.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
 
 ```java
 package adobesign.api.rest.sample;
@@ -128,10 +128,10 @@ public class CreateNewWidgetWithCounterSigners {
 This sample client demonstrates how to to download the audit report for the specified agreement.
 
 1. Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
-4. Make sure that you have specified a valid agreement ID in <span style="color: red;">agreementId</span> below.
-5. Check that the default output location in the field <span style="color: red;">OUTPUT_PATH</span> of FileUtils.java is suitable.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
+4. Make sure that you have specified a valid agreement ID in `agreementId` below.
+5. Check that the default output location in the field `OUTPUT_PATH` of FileUtils.java is suitable.
 
 ```java
 package adobesign.api.rest.sample;
@@ -204,10 +204,10 @@ This sample client demonstrates how to to download the combined document for the
 **IMPORTANT:**
 
 1. Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.
-2. You can also provide your OAuth access token in the ’OAUTH_ACCESS_TOKEN<span style="color: red;">constant in the</span>RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
-4. Make sure that you have specified a valid agreement ID in <span style="color: red;">agreementId</span> below.
-5. Check that the default output location in the field <span style="color: red;">OUTPUT_PATH</span> of FileUtils.java is suitable.
+2. You can also provide your OAuth access token in the 'OAUTH_ACCESS_TOKEN `constant in the` RestApiOAuthTokens' class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
+4. Make sure that you have specified a valid agreement ID in `agreementId` below.
+5. Check that the default output location in the field `OUTPUT_PATH` of FileUtils.java is suitable.
 
 ```java
 package adobesign.api.rest.sample;
@@ -279,10 +279,10 @@ This sample client demonstrates how to to download documents from a specified ag
 **IMPORTANT:**
 
 1. Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
-4. Make sure that you have specified a valid agreement ID in <span style="color: red;">agreementId</span> below.
-5. Check that the default output location in the field <span style="color: red;">OUTPUT_PATH</span> of FileUtils.java is suitable.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
+4. Make sure that you have specified a valid agreement ID in `agreementId` below.
+5. Check that the default output location in the field `OUTPUT_PATH` of FileUtils.java is suitable.
 
 ```java
 package adobesign.api.rest.sample;
@@ -372,8 +372,8 @@ This sample client demonstrates how to to get status of all agreements of an acc
 **IMPORTANT:**
 
 1. Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
 
 ```java
 package adobesign.api.rest.sample;
@@ -430,8 +430,8 @@ This sample client demonstrates how to to get the signing URL for an agreement.
 **IMPORTANT:**
 
 1. Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
 
 ```java
 package adobesign.api.rest.sample;
@@ -507,9 +507,9 @@ This sample client demonstrates how to send reminders to active participants (th
 **IMPORTANT:**
 
 1. Before running this sample, check that you have modified the JSON files OAuthCredentials.json and SendReminder.json with appropriate values. Which values need to be specified is indicated in the files.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
-4. The constant <span style="color: red;">WAITING_TIME_LIMIT</span> below determines how long a participant needs to have been waiting before a reminder becomes necessary. Any suitable value can be set here.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
+4. The constant `WAITING_TIME_LIMIT` below determines how long a participant needs to have been waiting before a reminder becomes necessary. Any suitable value can be set here.
 
 ```java
 package adobesign.api.rest.sample;
@@ -648,8 +648,8 @@ This sample client demonstrates how to send an agreement using a library documen
 **IMPORTANT:**
 
 1. Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
 
 ```java
 package adobesign.api.rest.sample;
@@ -727,10 +727,10 @@ This sample client demonstrates how to send an agreement using a transient docum
 **IMPORTANT:**
 
 1. Before running this sample, check that you have modified the JSON files OAuthCredentials.json and SendAgreement.json with appropriate values. Which values need to be specified is indicated in the files.
-2. You can also provide your OAuth access token in the <span style="color: red;">OAUTH_ACCESS_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class, which will then be used as the OAuth access token for making API calls.
-3. You can also provide a refresh token in the <span style="color: red;">OAUTH_REFRESH_TOKEN</span> constant in the <span style="color: red;">RestApiOAuthTokens</span> class to refresh the OAuth access token.
-4. Check that the default input file in the field <span style="color: red;">fileToBeUploaded</span> below is suitable.
-5. Check that the name to be given to the uploaded file in the field <span style="color: red;">uploadedFileName</span> below is suitable. This name can be different from the original file name.
+2. You can also provide your OAuth access token in the `OAUTH_ACCESS_TOKEN` constant in the `RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.
+3. You can also provide a refresh token in the `OAUTH_REFRESH_TOKEN` constant in the `RestApiOAuthTokens` class to refresh the OAuth access token.
+4. Check that the default input file in the field `fileToBeUploaded` below is suitable.
+5. Check that the name to be given to the uploaded file in the field `uploadedFileName` below is suitable. This name can be different from the original file name.
 
 ```java
 package adobesign.api.rest.sample;
@@ -744,56 +744,56 @@ import adobesign.api.rest.sample.util.RestApiAgreements.DocumentIdentifierName;
 
 public class SendAgreementUsingTransientDocument {
 
-  // File containing the request JSON for fetching access token.
-  private static final String authRequestJSONFileName = "OAuthCredentials.json";
+    // File containing the request JSON for fetching access token.
+    private static final String authRequestJSONFileName = "OAuthCredentials.json";
 
-  // File containing the request JSON for sending an agreement.
-  private static final String sendAgreementJSONFileName = "SendAgreement.json";
+    // File containing the request JSON for sending an agreement.
+    private static final String sendAgreementJSONFileName = "SendAgreement.json";
 
-  // Name of the file to be uploaded for sending an agreement.
-  // TODO: Specify file name of choice here. The file must exist in the "requests" sub-package.
-  private static final String fileToBeUploaded = "Sample.pdf";
+    // Name of the file to be uploaded for sending an agreement.
+    // TODO: Specify file name of choice here. The file must exist in the "requests" sub-package.
+    private static final String fileToBeUploaded = "Sample.pdf";
 
-  // Mime-type of the file being uploaded.
-  // TODO: Change this depending on actual file used.
-  private static final String mimeType = RestApiUtils.MimeType.PDF.toString();
+    // Mime-type of the file being uploaded.
+    // TODO: Change this depending on actual file used.
+    private static final String mimeType = RestApiUtils.MimeType.PDF.toString();
 
-  // Name to be given to the file after uploading it.
-  // TODO: Specify a file name of choice, ensuring that its name consists only of characters in the ASCII character set (given this basic
-  // sample implementation).
-  private static final String uploadedFileName = "UploadedSample.pdf";
+    // Name to be given to the file after uploading it.
+    // TODO: Specify a file name of choice, ensuring that its name consists only of characters in the ASCII character set (given this basic
+    // sample implementation).
+    private static final String uploadedFileName = "UploadedSample.pdf";
 
-  /**
-   * Entry point for this sample client program.
-   */
-  public static void main(String args[]) {
-    try {
-      SendAgreementUsingTransientDocument client = new SendAgreementUsingTransientDocument();
-      client.run();
+    /**
+     * Entry point for this sample client program.
+     */
+    public static void main(String args[]) {
+        try {
+            SendAgreementUsingTransientDocument client = new SendAgreementUsingTransientDocument();
+            client.run();
+        }
+        catch (Exception e) {
+            System.err.println("Failure in sending the agreement using the transient document ID.");
+            e.printStackTrace();
+        }
     }
-    catch (Exception e) {
-      System.err.println("Failure in sending the agreement using the transient document ID.");
-      e.printStackTrace();
+
+    /**
+     * Main work function. See the class comment for details.
+     */
+    private void run() throws Exception {
+        // Fetch oauth access token to make further API calls.
+        String accessToken = RestApiOAuthTokens.getOauthAccessToken(authRequestJSONFileName);
+
+        // Upload a transient document and retrieve transient document ID from the response.
+        JSONObject uploadDocumentResponse = RestApiAgreements.postTransientDocument(accessToken, mimeType, fileToBeUploaded, uploadedFileName);
+        String transientDocumentId = (String) uploadDocumentResponse.get("transientDocumentId");
+
+        // Send an agreement using the transient document ID derived from above.
+        DocumentIdentifierName idName = DocumentIdentifierName.TRANSIENT_DOCUMENT_ID;
+        JSONObject sendAgreementResponse = RestApiAgreements.sendAgreement(accessToken, sendAgreementJSONFileName, transientDocumentId, idName);
+
+        // Parse and read response.
+        System.out.println("Agreement Sent. Agreement ID = " + sendAgreementResponse.get("id"));
     }
-  }
-
-  /**
-   * Main work function. See the class comment for details.
-   */
-  private void run() throws Exception {
-    // Fetch oauth access token to make further API calls.
-    String accessToken = RestApiOAuthTokens.getOauthAccessToken(authRequestJSONFileName);
-
-    // Upload a transient document and retrieve transient document ID from the response.
-    JSONObject uploadDocumentResponse = RestApiAgreements.postTransientDocument(accessToken, mimeType, fileToBeUploaded, uploadedFileName);
-    String transientDocumentId = (String) uploadDocumentResponse.get("transientDocumentId");
-
-    // Send an agreement using the transient document ID derived from above.
-    DocumentIdentifierName idName = DocumentIdentifierName.TRANSIENT_DOCUMENT_ID;
-    JSONObject sendAgreementResponse = RestApiAgreements.sendAgreement(accessToken, sendAgreementJSONFileName, transientDocumentId, idName);
-
-    // Parse and read response.
-    System.out.println("Agreement Sent. Agreement ID = " + sendAgreementResponse.get("id"));
-  }
 }
 ```

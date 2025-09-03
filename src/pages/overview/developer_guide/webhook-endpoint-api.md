@@ -7,12 +7,13 @@ Acrobat Sign APIs include the endpoints described below.
 ## POST /webhookEndpoints
 
 
-| Description | Creates a webhookEndpoint |
-|---|---|
-| Entity | Value |
-| Endpoint operation | /webhookEndpoints |
-| OAuth scopes | webhook_write |
-| Request object | {`{
+
+- Description: Creates a webhookEndpoint
+- Endpoint operation: /webhookEndpoints
+- OAuth scopes: webhook_write
+- Request object:
+```
+{`{
   "name": "",
   "description": "",
   "webhookEndpointUrl": "",
@@ -29,13 +30,17 @@ Acrobat Sign APIs include the endpoints described below.
       }
     ]
   }
-}`} |
-| Response header | Location header (Specifies the resource location of the webhook) |
-| Response content type | application/json |
-| Response object | WebhookEndpointResponse{`{
+}`}
+```
+- Response header: Location header (Specifies the resource location of the webhook)
+- Response content type: application/json
+- Response object:
+```
+WebhookEndpointResponse{`{
   "id": ""
-}` } |
-| HTTPS status code | 201 |
+}` }
+```
+- HTTPS status code: 201
 
 
 **Error codes**
@@ -68,10 +73,10 @@ The HTTP Location header field is returned in the response to provide informatio
 
 Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the authorization server URL to get the access_token before a webhook notification. A standard response from the authorization server contains the following fields:
 
-- <span style="color: red;">access_token</span>: It is the only mandatory field.
-- <span style="color: red;">refresh_token</span>: It is an optional field.
-- <span style="color: red;">token_type</span>: Bearer token type is supported.
-- <span style="color: red;">expires_in</span>: It is measured in seconds.
+- `access_token`: It is the only mandatory field.
+- `refresh_token`: It is an optional field.
+- `token_type`: Bearer token type is supported.
+- `expires_in`: It is measured in seconds.
 
 ```json
 {
@@ -84,15 +89,15 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
 
 ## GET /webhookEndpoints
 
-
-| Entity | Value |
-|---|---|
-| Description | Get a list of all active webhookEndpoints from the account of the access token user. |
-| OAuth scopes | webhook_read |
-| Query parameters | cursor: A String used to navigate through the pages. If not provided, returns the first page.
-        pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
-| Response content type | application/json |
-| Response object | {`{
+- Description: Get a list of all active webhookEndpoints from the account of the access token user.
+- OAuth scopes: webhook_read
+- Query parameters:
+  - cursor: A String used to navigate through the pages. If not provided, returns the first page.
+  - pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100.
+- Response content type: application/json
+- Response object:
+```
+{`{
   "page": {
     "nextCursor": ""
   },
@@ -115,8 +120,9 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
       }
     }
   ]
-}`} |
-| HTTPS status code | 200 |
+}`}
+```
+- HTTPS status code: 200
 
 
 **Error codes**
@@ -137,15 +143,17 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ## GET /webhookEndpoints/{webhookEndpointId}
 
 
-| Entity | Value |
-|---|---|
-| Description | Get a list of all active webhookEndpoints from the account of the access token user. |
-| Endpoint operation | /webhookEndpoints/{webhookEndpointId} |
-| OAuth scopes | webhook_read |
-| Query parameters | cursor: A String used to navigate through the pages. If not provided, returns the first page.
-        pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
-| Response content type | application/json |
-| Response object | {`{
+
+- Description: Get a list of all active webhookEndpoints from the account of the access token user.
+- Endpoint operation: /webhookEndpoints/{webhookEndpointId}
+- OAuth scopes: webhook_read
+- Query parameters:
+  - cursor: A String used to navigate through the pages. If not provided, returns the first page.
+  - pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
+- Response content type: application/json
+- Response object:
+```
+{`{
     "name": "webhookEndpoint_12_01_2023_1",
     "description": "webhookEndpoint_12_01_2023_1",
     "webhookEndpointId": "9c5ce683-011a-4663-b275-4d6c14193e8c",
@@ -161,8 +169,9 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
             {}
         ]
     }
-}`} |
-| HTTPS status code | 200 |
+}`} 
+```
+- HTTPS status code: 200
 
 
 **Error codes**
@@ -184,13 +193,13 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ## PUT /webhookEndpoints/{webhookEndpointId}
 
 
-| Entity | Value |
-|---|---|
-| Description | This endpoint is used to update the webhookEndpoint resource. |
-| Endpoint operation | /webhookEndpoints/{webhookEndpointId} |
-| OAuth scopes | webhook_write |
-| Request header | Standard header. |
-| Request body | {`{
+Description: This endpoint is used to update the webhookEndpoint resource.
+Endpoint operation: /webhookEndpoints/{webhookEndpointId}
+OAuth scopes: webhook_write
+Request header: Standard header.
+Request body:
+```
+{`{
     "name": "",
     "description": "",
     "webhookEndpointUrl": "",
@@ -207,10 +216,11 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
       }
       ]
     }
-}`} |
-| Response content type | application/json |
-| Response object | Empty response |
-| HTTPS status code | 204 |
+}`} 
+```
+Response content type: application/json
+Response object: Empty response
+HTTPS status code: 204
 
 
 **Error codes**
