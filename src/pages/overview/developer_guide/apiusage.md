@@ -1037,7 +1037,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 > **“redirectOptions”: {**
 >  
 >
-> “action”:”DECLINED”, “url”:”<https://www.adobe.com>”, “delay”: 0
+> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: 0
 >
 > }
 ```
@@ -1048,7 +1048,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 > **“redirectOptions”: {**
 >  
 >
-> “action”:”DECLINED”, “url”:”<https://www.adobe.com>”, “delay”: null
+> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: null
 >
 > }
 ```
@@ -1059,7 +1059,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 > **“redirectOptions”: {**
 >  
 >
-> “action”:”DECLINED”, “url”:”<https://www.adobe.com>”
+> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”
 >
 > }
 ```
@@ -1070,7 +1070,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 > **“redirectOptions”: {**
 >  
 >
-> “action”: “DECLINED”, “url”: “<https://www.adobe.com>”, “delay”: 1
+> “action”: “DECLINED”, “url”: “[https://www.adobe.com]”, “delay”: 1
 >
 > }
 ```
@@ -1081,7 +1081,7 @@ Here are examples of JSON payloads for different redirect scenarios:
 > **“redirectOptions”: {**
 >  
 >
-> “action”: “DECLINED”, “url”:”<https://www.adobe.com>”, “delay”: 5
+> “action”: “DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: 5
 >
 > }
 ```
