@@ -18,6 +18,7 @@ console.log(path.resolve(__dirname, `./${DOCS_DIRECTORY}`));
 app.use(
   express.static(path.resolve(__dirname, `./${DOCS_DIRECTORY}`), {
     setHeaders: (res) => {
+      res.setHeader('local-branch-name', 'sign-pages');
       res.setHeader('last-modified', new Date().toGMTString());
     },
   }),
