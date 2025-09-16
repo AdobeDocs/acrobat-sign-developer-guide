@@ -24,27 +24,27 @@ Endpoints | See below. | See below.
 Unlike Acrobat Sign’s commercial instance, Sign Gov does
 not support:
 
-  * Fine grained (scope-level) impersonation.
-  * Impersonating users by passing the user ID or email of the user in the `x-api-user` HTTP Header value as part of the REST API call.
+* Fine grained (scope-level) impersonation.
+* Impersonating users by passing the user ID or email of the user in the `x-api-user` HTTP Header value as part of the REST API call.
 
 Instead, in the Sign Gov environment:
 
 >   * Impersonation applies to all the application scopes.
 >   * `x-api-user` is unsupported, and impersonation involves generating OAuth
-> tokens via the `/authorize` and `/token` endpoints.
+      > tokens via the `/authorize` and `/token` endpoints.
 >
 
 The Sign Gov impersonation process is as follows:
 
-  1. Generate an `admin_token` and associated `admin_refresh_token`.
-  2. Use the `admin_token` to generate an `impersonation_token`.
+1. Generate an `admin_token` and associated `admin_refresh_token`.
+2. Use the `admin_token` to generate an `impersonation_token`.
 
 Note the following:
 
-  * Only account admins can generate an `admin_token` and each token can only be used to generate an impersonation token for users in the same account as the account admin.
-  * The lifespan of the `admin_token` is 5 min.
-  * The `admin_refresh_token` lifetime is unlimited, but will expire if inactive (not used) for more than 30 days.
-  * You should persist the `admin_refresh_token` in a secure storage location (for headless partner integration).
+* Only account admins can generate an `admin_token` and each token can only be used to generate an impersonation token for users in the same account as the account admin.
+* The lifespan of the `admin_token` is 5 min.
+* The `admin_refresh_token` lifetime is unlimited, but will expire if inactive (not used) for more than 30 days.
+* You should persist the `admin_refresh_token` in a secure storage location (for headless partner integration).
 
 <InlineAlert slots="header, text" />
 
@@ -64,10 +64,10 @@ Sign Commercial endpoints:
 
 Sign Gov endpoints:
 
-  * `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/token`: Obtain an `access_token` and `refresh_token` upon successful completion and redirect back from the authorization code flow.
-  * `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/refresh`: Obtain a new `access_token` based on a `refresh_token`.
-  * `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/revoke`: Revoke an `access_token` or `refresh_token` and any related tokens.
-  * `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout`: Log the web browser user out of identity provider if the subject matches that in the current identity provider session.
+* `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/token`: Obtain an `access_token` and `refresh_token` upon successful completion and redirect back from the authorization code flow.
+* `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/refresh`: Obtain a new `access_token` based on a `refresh_token`.
+* `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/revoke`: Revoke an `access_token` or `refresh_token` and any related tokens.
+* `POST https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout`: Log the web browser user out of identity provider if the subject matches that in the current identity provider session.
 
 ## Web app user interface
 
