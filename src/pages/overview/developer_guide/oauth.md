@@ -19,7 +19,7 @@ See [Getting the access token](gstarted.md#getting-the-access-token)
 
 You can find a customer’s instance using the state ID and store the tokens.
 
-Since an access token expires in one hour (`expires_in`: 3600), use the refresh token to request new access tokens. You’ll call same access point (e.g. <span style="color: red;">$api_access_point = `https://api.na1.echosign.com`</span>), but you’ll POST to <span style="color: red;">`https://api.na1.echosign.com/oauth/refresh`</span>. Note the following:
+Since an access token expires in one hour (`expires_in`: 3600), use the refresh token to request new access tokens. You’ll call same access point (e.g. $api_access_point = `https://api.na1.echosign.com`), but you’ll POST to `https://api.na1.echosign.com/oauth/refresh`. Note the following:
 
 -  The refresh token expires after 60 days of inactivity.
 -  A client can continue to use a refresh token indefinitely as long as it is being used at least once every 60 days.
@@ -47,7 +47,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ## Revoking a token
 
-You can revoke both access tokens and refresh tokens. If an access token is revoked and it has a corresponding refresh token, the refresh token is also revoked. When a refresh token is revoked, all the access tokens issued from that refresh token are also revoked. Revoke tokens via a POST call to the /oauth/v2/revoke endpoint (using the <span style="color: red;">api_access_point</span> retrieved in the Access Token Request step) with the following:
+You can revoke both access tokens and refresh tokens. If an access token is revoked and it has a corresponding refresh token, the refresh token is also revoked. When a refresh token is revoked, all the access tokens issued from that refresh token are also revoked. Revoke tokens via a POST call to the /oauth/v2/revoke endpoint (using the api_access_point retrieved in the Access Token Request step) with the following:
 
 | Parameter | Value | Required? |
 |---|---|---|

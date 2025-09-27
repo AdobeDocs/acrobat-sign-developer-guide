@@ -25,7 +25,7 @@ To use Webhook OAuth 2.0, you need to enable the account-level setting WEBHOOK_O
 
 ![image](./images/webhooks-2.png)
 
-&nbsp;3. [<span style="color: #2980b9">Follow these steps</span>](../developer_guide/gstarted.md#getting-the-access-token) to generate access_token to authorize requests for a Acrobat Sign API endpoint.
+&nbsp;3. [`Follow these steps`](../developer_guide/gstarted.md#getting-the-access-token) to generate access_token to authorize requests for a Acrobat Sign API endpoint.
 
 &nbsp;4. To create a WebhookEndpoint, send a [POST request](../developer_guide/webhook-endpoint-api.md) to the /api/rest/v6/accounts/{accountId}/webhookEndpoints with the following JSON body:
 
@@ -58,12 +58,10 @@ curl --location 'https://api.na1.adobesignpreview.com/api/rest/v6/accounts/CBJCH
 <InlineNestedAlert variant="info" header="false" iconPosition="right">
 
 Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the authorization server URL to get the access_token before a webhook notification. A standard response from the authorization server contains the following fields:
-  <ul style="list-style-type: disc; margin: 15px">
-      <li><span style="color: #e74c3c">access_token</span>: It is the only mandatory field.</li>
-      <li><span style="color: #e74c3c">refresh_token</span>: It is an optional field.</li>
-      <li><span style="color: #e74c3c">token_type</span>: Bearer token type is supported.</li>
-      <li><span style="color: #e74c3c">expires_in</span>: It is measured in seconds.</li>
-  </ul>
+* `access_token`: It is the only mandatory field.
+* `refresh_token`: It is an optional field.
+* `token_type`: Bearer token type is supported.
+* `expires_in`: It is measured in seconds.
 
   ```json
   {

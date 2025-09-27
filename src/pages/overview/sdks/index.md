@@ -6,11 +6,13 @@ description: Create, manage, track, and automate signing workflows with the Acro
 # Acrobat Sign SDK Downloads
 
 
-<span style="font-size: 16px">Acrobat Sign provides downloadable SDKs with code samples as follows:</span>
+`Acrobat Sign provides downloadable SDKs with code samples as follows:`
 
 <InlineAlert slots="text" />
 
-The SDKs are obsolete and haven’t been in sync with REST v6 APIs for a while. Product will evaluate if further development can happen or plan to retire them in the near future. While much of the sample code continue to function, there have been a lot of feature enhancements that are currently not reflected in the SDKs. For the up-to-date functionality, please use the [<span style="color: #2980b9">API endpoints</span>](https://secure.na1.adobesign.com/public/docs/restapi/v6). You can also find working examples in our [<span style="color: #2980b9">Postman workspace</span>](https://adobe.postman.co/workspace/Adobe-Acrobat-Sign~1faa30d0-1b34-493b-96b1-475cf3978a95/overview).
+
+The SDKs are obsolete and haven’t been in sync with REST v6 APIs for a while. Product will evaluate if further development can happen or plan to retire them in the near future. While much of the sample code continue to function, there have been a lot of feature enhancements that are currently not reflected in the SDKs. For the up-to-date functionality, please use the [`API endpoints`](https://secure.na1.adobesign.com/public/docs/restapi/v6). You can also find working examples in our [`Postman workspace`](https://adobe.postman.co/workspace/Adobe-Acrobat-Sign~1faa30d0-1b34-493b-96b1-475cf3978a95/overview).
+
 
 | Language | Readme | Github Docs | Repo-downloads |
 |---|---|---|---|

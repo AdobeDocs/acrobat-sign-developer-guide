@@ -15,7 +15,6 @@ Tip
 
 ![_images/foursteps.png](_images/foursteps.png)
 
-* * *
-
-(C) Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
 ![](../_static/adobelogo.png)

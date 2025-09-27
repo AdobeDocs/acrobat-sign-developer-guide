@@ -29,7 +29,7 @@ The tables below maps SOAP endpoints to their REST equivalents. Both endpoints l
 
 <InlineAlert slots="text" />
 
-Base URIs: API calls starting v5 of REST API must be made on a specific base URL obtained either from the api_access_point returned from the OAuth workflow or by making a call to the <span style="color: red;">GET /baseUris</span> endpoint.
+Base URIs: API calls starting v5 of REST API must be made on a specific base URL obtained either from the api_access_point returned from the OAuth workflow or by making a call to the `GET /baseUris` endpoint.
 
 #### Document Methods
 
@@ -40,7 +40,7 @@ Base URIs: API calls starting v5 of REST API must be made on a specific base URL
 | [sendDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocument) | [/agreements, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreement) |
 
 
-SenderInfo is represented through <span style="color: red;">x-api-user</span>. Files are specified through /transientDocuments.
+SenderInfo is represented through `x-api-user`. Files are specified through /transientDocuments.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -48,7 +48,7 @@ SenderInfo is represented through <span style="color: red;">x-api-user</span>. F
 | [sendDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocumentInteractive) | [/agreements/{agrId}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
 
 
-From v6 onwards, the interactive views can be specified and obtained from the <span style="color: red;">POST /agreements/&#123;agrId&#125;/views</span> endpoint for the interactive behavior.
+From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/&#123;agrId&#125;/views` endpoint for the interactive behavior.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -70,7 +70,7 @@ MegaSign allows sending the same agreement to multiple recipients and creating a
 | [createLibraryDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createLibraryDocumentInteractive) | [/libraryDocuments/{libraryDocumentId}, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView) |
 
 
-From v6 onwards, the interactive views can be specified and obtained from the <span style="color: red;">POST /agreements/&#123;agrId&#125;/views</span> endpoint for the interactive behavior.
+From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/&#123;agrId&#125;/views` endpoint for the interactive behavior.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -84,7 +84,7 @@ From v6 onwards, the interactive views can be specified and obtained from the <s
 | [removeDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#removeDocument) | [/agreements/{agrId}/documents, DELETE](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/deleteDocuments) |
 
 
-To delete the documents of agreements, use the <span style="color: red;">DELETE /agreements/&#123;agrId&#125;/documents</span> endpoint; and to remove it from Manage Page(GET /agreements), use <span style="color: red;">PUT /agreements/&#123;agrId&#125;/visibility</span>
+To delete the documents of agreements, use the `DELETE /agreements/&#123;agrId&#125;/documents` endpoint; and to remove it from Manage Page(GET /agreements), use `PUT /agreements/&#123;agrId&#125;/visibility`
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -132,7 +132,7 @@ Delegate: Called by signer. Both the delegator and delegatee can sign.
 | [getDocumentInfo](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentInfo) | [/agreements/{agrId}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) |
 
 
-In SOAP API, <span style="color: red;">getDocumentInfo</span>, <span style="color: red;">getDocuments</span>, <span style="color: red;">getAuditTrail</span> etc. work on <span style="color: red;">documentKeys</span>, which can be an ID for an agreement, widget, or library document. The REST API demarcates these as separate resources (cleaner design and strongly typed) and hence, based on the kind of resource you are working on, there is a corresponding /libraryDocuments, /widgets to these. Example: <span style="color: red;">/widgets/&#123;widgetId&#125;, GET</span> will getDocumentInfo for <span style="color: red;">widgetId</span>, and similarly for documents, audit trail, etc.
+In SOAP API, `getDocumentInfo`, `getDocuments`, `getAuditTrail` etc. work on `documentKeys`, which can be an ID for an agreement, widget, or library document. The REST API demarcates these as separate resources (cleaner design and strongly typed) and hence, based on the kind of resource you are working on, there is a corresponding /libraryDocuments, /widgets to these. Example: `/widgets/&#123;widgetId&#125;, GET` will getDocumentInfo for `widgetId`, and similarly for documents, audit trail, etc.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -140,7 +140,7 @@ In SOAP API, <span style="color: red;">getDocumentInfo</span>, <span style="colo
 | [getDocumentInfosByExternalId](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentInfosByExternalId) | [/agreements, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreements) query = externalId |
 
 
-<span style="color: red;">externalId</span> can be used to map your internal IDs to Acrobat Sign IDs.
+`externalId` can be used to map your internal IDs to Acrobat Sign IDs.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -258,7 +258,7 @@ Use the name = DOCUMENT to get the embedded view of an agreement.
 | [getMyDocuments](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMyDocuments) | [/agreements, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreements) |
 
 
-Use <span style="color: red;">x-api-user</span> for specifying the user whose agreements are to be retrieved.
+Use `x-api-user` for specifying the user whose agreements are to be retrieved.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -272,7 +272,7 @@ Use <span style="color: red;">x-api-user</span> for specifying the user whose ag
 | [getMyLibraryDocuments](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMyLibraryDocuments) | [/libraryDocuments, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocuments) |
 
 
-Use <span style="color: red;">x-api-user</span> for specifying the user whose library documents are to be retrieved.
+Use `x-api-user` for specifying the user whose library documents are to be retrieved.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -286,7 +286,7 @@ Use <span style="color: red;">x-api-user</span> for specifying the user whose li
 | [getMyWidgets](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMyWidgets) | [/widgets, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/getWidgets) |
 
 
-Use <span style="color: red;">x-api-user</span> for specifying the user whose widgets are to be retrieved.
+Use `x-api-user` for specifying the user whose widgets are to be retrieved.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -338,7 +338,7 @@ Get all child agreement IDs of the parent MegaSign.
 | [moveUsersToGroup](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#moveUsersToGroup) | [/users/{userId}/groups, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/updateGroupsOfUser) |
 
 
-Specify the new <span style="color: red;">groupId</span> in the request.
+Specify the new `groupId` in the request.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -394,7 +394,7 @@ Use PersonalizedSigningViewConfiguration for specifying personalization options
 | [disableWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#disableWidget) | [/widgets/{widgetId}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState) |
 
 
-Use status value as <span style="color: red;">INACTIVE</span>.
+Use status value as `INACTIVE`.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -402,7 +402,7 @@ Use status value as <span style="color: red;">INACTIVE</span>.
 | [enableWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#enableWidget) | [/widgets/{widgetId}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState) |
 
 
-Use status value as <span style="color: red;">ACTIVE</span>.
+Use status value as `ACTIVE`.
 
 
 | SOAP Endpoint | REST Endpoint |

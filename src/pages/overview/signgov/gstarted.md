@@ -95,4 +95,5 @@ For more information, refer to these resources:
 -  [Webhook Reference](https://www.adobe.com/go/acrobatsignwebhook)
 -  [Postman collections](https://www.adobe.com/go/acrobatsignpostman)
 
-![](../_static/adobelogo.png/0
+
+![](../_static/adobelogo.png)

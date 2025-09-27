@@ -5,7 +5,7 @@ title: Acrobat Sign REST API Samples — Acrobat Sign SDK Downloads
 # Acrobat Sign REST API Samples
 
 
-<span style="font-size: 16px">These sample Java clients of the Acrobat Sign REST APIs demonstrate how to use the API as well as some of its key capabilities.</span>
+These sample Java clients of the Acrobat Sign REST APIs demonstrate how to use the API as well as some of its key capabilities.
 
 The samples are arranged according to the version of the Acrobat Sign REST API’s that they use. For example, the samples for v6 REST API’s are under the v6 folder.
 
@@ -17,11 +17,11 @@ All sources are under the **adobesign.api.rest.sample** package (and sub package
 
 ## Prerequisites
 
-Before using the samples, you need to obtain either an OAuth access token or an integration key as described at <span style="color: #2980b9">https://opensource.adobe.com/acrobat-sign/developer_guide/gstarted.html</span>.
+Before using the samples, you need to obtain either an OAuth access token or an integration key as described at https://opensource.adobe.com/acrobat-sign/developer_guide/gstarted.html
 
 You can provide this token or key as a value to the OAUTH_ACCESS_TOKEN constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the OAUTH_REFRESH_TOKEN constant (in the same class) which will be used to refresh the OAuth access token.
 
-If neither is provided then a new OAuth access token will be requested from AdobeSign based on credentials provided in the OAuthCredentials.json file. Please refer to the AdobeSign OAuth page (<span style="color: #2980b9">https://secure.echosign.com/public/static/oauthDoc.jsp</span>) for information on how to obtain OAuth credentials for your account.
+If neither is provided then a new OAuth access token will be requested from AdobeSign based on credentials provided in the OAuthCredentials.json file. Please refer to the AdobeSign OAuth page (https://secure.echosign.com/public/static/oauthDoc.jsp) for information on how to obtain OAuth credentials for your account.
 
 ## Using the Samples
 
@@ -29,7 +29,7 @@ Each sample client has a set of instructions (provided as class comments) that n
 
 The following steps outline one way this can be done using the command line on Windows.
 
-Note that on Linux and Mac OS, the path separator for the <span style="color: #e74c3c">-cp</span> and <span style="color: #e74c3c">-sourcepath</span> options is “:” (colon) instead of “;” (semicolon).
+Note that on Linux and Mac OS, the path separator for the -cp and -sourcepath options is “:” (colon) instead of “;” (semicolon).
 
 + Navigate to the top-most folder i.e., version of the interested Acrobat Sign REST API, say v6, (the one containing “adobesign” and “lib”) so that it becomes the current directory.
 + Compile the sources using the following command:
@@ -54,7 +54,7 @@ You may also use an IDE of your choice. In that case, you will need to create a 
 
 ### Output Path
 
-The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method <span style="color: #e74c3c">adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()</span>.
+The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method `adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()`.
 
 ## Downloads
 

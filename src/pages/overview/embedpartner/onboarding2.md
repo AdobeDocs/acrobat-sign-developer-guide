@@ -15,7 +15,7 @@ For non-embed customers, Acrobat Sign includes the following two offerings:
 - For Sandbox environment: Adobe Acrobat Sign Sandbox
 - For Production environment: Acrobat Sign Solutions for enterprise
 
-For the Embed 2.0 customers, Acrobat Sign now includes <span style="color: red;">Acrobat Sign Embed - TRNS</span>, a unique product offering that provides services for both Production and Sandbox.
+For the Embed 2.0 customers, Acrobat Sign now includes `Acrobat Sign Embed - TRNS`, a unique product offering that provides services for both Production and Sandbox.
 
 Admins can access the Sandbox environment using the "Acrobat Sign Embed - TRNS” offering. This Embed 2.0-specific offering has Sandbox bundled with it and automatically creates a Sandbox environment when a new contract is created between Adobe and the Partner. Once you create the Partner organization with the “Acrobat Sign Embed - TRNS” offering, the admins already have access to onboard to the Acrobat Sign Sandbox environment.
 
@@ -99,7 +99,7 @@ Alternatively, you can log in to the [https://adminconsole.adobe.com](https://ad
 ![claim-domain-4.png](_images/claim-domain-4.png)
 
 8. **Copy the key string**.
-Example key string:<span style="color: red;"> @ 3600 IN TXT adobe-idp-site-verification=dde4f6d5eaf2089613c7acc16610593a74560d54a51c22b4d33bbb72</span>
+Example key string:` @ 3600 IN TXT adobe-idp-site-verification=dde4f6d5eaf2089613c7acc16610593a74560d54a51c22b4d33bbb72`
 
 ![claim-domain-3.png](_images/claim-domain-3.png)
 

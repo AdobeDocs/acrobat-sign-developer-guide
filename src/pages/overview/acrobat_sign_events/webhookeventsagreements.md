@@ -64,7 +64,7 @@ Web app name: Agreement created
 
 Triggers when an agreement or draft is created.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -332,7 +332,7 @@ Web app name: Agreement shared
 
 Triggers when an agreement has been shared by a participant.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -492,7 +492,7 @@ Web app name: Agreement unshared
 
 Triggers when an agreement has been unshared.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -652,7 +652,7 @@ Web app name: Agreement unshared auto
 
 Triggers when an agreement has been automatically unshared.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -812,9 +812,9 @@ Web app name: Agreement modified
 
 Triggers when an agreement in an "in-process" un-signed agreement has been replaced or changed.
 
-**Status change on event**: The value of <span style="color: #e74c3c">status</span> in the event notification payload is unchanged.
+**Status change on event**: The value of `status` in the event notification payload is unchanged.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -1230,7 +1230,7 @@ Web app name: Agreement participant replaced
 
 Triggers when an agreement signer changes.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -1390,7 +1390,7 @@ Web app name: Agreement delegated
 
 Triggers when an agreement is delegated by a participant.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description | Possible enums |
 |---|---|---|---|
@@ -1553,7 +1553,7 @@ Web app name: Agreement sent
 
 Triggers when an agreement is sent to a participant.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -1715,7 +1715,7 @@ Web app name: Agreement participant completed
 
 Triggers when a participant completes their action.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description | Possible Enums |
 |---|---|---|---|
@@ -1858,7 +1858,7 @@ Web app name: Agreement creation failed
 
 Triggers when an agreement is auto-canceled due to a conversion problem.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -2047,7 +2047,7 @@ Web app name: Agreement deleted
 
 Triggers when agreement documents are deleted.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -2167,7 +2167,7 @@ Web app name: Agreement email bounced
 
 Triggers when an agreement email gets bounced.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -2327,7 +2327,7 @@ Web app name: Agreement email viewed
 
 Triggers when an agreement email is viewed by a recipient.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -2967,7 +2967,7 @@ Web app name: Agreement synced post offline event
 
 Triggers when an offline agreement syncs.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -3129,7 +3129,7 @@ Deprecated. Do not subscribe to this event.
 
 Triggers when an agreement participant is authenticated through web or social identity, such as Google, Facebook, and so on.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -3289,7 +3289,7 @@ Web app name: Agreement participant KBA authenticated
 
 Triggers when an agreement participant is authenticated through knowledge-based authentication.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -3578,9 +3578,9 @@ Web app name: Agreement modification acknowledged
 
 Triggers when a signer acknowledges modification before signing.
 
-**Status change on event**: The value of <span style="color: #e74c3c">status</span> in the event notification payload is unchanged.
+**Status change on event**: The value of `status` in the event notification payload is unchanged.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -3868,7 +3868,7 @@ Web app name: Agreement vaulted
 
 Triggers when an agreement is vaulted.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -4160,7 +4160,7 @@ Web app name: Agreement workflow completed
 
 Triggers when an agreement workflow is completed successfully, and all participants have taken their respective action.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -4432,7 +4432,7 @@ Triggers when agreement documents are deleted.
 + Web app name: Agreement cancelled
 + Triggers when an agreement is canceled/recalled
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description | Possible Enums |
 |---|---|---|---|
@@ -4741,7 +4741,7 @@ Web app name: Agreement rejected
 
 Triggers when an agreement is rejected by a participant.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -5047,7 +5047,7 @@ Web app name: Agreement expired
 
 Triggers when an agreement expires.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Agreement](#payload-attributes-inherited-from-agreement)`.***
 
 | Parameter name | Type | Description | Possible Enums |
 |---|---|---|---|
