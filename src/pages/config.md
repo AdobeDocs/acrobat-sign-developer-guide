@@ -1,9 +1,11 @@
+`{/* Comment: Only in Local */}`
 `{/* Comment: Image display causing issues */}`
-`{/* Comment: Right Nav Bar is not working on clicking */}`
-`{/* Comment: Top Nav Bar showing double */}`
 `{/* Comment: Pdfs */}`
+`{/* Comment: Right Nav Bar is not working on clicking */}`
+
+`{/* Comment: Top Nav Bar showing double */}`
 `{/* Comment: Fix Tables */}`
-`{/* Comment: Create table overview/sdks/index.md */}`
+
 
 - pathPrefix:
     - /acrobat-sign/developer-guide/
