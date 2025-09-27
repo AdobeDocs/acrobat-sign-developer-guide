@@ -105,7 +105,7 @@ Before you can create webhooks in Acrobat Sign, do the following:
 1. Obtain a unique set of application credentials (an application ID and an application secret). Account administrators generate these credentials through the Acrobat Sign API page under “My Profile”.
 2. Webhook API calls require an OAuth access token. Each operation on a resource requires specific OAuth scope(s), and your application will need to request all of the needed scopes during the OAuth authorization process.
 3. Use the access token received from the OAuth authentication and authorization process in the following REST endpoints to perform operations on behalf of the user who authorized the API access.
-4. **OAuth scopes for webhooks**: Enable webhook scopes for your application before calling webhook APIs. The scopes <span style="color: #e74c3c">webhook_read</span>, <span style="color: #e74c3c">webhook_write</span>, and <span style="color: #e74c3c">webhook_retention</span> are needed to call GET, POST/PUT and DELETE APIs respectively.
+4. **OAuth scopes for webhooks**: Enable webhook scopes for your application before calling webhook APIs. The scopes `webhook_read`, `webhook_write`, and `webhook_retention` are needed to call GET, POST/PUT and DELETE APIs respectively.
 
 ### Configure a webhook and subscribe to events
 
