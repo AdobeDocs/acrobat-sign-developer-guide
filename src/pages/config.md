@@ -1,8 +1,17 @@
+`{/* Comment: Only in Local */}`
+`{/* Comment: Image display causing issues */}`
+`{/* Comment: Pdfs */}`
+`{/* Comment: Right Nav Bar is not working on clicking */}`
+
+`{/* Comment: Top Nav Bar showing double */}`
+`{/* Comment: Fix Tables */}`
+
+
 - pathPrefix:
     - /acrobat-sign/developer-guide/
 
 - pages:
-    - [Adobe Acrobat Sign](overview)
+    - [Adobe Acrobat Sign](overview/index.md) `{/* Comment: Create with DevBiz */}`
     - Resources
         - [Free Dev Account Sign-Up](https://www.adobe.com/sign/developer-form.html)
         - [FAQs and Tech Tips](https://www.adobe.com/go/acrobatsigntechblog)

@@ -6,7 +6,7 @@ description: Create, manage, track, and automate signing workflows with the Acro
 # How-to Video Tutorials
 
 
-<span style="font-size: 16px">These tutorials are specifically designed for OEM-Embed partners that are building and embedding a signature process within their application.</span>
+`These tutorials are specifically designed for OEM-Embed partners that are building and embedding a signature process within their application.`
 
 [Signing up for a Developer Account](https://experienceleague.adobe.com/docs/document-services/tutorials/acrobatsign/oem/sign-up-developer-account.html?lang=en)
 

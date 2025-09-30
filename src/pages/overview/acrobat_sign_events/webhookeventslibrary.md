@@ -43,7 +43,7 @@ LIBRARY_ALL retrieves all agreement events, including events added in the future
 
 ## LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Library](#payload-attributes-inherited-from-library)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Library](#payload-attributes-inherited-from-library)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -107,7 +107,7 @@ LIBRARY_ALL retrieves all agreement events, including events added in the future
 
 Web app name: Not available in the UI
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Library](#payload-attributes-inherited-from-library)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Library](#payload-attributes-inherited-from-library)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -182,7 +182,7 @@ Web app name: Not available in the UI
 
 Web app name: Not available in the UI
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Library](#payload-attributes-inherited-from-library)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Library](#payload-attributes-inherited-from-library)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|

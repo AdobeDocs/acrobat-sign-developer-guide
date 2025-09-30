@@ -79,13 +79,13 @@ Your application’s OAuth authorization requests include a scope parameter desc
 + The requested scopes must be appropriate for the action the user is attempting to perform.
 + The user will be asked to authorize the requested permissions for your application.
 
-When your application makes API calls using the access token, the calls must be permitted by the scopes associated with the access token. For example, to call GET /agreements, the <span style="color: #e74c3c">agreement_read</span> scope must have been requested and authorized.
+When your application makes API calls using the access token, the calls must be permitted by the scopes associated with the access token. For example, to call GET /agreements, the `agreement_read` scope must have been requested and authorized.
 
-While this screen sets the max allowable scopes, every token does not exercise them all. You can create different tokens for various users, and specific scenarios may use one or more of the scopes. Limit the scopes to those that you intend to request through OAuth. For example, <span style="color: #e74c3c">agreement_send:account user_login:self</span> would allow the application to send on behalf of any user in the account and also log in on behalf of the user that authorized the request.
+While this screen sets the max allowable scopes, every token does not exercise them all. You can create different tokens for various users, and specific scenarios may use one or more of the scopes. Limit the scopes to those that you intend to request through OAuth. For example, `agreement_send:account user_login:self` would allow the application to send on behalf of any user in the account and also log in on behalf of the user that authorized the request.
 
 <InlineAlert slots="text" />
 
-Only Group Admins can approve OAuth requests that use the <span style="color: #e74c3c">:group</span> scope modifier, and only account admins can approve OAuth requests that use the <span style="color: #e74c3c">:account</span> scope modifier.
+Only Group Admins can approve OAuth requests that use the `:group` scope modifier, and only account admins can approve OAuth requests that use the `:account` scope modifier.
 
 <InlineAlert slots="text" />
 
@@ -154,7 +154,7 @@ If you’re building a partner app and would like to learn more about using redi
 
 ## Success vs failure
 
-When your customer initiates the OAuth process by clicking your app’s Sign link, their browser redirects to the <span style="color: #e74c3c">redirect_uri</span> specified in the initial request. Query string parameters are added to indicate whether the request succeed or failed.
+When your customer initiates the OAuth process by clicking your app’s Sign link, their browser redirects to the `redirect_uri` specified in the initial request. Query string parameters are added to indicate whether the request succeed or failed.
 
 ***Success***
 

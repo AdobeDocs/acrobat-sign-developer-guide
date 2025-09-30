@@ -37,13 +37,13 @@ point.
 
 ### Upload a document
 
-To upload a PDF document for signing, send a POST request to the <span style="color: red;">transientDocuments</span> endpoint. This is a multipart request consisting of
+To upload a PDF document for signing, send a POST request to the `transientDocuments` endpoint. This is a multipart request consisting of
 filename, MIME type, and the file stream. You will get back an ID as a
 response that uniquely represents the document. Your application needs to
 specify the recipients and other sending options required for sending the
 document for signing. Your application can also specify a callback URL that
 will be used by Acrobat Sign to notify when the signature process is complete.
-  
+
 ```http
     POST /api/rest/v6/transientDocuments HTTP/1.1
     Host: api.na1.echosign.com
@@ -54,9 +54,9 @@ will be used by Acrobat Sign to notify when the signature process is complete.
     <PDF CONTENT>
 ```
 
-You will get the following JSON body containing the <span style="color: red;">transientDocumentId</span> that
+You will get the following JSON body containing the `transientDocumentId` that
 will uniquely represent the uploaded document:
-  
+
 ```json
     {
         "transientDocumentId":"3AAABLblqZhBVYbgJbl--NotArEaLID_zjaBYK"
@@ -75,7 +75,7 @@ You can only upload one file at a time through this request.
 Once you have uploaded the document, send the document to all the related
 parties for signing. For this to happen, you need to create an _agreement._
 
-For creating an agreement, send a POST request to the <span style="color: red;">/agreements</span> endpoint
+For creating an agreement, send a POST request to the `/agreements` endpoint
 with the following JSON body:
 
 ```json
@@ -110,18 +110,10 @@ Replace the value for the following attributes with the correct values:
 | signatureType | The type of signature you would like to request. ESIGN and WRITTEN. |
 | order | Index indicating the position at which this signing group needs to sign. Signing group to sign at first place is assigned 1 as index. |
 | role | Role of the participant set. The possible values are: SIGNER, APPROVER, ACCEPTOR, CERTIFIED_RECIPIENT, FORM_FILLER, DELEGATE_TO_SIGNER, DELEGATE_TO_APPROVER, DELEGATE_TO_ACCEPTOR, DELEGATE_TO_CERTIFIED_RECIPIENT, DELEGATE_TO_FORM_FILLER, or SHARE. |
-| state | The state in which the agreement should land. The possible values are  
-             AUTHORING, DRAFT, or
-             IN_PROCESS. You can use:
-            a) DRAFT to incrementally build the agreement before sending out,
-            b) AUTHORING to add or edit form fields in the agreement,
-            c) IN_PROCESS to immediately send the agreement.
-            You can use the PUT /agreements/{"{"}agreementId{"}"}/state endpoint
-            to transition an agreement between the above-mentioned states. An allowed transition would follow
-            this sequence: DRAFT → AUTHORING → IN_PROCESS → CANCELLED. |
+| state | The state in which the agreement should land. The possible values are AUTHORING, DRAFT, or IN_PROCESS. You can use: a) DRAFT to incrementally build the agreement before sending out, b) AUTHORING to add or edit form fields in the agreement, c) IN_PROCESS to immediately send the agreement. You can use the PUT /agreements/{"{"}agreementId{"}"}/state endpoint to transition an agreement between the above-mentioned states. An allowed transition would follow this sequence: DRAFT → AUTHORING → IN_PROCESS → CANCELLED. |
 
 
-You will get the following response containing the <span style="color: red;">id</span>:
+You will get the following response containing the `id`:
 
 ```json
     {
@@ -129,7 +121,7 @@ You will get the following response containing the <span style="color: red;">id<
     }
 ```
 
-The returned <span style="color: red;">agreementId</span> must be used to refer to the agreement in all
+The returned `agreementId` must be used to refer to the agreement in all
 subsequent API calls. This ID must be used to retrieve up-to-date status of
 the agreement, either by polling or when Acrobat Sign notifies your
 application of any status change.
@@ -143,10 +135,10 @@ if your browser blocks third-party cookies. You can resolve this issue by
 enabling cookieless Request Signature workflow for your integration as
 follows:
 
-  1. Create a test API Application to validate the changes before enabling the cookieless workflow in your Production environment.
-  2. Conduct required testing and implement necessary adjustments on your side.
-  3. Have your OAuth API application ID ready.
-  4. Contact Adobe Customer Support to enable the cookieless workflow for your Production API Application ID.
+1. Create a test API Application to validate the changes before enabling the cookieless workflow in your Production environment.
+2. Conduct required testing and implement necessary adjustments on your side.
+3. Have your OAuth API application ID ready.
+4. Contact Adobe Customer Support to enable the cookieless workflow for your Production API Application ID.
 
 <InlineAlert slots="text" />
 
@@ -164,7 +156,7 @@ with the appropriate event whenever the agreement status changes.
 
 ![_images/sign_devguide_2.png](_images/sign_devguide_2.png)
 
-You can also get the current status of an agreement by sending a GET request to <span style="color: red;">/agreements/{agreementid}</span>:
+You can also get the current status of an agreement by sending a GET request to `/agreements/{agreementid}`:
 
 ```http
     GET /api/rest/v6/agreements/3AAABLblqZNOTREALAGREEMENTID5_BjiH HTTP/1.1
@@ -172,7 +164,7 @@ You can also get the current status of an agreement by sending a GET request to 
     Authorization: Bearer 3AAANOTREALTOKENMS-4ATH
 ```
 
-You need to provide your access token in the <span style="color: red;">Authorization</span> header and the <span style="color: red;">agreementId</span> in the API call itself. You will get the following JSON response:
+You need to provide your access token in the `Authorization` header and the `agreementId` in the API call itself. You will get the following JSON response:
 
 ```json
     {
@@ -241,7 +233,7 @@ notification email that was originally sent.
     }
 ```
 
-Note that you need to provide the <span style="color: red;">agreementId</span> in the request URL. You will
+Note that you need to provide the `agreementId` in the request URL. You will
 get the following response from the server:
 
 ```json
@@ -259,9 +251,9 @@ the PDF and store that within your application.
 
 ![_images/sign_devguide_4.png](_images/sign_devguide_4.png)
 
-The signed agreement can also be retrieved by sending a GET request to <span style="color: red;">/agreements/&#123;agreementId&#125;/combinedDocument</span>. This will return a single combined PDF document for the documents associated with the agreement. To retrieve any supporting document, you can send a GET request to <span style="color: red;">/agreements/&#123;agreementId&#125;/documents</span>. This will return the IDs of all the main and supporting documents of an agreement.  
+The signed agreement can also be retrieved by sending a GET request to `/agreements/&#123;agreementId&#125;/combinedDocument`. This will return a single combined PDF document for the documents associated with the agreement. To retrieve any supporting document, you can send a GET request to `/agreements/&#123;agreementId&#125;/documents`. This will return the IDs of all the main and supporting documents of an agreement.
 
-The returned document ID can be used in the <span style="color: red;">/agreements/&#123;agreementId&#125;/documents/&#123;documentId&#125;</span> call to retrieve the file stream of a document of the agreement. Depending on your application, you can also retrieve the form field data that your signer may have entered when signing the document by sending a GET request to <span style="color: red;">/agreements/&#123;agreementId&#125;/formData</span>. The data can be used to update your calling application with the information provided by the signer during signing.
+The returned document ID can be used in the `/agreements/&#123;agreementId&#125;/documents/&#123;documentId&#125;` call to retrieve the file stream of a document of the agreement. Depending on your application, you can also retrieve the form field data that your signer may have entered when signing the document by sending a GET request to `/agreements/&#123;agreementId&#125;/formData`. The data can be used to update your calling application with the information provided by the signer during signing.
 
 Send the following GET request to retrieve the signed agreement:
 
@@ -274,14 +266,14 @@ Send the following GET request to retrieve the signed agreement:
 The response body will contain the content of the PDF file, which you can save locally through your application.
 
 Note that the agreement can be downloaded even before it gets signed. Provide
-the <span style="color: red;">versionId</span> attribute when invoking <span style="color: red;">GET /agreements/&#123;agreementId&#125;/combinedDocument/</span> to get the correct version of the agreement. For example, when the agreement is sent to two entities for signing, and when only one entity signs, the document can still be downloaded. If the <span style="color: red;">versionId</span> is not specified, the document in the latest state is returned.
+the `versionId` attribute when invoking `GET /agreements/&#123;agreementId&#125;/combinedDocument/` to get the correct version of the agreement. For example, when the agreement is sent to two entities for signing, and when only one entity signs, the document can still be downloaded. If the `versionId` is not specified, the document in the latest state is returned.
 
 [TRY IT OUT](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2_3_4_5_6)
 
 ## Create a Widget
 
-To create a widget through the API, you must first call /transientDocuments, then send a POST request to upload the document. This is a multipart request consisting of file name,MIME type, and the file stream. The returned <span style="color: red;">transientDocumentId</span> is to be used to refer to the document in the widget creation call (<span style="color: red;">/widgets</span>, POST). The API endpoint, in addition to the widget key, returns an embed-code, which can be used for embedding the widget within your application, as well as a URL at which the widget gets hosted. The URL can be posted within your application for users to navigate to for signing a document.
-  
+To create a widget through the API, you must first call /transientDocuments, then send a POST request to upload the document. This is a multipart request consisting of file name,MIME type, and the file stream. The returned `transientDocumentId` is to be used to refer to the document in the widget creation call (`/widgets`, POST). The API endpoint, in addition to the widget key, returns an embed-code, which can be used for embedding the widget within your application, as well as a URL at which the widget gets hosted. The URL can be posted within your application for users to navigate to for signing a document.
+
 ```json
     POST /api/rest/v6/widgets HTTP/1.1
     Host: api.na1.echosign.com
@@ -308,7 +300,7 @@ You will get the following JSON response:
 ```
 
 Now, the Widget URL can be circulated to the parents for signing. At any time,
-to get information about the Widget, send a GET request to <span style="color: red;">/widgets/&#123;widgetId&#125;</span>.
+to get information about the Widget, send a GET request to `/widgets/&#123;widgetId&#125;`.
 
 ```http
     GET /api/rest/v6/widgets/3AAANotTheRealID6o HTTP/1.1
@@ -318,17 +310,17 @@ to get information about the Widget, send a GET request to <span style="color: r
 You will get a JSON response containing details about the widget, including
 participants’ information and status.
 
-You can also send a <span style="color: red;">GET /widgets/&#123;widgetId&#125;/formData</span> to retrieve the data entered (by the parents) in the document when it got signed.
+You can also send a `GET /widgets/&#123;widgetId&#125;/formData` to retrieve the data entered (by the parents) in the document when it got signed.
 
-Each time a widget is signed by a person, a separate instance of a document gets created. To get the agreements created using the widget, call <span style="color: red;">GET /widgets/&#123;widgetId&#125;/agreements</span> where <span style="color: red;">widgetId</span> is the key returned by the service while creating the widget. To retrieve the data filled by the users at the time of signing the widget, call <span style="color: red;">GET /widgets/&#123;widgetId&#125;/formData</span>. The service returns data in comma-separated value (CSV) file format. The first line includes the column header names, and each row represents a distinct instance of the widget.
+Each time a widget is signed by a person, a separate instance of a document gets created. To get the agreements created using the widget, call `GET /widgets/&#123;widgetId&#125;/agreements` where `widgetId` is the key returned by the service while creating the widget. To retrieve the data filled by the users at the time of signing the widget, call `GET /widgets/&#123;widgetId&#125;/formData`. The service returns data in comma-separated value (CSV) file format. The first line includes the column header names, and each row represents a distinct instance of the widget.
 
 [TRY IT
 OUT](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/)
 
 ## Get the Signing URL
 
-When the agreement is ready for signing, invoke <span style="color: red;">GET /agreements/&#123;agreementId&#125;/signingUrls</span>
- to get the signing URL:
+When the agreement is ready for signing, invoke `GET /agreements/&#123;agreementId&#125;/signingUrls`
+to get the signing URL:
 
 ```http
     GET /api/rest/v6/agreements/3AANotRealIDQN8_gg/signingUrls HTTP/1.1
@@ -369,7 +361,7 @@ parameters, which include a FileInfo array.
 Each FormFieldGenerator specifies the form field description, participant set
 name, anchored text to search for, and where to place the form field.
 FormFieldGenerator specifications apply to all documents within an agreement.
-However, with the <span style="color: red;">AnchorTextInfo</span> JSON object’s new parameter
+However, with the `AnchorTextInfo` JSON object’s new parameter
 **fileInfoLabel** , you can specify which document each FormFieldGenerator
 should target. For example, if an agreement contains multiple documents for
 different signers but shares the same anchored text, you can assign a
@@ -377,17 +369,17 @@ FormFieldGenerator to a specific document.
 
 **To add form fields to all the documents in an agreement** :
 
-  1. Send a POST request to the transientDocuments endpoint for all the documents you want to include in the agreement.
-  2. Define FormFieldGenerator via the POST/agreements REST API and provide AgreementInfo parameters.
+1. Send a POST request to the transientDocuments endpoint for all the documents you want to include in the agreement.
+2. Define FormFieldGenerator via the POST/agreements REST API and provide AgreementInfo parameters.
 
 **To add form fields to specific documents in an agreement** :
 
-  1. Send a POST request to the transientDocuments endpoint for all the documents (Document A and Document B in the current example) you want to include in the agreement.
+1. Send a POST request to the transientDocuments endpoint for all the documents (Document A and Document B in the current example) you want to include in the agreement.
 
-     You get each agreement’s unique ID as a response, which is required for
-     associating a document to the FormFieldGenerator.
+   You get each agreement’s unique ID as a response, which is required for
+   associating a document to the FormFieldGenerator.
 
-  2. Use the agreement IDs and the ‘fileInfoLabel’ parameter to precisely position form fields for various recipients. To do so, send a POST request to the /agreements endpoint with the following JSON body:
+2. Use the agreement IDs and the ‘fileInfoLabel’ parameter to precisely position form fields for various recipients. To do so, send a POST request to the /agreements endpoint with the following JSON body:
 
 ```json
 {
@@ -497,7 +489,7 @@ FormFieldGenerator to a specific document.
 
 [TRY IT OUT](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement)
 
-You’ll get the following response containing the <span style="color: red;">id</span>:
+You’ll get the following response containing the `id`:
 
 ```json
     {
@@ -516,21 +508,21 @@ view of the agreement.
 Acrobat Sign now allows you to generate Agreement templates from in-progress
 or completed agreements. To generate a template:
 
-  1. Get the id of the agreement by sending a GET request to /agreements/{agreementid}:
+1. Get the id of the agreement by sending a GET request to /agreements/{agreementid}:
 
 > a. Go to [Get/agreements](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement)  
 > b. Select **OAuth Access-Token** to fetch the required access token.  
 > c. Select **Try it out!**. The Response Body displays a list of agreements with different statuses.  
-> d. For any in-progress or Signed agreement, copy the ‘id’ string.  
+> d. For any in-progress or Signed agreement, copy the ‘id’ string.
 
-  2. To generate the new template ID from the above copied id:
+2. To generate the new template ID from the above copied id:
 
 > a. Go to [Post/libraryDocuments](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocument)  
-> b. Select **OAuth Access-Token** to fetch the required access token.  
+> b. Select **OAuth Access-Token** to fetch the required access token.
 
 ![_images/template-3.png](_images/template-3.png)
 
- > c. In the LibraryDocumentInfo field, enter the following JSON:
+> c. In the LibraryDocumentInfo field, enter the following JSON:
 
    ```json
 {
@@ -548,9 +540,9 @@ or completed agreements. To generate a template:
 }
 ```
 
- > d. Select **Try it out!**.
+> d. Select **Try it out!**.
 
-   You’ll get the following response containing the template id.
+You’ll get the following response containing the template id.
 
 ```json
 Request URL: https://api.na1.echosignstage.com:443/api/rest/v6/libraryDocuments
@@ -596,19 +588,19 @@ Response Headers:
 You can send private messages to the counter signers or adhoc participants of
 an agreement. To do so:
 
-  1. Create a transient document using the following steps:
+1. Create a transient document using the following steps:
 
-> a. Go to the [Post/transientDocuments](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument) endpoint and request OAuth access token for widget_write:self.  
+> a. Go to the [Post/transientDocuments](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument) endpoint and request OAuth access token for widget_write:self.
 
 ![_images/private-message-1.png](_images/private-message-1.png)
 
 > b. For the _File parameter_, select **Browse** and then select the agreement to which you want to add a message.  
 > c. Select **Try it out!**.  
-> d. From the response body, copy the <span style="color: red;">transientDocumentID</span>.  
+> d. From the response body, copy the `transientDocumentID`.
 
-  2. Create a Post widget using the following steps:
+2. Create a Post widget using the following steps:
 
-> a. Go to the [POST /widgets](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/createWidget) endpoint and in the _WidgetInfo_ field, enter the following JSON, where you replace the <span style="color: red;">transientDocumentID</span> with the string copied in the previous step.
+> a. Go to the [POST /widgets](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/createWidget) endpoint and in the _WidgetInfo_ field, enter the following JSON, where you replace the `transientDocumentID` with the string copied in the previous step.
 
 ```json
 {
@@ -655,13 +647,13 @@ an agreement. To do so:
 ```
 
 > b. Select **Try it out!**  
-> c. Once the widget is created, copy the ID from the Response body.  
+> c. Once the widget is created, copy the ID from the Response body.
 
-  3. To get the agreement URL:
+3. To get the agreement URL:
 
 > a. Go to the [POST /widgets/{id}/views](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/getWidgetView) and request OAuth access token for widget_read:self.  
 > b. In the _widgetID_ field, paste the copied ID.  
-> c. In the _WidgetViewInfo_ field, enter the following JSON and select **Try it out!**:  
+> c. In the _WidgetViewInfo_ field, enter the following JSON and select **Try it out!**:
 
 ```json
 {
@@ -669,9 +661,9 @@ an agreement. To do so:
 }
 ```
 
-  4. From the Response Body, copy the document URL and paste it into a browser.
-  5. Enter your login credentials when prompted.
-  6. You can now edit the private message for the ad-hoc recipients, as shown below.
+4. From the Response Body, copy the document URL and paste it into a browser.
+5. Enter your login credentials when prompted.
+6. You can now edit the private message for the ad-hoc recipients, as shown below.
 
 ![_images/private-message-3.png](_images/private-message-3.png)
 
@@ -694,16 +686,16 @@ the values set at the account and group levels.
 Account Admins must enable the POST_SIGN_REDIRECT_ENABLED feature using the
 following steps:
 
-  1. Go to **Account Settings** > **Account Setup** and then take the following steps:
-     1. Under _Post Agreement Completion URL Redirect_ select the checkboxes for **Recipients should be redirected after completing agreement** and **Recipients should be redirected after declining agreement**.  
-     2. In the field boxes, enter the url where you want to redirect the signers.  
-     3. Select **Save**.
+1. Go to **Account Settings** > **Account Setup** and then take the following steps:
+    1. Under _Post Agreement Completion URL Redirect_ select the checkboxes for **Recipients should be redirected after completing agreement** and **Recipients should be redirected after declining agreement**.
+    2. In the field boxes, enter the url where you want to redirect the signers.
+    3. Select **Save**.
 
 Alternatively, go to **Group Setup** > **Post Agreement Completion URL**.
 
 ![_images/agreement-signed-redirect-1.png](_images/agreement-signed-redirect-1.png)
 
-  2. Set **POST_SIGN_REDIRECT_ENABLED** = TRUE
+2. Set **POST_SIGN_REDIRECT_ENABLED** = TRUE
 
 **To redirect signers to a specific URL, follow these steps** :
 
@@ -712,47 +704,55 @@ Alternatively, go to **Group Setup** > **Post Agreement Completion URL**.
 
 JSON payload examples:
 
-  - Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.
+- Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.
 
+```
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”
+> “redirectUrl”:”[https://www.adobe.com]”
 >
 > }
+```
 
-  - Redirect with no delay after signing (immediate redirect):
+- Redirect with no delay after signing (immediate redirect):
 
+```
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: 0
+> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: 0
 >
 > }
+```
 
-  - Redirect with a delay of 2 seconds after signing:
+- Redirect with a delay of 2 seconds after signing:
 
+```
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: 2
+> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: 2
 >
 > }
+```
 
-  - Redirect with no delay after signing (null delay - immediate redirect):
+- Redirect with no delay after signing (null delay - immediate redirect):
 
+```
 > **“postSignOption”**: {
 >  
 >
-> “redirectUrl”:”<https://www.adobe.com>”, “redirectDelay”: null
+> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: null
 >
 > }
+```
 
 As participants sign the agreement, they are automatically redirected to the
 specified URL after a specified delay.
 
 JSON payload to create an agreement with Post Sign Redirect Options that
-redirects each signer upon signing to “<https://www.adobe.com>” after a delay
+redirects each signer upon signing to “[https://www.adobe.com](https://www.adobe.com)” after a delay
 of 5 seconds:
 
 ```json
@@ -1012,18 +1012,18 @@ the values set at the account and group levels.
 Account Admins must enable the POST_SIGN_REDIRECT_ENABLED feature using the
 following steps:
 
-  1. Go to **Account Settings** > **Account Setup** and then take the following steps:
-     1. Under _Post Agreement Completion URL Redirect_ select the checkboxes for **Recipients should be redirected after completing agreement** and **Recipients should be redirected after declining agreement**.  
-     2. In the field boxes, enter the url where you want to redirect the signers.  
-     3. Select **Save**.
+1. Go to **Account Settings** > **Account Setup** and then take the following steps:
+    1. Under _Post Agreement Completion URL Redirect_ select the checkboxes for **Recipients should be redirected after completing agreement** and **Recipients should be redirected after declining agreement**.
+    2. In the field boxes, enter the url where you want to redirect the signers.
+    3. Select **Save**.
 
 Alternatively, go to **Group Setup** > **Post Agreement Completion URL**.
 
 **To add agreement redirect options** :
 
-  1. Go to the [Post/transientDocuments](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument) endpoint and request OAuth access token.
+1. Go to the [Post/transientDocuments](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument) endpoint and request OAuth access token.
 
-  2. Create an agreement using [V6 POST /agreements](https://previewusers.na1.echosignawspreview.com/public/docs/restapi/v6#!/agreements/createAgreement)  and enter the JSON payload with the redirectOptions` object, including the action, url, and delay parameters set according to your requirements.
+2. Create an agreement using [V6 POST /agreements](https://previewusers.na1.echosignawspreview.com/public/docs/restapi/v6#!/agreements/createAgreement)  and enter the JSON payload with the redirectOptions` object, including the action, url, and delay parameters set according to your requirements.
 
 The minimal redirectOptions payload object allows for just the action and the
 redirect URL to be specified. The default delay is zero seconds, where the
@@ -1031,285 +1031,295 @@ signer is immediately redirected upon declining the agreement.
 
 Here are examples of JSON payloads for different redirect scenarios:
 
-  - Redirect upon declining with no delay (immediate redirect):
+- Redirect upon declining with no delay (immediate redirect):
 
+```
 > **“redirectOptions”: {**
 >  
 >
-> “action”:”DECLINED”, “url”:”<https://www.adobe.com>”, “delay”: 0
+> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: 0
 >
 > }
+```
 
-  - Redirect upon declining with no delay (null delay - immediate redirect):
+- Redirect upon declining with no delay (null delay - immediate redirect):
 
+```
 > **“redirectOptions”: {**
 >  
 >
-> “action”:”DECLINED”, “url”:”<https://www.adobe.com>”, “delay”: null
+> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: null
 >
 > }
+```
 
-  - Redirect upon declining with no delay (default delay is zero seconds - immediate redirect):
+- Redirect upon declining with no delay (default delay is zero seconds - immediate redirect):
 
+```
 > **“redirectOptions”: {**
 >  
 >
-> “action”:”DECLINED”, “url”:”<https://www.adobe.com>”
+> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”
 >
 > }
+```
 
-  - Redirect upon declining with a delay of 1 second:
+- Redirect upon declining with a delay of 1 second:
 
+```
 > **“redirectOptions”: {**
 >  
 >
-> “action”: “DECLINED”, “url”: “<https://www.adobe.com>”, “delay”: 1
+> “action”: “DECLINED”, “url”: “[https://www.adobe.com]”, “delay”: 1
 >
 > }
+```
 
-  - Redirect upon declining with a delay of exactly 5 seconds:
+- Redirect upon declining with a delay of exactly 5 seconds:
 
+```
 > **“redirectOptions”: {**
 >  
 >
-> “action”: “DECLINED”, “url”:”<https://www.adobe.com>”, “delay”: 5
+> “action”: “DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: 5
 >
 > }
+```
 
 JSON payload to create an agreement with Redirect Options that redirects a
-signer that declines the agreement to “<https://www.adobe.com>” after a delay
+signer that declines the agreement to “[https://www.adobe.com](https://www.adobe.com)” after a delay
 of 5 seconds:
 
 ```json
     {
-    "ccs": [],
-    "createdDate": "",
-    "deviceInfo": {},
-    "documentRetentionApplied": false,
-    "documentVisibilityEnabled": null,
-    "emailOption": {},
-    "expirationTime": null,
-    "externalId": {},
-    "fileInfos": [
-        {
-        "transientDocumentId": "CBSCTBABDUAAABACAABAAElUgc9mrHBK8FGaOKeTJ7s3zB68eYQiqCXkrTJJssW2FnXixXX60RZNQDkl5tfsMhs3govR0O2S2WvHKHwQpJn0BoGLuyRSIsTQN6JfJMniGXhK_29STm8QO8V9aAWjs7lW-dHe67ioF_oZT7Qx6nda3nBLYO24946bvqn0zkRo-9YmBk5_4gWzbMNIficPeT74kUKYEtz7QL1ZRdS1erQITNR7DYQFFSZgUX5lKZbDPFqX375c9QSMQ09oWI6mOJlj70qenVdXMA7pnpvQUX0fb0cNgfhmlW1x1IS7rbW8*"
-        }
-    ],
-    "firstReminderDelay": null,
-    "formFieldLayerTemplates": [],
-    "hasFormFieldData": false,
-    "hasSignerIdentityReport": false,
-    "isDocumentRetentionApplied": false,
-    "locale": "en_US",
-    "mergeFieldInfo": [],
-    "message": "Please review and complete this agreement",
-    "name": "Agreement Redirect Options Test",
-    "parentId": "",
-    "participantSetsInfo": [
-        {
-        "memberInfos": [
-            {
-            "email": "signer1@outlook.com",
-            "name": "First Signer",
-            "securityOption": {
-                "authenticationMethod": "NONE"
-            },
-            "notaryAuthentication": ""
-            }
-        ],
-        "order": 1,
-        "role": "SIGNER",
-        "signingOrder": 1,
-        "privateMessage": "",
-        "label": null,
-        "name": null,
-        "visiblePages": []
-        },
-        {
-        "memberInfos": [
-            {
-            "email": "signer2@outlook.com",
-            "name": "Second Signer",
-            "securityOption": {
-                "authenticationMethod": "NONE"
-            },
-            "notaryAuthentication": ""
-            }
-        ],
-        "order": 2,
-        "role": "SIGNER",
-        "signingOrder": 2,
-        "privateMessage": "",
-        "label": null,
-        "name": null,
-        "visiblePages": []
-        },
-        {
-        "memberInfos": [
-            {
-            "email": "signer3@outlook.com",
-            "name": "Third Signer",
-            "securityOption": {
-                "authenticationMethod": "NONE"
-            },
-            "notaryAuthentication": ""
-            }
-        ],
-        "order": 3,
-        "role": "SIGNER",
-        "signingOrder": 3,
-        "privateMessage": "",
-        "label": null,
-        "name": null,
-        "visiblePages": []
-        }
-    ],
-    "redirectOptions": [
-        {
-        "action": "DECLINED",
-        "delay": 5,
-        "url": "https://www.adobe.com"
-        }
-    ],
-    "reminderFrequency": "",
-    "securityOption": {},
-    "senderEmail": "",
-    "signatureType": "ESIGN",
-    "state": "IN_PROCESS",
-    "status": "OUT_FOR_SIGNATURE",
-    "type": "AGREEMENT",
-    "vaultingInfo": {},
-    "notaryInfo": {},
-    "workflowId": null,
-    "workflow": {
-        "id": "default",
-        "agreementNameInfo": {
-        "required": true,
-        "defaultValue": "",
-        "editable": true,
-        "visible": true
-        },
-        "authoringInfo": {
-        "required": false,
-        "defaultValue": "true",
-        "editable": true,
-        "visible": true
-        },
-        "created": "",
-        "ccsListInfo": [
-        {
-            "defaultValues": [
-            ""
-            ],
-            "required": false,
-            "editable": true,
-            "visible": true,
-            "minListCount": 0,
-            "maxListCount": 11,
-            "label": "",
-            "name": ""
-        }
-        ],
-        "description": "",
-        "displayName": "",
-        "expirationInfo": {
-        "required": false,
-        "defaultValue": "0",
-        "editable": true,
-        "visible": false,
-        "maxDays": 180
-        },
-        "fileInfos": [
-        {
-            "required": true,
-            "label": "",
-            "name": "",
-            "workflowLibraryDocumentSelectorList": []
-        }
-        ],
-        "localeInfo": {
-        "required": false,
-        "defaultValue": "es_ES",
-        "editable": true,
-        "visible": true,
-        "availableLocales": [
-            "en_US",
-            "en_US_Echosign",
-            "en_GB",
-            "de_DE",
-            "fr_FR",
-            "nl_NL",
-            "it_IT",
-            "fi_FI",
-            "da_DK",
-            "sv_SE",
-            "es_ES",
-            "nb_NO",
-            "nn_NO",
-            "no_NO",
-            "pt_BR",
-            "pt_PT",
-            "ru_RU",
-            "is_IS",
-            "ja_JP",
-            "zh_CN",
-            "zh_TW",
-            "ko_KR",
-            "pl_PL",
-            "in_ID",
-            "ms_MY",
-            "vi_VN",
-            "th_TH",
-            "cs_CZ",
-            "tr_TR",
-            "ca_ES",
-            "eu_ES",
-            "hr_HR",
-            "hu_HU",
-            "ro_RO",
-            "sk_SK",
-            "sl_SI",
-            "uk_UA",
-            "zz_ZZ"
-        ]
-        },
-        "mergeFieldsInfo": [],
-        "messageInfo": {
-        "required": false,
-        "defaultValue": "",
-        "editable": true,
-        "visible": true
-        },
-        "modified": "",
-        "name": "",
-        "passwordInfo": {
-        "required": false,
-        "visible": true,
-        "editable": true,
-        "model": {}
-        },
-        "recipientsListInfo": [
-        {
-            "defaultValue": "",
-            "minListCount": 1,
-            "maxListCount": 25,
-            "editable": true,
-            "visible": true,
-            "allowfax": false,
-            "allowSender": true,
-            "authenticationMethod": "NONE",
-            "role": "SIGNER",
-            "label": "",
-            "name": ""
-        }
-        ],
-        "scope": "",
-        "status": "",
-        "scopeId": ""
-    },
-    "authoringRequested": true,
-    "signatureFlow": "HYBRID"
+  "ccs": [],
+  "createdDate": "",
+  "deviceInfo": {},
+  "documentRetentionApplied": false,
+  "documentVisibilityEnabled": null,
+  "emailOption": {},
+  "expirationTime": null,
+  "externalId": {},
+  "fileInfos": [
+    {
+      "transientDocumentId": "CBSCTBABDUAAABACAABAAElUgc9mrHBK8FGaOKeTJ7s3zB68eYQiqCXkrTJJssW2FnXixXX60RZNQDkl5tfsMhs3govR0O2S2WvHKHwQpJn0BoGLuyRSIsTQN6JfJMniGXhK_29STm8QO8V9aAWjs7lW-dHe67ioF_oZT7Qx6nda3nBLYO24946bvqn0zkRo-9YmBk5_4gWzbMNIficPeT74kUKYEtz7QL1ZRdS1erQITNR7DYQFFSZgUX5lKZbDPFqX375c9QSMQ09oWI6mOJlj70qenVdXMA7pnpvQUX0fb0cNgfhmlW1x1IS7rbW8*"
     }
+  ],
+  "firstReminderDelay": null,
+  "formFieldLayerTemplates": [],
+  "hasFormFieldData": false,
+  "hasSignerIdentityReport": false,
+  "isDocumentRetentionApplied": false,
+  "locale": "en_US",
+  "mergeFieldInfo": [],
+  "message": "Please review and complete this agreement",
+  "name": "Agreement Redirect Options Test",
+  "parentId": "",
+  "participantSetsInfo": [
+    {
+      "memberInfos": [
+        {
+          "email": "signer1@outlook.com",
+          "name": "First Signer",
+          "securityOption": {
+            "authenticationMethod": "NONE"
+          },
+          "notaryAuthentication": ""
+        }
+      ],
+      "order": 1,
+      "role": "SIGNER",
+      "signingOrder": 1,
+      "privateMessage": "",
+      "label": null,
+      "name": null,
+      "visiblePages": []
+    },
+    {
+      "memberInfos": [
+        {
+          "email": "signer2@outlook.com",
+          "name": "Second Signer",
+          "securityOption": {
+            "authenticationMethod": "NONE"
+          },
+          "notaryAuthentication": ""
+        }
+      ],
+      "order": 2,
+      "role": "SIGNER",
+      "signingOrder": 2,
+      "privateMessage": "",
+      "label": null,
+      "name": null,
+      "visiblePages": []
+    },
+    {
+      "memberInfos": [
+        {
+          "email": "signer3@outlook.com",
+          "name": "Third Signer",
+          "securityOption": {
+            "authenticationMethod": "NONE"
+          },
+          "notaryAuthentication": ""
+        }
+      ],
+      "order": 3,
+      "role": "SIGNER",
+      "signingOrder": 3,
+      "privateMessage": "",
+      "label": null,
+      "name": null,
+      "visiblePages": []
+    }
+  ],
+  "redirectOptions": [
+    {
+      "action": "DECLINED",
+      "delay": 5,
+      "url": "https://www.adobe.com"
+    }
+  ],
+  "reminderFrequency": "",
+  "securityOption": {},
+  "senderEmail": "",
+  "signatureType": "ESIGN",
+  "state": "IN_PROCESS",
+  "status": "OUT_FOR_SIGNATURE",
+  "type": "AGREEMENT",
+  "vaultingInfo": {},
+  "notaryInfo": {},
+  "workflowId": null,
+  "workflow": {
+    "id": "default",
+    "agreementNameInfo": {
+      "required": true,
+      "defaultValue": "",
+      "editable": true,
+      "visible": true
+    },
+    "authoringInfo": {
+      "required": false,
+      "defaultValue": "true",
+      "editable": true,
+      "visible": true
+    },
+    "created": "",
+    "ccsListInfo": [
+      {
+        "defaultValues": [
+          ""
+        ],
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "minListCount": 0,
+        "maxListCount": 11,
+        "label": "",
+        "name": ""
+      }
+    ],
+    "description": "",
+    "displayName": "",
+    "expirationInfo": {
+      "required": false,
+      "defaultValue": "0",
+      "editable": true,
+      "visible": false,
+      "maxDays": 180
+    },
+    "fileInfos": [
+      {
+        "required": true,
+        "label": "",
+        "name": "",
+        "workflowLibraryDocumentSelectorList": []
+      }
+    ],
+    "localeInfo": {
+      "required": false,
+      "defaultValue": "es_ES",
+      "editable": true,
+      "visible": true,
+      "availableLocales": [
+        "en_US",
+        "en_US_Echosign",
+        "en_GB",
+        "de_DE",
+        "fr_FR",
+        "nl_NL",
+        "it_IT",
+        "fi_FI",
+        "da_DK",
+        "sv_SE",
+        "es_ES",
+        "nb_NO",
+        "nn_NO",
+        "no_NO",
+        "pt_BR",
+        "pt_PT",
+        "ru_RU",
+        "is_IS",
+        "ja_JP",
+        "zh_CN",
+        "zh_TW",
+        "ko_KR",
+        "pl_PL",
+        "in_ID",
+        "ms_MY",
+        "vi_VN",
+        "th_TH",
+        "cs_CZ",
+        "tr_TR",
+        "ca_ES",
+        "eu_ES",
+        "hr_HR",
+        "hu_HU",
+        "ro_RO",
+        "sk_SK",
+        "sl_SI",
+        "uk_UA",
+        "zz_ZZ"
+      ]
+    },
+    "mergeFieldsInfo": [],
+    "messageInfo": {
+      "required": false,
+      "defaultValue": "",
+      "editable": true,
+      "visible": true
+    },
+    "modified": "",
+    "name": "",
+    "passwordInfo": {
+      "required": false,
+      "visible": true,
+      "editable": true,
+      "model": {}
+    },
+    "recipientsListInfo": [
+      {
+        "defaultValue": "",
+        "minListCount": 1,
+        "maxListCount": 25,
+        "editable": true,
+        "visible": true,
+        "allowfax": false,
+        "allowSender": true,
+        "authenticationMethod": "NONE",
+        "role": "SIGNER",
+        "label": "",
+        "name": ""
+      }
+    ],
+    "scope": "",
+    "status": "",
+    "scopeId": ""
+  },
+  "authoringRequested": true,
+  "signatureFlow": "HYBRID"
+}
  ```
 
 If a signer declines an agreement, they are redirected to the set URL after a
@@ -1341,10 +1351,10 @@ rate. Higher tiers of service have higher throttle thresholds.
 
 ```json
     {
-    "code":"THROTTLING_TOO_MANY_REQUESTS",
-    "message":"<error_message_with_wait_time> (apiActionId=<api_action_id>)"
-    "retryAfter": <wait_time_in_seconds>
-    }
+  "code":"THROTTLING_TOO_MANY_REQUESTS",
+  "message":"<error_message_with_wait_time> (apiActionId=<api_action_id>)"
+  "retryAfter": <wait_time_in_seconds>
+}
 ```
 
 Also, a _Retry-After_ HTTP header will be added into the response ([see

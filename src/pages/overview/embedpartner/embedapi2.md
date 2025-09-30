@@ -59,7 +59,7 @@ Acrobat Sign APIs come with location awareness, so it's important to use the cor
 | Item | Value |
 |------|-------|
 | HTTP Method | GET |
-| Endpoint Operation | {Base Api Host}/api/rest/v6/baseUris |
+| Endpoint Operation | `{Base Api Host}/api/rest/v6/baseUris` |
 | Description | Very first API call to fetch geographical aware access points before you can call further APIs. |
 | Authentication | Valid user/technical account token |
 | Request Header | Auth API Headers |
@@ -318,7 +318,7 @@ You can call the following API to register your partner application by directly 
 | HTTP Method | POST |
 | Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/partners |
 | Authentication/Authorization | Values:
-    
+
     Valid Technical Account Token
     Mandatory scopes in token: sign_user_write, sign_user_read, sign_account_write, sign_account_read, sign_oem_user_impersonate |
 | Description | API to register the Partner with Acrobat Sign. This would be called once as part of Partner onboarding. |
@@ -468,7 +468,7 @@ Call these APIs directly using a technical account token to create or update an 
 | Parameter Name | Type | Default Value | Description | Needed in POST/PUT | Updatable by PUT |
 |---|---|---|---|---|---|
 | type | String | NA | Name of consumable supported in Embed Accounts.
-    
+
     KBA_ANNUAL
     PHONE_AUTH_ANNUAL
     SEAT | Required | mutable |
@@ -536,7 +536,7 @@ Call these APIs directly using a technical account token to create or update an 
 | 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
 | 409 | ACCOUNT_ALREADY_EXISTS | Account with this name already exists. |
 | 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
-| 500 | ACCOUNT_COULD_NOT_BE_CONFIGURED | Account with accountId {account id} could not be configured properly. |
+| 500 | ACCOUNT_COULD_NOT_BE_CONFIGURED | Account with accountId `{account id}` could not be configured properly. |
 
 
 ### Update Account
@@ -565,29 +565,29 @@ Account update request parameters
 
 ```json
 {
-    "id":"accountid",
-    "name": "SignEmbedTestAccountUpdated",
-    "company": "Sign Embed Test Account Updated",
-    "consumables":[
-        {
-            "type": "SEATS",
-            "attributes": {
-                "cap": 10
-            }
-        },
-        {
-            "type": "PHONE_AUTH",
-            "attributes": {
-                "cap": 10
-            }
-        },
-        {
-            "type": "KBA",
-            "attributes": {
-                "cap": 10
-            }
-        }
-    ]
+  "id":"accountid",
+  "name": "SignEmbedTestAccountUpdated",
+  "company": "Sign Embed Test Account Updated",
+  "consumables":[
+    {
+      "type": "SEATS",
+      "attributes": {
+        "cap": 10
+      }
+    },
+    {
+      "type": "PHONE_AUTH",
+      "attributes": {
+        "cap": 10
+      }
+    },
+    {
+      "type": "KBA",
+      "attributes": {
+        "cap": 10
+      }
+    }
+  ]
 }
 ```
 
@@ -648,30 +648,30 @@ Account update request parameters
 
 ```json
 {
-    "id":"accountId"
-    "name": "SignEmbedTestAccountUpdated",
-    "company": "Sign Embed Test Account Updated",
-    "consumables":[
-        {
-            "type": "SEATS",
-            "attributes": {
-                "cap": 10
-            }
-        },
-        {
-            "type": "PHONE_AUTH",
-            "attributes": {
-                "cap": 10
-            }
-        },
-        {
-            "type": "KBA",
-            "attributes": {
-                "cap": 10
-            }
-        }
-    ],
-    "created": "2023-01-17T12:27:08Z"
+  "id":"accountId"
+  "name": "SignEmbedTestAccountUpdated",
+  "company": "Sign Embed Test Account Updated",
+  "consumables":[
+    {
+      "type": "SEATS",
+      "attributes": {
+        "cap": 10
+      }
+    },
+    {
+      "type": "PHONE_AUTH",
+      "attributes": {
+        "cap": 10
+      }
+    },
+    {
+      "type": "KBA",
+      "attributes": {
+        "cap": 10
+      }
+    }
+  ],
+  "created": "2023-01-17T12:27:08Z"
 }
 ```
 
@@ -715,14 +715,14 @@ Account update request parameters
 | Parameter Name | Type | Description | Needed | Data Range |
 |---|---|---|---|---|
 | pageNumber | Integer | pageNumber to navigate through pages | Optional | default:0
-      
+
         If pageNumber is less than 0, throw INVALID_PARAMETER exception |
 | pageSize | Integer | pageSize to limit the number of records that will be fetched. | Optional | default:20 max:100
-      
+
         If pageSize is less than 1, throw INVALID_PARAMETER exception
         If pageSize is more than 100, throw PAGE_SIZE_LIMIT_EXCEEDED exception |
 | isLegacy | boolean | Return legacy accounts that are on old Sign Embed Models. | Optional | default:false
-      
+
         If isLegacy value is not a boolean, throw INVALID_PARAMETER exception |
 
 
@@ -750,18 +750,18 @@ Account update request parameters
 
 ```json
 {
-"accountList": [
-  {
-    "accountId": "secureAccountId1234",
-    "name": "Joes Bike Shop",
-    "created": "2023-01-17T12:27:08Z"
-  },
-  {
-    "accountId": "secureAccountId2345",
-    "name": "Acme Corp",
-    "created": "2023-01-17T12:27:08Z"
-  }
-]
+  "accountList": [
+    {
+      "accountId": "secureAccountId1234",
+      "name": "Joes Bike Shop",
+      "created": "2023-01-17T12:27:08Z"
+    },
+    {
+      "accountId": "secureAccountId2345",
+      "name": "Acme Corp",
+      "created": "2023-01-17T12:27:08Z"
+    }
+  ]
 }
 ```
 
@@ -1089,12 +1089,12 @@ Add-ons and transactions are referred to as "consumables" because they are resou
 {
   "consumableSummary": [
     {
-     "type": "KBA",
-     "count": 1
+      "type": "KBA",
+      "count": 1
     },
     {
-     "type": "PHONE_AUTH",
-     "count": 2
+      "type": "PHONE_AUTH",
+      "count": 2
     }
   ]
 }
@@ -1122,14 +1122,14 @@ Add-ons and transactions are referred to as "consumables" because they are resou
 ```json
 {
   "consumableSummary": [
-      {
-        "type": "KBA",
-        "count": 1
-      },
-      {
-        "type": "PHONE_AUTH",
-        "count": 2
-      }
+    {
+      "type": "KBA",
+      "count": 1
+    },
+    {
+      "type": "PHONE_AUTH",
+      "count": 2
+    }
   ]
 }
 ```

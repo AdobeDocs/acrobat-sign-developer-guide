@@ -5,18 +5,18 @@ title: Acrobat Sign JAVA SDK — Acrobat Sign SDK Downloads
 # Acrobat Sign JAVA SDK
 
 
-<span style="font-size: 16px">The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s JAVA SDK and samples for these APIs.</span>
+`The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s JAVA SDK and samples for these APIs.`
 
 ## Prerequisites
 
 For the building of Acrobat Sign Java SDK, the client machine should have the following software installed:
 
-<ul style="list-style-type: disc; margin-left: 15px; padding: 0">
-    <li>OS: Windows/Mac/Linux</li>
-    <li>Java JDK: version 1.8 or above</li>
-    <li>Maven: 3.3.3 version or above</li>
-    <li>Gradle: 2.11 version or above</li>
-</ul>
+
+* OS: Windows/Mac/Linux
+* Java JDK: version 1.8 or above
+* Maven: 3.3.3 version or above
+* Gradle: 2.11 version or above
+
 
 ## Requirements for Building the SDK
 
@@ -34,10 +34,10 @@ mvn package
 
 &nbsp;2. Manually install the following JARs:
 
-<ul style="list-style-type: disc">
-    <li><span style="color: #e74c3c">target/swagger-java-client-1.0.0.jar</span></li>
-    <li><span style="color: #e74c3c">target/lib/*.jar</span></li>
-</ul>
+
+* `target/swagger-java-client-1.0.0.jar`
+* `target/lib/*.jar`
+
 
 or
 
@@ -45,7 +45,7 @@ or
 gradle build
 ```
 
-&nbsp;3. Manually install the following JAR: <span style="color: #e74c3c">build/libs/swagger-java-client-1.0.0.jar</span>
+&nbsp;3. Manually install the following JAR: `build/libs/swagger-java-client-1.0.0.jar`
 
 ## Getting Started
 

@@ -90,7 +90,6 @@ Need a quick overview? Check out the following:
 
 ![_images/foursteps.png](_images/foursteps.png)
 
-* * *
-
-(C) Copyright 2023, Adobe Inc..  Last update: Jan 15, 2025.
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Jan 15, 2025.
 ![](../_static/adobelogo.png)

@@ -58,7 +58,7 @@ Web app name: Web Form created
 
 Triggers when a web form is created.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -182,7 +182,7 @@ Web app name: Web Form creation failed
 
 Triggers when Acrobat Sign can’t process certain PDFs; for example, LiveCycle documents.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -295,7 +295,7 @@ Web app name: Web Form disabled
 
 Triggers when a web form is disabled.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -419,7 +419,7 @@ Web app name: Web form enabled.
 
 Triggers when a web form is enabled.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -543,7 +543,7 @@ Web app name: Web form modified
 
 Triggers when a web form is modified.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|
@@ -667,7 +667,7 @@ Web app name: Web form shared
 
 Triggers when a web form is shared.
 
-***The payload may include these event-specific payload as well as the <span style="color: #2980b9">[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)</span>.***
+***The payload may include these event-specific payload as well as the `[Payload attributes inherited from Widget](#payload-attributes-inherited-from-widget)`.***
 
 | Parameter name | Type | Description |
 |---|---|---|

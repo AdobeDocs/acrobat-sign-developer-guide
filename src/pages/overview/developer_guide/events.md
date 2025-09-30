@@ -6,7 +6,7 @@ This page provides a guide to all the events supported by Acrobat Sign.
 
 ## System requirements
 
-To use the event framework within Acrobat Sign, you need a browser that supports <span style="color: red;">postMessage</span>. See [this page](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) to get a list of all supported browsers.
+To use the event framework within Acrobat Sign, you need a browser that supports `postMessage`. See [this page](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) to get a list of all supported browsers.
 
 ## Supported events
 

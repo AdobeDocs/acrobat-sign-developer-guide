@@ -5,7 +5,7 @@ title: Webhook Event Payload Overview — Acrobat Sign Webhook Guide
 
 ## Payload info
 
-Webhook notification payloads are delivered using the <span style="color: #e74c3c">application/json</span> content type. The payload object contains all the relevant information about what just happened, including the type of event and the data associated with that event. Acrobat Sign then sends the payload object, via an HTTP POST request, to any endpoint URLs that you have defined as webhook URLs.
+Webhook notification payloads are delivered using the `application/json` content type. The payload object contains all the relevant information about what just happened, including the type of event and the data associated with that event. Acrobat Sign then sends the payload object, via an HTTP POST request, to any endpoint URLs that you have defined as webhook URLs.
 
 ## Payload size and truncation
 
@@ -59,7 +59,7 @@ All events include the following common payload attributes. Additional parameter
 
 ## Applicable users
 
-Information in the <span style="color: #e74c3c">webhookNotificationApplicableUsers</span> array:
+Information in the `webhookNotificationApplicableUsers` array:
 
 | Parameter name | Type | Description | Possible values |
 |---|---|---|---|
