@@ -2,6 +2,20 @@
   "swagger": "2.0",
   "paths": {
     "/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Create user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "createUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -12,9 +26,14 @@
               "$ref": "#/definitions/User"
             }
           }
-        ]
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
       }
-
+    }
   },
   "definitions": {
     "User": {
@@ -47,6 +66,9 @@
           "format": "int32",
           "description": "User Status"
         }
+      },
+      "xml": {
+        "name": "User"
       }
     }
   }
