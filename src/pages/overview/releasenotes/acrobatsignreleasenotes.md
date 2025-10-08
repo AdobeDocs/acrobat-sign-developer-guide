@@ -11,7 +11,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
 
 ## Testing Redocly Block
 
-<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel></RedoclyAPIBlock>
+<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel hideSchemaTitle hideInfoPanel hideServerSelection hideSecurityDefinitions></RedoclyAPIBlock>
 
 ## System requirement changes
 

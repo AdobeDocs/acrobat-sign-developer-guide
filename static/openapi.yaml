@@ -1,43 +1,20 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Table Structure",
-    "version": "1.0.0"
+    "title": "",
+    "version": ""
   },
   "paths": {},
   "definitions": {
-    "TableData": {
-      "type": "array",
-      "description": "Table with 3 columns and 2 rows",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Column 1": {
-            "type": "string",
-            "example": "Row 1, Col 1"
-          },
-          "Column 2": {
-            "type": "string",
-            "example": "Row 1, Col 2"
-          },
-          "Column 3": {
-            "type": "string",
-            "example": "Row 1, Col 3"
-          }
-        }
-      },
-      "example": [
-        {
-          "Column 1": "Row 1, Col 1",
-          "Column 2": "Row 1, Col 2",
-          "Column 3": "Row 1, Col 3"
-        },
-        {
-          "Column 1": "Row 2, Col 1",
-          "Column 2": "Row 2, Col 2",
-          "Column 3": "Row 2, Col 3"
-        }
-      ]
+    "": {
+      "type": "object",
+      "example": {
+        "table": [
+          ["Column 1", "Column 2", "Column 3"],
+          ["Row 1, Col 1", "Row 1, Col 2", "Row 1, Col 3"],
+          ["Row 2, Col 1", "Row 2, Col 2", "Row 2, Col 3"]
+        ]
+      }
     }
   }
 }
