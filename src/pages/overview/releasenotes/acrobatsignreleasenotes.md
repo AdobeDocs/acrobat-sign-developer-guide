@@ -1,4 +1,3 @@
-
 ---
 title: Latest API Release Notes
 description: Release notes for the latest Acrobat Sign API updates, including system requirements, new features, webhook changes, REST API changes, and bug fixes.
