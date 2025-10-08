@@ -1,7 +1,3 @@
----
-title: Latest API Release Notes
-description: Release notes for the latest Acrobat Sign API updates, including system requirements, new features, webhook changes, REST API changes, and bug fixes.
----
 
 # Latest API Release Notes
 
@@ -13,15 +9,12 @@ Tip
 
 For non-developer product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
 
-## Testing Redocly Block
-
-<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel ></RedoclyAPIBlock>
-
 ## System requirement changes
 
 For browser and product UI system requirements, see [https://helpx.adobe.com/sign/system-requirements.html](https://helpx.adobe.com/sign/system-requirements.html).
 
 ## New or updated developer assets
+
 | Date | Change |
 |---|---|
 | May, 2024 | [OAuth 2.0 support at account level](https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/webhooks-oauth-2.0.html) |
