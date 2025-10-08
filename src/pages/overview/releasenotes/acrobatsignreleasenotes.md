@@ -12,7 +12,7 @@ For non-developer product feature and UI changes, refer to [this link](https://h
 ## System requirement changes
 
 For browser and product UI system requirements, see [https://helpx.adobe.com/sign/system-requirements.html](https://helpx.adobe.com/sign/system-requirements.html).
-<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel></RedoclyAPIBlock>
+<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel />
 ## New or updated developer assets
 
 | Date | Change |
