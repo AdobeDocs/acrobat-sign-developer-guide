@@ -24,7 +24,6 @@ For browser and product UI system requirements, see [https://helpx.adobe.com/sig
 | April, 2023 | Solutions for Government: onboarding docs, Postman collection |
 | March 14, 2023 | [New Acrobat Sign Workspace on Postman](https://adobe.postman.co/workspace/Adobe-Acrobat-Sign~1faa30d0-1b34-493b-96b1-475cf3978a95/overview) |
 
-<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel ></RedoclyAPIBlock>
 
 ## Webhook Changes
 
