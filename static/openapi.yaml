@@ -1,79 +1,43 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Table Data API",
-    "version": "1.0.0",
-    "description": "API demonstrating table-like data structure"
+    "title": "Table Structure",
+    "version": "1.0.0"
   },
-  "paths": {
-    "/table-data": {
-      "get": {
-        "summary": "Get table data",
-        "description": "Returns data in a table format with 3 columns and 2 rows",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Table data retrieved successfully",
-            "schema": {
-              "$ref": "#/definitions/TableResponse"
-            },
-            "examples": {
-              "application/json": {
-                "data": [
-                  {
-                    "column1": "Row 1, Col 1",
-                    "column2": "Row 1, Col 2", 
-                    "column3": "Row 1, Col 3"
-                  },
-                  {
-                    "column1": "Row 2, Col 1",
-                    "column2": "Row 2, Col 2",
-                    "column3": "Row 2, Col 3"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    }
-  },
+  "paths": {},
   "definitions": {
-    "TableResponse": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "array",
-          "description": "Array of table rows",
-          "items": {
-            "$ref": "#/definitions/TableRow"
+    "TableData": {
+      "type": "array",
+      "description": "Table with 3 columns and 2 rows",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Column 1": {
+            "type": "string",
+            "example": "Row 1, Col 1"
+          },
+          "Column 2": {
+            "type": "string",
+            "example": "Row 1, Col 2"
+          },
+          "Column 3": {
+            "type": "string",
+            "example": "Row 1, Col 3"
           }
-        }
-      }
-    },
-    "TableRow": {
-      "type": "object",
-      "description": "Represents a single row in the table",
-      "properties": {
-        "column1": {
-          "type": "string",
-          "description": "First column data",
-          "example": "Sample data 1"
-        },
-        "column2": {
-          "type": "string", 
-          "description": "Second column data",
-          "example": "Sample data 2"
-        },
-        "column3": {
-          "type": "string",
-          "description": "Third column data", 
-          "example": "Sample data 3"
         }
       },
-      "required": ["column1", "column2", "column3"]
+      "example": [
+        {
+          "Column 1": "Row 1, Col 1",
+          "Column 2": "Row 1, Col 2",
+          "Column 3": "Row 1, Col 3"
+        },
+        {
+          "Column 1": "Row 2, Col 1",
+          "Column 2": "Row 2, Col 2",
+          "Column 3": "Row 2, Col 3"
+        }
+      ]
     }
   }
 }
