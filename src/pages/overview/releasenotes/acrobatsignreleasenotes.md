@@ -8,8 +8,10 @@ Last update: Jun 21, 2024.
 Tip
 
 For non-developer product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
+
 ## Testing Redocly Block
-<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel/>
+
+<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel></RedoclyAPIBlock>
 
 ## System requirement changes
 
