@@ -1,32 +1,46 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Table",
-    "version": "1.0"
+    "title": "",
+    "version": ""
   },
   "paths": {
-    "/": {
+    "/table": {
       "get": {
+        "summary": "",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Table data",
+            "description": "",
             "schema": {
-              "type": "array",
+              "type": "object",
               "items": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "example": [
-                ["Column 1", "Column 2", "Column 3"],
-                ["Row 1, Col 1", "Row 1, Col 2", "Row 1, Col 3"],
-                ["Row 2, Col 1", "Row 2, Col 2", "Row 2, Col 3"]
-              ]
+                "$ref": "#/definitions/TableData"
+              }
             }
           }
-        }
+        },
+
       }
+    }
+  },
+  "definitions": {
+    "TableData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }}
     }
   }
 }
