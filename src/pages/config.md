@@ -1,17 +1,8 @@
-`{/* Comment: Only in Local */}`
-`{/* Comment: Image display causing issues */}`
-`{/* Comment: Pdfs */}`
-`{/* Comment: Right Nav Bar is not working on clicking */}`
-
-`{/* Comment: Top Nav Bar showing double */}`
-`{/* Comment: Fix Tables */}`
-
-
 - pathPrefix:
     - /acrobat-sign/developer-guide/
 
 - pages:
-    - [Adobe Acrobat Sign](overview/index.md) `{/* Comment: Create with DevBiz */}`
+    - [Adobe Acrobat Sign](overview/index.md)
     - Resources
         - [Free Dev Account Sign-Up](https://www.adobe.com/sign/developer-form.html)
         - [FAQs and Tech Tips](https://www.adobe.com/go/acrobatsigntechblog)
@@ -33,11 +24,11 @@
     - [Support](support/index.md)
 
 - subPages:
-    - [API Release Notes](overview/releasenotes/index.md)
+    - [Introduction to API Release Notes](overview/releasenotes/index.md)
         - [Acrobat Sign API Release Notes](overview/releasenotes/index.md)
         - [Latest API Release Notes](overview/releasenotes/acrobatsignreleasenotes.md)
         - [2016 REST v6 Release Notes](overview/releasenotes/v6releasenotes.md)
-    - [Core Dev Guide](overview/developer_guide/index.md)
+    - [Introduction to Core Dev Guide](overview/developer_guide/index.md)
         - [Acrobat Sign API Overview](overview/developer_guide/index.md)
         - [Create an Application Quickstart](overview/developer_guide/gstarted.md)
         - [Managing OAuth Tokens](overview/developer_guide/oauth.md)
@@ -49,7 +40,7 @@
         - [Web Message Events](overview/developer_guide/events.md)
         - [Migrating and Updating Apps](overview/developer_guide/migrating.md)
         - [Glossary](overview/developer_guide/glossary.md)
-    - [Webhook Reference](overview/acrobat_sign_events/index.md)
+    - [Introduction to Webhook Reference](overview/acrobat_sign_events/index.md)
         - [Webhooks in Acrobat Sign](overview/acrobat_sign_events/index.md)
         - [Webhook Event Payload Overview](overview/acrobat_sign_events/webhookpayloadoverview.md)
         - [Agreement Events](overview/acrobat_sign_events/webhookeventsagreements.md)
@@ -57,12 +48,12 @@
         - [Bulk Signing Events](overview/acrobat_sign_events/webhookeventsmegasign.md)
         - [Web Form Events](overview/acrobat_sign_events/webhookeventswidget.md)
         - [Webhooks OAuth 2.0 User Guide](overview/acrobat_sign_events/webhooks-oauth-2-0.md)
-    - [Sign for Government](overview/signgov/index.md)
+    - [Introduction to Sign for Government](overview/signgov/index.md)
         - [Developer Overview](overview/signgov/index.md)
         - [Getting Started](overview/signgov/gstarted.md)
         - [APIs and Applications](overview/signgov/apps.md)
         - [Sign Gov and Commerical Comparison](overview/signgov/diffs.md)
-    - [Acrobat Sign Embed](overview/embedpartner/index.md)
+    - [Introduction to Acrobat Sign Embed](overview/embedpartner/index.md)
         - [Developing with Acrobat Sign Embed](overview/embedpartner/index.md)
         - [Onboarding Overview](overview/embedpartner/onboarding.md)
         - [Provisioning Design and FAQ v.1.0](overview/embedpartner/provisioningfaq.md)
@@ -74,7 +65,7 @@
         - [Channel Webhooks User Guide](overview/embedpartner/channel-webhooks.md)
         - [Certifying Your Partner App 2.0](overview/embedpartner/partnercertification2.md)
         - [How-to Video Tutorials 2.0](overview/embedpartner/videos2.md)
-    - [SDK Downloads](overview/sdks/index.md)
+    - [Introduction to SDK Downloads](overview/sdks/index.md)
         - [Acrobat Sign SDK Downloads](overview/sdks/index.md)
         - [Acrobat Sign JavaScript SDK](overview/sdks/js.md)
         - [Acrobat Sign JAVA SDK](overview/sdks/java.md)
