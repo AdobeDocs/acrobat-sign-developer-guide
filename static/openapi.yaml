@@ -4,9 +4,24 @@
     "title": "",
     "version": ""
   },
-  "paths": {},
+  "paths": {
+    "/table": {
+      "get": {
+        "summary": "",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TableData"
+            }
+          }
+        }
+      }
+    }
+  },
   "definitions": {
-    "": {
+    "TableData": {
       "type": "object",
       "example": {
         "table": [
