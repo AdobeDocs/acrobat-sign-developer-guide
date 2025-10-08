@@ -1,7 +1,20 @@
 {
   "swagger": "2.0",
-  "schema": {
+  "paths": {
+    "/user": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
               "$ref": "#/definitions/User"
+            }
+          }
+        ]
+      }
+
   },
   "definitions": {
     "User": {
