@@ -8,15 +8,14 @@ Last update: Jun 21, 2024.
 Tip
 
 For non-developer product feature and UI changes, refer to [this link](https://helpx.adobe.com/sign/release-notes/adobe-sign.html)
+## Testing Redocly Block
+<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel/>
 
 ## System requirement changes
 
 For browser and product UI system requirements, see [https://helpx.adobe.com/sign/system-requirements.html](https://helpx.adobe.com/sign/system-requirements.html).
 
-<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel/>
-
 ## New or updated developer assets
-
 | Date | Change |
 |---|---|
 | May, 2024 | [OAuth 2.0 support at account level](https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/webhooks-oauth-2.0.html) |

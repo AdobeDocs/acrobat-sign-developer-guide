@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "paths": {
-    "/user": {
+    "": {
       "post": {
         "consumes": [
           "application/json"
@@ -14,8 +14,7 @@
           {
             "in": "body",
             "name": "body",
-            "description": "Created user object",
-            "required": true,
+            "description": "Testing Redocly Table",
             "schema": {
               "$ref": "#/definitions/User"
             }
