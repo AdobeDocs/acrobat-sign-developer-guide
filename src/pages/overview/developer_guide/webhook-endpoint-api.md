@@ -59,9 +59,10 @@ WebhookEndpointResponse{`{
 }` }
 ```
 
-## Testing - 3
+[//]: # (## Testing - 3)
 
-<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel/>
+[//]: # ()
+[//]: # (<RedoclyAPIBlock src="/acrobat-sign/developer-guide/openapi.yaml" disableSidebar disableSearch hideTryItPanel/>)
 
 
 ## POST /webhookEndpoints
