@@ -12,26 +12,24 @@ Acrobat Sign APIs include the endpoints described below.
 | Endpoint operation    | /webhookEndpoints                                                                                                                                                                                                                                                                                                                                                                                                      |
 | OAuth scopes          | webhook_write                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Request object        | ```<br/>{`{<br/>  "name": "",<br/>  "description": "",<br/>  "webhookEndpointUrl": "",<br/>  "applicationIds": [ "" ],<br/>  "oAuth20": {<br/>    "authorizationServerUrl": "",<br/>    "clientId": "",<br/>    "clientSecret": "",<br/>    "scope": "",<br/>    "customHeaders": [<br/>      {<br/>        "headerName": "header1",<br/>        "headerValue": "value1"<br/>      }<br/>    ]<br/>  }<br/>}`}<br/>``` |
-| Response header       | Creates a webhookEndpoint                                                                                                                                                                                                                                                                                                                                                                                              |
-| Response content type | /webhookEndpoints                                                                                                                                                                                                                                                                                                                                                                                                      |
-| OAuth scopes          | webhook_write                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Response header       | Location header (Specifies the resource location of the webhook)                                                                                                                                                                                                                                                                                                                                                       |
+| Response content type | application/json                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Response object       | ```WebhookEndpointResponse{`{  "id": ""}` }```                                                                                                                                                                                                                                                                                                                                                                         |
 | HTTPS status code     | 201                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 
 ## Testing - 2
 
-| Entity                | Value                     |
-|-----------------------|---------------------------|
-| Description           | Creates a webhookEndpoint |
-| Endpoint operation    | /webhookEndpoints         |
-| OAuth scopes          | webhook_write             |
-| Request object        | Request object below      |
-| Response header       | Creates a webhookEndpoint |
-| Response content type | /webhookEndpoints         |
-| OAuth scopes          | webhook_write             |
-| Response object       | Response object below     |
-| HTTPS status code     | 201                       |
+| Entity                | Value                                                            |
+|-----------------------|------------------------------------------------------------------|
+| Description           | Creates a webhookEndpoint                                        |
+| Endpoint operation    | /webhookEndpoints                                                |
+| OAuth scopes          | webhook_write                                                    |
+| Request object        | Request object below                                             |
+| Response header       | Location header (Specifies the resource location of the webhook) |
+| Response content type | application/json                                                 |
+| Response object       | Response object below                                            |
+| HTTPS status code     | 201                                                              |
 
 - Request object:
 ```
