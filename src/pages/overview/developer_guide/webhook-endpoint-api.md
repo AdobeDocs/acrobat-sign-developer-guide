@@ -4,6 +4,61 @@ WebhookEndpoint APIs are the means by which your integration communicates with t
 
 Acrobat Sign APIs include the endpoints described below.
 
+## Testing - 1
+
+| Entity                | Value                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description           | Creates a webhookEndpoint                                                                                                                                                                                                                                                                                                                                                                                              |
+| Endpoint operation    | /webhookEndpoints                                                                                                                                                                                                                                                                                                                                                                                                      |
+| OAuth scopes          | webhook_write                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Request object        | ```<br/>{`{<br/>  "name": "",<br/>  "description": "",<br/>  "webhookEndpointUrl": "",<br/>  "applicationIds": [ "" ],<br/>  "oAuth20": {<br/>    "authorizationServerUrl": "",<br/>    "clientId": "",<br/>    "clientSecret": "",<br/>    "scope": "",<br/>    "customHeaders": [<br/>      {<br/>        "headerName": "header1",<br/>        "headerValue": "value1"<br/>      }<br/>    ]<br/>  }<br/>}`}<br/>``` |
+| Response header       | Location header (Specifies the resource location of the webhook)                                                                                                                                                                                                                                                                                                                                                       |
+| Response content type | application/json                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Response object       | ```WebhookEndpointResponse{`{  "id": ""}` }```                                                                                                                                                                                                                                                                                                                                                                         |
+| HTTPS status code     | 201                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+
+## Testing - 2
+
+| Entity                | Value                                                            |
+|-----------------------|------------------------------------------------------------------|
+| Description           | Creates a webhookEndpoint                                        |
+| Endpoint operation    | /webhookEndpoints                                                |
+| OAuth scopes          | webhook_write                                                    |
+| Request object        | Request object below                                             |
+| Response header       | Location header (Specifies the resource location of the webhook) |
+| Response content type | application/json                                                 |
+| Response object       | Response object below                                            |
+| HTTPS status code     | 201                                                              |
+
+- Request object:
+```
+{`{
+  "name": "",
+  "description": "",
+  "webhookEndpointUrl": "",
+  "applicationIds": [ "" ],
+  "oAuth20": {
+    "authorizationServerUrl": "",
+    "clientId": "",
+    "clientSecret": "",
+    "scope": "",
+    "customHeaders": [
+      {
+        "headerName": "header1",
+        "headerValue": "value1"
+      }
+    ]
+  }
+}`}
+```
+- Response object:
+```
+WebhookEndpointResponse{`{
+  "id": ""
+}` }
+```
+
 ## POST /webhookEndpoints
 
 
