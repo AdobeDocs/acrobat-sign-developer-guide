@@ -4,34 +4,22 @@ WebhookEndpoint APIs are the means by which your integration communicates with t
 
 Acrobat Sign APIs include the endpoints described below.
 
-## Testing - 1
 
-| Entity                | Value                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description           | Creates a webhookEndpoint                                                                                                                                                                                                                                                                                                                                                                                              |
-| Endpoint operation    | /webhookEndpoints                                                                                                                                                                                                                                                                                                                                                                                                      |
-| OAuth scopes          | webhook_write                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Request object        | ```<br/>{`{<br/>  "name": "",<br/>  "description": "",<br/>  "webhookEndpointUrl": "",<br/>  "applicationIds": [ "" ],<br/>  "oAuth20": {<br/>    "authorizationServerUrl": "",<br/>    "clientId": "",<br/>    "clientSecret": "",<br/>    "scope": "",<br/>    "customHeaders": [<br/>      {<br/>        "headerName": "header1",<br/>        "headerValue": "value1"<br/>      }<br/>    ]<br/>  }<br/>}`}<br/>``` |
-| Response header       | Location header (Specifies the resource location of the webhook)                                                                                                                                                                                                                                                                                                                                                       |
-| Response content type | application/json                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Response object       | ```WebhookEndpointResponse{`{  "id": ""}` }```                                                                                                                                                                                                                                                                                                                                                                         |
-| HTTPS status code     | 201                                                                                                                                                                                                                                                                                                                                                                                                                    |
+## POST /webhookEndpoints
 
-
-## Testing - 2
 
 | Entity                | Value                                                            |
 |-----------------------|------------------------------------------------------------------|
 | Description           | Creates a webhookEndpoint                                        |
 | Endpoint operation    | /webhookEndpoints                                                |
 | OAuth scopes          | webhook_write                                                    |
-| Request object        | Request object below                                             |
+| Request object        | Request object [below](#request-object)                          |
 | Response header       | Location header (Specifies the resource location of the webhook) |
 | Response content type | application/json                                                 |
-| Response object       | Response object below                                            |
+| Response object       | Response object [below](#response-object)                        |
 | HTTPS status code     | 201                                                              |
 
-- Request object:
+## Request object:
 ```
 {`{
   "name": "",
@@ -52,50 +40,12 @@ Acrobat Sign APIs include the endpoints described below.
   }
 }`}
 ```
-- Response object:
+## Response object:
 ```
 WebhookEndpointResponse{`{
   "id": ""
 }` }
 ```
-
-## POST /webhookEndpoints
-
-
-
-- Description: Creates a webhookEndpoint
-- Endpoint operation: /webhookEndpoints
-- OAuth scopes: webhook_write
-- Request object:
-```
-{`{
-  "name": "",
-  "description": "",
-  "webhookEndpointUrl": "",
-  "applicationIds": [ "" ],
-  "oAuth20": {
-    "authorizationServerUrl": "",
-    "clientId": "",
-    "clientSecret": "",
-    "scope": "",
-    "customHeaders": [
-      {
-        "headerName": "header1",
-        "headerValue": "value1"
-      }
-    ]
-  }
-}`}
-```
-- Response header: Location header (Specifies the resource location of the webhook)
-- Response content type: application/json
-- Response object:
-```
-WebhookEndpointResponse{`{
-  "id": ""
-}` }
-```
-- HTTPS status code: 201
 
 
 **Error codes**
@@ -105,14 +55,14 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ***Error codes***
 
 
-| Code | Error Code | Message |
-|---|---|---|
-| 400 | INVALID_JSON | An invalid JSON was specified. |
-| 400 | INVALID_WEBHOOK_ENDPOINT_URL | The webhook endpoint URL specified is too long. (or) The webhook endpoint URL specified is invalid. Please provide a well-formatted HTTPS-based URL. |
-| 400 | INVALID_AUTHORIZATION_SERVER_URL | The authorization server URL specified is invalid: &lt;specific_error_message&gt; |
-| 400 | MISSING_REQUIRED_PARAM | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request. (or) Request contains invalid applicationIds &lt;comma separated applicationIds&gt;. (or) Webhook endpoint OAuth configuration is missing. (or) Authorization server URL is missing. (or) Client Id sent to the authorization URL is missing. (or) Client secret sent to the authorization URL is missing. |
-| 403 | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook OAuth is not enabled for this account. |
-| 409 | DUPLICATE_WEBHOOK_ENDPOINT_FOR_APPLICATION | The webhook endpoint URL is already registered for the application. |
+| Code | Error Code                                 | Message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 400  | INVALID_JSON                               | An invalid JSON was specified.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 400  | INVALID_WEBHOOK_ENDPOINT_URL               | The webhook endpoint URL specified is too long. (or) The webhook endpoint URL specified is invalid. Please provide a well-formatted HTTPS-based URL.                                                                                                                                                                                                                                                                                                                                              |
+| 400  | INVALID_AUTHORIZATION_SERVER_URL           | The authorization server URL specified is invalid: &lt;specific_error_message&gt;                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 400  | MISSING_REQUIRED_PARAM                     | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request. (or) Request contains invalid applicationIds &lt;comma separated applicationIds&gt;. (or) Webhook endpoint OAuth configuration is missing. (or) Authorization server URL is missing. (or) Client Id sent to the authorization URL is missing. (or) Client secret sent to the authorization URL is missing. |
+| 403  | WEBHOOK_OAUTH20_NOT_ENABLED                | This webhook OAuth is not enabled for this account.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| 409  | DUPLICATE_WEBHOOK_ENDPOINT_FOR_APPLICATION | The webhook endpoint URL is already registered for the application.                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 
 POST /webhookEndpoints is used to create a webhookEndpoint that supports OAuth2.0 for webhooks in Acrobat Sign.
@@ -144,13 +94,19 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
 
 ## GET /webhookEndpoints
 
-- Description: Get a list of all active webhookEndpoints from the account of the access token user.
-- OAuth scopes: webhook_read
-- Query parameters:
-  - cursor: A String used to navigate through the pages. If not provided, returns the first page.
-  - pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100.
-- Response content type: application/json
-- Response object:
+
+
+| Entity                | Value                                                                                                     |
+|-----------------------|-----------------------------------------------------------------------------------------------------------|
+| Description           | Get a list of all active webhookEndpoints from the account of the access token user.                      |
+| OAuth scopes          | webhook_read                                                                                              |
+| Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.             |
+|                       | pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
+| Response content type | application/json                                                                                          |
+| Response object       | Response object [below](#response-object)                                                                 |
+| HTTPS status code     | 200                                                                                                       |
+
+## Response object:
 ```
 {`{
   "page": {
@@ -177,7 +133,6 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
   ]
 }`}
 ```
-- HTTPS status code: 200
 
 
 **Error codes**
@@ -187,26 +142,29 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ***Error codes***
 
 
-| HTTPS Status Code | Error Code | Message |
-|---|---|---|
-| 400 | INVALID_CURSOR | The page cursor provided is invalid. |
-| 400 | INVALID_PAGE_SIZE | Page size is either invalid or not within the permissible range. |
-| 403 | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook oauth is not enabled for this account. |
-| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
+| HTTPS Status Code | Error Code                  | Message                                                                |
+|-------------------|-----------------------------|------------------------------------------------------------------------|
+| 400               | INVALID_CURSOR              | The page cursor provided is invalid.                                   |
+| 400               | INVALID_PAGE_SIZE           | Page size is either invalid or not within the permissible range.       |
+| 403               | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook oauth is not enabled for this account.                    |
+| 403               | PERMISSION_DENIED           | The API caller does not have the permission to execute this operation. |
 
 
 ## GET /webhookEndpoints/{webhookEndpointId}
 
 
+| Entity                | Value                                                                                                     |
+|-----------------------|-----------------------------------------------------------------------------------------------------------|
+| Description           | Get a list of all active webhookEndpoints from the account of the access token user.                      |
+| Endpoint operation    | /webhookEndpoints/{webhookEndpointId}                                                                     |
+| OAuth scopes          | webhook_read                                                                                              |
+| Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.             |
+|                       | pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
+| Response content type | application/json                                                                                          |
+| Response object       | Response object [below](#response-object)                                                                 |
+| HTTPS status code     | 200                                                                                                       |
 
-- Description: Get a list of all active webhookEndpoints from the account of the access token user.
-- Endpoint operation: /webhookEndpoints/{webhookEndpointId}
-- OAuth scopes: webhook_read
-- Query parameters:
-  - cursor: A String used to navigate through the pages. If not provided, returns the first page.
-  - pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
-- Response content type: application/json
-- Response object:
+## Response object:
 ```
 {`{
     "name": "webhookEndpoint_12_01_2023_1",
@@ -226,7 +184,6 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
     }
 }`} 
 ```
-- HTTPS status code: 200
 
 
 **Error codes**
@@ -236,23 +193,30 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ***Error codes***
 
 
-| Code | Error code | Message |
-|---|---|---|
-| 400 | INVALID_CURSOR | The page cursor provided is invalid. |
-| 400 | INVALID_PAGE_SIZE | Page size is either invalid or not within the permissible range. |
-| 403 | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook oauth is not enabled for this account. |
-| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
-| 404 | INVALID_WEBHOOK_ENDPOINT_ID | The webhook endpoint id specified is invalid. |
+| Code | Error code                  | Message                                                                |
+|------|-----------------------------|------------------------------------------------------------------------|
+| 400  | INVALID_CURSOR              | The page cursor provided is invalid.                                   |
+| 400  | INVALID_PAGE_SIZE           | Page size is either invalid or not within the permissible range.       |
+| 403  | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook oauth is not enabled for this account.                    |
+| 403  | PERMISSION_DENIED           | The API caller does not have the permission to execute this operation. |
+| 404  | INVALID_WEBHOOK_ENDPOINT_ID | The webhook endpoint id specified is invalid.                          |
 
 
 ## PUT /webhookEndpoints/{webhookEndpointId}
 
 
-Description: This endpoint is used to update the webhookEndpoint resource.
-Endpoint operation: /webhookEndpoints/{webhookEndpointId}
-OAuth scopes: webhook_write
-Request header: Standard header.
-Request body:
+| Entity                | Value                                                         |
+|-----------------------|---------------------------------------------------------------|
+| Description           | This endpoint is used to update the webhookEndpoint resource. |
+| Endpoint operation    | /webhookEndpoints/{webhookEndpointId}                         |
+| OAuth scopes          | webhook_write                                                 |
+| Request header        | Standard header.                                              |
+| Response object       | Response object [below](#response-object)                     |
+| Response content type | application/json                                              |
+| Response object       | Empty response                                                |
+| HTTPS status code     | 204                                                           |
+
+## Request body:
 ```
 {`{
     "name": "",
@@ -273,9 +237,6 @@ Request body:
     }
 }`} 
 ```
-Response content type: application/json
-Response object: Empty response
-HTTPS status code: 204
 
 
 **Error codes**
@@ -285,29 +246,29 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ***Error codes***
 
 
-| Code | Error code | Message |
-|---|---|---|
-| 400 | INVALID_JSON | An invalid JSON was specified. |
-| 400 | INVALID_WEBHOOK_ENDPOINT_URL | The webhook endpoint url specified is too long. (or) The webhook endpoint url specified is invalid. Please provide a well-formatted https based url. |
-| 400 | INVALID_AUTHORIZATION_SERVER_URL | The authorization server url specified is invalid: &lt;specific_error_message&gt; |
-| 400 | MISSING_REQUIRED_PARAM | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request (or) Request contains invalid applicationIds &lt;comma separated applicationIds&gt; (or) Webhook endpoint oauth configuration is missing (or) Authorization server url is missing. (or) Client Id sent to the authorization url is missing. (or) Client secret sent to the authorization url is missing. |
-| 400 | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook oauth is not enabled for this account. |
-| 400 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
-| 400 | INVALID_WEBHOOK_ENDPOINT_ID | The webhook endpoint id specified is invalid. |
+| Code | Error code                       | Message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|------|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 400  | INVALID_JSON                     | An invalid JSON was specified.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 400  | INVALID_WEBHOOK_ENDPOINT_URL     | The webhook endpoint url specified is too long. (or) The webhook endpoint url specified is invalid. Please provide a well-formatted https based url.                                                                                                                                                                                                                                                                                                                                           |
+| 400  | INVALID_AUTHORIZATION_SERVER_URL | The authorization server url specified is invalid: &lt;specific_error_message&gt;                                                                                                                                                                                                                                                                                                                                                                                                              |
+| 400  | MISSING_REQUIRED_PARAM           | Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request (or) Request contains invalid applicationIds &lt;comma separated applicationIds&gt; (or) Webhook endpoint oauth configuration is missing (or) Authorization server url is missing. (or) Client Id sent to the authorization url is missing. (or) Client secret sent to the authorization url is missing. |
+| 400  | WEBHOOK_OAUTH20_NOT_ENABLED      | This webhook oauth is not enabled for this account.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 400  | PERMISSION_DENIED                | The API caller does not have the permission to execute this operation.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 400  | INVALID_WEBHOOK_ENDPOINT_ID      | The webhook endpoint id specified is invalid.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 
 ## DELETE /webhookEndpoints/{webhookEndpointId}
 
 
-| Entity | Value |
-|---|---|
-| Description | This endpoint is used to update the webhookEndpoint resource. |
-| Endpoint operation | /webhookEndpoints/{webhookEndpointId} |
-| OAuth scopes | webhook_retention |
-| Request header | Standard header |
-| Response content type | application/json |
-| Response object | Empty response |
-| HTTPS status code | 204 |
+| Entity                | Value                                                         |
+|-----------------------|---------------------------------------------------------------|
+| Description           | This endpoint is used to update the webhookEndpoint resource. |
+| Endpoint operation    | /webhookEndpoints/{webhookEndpointId}                         |
+| OAuth scopes          | webhook_retention                                             |
+| Request header        | Standard header                                               |
+| Response content type | application/json                                              |
+| Response object       | Empty response                                                |
+| HTTPS status code     | 204                                                           |
 
 
 **Error codes**
@@ -317,12 +278,12 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ***Error codes***
 
 
-| HTTPS status code | Error code | Message |
-|---|---|---|
-| 403 | WEBHOOK_OAUTH20_NOT_ENABLED | This webhook oauth is not enabled for this account. |
-| 403 | WEBHOOK_ENDPOINT_LINKED_WITH_WEBHOOKS | This webhook endpoint is associated with one or more webhooks and cannot be deleted. Please contact Adobe Sign support team if you need assistance with deleting webhook endpoint. |
-| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
-| 404 | INVALID_WEBHOOK_ENDPOINT_ID | The webhook endpoint id specified is invalid. |
+| HTTPS status code | Error code                            | Message                                                                                                                                                                            |
+|-------------------|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 403               | WEBHOOK_OAUTH20_NOT_ENABLED           | This webhook oauth is not enabled for this account.                                                                                                                                |
+| 403               | WEBHOOK_ENDPOINT_LINKED_WITH_WEBHOOKS | This webhook endpoint is associated with one or more webhooks and cannot be deleted. Please contact Adobe Sign support team if you need assistance with deleting webhook endpoint. |
+| 403               | PERMISSION_DENIED                     | The API caller does not have the permission to execute this operation.                                                                                                             |
+| 404               | INVALID_WEBHOOK_ENDPOINT_ID           | The webhook endpoint id specified is invalid.                                                                                                                                      |
 
 
 ## Standard API request headers
@@ -332,8 +293,8 @@ Every API request will have the following standard headers. If Any API in the li
 ***Error codes***
 
 
-| Header Name | Description |
-|---|---|
+| Header Name   | Description                              |
+|---------------|------------------------------------------|
 | AUTHORIZATION | An access token with the correct scopes. |
 
 
@@ -344,16 +305,16 @@ Any API request may return any of these standard error codes:
 ***Error codes***
 
 
-| HTTPS Status Code | Error Code | Message |
-|---|---|---|
-| 400 | BAD_REQUEST | The request provided is invalid. |
-| 400 | INVALID_JSON | An invalid JSON was specified. |
-| 400 | MISC_ERROR | Some miscellaneous error has occurred. |
-| 401 | UNVERIFIED_USER | The user has registered but has not verified their email address. The user must use the Acrobat Sign website to complete verification. |
-| 401 | NO_AUTHORIZATION_HEADER | The authorization header was not provided. |
-| 401 | INVALID_ACCESS_TOKEN | The access token provided is invalid or has expired. |
-| 401 | INVALID_USER | An invalid user ID or email was provided in the x-user header. |
-| 401 | API_TERMS_NOT_ACCEPTED | Your account is locked because an administrator has not agreed to Acrobat Sign’s Terms of Use. Please contact your administrator to activate your account. |
-| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
-| 500 | MISC_SERVER_ERROR | Some miscellaneous server error has occurred. |
+| HTTPS Status Code | Error Code              | Message                                                                                                                                                    |
+|-------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 400               | BAD_REQUEST             | The request provided is invalid.                                                                                                                           |
+| 400               | INVALID_JSON            | An invalid JSON was specified.                                                                                                                             |
+| 400               | MISC_ERROR              | Some miscellaneous error has occurred.                                                                                                                     |
+| 401               | UNVERIFIED_USER         | The user has registered but has not verified their email address. The user must use the Acrobat Sign website to complete verification.                     |
+| 401               | NO_AUTHORIZATION_HEADER | The authorization header was not provided.                                                                                                                 |
+| 401               | INVALID_ACCESS_TOKEN    | The access token provided is invalid or has expired.                                                                                                       |
+| 401               | INVALID_USER            | An invalid user ID or email was provided in the x-user header.                                                                                             |
+| 401               | API_TERMS_NOT_ACCEPTED  | Your account is locked because an administrator has not agreed to Acrobat Sign’s Terms of Use. Please contact your administrator to activate your account. |
+| 403               | PERMISSION_DENIED       | The API caller does not have the permission to execute this operation.                                                                                     |
+| 500               | MISC_SERVER_ERROR       | Some miscellaneous server error has occurred.                                                                                                              |
 
