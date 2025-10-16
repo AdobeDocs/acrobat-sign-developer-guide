@@ -187,7 +187,6 @@ WebhooksInfo
     }
 }`}
 ```
-- HTTPS status code: 200
 
 
 **Error codes**
