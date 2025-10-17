@@ -217,7 +217,7 @@ Please note that new errors could be returned from APIs or existing error codes 
 | HTTPS status code     | 200                                                      |
 
 
-## Get List by ID Response object:
+## Get List by ID Response object
 ```
 {`{
     "scope": "",
@@ -300,7 +300,7 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
 | Response object       | Empty response                                                                                                                   |
 | HTTPS status code     | 204                                                                                                                              |
 
-## Put Request body:
+## Put Request body
 ```
 {`{
   "name": "",
@@ -387,12 +387,15 @@ webhookInfo {
 | Endpoint operation    | /webhooks/{webhookId}/state                                                                                                       |
 | OAuth scopes          | webhook_write                                                                                                                     |
 | Response header       | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines. |
-| Request body          | `{ "state": ""}`                                                                                                                  |
+| Request body          | Request body [below](#put-request-body-for-state)                                                                                 |
 | Response content type | application/json                                                                                                                  |
 | Response object       | Empty response                                                                                                                    |
 | HTTPS status code     | 204                                                                                                                               |
 
-
+## Put Request body for state
+```
+{ "state": ""}
+```
 
 
 **Error codes**
