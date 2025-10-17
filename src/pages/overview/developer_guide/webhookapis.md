@@ -387,12 +387,12 @@ webhookInfo {
 | Endpoint operation    | /webhooks/{webhookId}/state                                                                                                       |
 | OAuth scopes          | webhook_write                                                                                                                     |
 | Response header       | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines. |
-| Request body          | Request body [below](#put-request-body-for-state)                                                                                 |
+| Request body          | Request body [below](#put-state-request-body)                                                                                 |
 | Response content type | application/json                                                                                                                  |
 | Response object       | Empty response                                                                                                                    |
 | HTTPS status code     | 204                                                                                                                               |
 
-## Put Request body for state
+## PUT State Request body
 ```
 { "state": ""}
 ```
