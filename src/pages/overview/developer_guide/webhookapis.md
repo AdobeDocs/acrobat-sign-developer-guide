@@ -13,13 +13,13 @@ Acrobat Sign APIs include the endpoints described below.
 | Description           | Creates a webhook                                               |
 | Endpoint operation    | /webhooks                                                       |
 | OAuth scopes          | webhook_write                                                   |
-| Request object        | Request object [below](#request-object)                         |
+| Request object        | Request object [below](#post-request-object)                    |
 | Response header       | Location Header specifying the resource location of the webhook |
 | Response content type | application/json                                                |
-| Response object       | Response object [below](#response-object)                       |
+| Response object       | Response object [below](#post-response-object)                  |
 | HTTPS status code     | 201                                                             |
 
-## Request object:
+## POST Request object
 ```
 {`{
     "name": "",
@@ -58,7 +58,7 @@ Acrobat Sign APIs include the endpoints described below.
 }`}
 ```
 
-## Response object: 
+## POST Response object
 ```
 `WebhookCreationResponse  { "id" : "" }`
 ```
@@ -137,11 +137,11 @@ You should be prepared to handle new errors that may be returned from APIs or ch
 | Query parameters  | showInactiveWebhooks: boolean: A query parameter to fetch all the inactive webhooks along with the active webhooks.       |
 |                   | scope: Scope of the webhook. The possible values are ACCOUNT, GROUP, USER, or RESOURCE.                                   |
 |                   | resourceType: The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, and MEGASIGN. |
-| Response object   | Response object [below](#response-object)                                                                                 |
+| Response object   | Response object [below](#get-list-response-object)                                                                        |
 | HTTPS status code | 200                                                                                                                       |
 
 
-## Response object:
+## GET List Response object
 ```
 WebhooksInfo
     
@@ -207,17 +207,17 @@ Please note that new errors could be returned from APIs or existing error codes 
 
 
 
-| Entity                | Value                                     |
-|-----------------------|-------------------------------------------|
-| Description           | List details of a webhook.                |
-| Endpoint operation    | /webhhooks/{webhookId}                    |
-| OAuth scopes          | webhook_read                              |
-| Response content type | application/json                          |
-| Response object       | Response object [below](#response-object) |
-| HTTPS status code     | 200                                       |
+| Entity                | Value                                                    |
+|-----------------------|----------------------------------------------------------|
+| Description           | List details of a webhook.                               |
+| Endpoint operation    | /webhhooks/{webhookId}                                   |
+| OAuth scopes          | webhook_read                                             |
+| Response content type | application/json                                         |
+| Response object       | Response object [below](#get-list-by-id-response-object) |
+| HTTPS status code     | 200                                                      |
 
 
-## Response object:
+## Get List by ID Response object:
 ```
 {`{
     "scope": "",
@@ -295,12 +295,12 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
 | Endpoint operation    | /webhooks/{webhookId}                                                                                                            |
 | OAuth scopes          | webhook_write                                                                                                                    |
 | Response header       | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guideline. |
-| Request body          | Request body [below](#request-body)                                                                                              |
+| Request body          | Request body [below](#put-request-body)                                                                                          |
 | Response content type | application/json                                                                                                                 |
 | Response object       | Empty response                                                                                                                   |
 | HTTPS status code     | 204                                                                                                                              |
 
-## Request body:
+## Put Request body:
 ```
 {`{
   "name": "",
@@ -381,14 +381,18 @@ webhookInfo {
 ## PUT /webhooks/{webhookId}/state
 
 
-- Description: This endpoint will update the state of a webhook identified by webhookId in the path.
-- Endpoint operation: /webhooks/{webhookId}/state
-- OAuth scopes: webhook_write
-- Request header: Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines.
-- Request body: `{ "state": ""}`
-- Response content type: application/json
-- Response object: Empty response
-- HTTPS status code: 204
+| Entity                | Value                                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Description           | This endpoint will update the state of a webhook identified by webhookId in the path.                                             |
+| Endpoint operation    | /webhooks/{webhookId}/state                                                                                                       |
+| OAuth scopes          | webhook_write                                                                                                                     |
+| Response header       | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines. |
+| Request body          | `{ "state": ""}`                                                                                                                  |
+| Response content type | application/json                                                                                                                  |
+| Response object       | Empty response                                                                                                                    |
+| HTTPS status code     | 204                                                                                                                               |
+
+
 
 
 **Error codes**

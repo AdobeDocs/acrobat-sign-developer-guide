@@ -13,13 +13,13 @@ Acrobat Sign APIs include the endpoints described below.
 | Description           | Creates a webhookEndpoint                                        |
 | Endpoint operation    | /webhookEndpoints                                                |
 | OAuth scopes          | webhook_write                                                    |
-| Request object        | Request object [below](#request-object)                          |
+| Request object        | Request object [below](#post-request-object)                     |
 | Response header       | Location header (Specifies the resource location of the webhook) |
 | Response content type | application/json                                                 |
-| Response object       | Response object [below](#response-object)                        |
+| Response object       | Response object [below](#post-response-object)                   |
 | HTTPS status code     | 201                                                              |
 
-## Request object:
+## POST Request object
 ```
 {`{
   "name": "",
@@ -40,7 +40,7 @@ Acrobat Sign APIs include the endpoints described below.
   }
 }`}
 ```
-## Response object:
+## POST Response object
 ```
 WebhookEndpointResponse{`{
   "id": ""
@@ -95,7 +95,6 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
 ## GET /webhookEndpoints
 
 
-
 | Entity                | Value                                                                                                     |
 |-----------------------|-----------------------------------------------------------------------------------------------------------|
 | Description           | Get a list of all active webhookEndpoints from the account of the access token user.                      |
@@ -103,10 +102,10 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
 | Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.             |
 |                       | pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
 | Response content type | application/json                                                                                          |
-| Response object       | Response object [below](#response-object)                                                                 |
+| Response object       | Response object [below](#get-list-response-object)                                                        |
 | HTTPS status code     | 200                                                                                                       |
 
-## Response object:
+## GET List Response object
 ```
 {`{
   "page": {
@@ -161,10 +160,10 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 | Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.             |
 |                       | pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
 | Response content type | application/json                                                                                          |
-| Response object       | Response object [below](#response-object)                                                                 |
+| Response object       | Response object [below](#get-list-by-id-response-object)                                                  |
 | HTTPS status code     | 200                                                                                                       |
 
-## Response object:
+## GET List by ID Response object
 ```
 {`{
     "name": "webhookEndpoint_12_01_2023_1",
@@ -211,12 +210,12 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 | Endpoint operation    | /webhookEndpoints/{webhookEndpointId}                         |
 | OAuth scopes          | webhook_write                                                 |
 | Request header        | Standard header.                                              |
-| Response object       | Response object [below](#response-object)                     |
+| Request body          | Request body [below](#put-request-body)                       |
 | Response content type | application/json                                              |
 | Response object       | Empty response                                                |
 | HTTPS status code     | 204                                                           |
 
-## Request body:
+## PUT Request body
 ```
 {`{
     "name": "",
