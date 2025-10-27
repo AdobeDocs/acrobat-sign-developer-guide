@@ -85,14 +85,13 @@ To set the scopes:
 
 The following modifiers are available:
 
-<div>
-| Modifier | Description |
-|---|---|
-| self | Perform the specified action on behalf of the authorizing user. This is the default: for example, agreement_send:self is the same scope as agreement_send. |
-| group | Perform the specified action on behalf of any user in the same group as the authorizing user. The authorizing user must be a group admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign. |
-| account | Perform the specified action on behalf of any user in the same account as the authorizing user. The authorizing user must be an account admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign. |
 
-</div>
+| Modifier | Description                                                                                                                                                                                                                         |
+|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| self     | Perform the specified action on behalf of the authorizing user. This is the default: for example, agreement_send:self is the same scope as agreement_send.                                                                          |
+| group    | Perform the specified action on behalf of any user in the same group as the authorizing user. The authorizing user must be a group admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign.      |
+| account  | Perform the specified action on behalf of any user in the same account as the authorizing user. The authorizing user must be an account admin to grant this scope and must have the Business or Enterprise edition of Acrobat Sign. |
+
 
 ## Create an authorization request link
 
@@ -148,14 +147,14 @@ When your customer initiates the OAuth process by clicking your app’s Sign lin
 
 ***Failure***
 
-| Parameter | Value |
-|---|---|
-| error | INVALID_REQUEST: The request is not well-formed due to missing or invalid parameters.
-                    UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active.
-                    INVALID_SCOPE: The requested scopes are not syntactically valid.
-                    ACCESS_DENIED: The user declined to grant access or wasn’t able to (for example, they weren’t an admin).
-                    SERVER_ERROR: An internal error occurred while processing the request. |
-| state | The value of state initially passed in, if any. |
+| Parameter | Value                                                                                                    |
+|-----------|----------------------------------------------------------------------------------------------------------|
+| error     | INVALID_REQUEST: The request is not well-formed due to missing or invalid parameters.                    |
+|           | UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active.          |      
+|           | INVALID_SCOPE: The requested scopes are not syntactically valid.                                         |     
+|           | ACCESS_DENIED: The user declined to grant access or wasn’t able to (for example, they weren’t an admin). | 
+|           | SERVER_ERROR: An internal error occurred while processing the request.                                   |
+| state     | The value of state initially passed in, if any.                                                          |
 
 
 ## The customer experience

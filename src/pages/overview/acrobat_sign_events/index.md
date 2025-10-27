@@ -338,10 +338,7 @@ Acrobat Sign incorporates an advanced, reliable strategy for delivery of webhook
 + If the webhook fails to respond after exceeding either the maximum retry time or interval, the webhook is disabled.
 + No notifications are sent to the webhook URL until the webhook is activated again; all the notifications between the time the webhook is disabled and enabled again are lost.
 
-<InlineNestedAlert variant="info" header="false" iconPosition="right">
+<InlineAlert slots="text" />
 
-You can check whether a webhook is enabled or disabled via the `GET /webhooks/{webhook ID}` API call.
+You can check whether a webhook is enabled or disabled via the `GET /webhooks/{webhook ID}` API call. Note that the API does not tell you if the webhook is failing but has not yet been disabled.
 
-Note that the API does not tell you if the webhook is failing but has not yet been disabled.
-
-</InlineNestedAlert>

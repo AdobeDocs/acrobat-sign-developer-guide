@@ -25,42 +25,42 @@ The following table lists the Acrobat Sign supported UI events that can be embed
 ### Page Load events
 
 
-| Event Type | Data | Description |
-|---|---|---|
-| 'PAGE_LOAD' | pageName: 'POST_SEND'
-               apiAgreementId: '' | This event gets fired after a user has successfully signed an agreement. This event fires when an agreement has been successfully sent and the post-send page has been loaded. |
+| Event Type  | Data                        | Description                                                                                                                                                                                                                                 |
+|-------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 'PAGE_LOAD' | pageName: 'POST_SEND'       | This event gets fired after a user has successfully signed an agreement. This event fires when an agreement has been successfully sent and the post-send page has been loaded.                                                              |
+ |             | apiAgreementId: ''          |                                                                                                                                                                                                                                             |
 | 'PAGE_LOAD' | pageName: 'DIGSIG_DOWNLOAD' | This is a special event that is fired for documents requiring Digital Signatures. This event fires when a user has completed all the required fields in a document and the page to download the document for Digital Signature gets loaded. |
-| 'PAGE_LOAD' | pageName: 'AUTHORING' | This event fires when the form-field authoring page loads for an agreement. |
-| 'PAGE_LOAD' | pageName: 'DELEGATION' | This event fires when the page from which an agreement can be delegated gets loaded. The loading of the page does not guarantee that delegation has or will actually occur. |
-| 'PAGE_LOAD' | pageName: 'MANAGE' | This event fires when the manage page loads. |
-| 'PAGE_LOAD' | pageName: 'LOGIN' | This event fires when the login page loads. |
+| 'PAGE_LOAD' | pageName: 'AUTHORING'       | This event fires when the form-field authoring page loads for an agreement.                                                                                                                                                                 |
+| 'PAGE_LOAD' | pageName: 'DELEGATION'      | This event fires when the page from which an agreement can be delegated gets loaded. The loading of the page does not guarantee that delegation has or will actually occur.                                                                 |
+| 'PAGE_LOAD' | pageName: 'MANAGE'          | This event fires when the manage page loads.                                                                                                                                                                                                |
+| 'PAGE_LOAD' | pageName: 'LOGIN'           | This event fires when the login page loads.                                                                                                                                                                                                 |
 
 
 ### Session events
 
 
-| Event Type | Data | Description |
-|---|---|---|
-| 'ESIGN', 'SESSION_TIMEOUT' | message: 'PRE_SESSION_TIMEOUT'
-            warningTimeMinutes: &lt;float&gt;
-            expirationTimeMinutes: &lt;float&gt; | This event is triggered two seconds before the session timeout dialogue is displayed to the user. The UI shows “Your session is about to expire” message. The warningTimeMinutes and expirationTimeMinutes values correspond to the warning & session timeout times in minutes. |
-| 'SESSION_TIMEOUT' | message: 'POST_SESSION_TIMEOUT'
-            warningTimeMinutes: &lt;float&gt;
-            expirationTimeMinutes: &lt;float&gt; | This event is triggered when the user's session times out. |
-| 'ERROR' | message: &lt;varies&gt; | This event fires when an error dialog or an error page is displayed to the user. A system error 500 or 503 is returned. |
+| Event Type                 | Data                                 | Description                                                                                                                                                                                                                                                                     |
+|----------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 'ESIGN', 'SESSION_TIMEOUT' | message: 'PRE_SESSION_TIMEOUT'       | This event is triggered two seconds before the session timeout dialogue is displayed to the user. The UI shows “Your session is about to expire” message. The warningTimeMinutes and expirationTimeMinutes values correspond to the warning & session timeout times in minutes. |
+ |                            | warningTimeMinutes: &lt;float&gt;    |                                                                                                                                                                                                                                                                                 |
+ |                            | expirationTimeMinutes: &lt;float&gt; |                                                                                                                                                                                                                                                                                 |
+| 'SESSION_TIMEOUT'          | message: 'POST_SESSION_TIMEOUT'      | This event is triggered when the user's session times out.                                                                                                                                                                                                                      |
+ |                            | warningTimeMinutes: &lt;float&gt;    |                                                                                                                                                                                                                                                                                 |
+  |                            | expirationTimeMinutes: &lt;float&gt; |                                                                                                                                                                                                                                                                                 |
+| 'ERROR'                    | message: &lt;varies&gt;              | This event fires when an error dialog or an error page is displayed to the user. A system error 500 or 503 is returned.                                                                                                                                                         |
 
 
 ### User action events
 
 
-| Event Type | Data | Description |
-|---|---|---|
-| 'CLICK' | pageName: 'POST_SEND' or 'POST_SIGN'
-            apiAgreementId: ''
-            url: ''
-            apiAgreementId: '' | This event fires when the user clicks the “Manage this document” button on the post-send page. The url contains the full link to open the manage page with the specific agreement selected. The apiAgreementId is the DocumentKey used by the client application making the API calls. |
-| 'CLICK' | pageName: 'POST_SEND' or 'POST_SIGN'
-            target: 'SEND_ANOTHER_LINK' | This event fires when the user clicks the “Send another document” button. |
+| Event Type | Data                                 | Description                                                                                                                                                                                                                                                                            |
+|------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 'CLICK'    | pageName: 'POST_SEND' or 'POST_SIGN' | This event fires when the user clicks the “Manage this document” button on the post-send page. The url contains the full link to open the manage page with the specific agreement selected. The apiAgreementId is the DocumentKey used by the client application making the API calls. |
+ |            | apiAgreementId: ''                   |                                                                                                                                                                                                                                                                                        |
+ |            | url: ''                              |                                                                                                                                                                                                                                                                                        |
+ |            | apiAgreementId: ''                   |                                                                                                                                                                                                                                                                                        |
+| 'CLICK'    | pageName: 'POST_SEND' or 'POST_SIGN' | This event fires when the user clicks the “Send another document” button.                                                                                                                                                                                                              |                                     
+|            | target: 'SEND_ANOTHER_LINK'          |                                                                                                                                                                                                                                                                                        |
 
 
 ## Using events

@@ -1330,47 +1330,187 @@ shown below.
 
 ## API Throttling
 
-To prevent your API from being overwhelmed by too many requests, Adobe
-throttles requests to your API.
+All requests made to Acrobat Sign by a client are monitored to protect system resources and preserve Adobe’s ability to serve as many users as possible. Acrobat Sign APIs enforce limits on the number of API requests per endpoint at the minute, hour, and day levels to ensure optimal performance. These limits are applied per user, and if user information is unavailable, the system falls back to the request’s originating IP address (if available).
 
-When a request is throttled, the client will receive an **HTTP 429 “Too Many
-Requests”** response with an error message appropriate to the request. When a
-request gets back an HTTP 429 response, it means the user has consumed over
-the limit of allowed resources within a certain time frame. It could be a
-violation of the per-minute, -hour, or -day limit. The user will be allowed to
-make more requests in the next minute, hour, or day (depending on which
-threshold was crossed).
+Each API request is evaluated based on its resource consumption, which varies depending on the parameters used. Your service plan determines your transaction rate, with higher-tier plans allowing more requests before reaching the limit.
 
-Each request made to Acrobat Sign is evaluated based on the system resources
-it will consume. Different parameters passed to the same endpoint might
-contribute a different amount of resource consumption. Your service package
-(small business, business, enterprise) directly influences your transaction
-rate. Higher tiers of service have higher throttle thresholds.
+If a request exceeds the allowed limit, it’s rejected with an HTTP 429 “Too Many Requests” response with an error message. The error message will specify the issue, and the “Retry-After” header in the response indicates when you can attempt the subsequent request.
 
-### REST API Response
+There are three discrete throttling mechanisms, each throttling specific functions in the service:
+- Rest APIs
+- Agreement Document Processing
+- Webform First Signer/Participant
+
+
+
+### REST API
 
 ```json
     {
   "code":"THROTTLING_TOO_MANY_REQUESTS",
-  "message":"<error_message_with_wait_time> (apiActionId=<api_action_id>)"
+  "message":"<error_message_with_wait_time> (apiActionId=<api_action_id>)",
   "retryAfter": <wait_time_in_seconds>
 }
 ```
 
-Also, a _Retry-After_ HTTP header will be added into the response ([see
-RFC-7231 Section 7.1.3](https://tools.ietf.org/html/rfc7231#section-7.1.3))
+The Retry-After HTTP header, as defined in [RFC-7231 Section 7.1.3](https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.3), specifies the minimum time, given in seconds, the client must wait before retrying or making another request.
 
  ```text
     Retry-After: <wait_time_in_seconds>
  ```
+Once the Retry-After timer expires, the client’s resource count resets to zero for the exceeded threshold, allowing the next request to proceed without being blocked.
 
-is the minimum time in seconds the client must wait until it can make the next
-request. When the _retryAfter_ timer expires, the client’s resource count is
-reset to 0 for the over-limit threshold. Therefore, the client can send the
-request again and it should go through without being blocked.
 
-### Steps to take when throttled
+#### System Load Throttling
 
-It is recommended that developers design workflows that can handle the HTTP
-429 exceptions gracefully and use the retry-time from either the response body
-or from the “Retry-After” header to recover from such errors.
+Beginning with the May 2025 release, Acrobat Sign includess the following enhanced throttling rules:
+- During periods of high overall system load, API requests may be throttled across the entire platform to maintain performance.
+- If a specific customer is identified as contributing to system slowdowns, Acrobat Sign may throttle API requests from that customer individually.
+
+When an API request is throttled, it will be rejected with a 429 HTTP status code, along with the following:
+
+
+
+##### Response Body
+```json
+    {
+  "code":"THROTTLING_HIGH_SYSTEM_LOAD",
+  "message":"Acrobat Sign system is experiencing high overall load, due to which subset of the requests are being throttled. Please try again in <wait_time_in_seconds> seconds.",
+  "retryAfter": <wait_time_in_seconds>
+}
+```
+##### Response Header
+```text
+    {
+  "X-Throttling-Reason":"high-system-load",
+  "retryAfter": <wait_time_in_seconds>
+}
+```
+
+Upon receiving the above response, you can use the Retry-After header or the retryAfter in the response body to determine when to attempt the request again.
+
+##### Retry Penalty
+
+For accounts created after the May 20, 2025, a penalty is applied if the account does not adhere to the specified retry time interval. If the same request is attempted again within this interval, the request is throttled again, and the retry time interval is reset.
+
+
+
+
+
+#### Handling Rate Limiting (HTTP 429)
+
+To prevent disruptions, design your workflow to handle HTTP 429 (Too Many Requests) errors smoothly. Use the Retry-After header or the retry time in the response body to determine when to attempt the request again. Implement exponential backoff to avoid immediate retries and ensure efficient recovery.
+<InlineAlert slots="text" />
+
+- Avoid hardcoding retry intervals - Use the server-provided delay for the best retry results and to avoid the retry penalty.
+- Avoid Polling Requests - Excessive polling can degrade Acrobat Sign API performance. If detected, Acrobat Sign may temporarily disable API access for the affected account. Instead of polling, use webhooks to receive real-time updates on agreement status changes.
+- Increase Document Processing Limits - Contact your Customer Success Manager (CSM) or Support with estimated usage volumes to request higher processing limits. Include expected values for total participants, file size, and number of pages.
+
+
+
+### Agreement Document Processing
+
+In Acrobat Sign, all documents—whether sent through the web UI or API—are processed asynchronously when creating the following object types:
+
+- Agreement
+- Webform
+- MegaSign
+- Library Template
+- Archive
+
+To maintain performance, Acrobat Sign enforces request limits based on:
+
+- Total number of participants
+- Total file size (including all uploaded files)
+- Total number of pages processed
+These limits apply at the minute, hour, and day levels on a per-user basis. Requests made through both the web UI and API count toward these limits.
+
+For the Create requests made through REST API, the request is rejected with 429 HTTP status code when the limits are breached and following error messages are returned.
+
+##### Agreement
+```json
+    {
+  "code":"THROTTLING_TOO_MANY_REQUESTS",
+  "message":"You have reached the limit on the number of agreements you can send at this time. Please try again in <wait_time> seconds/minutes/hours.",
+  "retryAfter": <wait_time_in_seconds>
+}
+```
+
+
+##### Webform
+```json
+    {
+  "code":"THROTTLING_TOO_MANY_REQUESTS",
+  "message":"You have reached the limit on the number of web forms you can create at this time. Please try again in <wait_time> seconds/minutes/hours."
+  "retryAfter": <wait_time_in_seconds>
+
+}
+```
+
+
+##### Library Template
+```json
+    {
+  "code":"THROTTLING_TOO_MANY_REQUESTS",
+  "message":"You have reached the limit on the number of templates you can create at this time. Please try again in <wait_time> seconds/minutes/hours."
+  "retryAfter": <wait_time_in_seconds>
+}
+```
+
+
+##### Archive
+```json
+    {
+  "code":"THROTTLING_TOO_MANY_REQUESTS",
+  "message":"You have reached the limit on the number of documents you can archive at this time. Please try again in <wait_time> seconds/minutes/hours."
+  "retryAfter": <wait_time_in_seconds>
+}
+```
+
+MegaSign (Send in Bulk)
+
+When using MegaSign endpoints (Send in Bulk in the UI), a single API call or UI action generates multiple agreements and sends multiple signature requests. Throttling limits are enforced on the number of requests per the hour and day levels. Due to the Send in Bulk batch-processing behavior, Acrobat Sign does not enforce per-minute limits. However, per-hour and per-day limits still apply.
+
+Before processing a MegaSign request, Acrobat Sign pre-evaluates the workload:
+
+- If the request does not exceed throttling limits, the MegaSign and all related child agreements will be processed.
+- If the request would exceed the limits, it is declined upfront before creating any child agreements.
+
+For MegaSign Create request from the REST API, the following error response with HTTP status code 429 will be returned when the limits are breached.
+
+```json
+    {
+  "code":"THROTTLING_TOO_MANY_REQUESTS",
+  "message":"You have reached the limit on the number of agreements you can send at this time. Please try again in <wait_time> seconds/minutes/hours.",
+  "retryAfter": <wait_time_in_seconds>
+}
+```
+
+Webform Signing
+
+When a Webform is signed, Acrobat Sign creates a new agreement, which undergoes asynchronous document processing. Standard throttling limits apply to the Webform creator in your account, not the signer.
+
+If the agreement processing exceeds throttling limits, the Webform signer will see the following error message:
+
+```text
+{
+This web form is very popular right now and can't be processed due to high demand. Please try again in {x} hours, {xx} minutes, and {xxx} seconds.
+Contact the owner of this web form for further information.
+}
+```
+
+### Webform First Signer/Participant
+
+Acrobat Sign allows webform creators to enable email verification for the first signer/participant. When enabled, submission limits are enforced based on the first signer’s activity. Throttling limits are enforced on the number of requests per minute, hour, and day levels.
+
+- Limits are evaluated when the first signer/participant submits the webform or adds additional participants.
+- The submission count increases only after email verification is completed.
+- If the signer exceeds the limit, they will see the following error message:
+
+```text
+{
+You've reached the limit on the number of times that you may access this web form. Please try again after {x} hours, {xx} minutes, and {xxx} seconds.
+Contact the owner of this web form for further information.
+}
+```
+If email verification is not enabled, no submission limits apply to the first signer. Contact your CSM or Support if you find that your throttling thresholds must be increased.
