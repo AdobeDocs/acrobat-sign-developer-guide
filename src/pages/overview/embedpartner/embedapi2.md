@@ -145,11 +145,13 @@ Subject identifies the principal for which the JWT token [https://jwt.io/introdu
 **Sample subject token (jwt)**
 
 ```json
-<example-jwt-token>
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN1YmplY3RfZW1haWxAc2lnbmVtYmVkcGFydG5lci5jb20ifQ.IOqyTkveGBDhfmanxttJnrcO-X8iYK1yyu7mU5Eb3dY
+
 
 Payload:
 
 {
+
   "email": "subject_email@signembedpartner.com"
 }
 ```
@@ -313,20 +315,19 @@ You can call the following API to register your partner application by directly 
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/partners |
-| Authentication/Authorization | Values:
-
-    Valid Technical Account Token
-    Mandatory scopes in token: sign_user_write, sign_user_read, sign_account_write, sign_account_read, sign_oem_user_impersonate |
-| Description | API to register the Partner with Acrobat Sign. This would be called once as part of Partner onboarding. |
-| Request Header | Partner APIs Common Headers |
-| Request Object | RegisterPartnerRequest |
-| Response Object | RegisterPartnerResponse |
-| HTTP Status Code | 201 |
-| Error Code | Error Response - Register Partner |
+| Item                         | Value                                                                                                                                  |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| HTTP Method                  | POST                                                                                                                                   |
+| Endpoint Operation           | \{apiAccessPoint\}/api/gateway/signembed/v1/partners                                                                                   |
+| Authentication/Authorization | Values:                                                                                                                                |
+ |                              | &#8226; Valid Technical Account Token                                                                                                  |
+ |                              | &#8226;   Mandatory scopes in token: sign_user_write, sign_user_read, sign_account_write, sign_account_read, sign_oem_user_impersonate |
+| Description                  | API to register the Partner with Acrobat Sign. This would be called once as part of Partner onboarding.                                |
+| Request Header               | Partner APIs Common Headers                                                                                                            |
+| Request Object               | RegisterPartnerRequest                                                                                                                 |
+| Response Object              | RegisterPartnerResponse                                                                                                                |
+| HTTP Status Code             | 201                                                                                                                                    |
+| Error Code                   | Error Response - Register Partner                                                                                                      |
 
 
 #### Request
@@ -334,10 +335,10 @@ You can call the following API to register your partner application by directly 
 ***Register Partner request parameters***
 
 
-| Parameter Name | Type | Default | Description | Requirement | Validations/Comments |
-|---|---|---|---|---|---|
-| name | String | NA | Identifiable partner name | Required |  |
-| domains | List&lt;String&gt; | List of all the domains claimed/trusted by the partner org | List of domains claimed/trusted by the partner organization | Optional | domain regex validation Validated against the domains claimed/trusted by the partner org |
+| Parameter Name | Type            | Default                                                    | Description                                                 | Requirement | Validations/Comments                                                                     |
+|----------------|-----------------|------------------------------------------------------------|-------------------------------------------------------------|-------------|------------------------------------------------------------------------------------------|
+| name           | String          | NA                                                         | Identifiable partner name                                   | Required    |                                                                                          |
+| domains        | List \<String\> | List of all the domains claimed/trusted by the partner org | List of domains claimed/trusted by the partner organization | Optional    | domain regex validation Validated against the domains claimed/trusted by the partner org |
 
 
 **Register partner sample request**
@@ -357,18 +358,18 @@ You can call the following API to register your partner application by directly 
 ***Register partner response parameters***
 
 
-| Parameter Name | Type | Default | Description |
-|---|---|---|---|
-| imsClientId | String |  | The client ID associated with the technical account |
-| created | Date |  | Created date in ISO format |
-| domains | List&lt;String&gt; |  | List of domains claimed/trusted by the partner |
-| id | String |  | Id for the Partner |
-| modified | Date |  | Last modified date in ISO format |
-| name | String |  | Identifiable partner name |
-| orgGuid | String |  | Id of the IMS organization |
-| status | String | INACTIVE | Status of the Partner |
-| technicalAccountId | String |  | Technical account ID associated with the technical account |
-| updatedBy | String |  | Technical account ID associated with the technical account |
+| Parameter Name     | Type            | Default  | Description                                                |
+|--------------------|-----------------|----------|------------------------------------------------------------|
+| imsClientId        | String          |          | The client ID associated with the technical account        |
+| created            | Date            |          | Created date in ISO format                                 |
+| domains            | List\<String\>; |          | List of domains claimed/trusted by the partner             |
+| id                 | String          |          | Id for the Partner                                         |
+| modified           | Date            |          | Last modified date in ISO format                           |
+| name               | String          |          | Identifiable partner name                                  |
+| orgGuid            | String          |          | Id of the IMS organization                                 |
+| status             | String          | INACTIVE | Status of the Partner                                      |
+| technicalAccountId | String          |          | Technical account ID associated with the technical account |
+| updatedBy          | String          |          | Technical account ID associated with the technical account |
 
 
 **Register partner sample response**
@@ -396,17 +397,17 @@ You can call the following API to register your partner application by directly 
 ***Error codes for register partner response***
 
 
-| HTTP Status Code | Error Code | Message |
-|---|---|---|
-| 400 | INVALID_PARAMETER | The &lt;param_name&gt; value specified is invalid. |
-| 400 | DOMAIN_NOT_ELIGIBLE | One or more domains are not allowed for the given partner. |
-| 400 | INVALID_JSON | An invalid JSON was specified. |
-| 400 | MISSING_REQUIRED_PARAM | Required parameter &lt;param name&gt; is missing. |
-| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
-| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
-| 404 | ORG_DOMAINS_NOT_FOUND | Org does not have any owned or trusted federated domains. |
-| 409 | TECHNICAL_ACCOUNT_ID_ALREADY_EXISTS | Partner already exists for this Technical Account Id. |
-| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+| HTTP Status Code | Error Code                          | Message                                                    |
+|------------------|-------------------------------------|------------------------------------------------------------|
+| 400              | INVALID_PARAMETER                   | The \<param_name\> value specified is invalid.             |
+| 400              | DOMAIN_NOT_ELIGIBLE                 | One or more domains are not allowed for the given partner. |
+| 400              | INVALID_JSON                        | An invalid JSON was specified.                             |
+| 400              | MISSING_REQUIRED_PARAM              | Required parameter &lt;param name&gt; is missing.          |
+| 401              | INVALID_ACCESS_TOKEN                | Access token provided is invalid or has expired.           |
+| 403              | MISSING_SCOPES                      | The token does not contain the required scopes.            |
+| 404              | ORG_DOMAINS_NOT_FOUND               | Org does not have any owned or trusted federated domains.  |
+| 409              | TECHNICAL_ACCOUNT_ID_ALREADY_EXISTS | Partner already exists for this Technical Account Id.      |
+| 500              | INTERNAL_SERVER_ERROR               | Some miscellaneous error has occurred.                     |
 
 
 ## Account APIs
@@ -423,11 +424,11 @@ Call these APIs directly using a technical account token to create or update an 
 ***Common header attributes***
 
 
-| Header Name | Values | Description |
-|---|---|---|
+| Header Name   | Values                                 | Description                                                                                       |
+|---------------|----------------------------------------|---------------------------------------------------------------------------------------------------|
 | Authorization | Bearer &lt;Technical Account Token&gt; | Technical account token that is generated by the partner and the Partner is onboarded beforehand. |
-| content-type | application/json | The resource media type. |
-| x-request-id | String | A string value needed to track a given request |
+| content-type  | application/json                       | The resource media type.                                                                          |
+| x-request-id  | String                                 | A string value needed to track a given request                                                    |
 
 
 ### Create Account
@@ -435,17 +436,17 @@ Call these APIs directly using a technical account token to create or update an 
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/accounts |
+| Item                         | Value                                                                        |
+|------------------------------|------------------------------------------------------------------------------|
+| HTTP Method                  | POST                                                                         |
+| Endpoint Operation           | {apiAccessPoint}/api/gateway/signembed/v1/accounts                           |
 | Authentication/Authorization | Valid technical account token. Required scopes in token: sign_account_write. |
-| Audience | Partner will call this API to create new accounts for their customers. |
-| Request Header | Partner APIs Common Headers |
-| Request Object | AccountProvisionRequest |
-| Response Object | AccountProvisionResponse |
-| HTTP Status Code | 201 |
-| Error Code | Error Response: Create Account |
+| Audience                     | Partner will call this API to create new accounts for their customers.       |
+| Request Header               | Partner APIs Common Headers                                                  |
+| Request Object               | AccountProvisionRequest                                                      |
+| Response Object              | AccountProvisionResponse                                                     |
+| HTTP Status Code             | 201                                                                          |
+| Error Code                   | Error Response: Create Account                                               |
 
 
 #### Request
@@ -453,26 +454,25 @@ Call these APIs directly using a technical account token to create or update an 
 ***Account create-update request parameters***
 
 
-| Parameter Name | Type | Default | Description | Needed in POST/PUT | Updatable by PUT |
-|---|---|---|---|---|---|
-| id | String | NA | Account ID of the Account | Required and Permitted only in PUT | Immutable |
-| name | String | NA | Name of the account. The name must only include numbers and letters. No special characters or spaces are allowed. | Required | mutable |
-| company | String | "" | Name of the company | Optional | mutable |
-| consumables | List&lt;Consumable&gt; | [ ] | List of Consumables | Optional | mutable |
-| countryCode | String | NA | Target Country for Account Provisioning. Ex US, FR, GB | Required | Immutable |
+| Parameter Name | Type                   | Default | Description                                                                                                       | Needed in POST/PUT                 | Updatable by PUT |
+|----------------|------------------------|---------|-------------------------------------------------------------------------------------------------------------------|------------------------------------|------------------|
+| id             | String                 | NA      | Account ID of the Account                                                                                         | Required and Permitted only in PUT | Immutable        |
+| name           | String                 | NA      | Name of the account. The name must only include numbers and letters. No special characters or spaces are allowed. | Required                           | mutable          |
+| company        | String                 | ""      | Name of the company                                                                                               | Optional                           | mutable          |
+| consumables    | List&lt;Consumable&gt; | [ ]     | List of Consumables                                                                                               | Optional                           | mutable          |
+| countryCode    | String                 | NA      | Target Country for Account Provisioning. Ex US, FR, GB                                                            | Required                           | Immutable        |
 
 
 ***Consumable***
 
 
-| Parameter Name | Type | Default Value | Description | Needed in POST/PUT | Updatable by PUT |
-|---|---|---|---|---|---|
-| type | String | NA | Name of consumable supported in Embed Accounts.
-
-    KBA_ANNUAL
-    PHONE_AUTH_ANNUAL
-    SEAT | Required | mutable |
-| attributes | Object | N/A | Properties for each consumable type | Required | mutable |
+| Parameter Name | Type   | Default Value | Description                                     | Needed in POST/PUT | Updatable by PUT |
+|----------------|--------|---------------|-------------------------------------------------|--------------------|------------------|
+| type           | String | NA            | Name of consumable supported in Embed Accounts. | Required           | mutable          |
+|                |        |               | &#8226;KBA_ANNUAL                               |                    |                  |
+|                |        |               | &#8226;PHONE_AUTH_ANNUAL                        |                    |                  |
+|                |        |               | &#8226;SEAT                                     |                    |                  |
+| attributes     | Object | N/A           | Properties for each consumable type             | Required           | mutable          |
 
 
 **Sample Account Provisioning Request**
@@ -526,17 +526,17 @@ Call these APIs directly using a technical account token to create or update an 
 ***Error codes for AccountCreateErrorResponse***
 
 
-| HTTP Status Code | Error code | Message |
-|---|---|---|
-| 400 | MISSING_REQUIRED_PARAMS | Required parameter &lt;param name&gt; is missing. |
-| 400 | INVALID_JSON | An invalid JSON was specified. |
-| 400 | INVALID_PARAMETER | The &lt;param_name&gt; value specified is invalid. |
-| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
-| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
-| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
-| 409 | ACCOUNT_ALREADY_EXISTS | Account with this name already exists. |
-| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
-| 500 | ACCOUNT_COULD_NOT_BE_CONFIGURED | Account with accountId `{account id}` could not be configured properly. |
+| HTTP Status Code | Error code                      | Message                                                                 |
+|------------------|---------------------------------|-------------------------------------------------------------------------|
+| 400              | MISSING_REQUIRED_PARAMS         | Required parameter &lt;param name&gt; is missing.                       |
+| 400              | INVALID_JSON                    | An invalid JSON was specified.                                          |
+| 400              | INVALID_PARAMETER               | The &lt;param_name&gt; value specified is invalid.                      |
+| 401              | INVALID_ACCESS_TOKEN            | Access token provided is invalid or has expired.                        |
+| 403              | MISSING_SCOPES                  | The token does not contain the required scopes.                         |
+| 403              | AUTHENTICATION_FAILED           | Partner is not onboarded successfully.                                  |
+| 409              | ACCOUNT_ALREADY_EXISTS          | Account with this name already exists.                                  |
+| 500              | INTERNAL_SERVER_ERROR           | Some miscellaneous error has occurred.                                  |
+| 500              | ACCOUNT_COULD_NOT_BE_CONFIGURED | Account with accountId `{account id}` could not be configured properly. |
 
 
 ### Update Account
@@ -544,17 +544,18 @@ Call these APIs directly using a technical account token to create or update an 
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | PUT |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/accounts/&lt;accountId&gt; |
-| Authentication/Authorization | Valid technical account token. Required scopes: sign_account_write |
-| Audience | Partner will call this API to update existing Embed account. |
-| Request Header | Partner APIs Common Headers |
-| Request Object | AccountUpdateRequest |
-| Response Object | No Content |
-| HTTP Status Code | 204 |
-| Error Code | ErrorCodes - Update Account |
+| Item                         | Value                                                              |
+|------------------------------|--------------------------------------------------------------------|
+| HTTP Method                  | PUT                                                                |
+| Endpoint Operation           | \{apiAccessPoint\}/api/gateway/signembed/v1/accounts/\<accountId\> |
+| Authentication/Authorization | &#8226;Valid technical account token.                              |
+|                              | &#8226;Required scopes: sign_account_write                         |
+| Audience                     | Partner will call this API to update existing Embed account.       |
+| Request Header               | Partner APIs Common Headers                                        |
+| Request Object               | AccountUpdateRequest                                               |
+| Response Object              | No Content                                                         |
+| HTTP Status Code             | 204                                                                |
+| Error Code                   | ErrorCodes - Update Account                                        |
 
 
 #### Request
@@ -596,19 +597,19 @@ Account update request parameters
 ***Error codes for AccountUpdateErrorResponse***
 
 
-| HTTP Status Code | Error code | Message |
-|---|---|---|
-| 400 | MISSING_REQUIRED_PARAMS | Missing required parameters &lt;required param name&gt;. |
-| 400 | INVALID_PARAMETER | The &lt;param_name&gt; value specified is invalid. |
-| 400 | INVALID_INPUT | An invalid input is provided. |
-| 400 | INVALID_JSON | An invalid JSON was specified. |
-| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
-| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
-| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
-| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
-| 404 | ACCOUNT_NOT_FOUND | Account does not exist. |
-| 409 | ACCOUNT_ALREADY_EXISTS | An account with this name already exists. |
-| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+| HTTP Status Code | Error code              | Message                                                                |
+|------------------|-------------------------|------------------------------------------------------------------------|
+| 400              | MISSING_REQUIRED_PARAMS | Missing required parameters &lt;required param name&gt;.               |
+| 400              | INVALID_PARAMETER       | The &lt;param_name&gt; value specified is invalid.                     |
+| 400              | INVALID_INPUT           | An invalid input is provided.                                          |
+| 400              | INVALID_JSON            | An invalid JSON was specified.                                         |
+| 401              | INVALID_ACCESS_TOKEN    | Access token provided is invalid or has expired.                       |
+| 403              | MISSING_SCOPES          | The token does not contain the required scopes.                        |
+| 403              | AUTHENTICATION_FAILED   | Partner is not onboarded successfully.                                 |
+| 403              | PERMISSION_DENIED       | The API caller does not have the permission to execute this operation. |
+| 404              | ACCOUNT_NOT_FOUND       | Account does not exist.                                                |
+| 409              | ACCOUNT_ALREADY_EXISTS  | An account with this name already exists.                              |
+| 500              | INTERNAL_SERVER_ERROR   | Some miscellaneous error has occurred.                                 |
 
 
 ### Get Account
@@ -616,17 +617,17 @@ Account update request parameters
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | GET |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/accounts/&lt;accountId&gt; |
-| Authorization | Valid technical account token. Required Scopes in token: sign_account_read |
-| Audience | Partner will call this API to fetch account details for their customers. |
-| Request Header | Partner APIs Common Headers |
-| Request Object | (No content provided) |
-| Response Object | GetAccountResponse |
-| HTTP Status Code | 200 |
-| Error Code | ErrorCodes - get Account |
+| Item               | Value                                                                      |
+|--------------------|----------------------------------------------------------------------------|
+| HTTP Method        | GET                                                                        |
+| Endpoint Operation | \{apiAccessPoint\}/api/gateway/signembed/v1/accounts/&lt;accountId&gt;     |
+| Authorization      | Valid technical account token. Required Scopes in token: sign_account_read |
+| Audience           | Partner will call this API to fetch account details for their customers.   |
+| Request Header     | Partner APIs Common Headers                                                |
+| Request Object     | (No content provided)                                                      |
+| Response Object    | GetAccountResponse                                                         |
+| HTTP Status Code   | 200                                                                        |
+| Error Code         | ErrorCodes - get Account                                                   |
 
 
 #### Response
@@ -634,14 +635,14 @@ Account update request parameters
 ***Response Object GetAccountResponse***
 
 
-| Parameter Name | Type | Description |
-|---|---|---|
-| id | String | account ID |
-| name | String | Name of the account |
-| company | String | Name of the company |
-| consumables | List&lt;Consumable&gt; | List of Consumables with values. For example, KBA, PHONE_AUTH, and SEATS. |
-| countryCode | String | Target Country for Account Provisioning. Ex US, FR, GB |
-| created | Date | Account created date in ISO format. |
+| Parameter Name | Type                   | Description                                                               |
+|----------------|------------------------|---------------------------------------------------------------------------|
+| id             | String                 | account ID                                                                |
+| name           | String                 | Name of the account                                                       |
+| company        | String                 | Name of the company                                                       |
+| consumables    | List&lt;Consumable&gt; | List of Consumables with values. For example, KBA, PHONE_AUTH, and SEATS. |
+| countryCode    | String                 | Target Country for Account Provisioning. Ex US, FR, GB                    |
+| created        | Date                   | Account created date in ISO format.                                       |
 
 
 **Sample account creation GetAccountResponse**
@@ -680,15 +681,15 @@ Account update request parameters
 ***Error codes for AccountGetErrorResponse***
 
 
-| HTTP Status Code | Error code | Message |
-|---|---|---|
-| 400 | INVALID_INPUT | An invalid input is provided. |
-| 401 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired. |
-| 403 | MISSING_SCOPES | The token does not contain the required scopes. |
-| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully. |
-| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
-| 404 | ACCOUNT_NOT_FOUND | Account does not exist. |
-| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred. |
+| HTTP Status Code | Error code            | Message                                                                |
+|------------------|-----------------------|------------------------------------------------------------------------|
+| 400              | INVALID_INPUT         | An invalid input is provided.                                          |
+| 401              | INVALID_ACCESS_TOKEN  | Access token provided is invalid or has expired.                       |
+| 403              | MISSING_SCOPES        | The token does not contain the required scopes.                        |
+| 403              | AUTHENTICATION_FAILED | Partner is not onboarded successfully.                                 |
+| 403              | PERMISSION_DENIED     | The API caller does not have the permission to execute this operation. |
+| 404              | ACCOUNT_NOT_FOUND     | Account does not exist.                                                |
+| 500              | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred.                                 |
 
 
 ### Get All Accounts
@@ -696,34 +697,31 @@ Account update request parameters
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | GET |
-| Endpoint Operation | /v1/accounts?isLegacy={true/false}&pagesSize={}&pageNumber={} |
-| Authorization | Valid Technical Account Token.
-    Mandatory Scope in token - sign_account_read |
-| Audience | Partner will call this API to fetch paginated list of accounts for all their customers. |
-| Request Header | Partner APIs Common Headers |
-| Request Object | GetAccountsResponse |
-| HTTP Status Code | 200 |
-| Error Code | ErrorCodes - get Account |
+| Item               | Value                                                                                   |
+|--------------------|-----------------------------------------------------------------------------------------|
+| HTTP Method        | GET                                                                                     |
+| Endpoint Operation | /v1/accounts?isLegacy={true/false}&pagesSize={}&pageNumber={}                           |
+| Authorization      | &#8226; Valid Technical Account Token.                                                  |                                                     
+|                    | &#8226; Mandatory Scope in token - sign_account_read                                    |
+| Audience           | Partner will call this API to fetch paginated list of accounts for all their customers. |
+| Request Header     | Partner APIs Common Headers                                                             |
+| Request Object     | GetAccountsResponse                                                                     |
+| HTTP Status Code   | 200                                                                                     |
+| Error Code         | ErrorCodes - get Account                                                                |
 
 
 ***Query Params***
 
 
-| Parameter Name | Type | Description | Needed | Data Range |
-|---|---|---|---|---|
-| pageNumber | Integer | pageNumber to navigate through pages | Optional | default:0
-
-        If pageNumber is less than 0, throw INVALID_PARAMETER exception |
-| pageSize | Integer | pageSize to limit the number of records that will be fetched. | Optional | default:20 max:100
-
-        If pageSize is less than 1, throw INVALID_PARAMETER exception
-        If pageSize is more than 100, throw PAGE_SIZE_LIMIT_EXCEEDED exception |
-| isLegacy | boolean | Return legacy accounts that are on old Sign Embed Models. | Optional | default:false
-
-        If isLegacy value is not a boolean, throw INVALID_PARAMETER exception |
+| Parameter Name | Type    | Description                                                   | Needed   | Data Range                                                                    |
+|----------------|---------|---------------------------------------------------------------|----------|-------------------------------------------------------------------------------|
+| pageNumber     | Integer | pageNumber to navigate through pages                          | Optional | default:0                                                                     |
+|                |         |                                                               |          | &#8226;If pageNumber is less than 0, throw INVALID_PARAMETER exception        |
+| pageSize       | Integer | pageSize to limit the number of records that will be fetched. | Optional | default:20 max:100                                                            |                                          
+ |                |         |                                                               |          | &#8226;If pageSize is less than 1, throw INVALID_PARAMETER exception          |
+ |                |         |                                                               |          | &#8226;If pageSize is more than 100, throw PAGE_SIZE_LIMIT_EXCEEDED exception |
+| isLegacy       | boolean | Return legacy accounts that are on old Sign Embed Models.     | Optional | default:false                                                                 |
+ |                |         |                                                               |          | &#8226;If isLegacy value is not a boolean, throw INVALID_PARAMETER exception  |
 
 
 #### Response

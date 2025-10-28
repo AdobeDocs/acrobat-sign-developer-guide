@@ -43,12 +43,12 @@ Base URIs: API calls starting v5 of REST API must be made on a specific base URL
 SenderInfo is represented through `x-api-user`. Files are specified through /transientDocuments.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [sendDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocumentInteractive) | [/agreements/{agrId}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
+| SOAP Endpoint | REST Endpoint                                                                                                                 |
+|---|-------------------------------------------------------------------------------------------------------------------------------|
+| [sendDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocumentInteractive) | [/agreements/\{agrId\}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
 
 
-From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/{agrId}/views` endpoint for the interactive behavior.
+From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/\{agrId\}/views` endpoint for the interactive behavior.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -65,74 +65,74 @@ MegaSign allows sending the same agreement to multiple recipients and creating a
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [createLibraryDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createLibraryDocumentInteractive) | [/libraryDocuments/{libraryDocumentId}, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                         |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [createLibraryDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createLibraryDocumentInteractive) | [/libraryDocuments/\{libraryDocumentId\}, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView) |
 
 
-From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/{agrId}/views` endpoint for the interactive behavior.
+From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/\{agrId\}/views` endpoint for the interactive behavior.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [sendReminder](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendReminder) | [/agreements/{agrId}/reminders, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant) |
+| SOAP Endpoint | REST Endpoint                                                                                                                             |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------|
+| [sendReminder](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendReminder) | [/agreements/\{agrId\}/reminders, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [removeDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#removeDocument) | [/agreements/{agrId}/documents, DELETE](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/deleteDocuments) |
+| SOAP Endpoint | REST Endpoint                                                                                                                   |
+|---|---------------------------------------------------------------------------------------------------------------------------------|
+| [removeDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#removeDocument) | [/agreements/\{agrId\}/documents, DELETE](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/deleteDocuments) |
 
 
-To delete the documents of agreements, use the `DELETE /agreements/{agrId}/documents` endpoint; and to remove it from Manage Page(GET /agreements), use `PUT /agreements/{agrId}/visibility`
+To delete the documents of agreements, use the `DELETE /agreements/\{agrId\}/documents` endpoint; and to remove it from Manage Page(GET /agreements), use `PUT /agreements/\{agrId\}/visibility`
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [cancelDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#cancelDocument) | [/agreements/{agrId}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateAgreementState) |
+| SOAP Endpoint | REST Endpoint                                                                                                                 |
+|---|-------------------------------------------------------------------------------------------------------------------------------|
+| [cancelDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#cancelDocument) | [/agreements/\{agrId\}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateAgreementState) |
 
 
 Cancel: Called by sender.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [rejectDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#rejectDocument) | [/agreements/{agrId}/members/participantSets/{psId}/participants/{pId}/reject, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/rejectAgreementForParticipation) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                                                                   |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [rejectDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#rejectDocument) | [/agreements/\{agrId\}/members/participantSets/\{psId\}/participants/\{pId\}/reject, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/rejectAgreementForParticipation) |
 
 
 Reject: Called by current signer.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [replaceSigner](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#replaceSigner) | [/agreements/{agreementId}/members/participantSets/{participantSetId}, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateParticipantSet) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                                              |
+|---|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [replaceSigner](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#replaceSigner) | [/agreements/\{agreementId\}/members/participantSets/\{participantSetId\}, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateParticipantSet) |
 
 
 Replace: Called by sender. Both the original signer and new one can sign.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [delegateSigning](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#delegateSigning) | [/agreements/{agrId}/members/participantSets/{psId}/participants/{pId}/delegatedParticipantSet, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createDelegatedParticipantSets) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                                                                                    |
+|---|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [delegateSigning](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#delegateSigning) | [/agreements/\{agrId\}/members/participantSets/\{psId\}/participants/\{pId\}/delegatedParticipantSet, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createDelegatedParticipantSets) |
 
 
 Delegate: Called by signer. Both the delegator and delegatee can sign.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [notifyDocumentVaulted](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#notifyDocumentVaulted) | [/agreements/{agreementId}/vaulted, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateAgreementVaulted) |
+| SOAP Endpoint | REST Endpoint                                                                                                                           |
+|---|-----------------------------------------------------------------------------------------------------------------------------------------|
+| [notifyDocumentVaulted](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#notifyDocumentVaulted) | [/agreements/\{agreementId\}/vaulted, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateAgreementVaulted) |
 
 
 #### Status Methods
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentInfo](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentInfo) | [/agreements/{agrId}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) |
+| SOAP Endpoint | REST Endpoint                                                                                                       |
+|---|---------------------------------------------------------------------------------------------------------------------|
+| [getDocumentInfo](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentInfo) | [/agreements/\{agrId\}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) |
 
 
-In SOAP API, `getDocumentInfo`, `getDocuments`, `getAuditTrail` etc. work on `documentKeys`, which can be an ID for an agreement, widget, or library document. The REST API demarcates these as separate resources (cleaner design and strongly typed) and hence, based on the kind of resource you are working on, there is a corresponding /libraryDocuments, /widgets to these. Example: `/widgets/{widgetId}, GET` will getDocumentInfo for `widgetId`, and similarly for documents, audit trail, etc.
+In SOAP API, `getDocumentInfo`, `getDocuments`, `getAuditTrail` etc. work on `documentKeys`, which can be an ID for an agreement, widget, or library document. The REST API demarcates these as separate resources (cleaner design and strongly typed) and hence, based on the kind of resource you are working on, there is a corresponding /libraryDocuments, /widgets to these. Example: `/widgets/\{widgetId\}, GET` will getDocumentInfo for `widgetId`, and similarly for documents, audit trail, etc.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -143,71 +143,71 @@ In SOAP API, `getDocumentInfo`, `getDocuments`, `getAuditTrail` etc. work on `do
 `externalId` can be used to map your internal IDs to Acrobat Sign IDs.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocuments](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocuments) | [/agreements/{agrId}/documents, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments) |
+| SOAP Endpoint | REST Endpoint                                                                                                                |
+|---|------------------------------------------------------------------------------------------------------------------------------|
+| [getDocuments](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocuments) | [/agreements/\{agrId\}/documents, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments) |
 
 
 REST returns a list of document IDs that can be provided to the following endpoint to get a document stream.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentUrls) | [/agreements/{agrId}/combinedDocument/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                  |
+|---|------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getDocumentUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentUrls) | [/agreements/\{agrId\}/combinedDocument/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl) |
 
 
 Retrieve the URL of the **combined document**.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentUrls) | [/agreements/{agrId}/documents/{docId}/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl) |
+| SOAP Endpoint | REST Endpoint                                                                                                                             |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------|
+| [getDocumentUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentUrls) | [/agreements/\{agrId\}/documents/\{docId\}/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl) |
 
 
 Retrieve the URL of an **individual document**.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentImageUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentImageUrls) | [/agreements/{agrId}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                   |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getDocumentImageUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentImageUrls) | [/agreements/\{agrId\}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) |
 
 
 Retrieve the image URLs of **all visible pages** of an agreement.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentImageUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentImageUrls) | [/agreements/{agrId}/documents/{docId}/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                         |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getDocumentImageUrls](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentImageUrls) | [/agreements/\{agrId\}/documents/\{docId\}/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls) |
 
 
 Retrieve image URLs of a specified documentID.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getSupportingDocuments](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getSupportingDocuments) | [/agreements/{agrId}/documents, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments) |
+| SOAP Endpoint | REST Endpoint                                                                                                                |
+|---|------------------------------------------------------------------------------------------------------------------------------|
+| [getSupportingDocuments](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getSupportingDocuments) | [/agreements/\{agrId\}/documents, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments) |
 
 
 Can also specify the content format.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getFormData](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getFormData) | [/agreements/{agrId}/formData, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getFormData) |
+| SOAP Endpoint | REST Endpoint                                                                                                           |
+|---|-------------------------------------------------------------------------------------------------------------------------|
+| [getFormData](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getFormData) | [/agreements/\{agrId\}/formData, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getFormData) |
 
 
 Returns a CSV file stream.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getAuditTrail](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getAuditTrail) | [/agreements/{agrId}/auditTrail, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAuditTrail) |
+| SOAP Endpoint | REST Endpoint                                                                                                               |
+|---|-----------------------------------------------------------------------------------------------------------------------------|
+| [getAuditTrail](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getAuditTrail) | [/agreements/\{agrId\}/auditTrail, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAuditTrail) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getSigningUrl](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getSigningUrl) | [/agreements/{agrId}/signingUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getSigningUrl) |
+| SOAP Endpoint | REST Endpoint                                                                                                                |
+|---|------------------------------------------------------------------------------------------------------------------------------|
+| [getSigningUrl](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getSigningUrl) | [/agreements/\{agrId\}/signingUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getSigningUrl) |
 
 
 #### User Methods
@@ -219,9 +219,9 @@ Returns a CSV file stream.
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [verifyUser](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#verifyUser) | [/users/{userId}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/getUserDetail) |
+| SOAP Endpoint | REST Endpoint                                                                                           |
+|---|---------------------------------------------------------------------------------------------------------|
+| [verifyUser](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#verifyUser) | [/users/\{userId\}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/getUserDetail) |
 
 
 The REST equivalent can be used to see if the user exists, but does not support password verification.
@@ -233,15 +233,15 @@ The REST equivalent can be used to see if the user exists, but does not support 
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentEventsForUser](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentEventsForUser) | [/agreement/{agrId}/events, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getEvents) |
+| SOAP Endpoint | REST Endpoint                                                                                                      |
+|---|--------------------------------------------------------------------------------------------------------------------|
+| [getDocumentEventsForUser](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentEventsForUser) | [/agreement/\{agrId\}/events, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getEvents) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getEmbeddedView](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getEmbeddedView) | [/agreements/{agrId}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
+| SOAP Endpoint | REST Endpoint                                                                                                                 |
+|---|-------------------------------------------------------------------------------------------------------------------------------|
+| [getEmbeddedView](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getEmbeddedView) | [/agreements/\{agrId\}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
 
 
 Use the name = DOCUMENT to get the embedded view of an agreement.
@@ -289,9 +289,9 @@ Use `x-api-user` for specifying the user whose library documents are to be retri
 Use `x-api-user` for specifying the user whose widgets are to be retrieved.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getMegaSignDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMegaSignDocument) | [/megaSigns/{megaSignId}/agreements, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/megaSigns/getMegaSignChildAgreements) |
+| SOAP Endpoint | REST Endpoint                                                                                                                               |
+|---|---------------------------------------------------------------------------------------------------------------------------------------------|
+| [getMegaSignDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMegaSignDocument) | [/megaSigns/\{megaSignId\}/agreements, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/megaSigns/getMegaSignChildAgreements) |
 
 
 Get all child agreement IDs of the parent MegaSign.
@@ -315,9 +315,9 @@ Get all child agreement IDs of the parent MegaSign.
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [renameGroup](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#renameGroup) | [/groups/{groupId}, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/modifyGroup) |
+| SOAP Endpoint | REST Endpoint                                                                                            |
+|---|----------------------------------------------------------------------------------------------------------|
+| [renameGroup](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#renameGroup) | [/groups/\{groupId\}, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/modifyGroup) |
 
 
 
@@ -327,23 +327,23 @@ Get all child agreement IDs of the parent MegaSign.
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getUsersInGroups](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUsersInGroups) | [/groups/{groupId}/users, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/getUsersInGroup) |
+| SOAP Endpoint | REST Endpoint                                                                                                      |
+|---|--------------------------------------------------------------------------------------------------------------------|
+| [getUsersInGroups](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUsersInGroups) | [/groups/\{groupId\}/users, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/getUsersInGroup) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [moveUsersToGroup](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#moveUsersToGroup) | [/users/{userId}/groups, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/updateGroupsOfUser) |
+| SOAP Endpoint | REST Endpoint                                                                                                       |
+|---|---------------------------------------------------------------------------------------------------------------------|
+| [moveUsersToGroup](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#moveUsersToGroup) | [/users/\{userId\}/groups, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/updateGroupsOfUser) |
 
 
 Specify the new `groupId` in the request.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getUserInfo](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUserInfo) | [/users/{userId}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/getUserDetail) |
+| SOAP Endpoint | REST Endpoint                                                                                           |
+|---|---------------------------------------------------------------------------------------------------------|
+| [getUserInfo](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUserInfo) | [/users/\{userId\}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/getUserDetail) |
 
 
 #### Web Form Methods
@@ -355,9 +355,9 @@ Specify the new `groupId` in the request.
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [createPersonalEmbeddedWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createPersonalEmbeddedWidget) | [/widgets/{widgetId}/views, POST](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView) |
+| SOAP Endpoint | REST Endpoint                                                                                                       |
+|---|---------------------------------------------------------------------------------------------------------------------|
+| [createPersonalEmbeddedWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createPersonalEmbeddedWidget) | [/widgets/\{widgetId\}/views, POST](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView) |
 
 
 Use PersonalizedSigningViewConfiguration for specifying personalization options
@@ -375,9 +375,9 @@ Use PersonalizedSigningViewConfiguration for specifying personalization options
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [createPersonalUrlWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createPersonalUrlWidget) | [/widgets/{widgetId}/views, POST](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView) |
+| SOAP Endpoint | REST Endpoint                                                                                                       |
+|---|---------------------------------------------------------------------------------------------------------------------|
+| [createPersonalUrlWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createPersonalUrlWidget) | [/widgets/\{widgetId\}/views, POST](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView) |
 
 
 Use PersonalizedSigningViewConfiguration for specifying personalization options
@@ -389,17 +389,17 @@ Use PersonalizedSigningViewConfiguration for specifying personalization options
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [disableWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#disableWidget) | [/widgets/{widgetId}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState) |
+| SOAP Endpoint | REST Endpoint                                                                                                           |
+|---|-------------------------------------------------------------------------------------------------------------------------|
+| [disableWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#disableWidget) | [/widgets/\{widgetId\}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState) |
 
 
 Use status value as `INACTIVE`.
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [enableWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#enableWidget) | [/widgets/{widgetId}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState) |
+| SOAP Endpoint | REST Endpoint                                                                                                           |
+|---|-------------------------------------------------------------------------------------------------------------------------|
+| [enableWidget](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#enableWidget) | [/widgets/\{widgetId\}/state, PUT](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState) |
 
 
 Use status value as `ACTIVE`.
@@ -439,47 +439,47 @@ issueAccessToken - [Auth has replaced access tokens](gstarted.md).
 #### Doc Methods
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [initiateInteractiveSendDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#initiateInteractiveSendDocument) | [/agreements/{agrId}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
+| SOAP Endpoint | REST Endpoint                                                                                                                 |
+|---|-------------------------------------------------------------------------------------------------------------------------------|
+| [initiateInteractiveSendDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#initiateInteractiveSendDocument) | [/agreements/\{agrId\}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
 
 
 #### Status Methods
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentUrlByVersion](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getDocumentUrlByVersion) | [/agreement/{agreementID}/combinedDocument/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                       |
+|---|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getDocumentUrlByVersion](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getDocumentUrlByVersion) | [/agreement/\{agreementID\}/combinedDocument/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getDocumentByVersion](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getDocumentByVersion) | [/agreements/{agreementId}/combinedDocument, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocument) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                 |
+|---|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| [getDocumentByVersion](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getDocumentByVersion) | [/agreements/\{agreementId\}/combinedDocument, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocument) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getImagesByVersion](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getImagesByVersion) | [/agreements/{agrId}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                   |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getImagesByVersion](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getImagesByVersion) | [/agreements/\{agrId\}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getLatestDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestDocument) | [/agreements/{agrId}/documents, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments) |
+| SOAP Endpoint | REST Endpoint                                                                                                                |
+|---|------------------------------------------------------------------------------------------------------------------------------|
+| [getLatestDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestDocument) | [/agreements/\{agrId\}/documents, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getLatestDocumentUrl](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestDocumentUrl) | /agreements/{agrId}/documents/{docId}/url, GET [[/agreements/{agrId}/combinedDocument/url, GET]](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                                                                          |
+|---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getLatestDocumentUrl](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestDocumentUrl) | [/agreements/\{agrId\}/documents/\{docId\}/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl), [/agreements/\{agrId\}/combinedDocument/url, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl) |
 
 
 
-| SOAP Endpoint | REST Endpoint |
-|---|---|
-| [getLatestImages](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestImages) | [/agreements/{agrId}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) [[/agreements/{agrId}/documents/{docId}/imageUrls, GET]](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                                                                                                                                                                        |
+|---|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getLatestImages](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestImages) | [/agreements/{agrId}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) ,[/agreements/\{agrId\}/documents/\{docId\}/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls) |
 
 
 #### User Methods

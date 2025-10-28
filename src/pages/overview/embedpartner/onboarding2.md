@@ -200,6 +200,7 @@ The allocation count assigned to the child organization doesn’t limit the numb
 
 7. Verify your configuration as follows:
 
+###
 1. Admin user receives a welcome email with subject “Your administrator rights for the Adobe Admin Console for the [your] Child Org”.
 
 ![allocate-transaction-4.png](_images/allocate-transaction-4.png)

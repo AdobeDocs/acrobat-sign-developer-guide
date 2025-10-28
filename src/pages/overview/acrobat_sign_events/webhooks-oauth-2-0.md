@@ -55,7 +55,7 @@ curl --location 'https://api.na1.adobesignpreview.com/api/rest/v6/accounts/CBJCH
 }'
 ```
 
-<InlineNestedAlert variant="info" header="false" iconPosition="right">
+<InlineAlert slots="text" />
 
 Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the authorization server URL to get the access_token before a webhook notification. A standard response from the authorization server contains the following fields:
 * `access_token`: It is the only mandatory field.
@@ -72,7 +72,6 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
   }
   ```
 
-</InlineNestedAlert>
 
 **webhookEndpoints_POST**
 

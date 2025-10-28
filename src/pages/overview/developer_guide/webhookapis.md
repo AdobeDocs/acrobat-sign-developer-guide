@@ -203,7 +203,7 @@ Please note that new errors could be returned from APIs or existing error codes 
 | 400               | INVALID_PAGE_SIZE | Page size is either invalid or not within the permissible range. |
 
 
-## GET /webhooks/{webhookId}
+## GET /webhooks/\{webhookId\}
 
 
 
@@ -285,7 +285,7 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
       },
 ```
 
-## PUT /webhooks/{webhookId}
+## PUT /webhooks/\{webhookId\}
 
 
 
@@ -378,7 +378,7 @@ webhookInfo {
 }
 ```
 
-## PUT /webhooks/{webhookId}/state
+## PUT /webhooks/\{webhookId\}/state
 
 
 | Entity                | Value                                                                                                                             |
@@ -417,7 +417,7 @@ Please note that new errors could be returned from APIs or existing error codes 
 | 412               | RESOURCE_MODIFIED               | The resource is already modified with a newer version.                                           |
 
 
-## DELETE /webhooks/{webhookId}
+## DELETE /webhooks/\{webhookId\}
 
 
 | Entity             | Value                                                                                                                           |
@@ -470,11 +470,11 @@ Any API request may return any of these standard error codes:
 Every API request will have the following standard headers. If Any API in the list above does not have one or more of the following headers, the API will explicitly document this fact.
 
 
-| Header Name         | Description                                                                                                                                                                                |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AUTHORIZATION       | An access token with the correct scopes.                                                                                                                                                   |
-| x-api-user          | The userId or email of the API caller using the account or group token in the format userid:{userId} OR email:{email}. If it is not specified, then the caller is inferred from the token. |
-| x-on-behalf-of-user | Account sharing: The user on whose behalf the API caller is working.                                                                                                                       |
+| Header Name         | Description                                                                                                                                                                                  |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AUTHORIZATION       | An access token with the correct scopes.                                                                                                                                                     |
+| x-api-user          | The userId or email of the API caller using the account or group token in the format userid:\{userId\} OR email:{email}. If it is not specified, then the caller is inferred from the token. |
+| x-on-behalf-of-user | Account sharing: The user on whose behalf the API caller is working.                                                                                                                         |
 
 
 ## Using AWS Lambda Functions

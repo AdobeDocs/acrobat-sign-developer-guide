@@ -57,18 +57,6 @@ All events include the following common payload attributes. Additional parameter
 | megasign | MegaSign | Information about the megaSign on which the event occurred. This key returns only if the event is a megaSign event. |  |
 
 
-## Applicable users
-
-Information in the `webhookNotificationApplicableUsers` array:
-
-| Parameter name | Type | Description | Possible values |
-|---|---|---|---|
-| id | String | The unique identifier of the user for which the notification is applicable. |  |
-| email | String | Email address of the user for which the notification is applicable. |  |
-| role | enum | Role of the user in the workflow. | SENDER, SIGNER, DELEGATE_TO_SIGNER, APPROVER, DELEGATE_TO_APPROVER, ACCEPTOR, DELEGATE_TO_ACCEPTOR, FORM_FILLER, DELEGATE_TO_FORM_FILLER, CERTIFIED_RECIPIENT, DELEGATE_TO_CERTIFIED_RECIPIENT, or SHARE |
-| payloadApplicable | boolean | Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the webhookNotificationApplicableUsers array. |  |
-
-
 ## Webhook URL
 
 Information in WebhookUrlInfo:

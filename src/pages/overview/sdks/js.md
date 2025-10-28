@@ -116,10 +116,8 @@ It’s recommended to create an instance of ApiClient per thread and per user (w
 
 ## JS SDK docs and downloads
 
-<ul style="list-style-type: disc; margin-left: 15px; padding: 0">
-    <li><a href="https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_JS_SDK">Github docs</a></li>
-    <li><a href="https://github.com/adobe/acrobat-sign/tree/main">Github repo and download</a></li>
-</ul>
++ [Github docs](https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_JS_SDK)
++ [Github repo and download](https://github.com/adobe/acrobat-sign/tree/main)
 
 ## Reporting issues
 

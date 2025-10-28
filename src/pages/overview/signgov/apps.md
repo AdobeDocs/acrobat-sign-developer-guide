@@ -198,10 +198,10 @@ Exchanges a previously acquired token for an account/group admin inside an organ
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | client_id | Yes | String | Your client ID. |
-| client_assertion_type | No | String | Specifies the type of value of client assertion. Refer to the Okta docs{" "} [here](https://developer.okta.com/docs/reference/api/oidc/). For example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer. This must be present if client_secret is not provided. |
-| scope | Yes | String | A space-separated list of scopes (%20 when URL-encoded) that the client wants to include in the access token.Please note: The scopes being requested must be a subset of the{" "} actor_token scopes. Impersonation scopes can’t be requested (acc_imp,{" "} group_imp), even though they will be granted to{" "} actor_token. |
-| subject_token | Yes | String | For passing the subject user information for which impersonation is requested. It uses an unsecured user info jwt_token as per RFC 7519. A sample value for a subject with user ID{" "} [ service-fedramp-dev@adobesignintegrationsdemo.com](mailto:service-fedramp-dev@adobesignintegrationsdemo.com){" "} might be: eyJhbGciOiJub25lIn0=.... The value is obtained by doing a base64 encode of {"{alg:'none'}"} and concatenating it with a base64 encode of {"{user_email:'service-fedramp-dev@adobesignintegrationsdemo.com'}"}, separated by a period (.) as follows: {"{alg:'none'}.{user_email:'service-fedramp-dev@adobesignintegrationsdemo.com'}"} |
-| actor_token | Yes | String | The admin token for which impersonation is requested. Note: The passed admin token should have an impersonation scope of{" "} acc_imp or{" "} group_imp. |
+| client_assertion_type | No | String | Specifies the type of value of client assertion. Refer to the Okta docs [here](https://developer.okta.com/docs/reference/api/oidc/). For example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer. This must be present if client_secret is not provided. |
+| scope | Yes | String | A space-separated list of scopes (%20 when URL-encoded) that the client wants to include in the access token.Please note: The scopes being requested must be a subset of the actor_token scopes. Impersonation scopes can’t be requested (acc_imp,group_imp), even though they will be granted to actor_token. |
+| subject_token | Yes | String | For passing the subject user information for which impersonation is requested. It uses an unsecured user info jwt_token as per RFC 7519. A sample value for a subject with user ID [ service-fedramp-dev@adobesignintegrationsdemo.com](mailto:service-fedramp-dev@adobesignintegrationsdemo.com) might be: eyJhbGciOiJub25lIn0=.... The value is obtained by doing a base64 encode of {"{alg:'none'}"} and concatenating it with a base64 encode of {"{user_email:'service-fedramp-dev@adobesignintegrationsdemo.com'}"}, separated by a period (.) as follows: {"{alg:'none'}.{user_email:'service-fedramp-dev@adobesignintegrationsdemo.com'}"} |
+| actor_token | Yes | String | The admin token for which impersonation is requested. Note: The passed admin token should have an impersonation scope of acc_imp or group_imp. |
 
 
 #### Success Response
@@ -257,11 +257,11 @@ The API returns the following JSON attributes on error:
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | client_id | Yes | String | Your client ID. |
-| client_assertion_type | No | String | Specifies the type of value of client assertion. Refer to the Okta docs{" "} [here](https://developer.okta.com/docs/reference/api/oidc/). For example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer. This must be present if client_secret is not provided. |
+| client_assertion_type | No | String | Specifies the type of value of client assertion. Refer to the Okta docs [here](https://developer.okta.com/docs/reference/api/oidc/). For example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer. This must be present if client_secret is not provided. |
 | client_assertion | No | String | The assertion related to the client_assertion_type above. It must be present if the client_secret is not provided. The audience used to generate this assertion must be token_endpoint provided as a part of application onboarding. |
-| client_secret | No | String | The secret related to the client_assertion_type. It must be present if BOTH client_assertion_type and{" "} client_assertion are not provided. |
+| client_secret | No | String | The secret related to the client_assertion_type. It must be present if BOTH client_assertion_type and client_assertion are not provided. |
 | token | Yes | String | Token that needs to be validated. |
-| type | Yes | String | Type of token being passed (Accepted Values: access_token,{" "} id_token,{" "} authorization_code,{" "} refresh_token). |
+| type | Yes | String | Type of token being passed (Accepted Values: access_token, id_token, authorization_code, refresh_token). |
 
 
 #### Success Response
@@ -323,11 +323,11 @@ The API returns the following JSON attributes on error:
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | client_id | No | String | Your client ID. |
-| client_assertion_type | No | String | Specifies the type of value of client assertion. Refer to the Okta docs{" "} [here](https://developer.okta.com/docs/reference/api/oidc/). For example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer. This must be present if client_secret is not provided. |
+| client_assertion_type | No | String | Specifies the type of value of client assertion. Refer to the Okta docs [here](https://developer.okta.com/docs/reference/api/oidc/). For example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer. This must be present if client_secret is not provided. |
 | client_assertion | No | String | The assertion related to the client_assertion_type above. It must be present if the client_secret is not provided. The audience used to generate this assertion must be token_endpoint provided as a part of application onboarding. |
-| client_secret | No | String | The secret related to the client_assertion_type. It must be present if BOTH client_assertion_type and{" "} client_assertion are not provided. |
+| client_secret | No | String | The secret related to the client_assertion_type. It must be present if BOTH client_assertion_type and client_assertion are not provided. |
 | token | Yes | String | Token that needs to be validated. |
-| token_type | Yes | String | Type of token being passed (Accepted Values: access_token,{" "} id_token,{" "} authorization_code,{" "} refresh_token). |
+| token_type | Yes | String | Type of token being passed (Accepted Values: access_token, id_token, authorization_code, refresh_token). |
 
 
 #### Success Response

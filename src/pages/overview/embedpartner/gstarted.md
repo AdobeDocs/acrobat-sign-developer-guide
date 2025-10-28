@@ -17,9 +17,7 @@ To use Acrobat Sign APIs, create an application.
 2. Select **API** from the top menu. If you are already an enterprise customer, you may not see the API link. In that case, choose **Account**.
 3. Select **API Applications**.
 
-<div style="width: auto; border: 1px solid #EAEAEA; box-shadow: rgba(50, 50, 93, 0.25) 2px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; margin: 24px 0">
-    <img src="_images/sign_gstarted_1.png" alt="_images/sign_gstarted_1.png" />
-</div>
+![sign_gstarted_1.png](_images/sign_gstarted_1.png)
 
 4. Select the **Create** (+) icon and provide details about your app.
 5. Choose a domain based on the intended use:
@@ -31,18 +29,15 @@ To use Acrobat Sign APIs, create an application.
 
 PARTNER applications [must be certified](https://www.adobe.com/go/esign-dev-cert) to have full access to other accounts.
 
-<div style="width: auto; border: 1px solid #EAEAEA; box-shadow: rgba(50, 50, 93, 0.25) 2px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; margin: 24px 0">
-    <img src="_images/sign_gstarted_3.png" alt="_images/sign_gstarted_3.png" />
-</div>
+![sign_gstarted_3.png](_images/sign_gstarted_3.png)
+
 
 ### Get the app ID and secret
 
 1. Select **API Applications** to view your app list.
 2. Select your app to view its action menu.
 
-<div style="width: auto; border: 1px solid #EAEAEA; box-shadow: rgba(50, 50, 93, 0.25) 2px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; margin: 24px 0">
-    <img src="_images/apiapps.png" alt="_images/apiapps.png" />
-</div>
+![apiapps.png](_images/apiapps.png)
 
 3. Select **View/Edit** to get the application ID and secret.
 4. Save the app’s application ID and secret. You’ll use this information to issue access tokens in the Acrobat Sign API.
@@ -51,14 +46,9 @@ PARTNER applications [must be certified](https://www.adobe.com/go/esign-dev-cert
 
 Your new partner application is *uncertified* until you complete the partner certification process. You will be able to test the process of getting Acrobat Sign accounts connected to it by changing certain settings in the test/customer account (described below).
 
-<iframe
-  style="margin: 2em 0 2em 0; position: relative; z-index: 10;"
-  allowfullscreen
-  width="100%"
-  height="540"
-  src="https://video.tv.adobe.com/v/38178/?mute=true"
-  frameborder="0">
-</iframe>
+<Embed slots="video"/>
+
+https://video.tv.adobe.com/v/38178/?mute=true
 
 ### Configure OAuth
 
@@ -97,9 +87,7 @@ To set the scopes:
 2. Set the modifier.
 3. Choose **Save**.
 
-<div style="width: auto; border: 1px solid #EAEAEA; box-shadow: rgba(50, 50, 93, 0.25) 2px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; margin: 24px 0">
-    <img src="_images/scopes.png" alt="_images/scopes.png" />
-</div>
+![scopes.png](_images/scopes.png)
 
 The following modifiers are available:
 
@@ -138,9 +126,7 @@ https://secure.echosign.com/public/oauth/v2?
 
 Next, create a public redirect URI on your servers that captures the account details and code sent from your app’s authorization request so that the workflow connects to the customer’s Acrobat Sign account. The request URL that links your customer’s app instance to the Acrobat Sign account contains the permission parameters and account level (self, group, or account) that your API integration needs to enable the specified actions.
 
-<div style="width: auto; border: 1px solid #EAEAEA; box-shadow: rgba(50, 50, 93, 0.25) 2px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; margin: 24px 0">
-    <img src="_images/redirecturi.png" alt="_images/redirecturi.png" />
-</div>
+![redirecturi.png](_images/redirecturi.png)
 
 The redirect URI specified in your OAuth requests must belong to this list of URIs. You can mention multiple URIs as comma separated list.
 
@@ -188,9 +174,7 @@ Try out the [live demo](https://secure.na1.adobesign.com/public/oauthDemo).
 2. After signing in, a confirmation screen appears.
 3. When the user selects **Allow Access**, the page redirects to the URL defined on your server (see above). The process adds the query string parameters the app needs to retrieve the refresh and access tokens for making API calls.
 
-<div style="width: auto; border: 1px solid #EAEAEA; box-shadow: rgba(50, 50, 93, 0.25) 2px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; margin: 24px 0">
-    <img src="_images/allowaccess.png" alt="_images/allowaccess.png" />
-</div>
+![allowaccess.png](_images/allowaccess.png)
 
 ```text
 https://your-oauthinteraction-server/your-oAuth-Page.html?

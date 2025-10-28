@@ -149,13 +149,13 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 | 403               | PERMISSION_DENIED           | The API caller does not have the permission to execute this operation. |
 
 
-## GET /webhookEndpoints/{webhookEndpointId}
+## GET /webhookEndpoints/\{webhookEndpointId\}
 
 
 | Entity                | Value                                                                                                     |
 |-----------------------|-----------------------------------------------------------------------------------------------------------|
 | Description           | Get a list of all active webhookEndpoints from the account of the access token user.                      |
-| Endpoint operation    | /webhookEndpoints/{webhookEndpointId}                                                                     |
+| Endpoint operation    | /webhookEndpoints/\{webhookEndpointId\}                                                                   |
 | OAuth scopes          | webhook_read                                                                                              |
 | Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.             |
 |                       | pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
@@ -201,13 +201,13 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 | 404  | INVALID_WEBHOOK_ENDPOINT_ID | The webhook endpoint id specified is invalid.                          |
 
 
-## PUT /webhookEndpoints/{webhookEndpointId}
+## PUT /webhookEndpoints/\{webhookEndpointId\}
 
 
 | Entity                | Value                                                         |
 |-----------------------|---------------------------------------------------------------|
 | Description           | This endpoint is used to update the webhookEndpoint resource. |
-| Endpoint operation    | /webhookEndpoints/{webhookEndpointId}                         |
+| Endpoint operation    | /webhookEndpoints/\{webhookEndpointId\}                       |
 | OAuth scopes          | webhook_write                                                 |
 | Request header        | Standard header.                                              |
 | Request body          | Request body [below](#put-request-body)                       |
@@ -256,13 +256,13 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 | 400  | INVALID_WEBHOOK_ENDPOINT_ID      | The webhook endpoint id specified is invalid.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 
-## DELETE /webhookEndpoints/{webhookEndpointId}
+## DELETE /webhookEndpoints/\{webhookEndpointId\}
 
 
 | Entity                | Value                                                         |
 |-----------------------|---------------------------------------------------------------|
 | Description           | This endpoint is used to update the webhookEndpoint resource. |
-| Endpoint operation    | /webhookEndpoints/{webhookEndpointId}                         |
+| Endpoint operation    | /webhookEndpoints/\{webhookEndpointId\}                       |
 | OAuth scopes          | webhook_retention                                             |
 | Request header        | Standard header                                               |
 | Response content type | application/json                                              |

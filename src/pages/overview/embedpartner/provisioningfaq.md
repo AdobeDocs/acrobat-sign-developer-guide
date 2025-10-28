@@ -17,23 +17,30 @@ Sign account provisioning API to create new accounts for your customers.
 
 ## Provisioning FAQs
 
-**Managing OAuth tokens for your customer accounts** In
-addition to managing e-sign workflows on your customers’ behalf, your multi-
+**Managing OAuth tokens for your customer accounts** 
+
+In addition to managing e-sign workflows on your customers’ behalf, your multi-
 tenant SaaS application can create and manage new accounts for your customers.
 This will involve storing and retrieving the OAuth tokens your partner app
 uses to access the accounts you create for your customers. These tokens must
-be encrypted at rest. As you design your app to manage token storage,
+be encrypted at rest. 
+
+As you design your app to manage token storage,
 retrieval, and refresh, keep in mind the following:
 
 * Authorization Code expires in 5 minutes
 * Access Token expires in 60 minutes
 * Refresh Token expires in 60 days
 
-**What does provisioning mean?** In this context, “provisioning” means
-executing POST/accounts to create a new account for one of your customers. (We
+**What does provisioning mean?** 
+
+In this context, “provisioning” means executing POST/accounts to create a new account for one of your customers. (We
 do not think of POST/users as part of provisioning because it doesn’t create a
-new Acrobat Sign account.) **What kind of account are we creating?** The
-account created by POST/accounts:
+new Acrobat Sign account.) 
+
+**What kind of account are we creating?** 
+
+The account created by POST/accounts:
 
 * Exists as an equal entity to your own account, with full rights and privileges
 * Is not a subaccount. It is not subordinate to your partner account, nor is it a group that could be managed through the Acrobat Sign web UI.
@@ -41,16 +48,18 @@ account created by POST/accounts:
 * Accounts that you create for your customers are aggregated into a channel for billing purposes and to provide Adobe with the ability to make certain configuration changes, across all accounts in the channel.
 * The account belongs to the new admin, and your partner app will not be able to access it until the new admin grants access to your app via the OAuth Authorization Request and Consent flow (via the embed link)
 
-**What is geo-sharding, and why is it important in this context?** Geo-
-sharding is the technique used to store data close to the customer, based on
+**What is geo-sharding, and why is it important in this context?** 
+
+Geo- sharding is the technique used to store data close to the customer, based on
 the customer’s country code. When you create a new account, Acrobat Sign will
 locate the account data in the geographic region associated with the
 countryCode specified in the JSON payload for POST/accounts. If a region has
 multiple shards associated with it, Acrobat Sign will use a round-robin
 approach to choose a shard from within that region. (For example: JP1 is the
 only shard associated with the Japan region, while NA1, NA2, NA3, and NA4 are
-used for countryCodes associated with the North America region.) All API calls
-must include the correct shard for the account. Using the incorrect shard will
+used for countryCodes associated with the North America region.) 
+
+All API calls must include the correct shard for the account. Using the incorrect shard will
 result in 403 Forbidden errors that may occur only intermittently and may be
 difficult to troubleshoot. The following endpoint returns the shard you should
 use for POST/account:
@@ -84,9 +93,8 @@ OAuth access_token of the new account.)
 ## New account provisioning flow
 
 1. GET/ [https://secure.adobesign.com/api/rest/v6/baseUris](https://secure.adobesign.com/api/rest/v6/baseUris)—Uses your provisioning integration key to return baseUris (aka {{apiAccessPoint}}) for POST/accounts
-2.
+2. POST/ {{apiAccessPoint}}/api/rest/v6/accounts:
   ```
-  POST/ {{apiAccessPoint}}/api/rest/v6/accounts:
 
 >   * Uses shard returned by GET/baseUris
 >   * Required JSON: customer-admin email address
