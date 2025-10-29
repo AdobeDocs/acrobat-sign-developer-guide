@@ -39,10 +39,9 @@ PARTNER applications [must be certified](https://www.adobe.com/go/esign-dev-cert
 
 Your new partner application is *uncertified* until you complete the partner certification process. You will be able to test the process of getting Acrobat Sign accounts connected to it by changing certain settings in the test/customer account (described below).
 
-<video width="680" controls>
-  <source src="https://images-tv.adobe.com/mpcv3/4413/413f8211-dffd-468c-9840-29c3fd463997_1597088990.854x480at800_h264.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+<Embed slots="video"/>
+
+https://images-tv.adobe.com/mpcv3/4413/413f8211-dffd-468c-9840-29c3fd463997_1597088990.854x480at800_h264.mp4
 
 ### Configure OAuth
 

@@ -71,19 +71,19 @@ Please note that new errors could be returned from APIs or existing error codes 
 ***Error codes***
 
 
-| Code | Error Code                          | Message                                                                                                       |
-|------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| 400  | INVALID_ARGUMENTS                   | One or more arguments to the method are invalid.                                                              |
-| 400  | INVALID_WEBHOOK_URL                 | The Webhook URL specified is invalid.                                                                         |
-| 400  | INVALID_RESOURCE_ID                 | Resource Id specified is invalid.                                                                             |
-| 400  | INVALID_RESOURCE_TYPE               | The resource type is invalid.                                                                                 |
-| 400  | INVALID_WEBHOOK_CONDITIONAL_PARAMS  | The conditional parameters specified are invalid.                                                             |
-| 400  | MISSING_REQUIRED_PARAM              | The required parameters are missing.                                                                          |
-| 400  | WEBHOOK_LIMIT_EXCEEDED              | This webhook can’t be created. The events array { events } has reached the maximum number of active webhooks. |
-| 400  | DUPLICATE_WEBHOOK_CONFIGURATION     | There is already a webhook registered with the same configuration.                                            |
-| 400  | INVALID_WEBHOOK_STATE               | The webhook state specified is invalid.                                                                       |
-| 400  | INVALID_WEBHOOK_SUBSCRIPTION_EVENTS | One or more webhook subscription events specified are invalid.                                                |
-| 403  | WEBHOOK_CREATION_NOT_ALLOWED        | Webhook creation is not allowed.                                                                              |
+| Code | Error Code                          | Message                                                                                                         |
+|------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| 400  | INVALID_ARGUMENTS                   | One or more arguments to the method are invalid.                                                                |
+| 400  | INVALID_WEBHOOK_URL                 | The Webhook URL specified is invalid.                                                                           |
+| 400  | INVALID_RESOURCE_ID                 | Resource Id specified is invalid.                                                                               |
+| 400  | INVALID_RESOURCE_TYPE               | The resource type is invalid.                                                                                   |
+| 400  | INVALID_WEBHOOK_CONDITIONAL_PARAMS  | The conditional parameters specified are invalid.                                                               |
+| 400  | MISSING_REQUIRED_PARAM              | The required parameters are missing.                                                                            |
+| 400  | WEBHOOK_LIMIT_EXCEEDED              | This webhook can’t be created. The events array \{ events \} has reached the maximum number of active webhooks. |
+| 400  | DUPLICATE_WEBHOOK_CONFIGURATION     | There is already a webhook registered with the same configuration.                                              |
+| 400  | INVALID_WEBHOOK_STATE               | The webhook state specified is invalid.                                                                         |
+| 400  | INVALID_WEBHOOK_SUBSCRIPTION_EVENTS | One or more webhook subscription events specified are invalid.                                                  |
+| 403  | WEBHOOK_CREATION_NOT_ALLOWED        | Webhook creation is not allowed.                                                                                |
 
 
 This API will be used to create a webhook on a particular resource in Acrobat Sign.
@@ -210,7 +210,7 @@ Please note that new errors could be returned from APIs or existing error codes 
 | Entity                | Value                                                    |
 |-----------------------|----------------------------------------------------------|
 | Description           | List details of a webhook.                               |
-| Endpoint operation    | /webhhooks/{webhookId}                                   |
+| Endpoint operation    | /webhhooks/\{webhookId\}                                 |
 | OAuth scopes          | webhook_read                                             |
 | Response content type | application/json                                         |
 | Response object       | Response object [below](#get-list-by-id-response-object) |
@@ -292,7 +292,7 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
 | Entity                | Value                                                                                                                            |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Description           | This endpoint is used to update the webhook resource.                                                                            |
-| Endpoint operation    | /webhooks/{webhookId}                                                                                                            |
+| Endpoint operation    | /webhooks/\{webhookId\}                                                                                                          |
 | OAuth scopes          | webhook_write                                                                                                                    |
 | Response header       | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guideline. |
 | Request body          | Request body [below](#put-request-body)                                                                                          |
@@ -384,10 +384,10 @@ webhookInfo {
 | Entity                | Value                                                                                                                             |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | Description           | This endpoint will update the state of a webhook identified by webhookId in the path.                                             |
-| Endpoint operation    | /webhooks/{webhookId}/state                                                                                                       |
+| Endpoint operation    | /webhooks/\{webhookId\}/state                                                                                                     |
 | OAuth scopes          | webhook_write                                                                                                                     |
 | Response header       | Standard header. Additionally, If-Match headers, which will be processed as per the Concurrency section of the DC API Guidelines. |
-| Request body          | Request body [below](#put-state-request-body)                                                                                 |
+| Request body          | Request body [below](#put-state-request-body)                                                                                     |
 | Response content type | application/json                                                                                                                  |
 | Response object       | Empty response                                                                                                                    |
 | HTTPS status code     | 204                                                                                                                               |
@@ -470,11 +470,11 @@ Any API request may return any of these standard error codes:
 Every API request will have the following standard headers. If Any API in the list above does not have one or more of the following headers, the API will explicitly document this fact.
 
 
-| Header Name         | Description                                                                                                                                                                                  |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AUTHORIZATION       | An access token with the correct scopes.                                                                                                                                                     |
-| x-api-user          | The userId or email of the API caller using the account or group token in the format userid:\{userId\} OR email:{email}. If it is not specified, then the caller is inferred from the token. |
-| x-on-behalf-of-user | Account sharing: The user on whose behalf the API caller is working.                                                                                                                         |
+| Header Name         | Description                                                                                                                                                                                    |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AUTHORIZATION       | An access token with the correct scopes.                                                                                                                                                       |
+| x-api-user          | The userId or email of the API caller using the account or group token in the format userid:\{userId\} OR email:\{email\}. If it is not specified, then the caller is inferred from the token. |
+| x-on-behalf-of-user | Account sharing: The user on whose behalf the API caller is working.                                                                                                                           |
 
 
 ## Using AWS Lambda Functions
@@ -605,7 +605,7 @@ Take note of this URL as you’ll need to enter it as your real-time webhook URL
 
 ### Ready to Use
 
-It’s done. Use the above URL with “/{nodeJSfunctionName}” appended as the webhook URL in your `POST /webhooks` API request. Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.
+It’s done. Use the above URL with “\{nodeJSfunctionName\}” appended as the webhook URL in your `POST /webhooks` API request. Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.
 
 ## Using Azure Functions
 

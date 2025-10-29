@@ -48,7 +48,7 @@ SenderInfo is represented through `x-api-user`. Files are specified through /tra
 | [sendDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocumentInteractive) | [/agreements/\{agrId\}/views, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView) |
 
 
-From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/\{agrId\}/views` endpoint for the interactive behavior.
+From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/{agrId}/views` endpoint for the interactive behavior.
 
 
 | SOAP Endpoint | REST Endpoint |
@@ -70,7 +70,7 @@ MegaSign allows sending the same agreement to multiple recipients and creating a
 | [createLibraryDocumentInteractive](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createLibraryDocumentInteractive) | [/libraryDocuments/\{libraryDocumentId\}, POST](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView) |
 
 
-From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/\{agrId\}/views` endpoint for the interactive behavior.
+From v6 onwards, the interactive views can be specified and obtained from the `POST /agreements/{agrId}/views` endpoint for the interactive behavior.
 
 
 | SOAP Endpoint | REST Endpoint                                                                                                                             |
@@ -84,7 +84,7 @@ From v6 onwards, the interactive views can be specified and obtained from the `P
 | [removeDocument](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#removeDocument) | [/agreements/\{agrId\}/documents, DELETE](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/deleteDocuments) |
 
 
-To delete the documents of agreements, use the `DELETE /agreements/\{agrId\}/documents` endpoint; and to remove it from Manage Page(GET /agreements), use `PUT /agreements/\{agrId\}/visibility`
+To delete the documents of agreements, use the `DELETE /agreements/{agrId}/documents` endpoint; and to remove it from Manage Page(GET /agreements), use `PUT /agreements/\{agrId\}/visibility`
 
 
 | SOAP Endpoint | REST Endpoint                                                                                                                 |
@@ -132,7 +132,7 @@ Delegate: Called by signer. Both the delegator and delegatee can sign.
 | [getDocumentInfo](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentInfo) | [/agreements/\{agrId\}, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) |
 
 
-In SOAP API, `getDocumentInfo`, `getDocuments`, `getAuditTrail` etc. work on `documentKeys`, which can be an ID for an agreement, widget, or library document. The REST API demarcates these as separate resources (cleaner design and strongly typed) and hence, based on the kind of resource you are working on, there is a corresponding /libraryDocuments, /widgets to these. Example: `/widgets/\{widgetId\}, GET` will getDocumentInfo for `widgetId`, and similarly for documents, audit trail, etc.
+In SOAP API, `getDocumentInfo`, `getDocuments`, `getAuditTrail` etc. work on `documentKeys`, which can be an ID for an agreement, widget, or library document. The REST API demarcates these as separate resources (cleaner design and strongly typed) and hence, based on the kind of resource you are working on, there is a corresponding /libraryDocuments, /widgets to these. Example: `/widgets/{widgetId}, GET` will getDocumentInfo for `widgetId`, and similarly for documents, audit trail, etc.
 
 
 | SOAP Endpoint | REST Endpoint |
