@@ -106,7 +106,7 @@ This is a starting point for browser-based OpenID Connect flows such as authoriz
 
 Once the user is authenticated by the identity provider, determines whether authorization can be granted, then **redirects the user agent to the URI that you have supplied or configured for your client’s start page.** The redirect contains the authorization grant, in the form of the code or token appropriate to your grant type.
 
-**Note:** When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can’t use AJAX with this endpoint but you can have a link or button directly or indirectly via JS navigates to the `/authorize` URL: [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=…&response\_type=…&scope=…&state=…&login\_hint=](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=...&response_type=...&scope=...&state=...&login_hint=)…&redirectUri=&lt;insert url here&gt;
+**Note:** When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can’t use AJAX with this endpoint but you can have a link or button directly or indirectly via JS navigates to the `/authorize` URL: [https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=…&response\_type=…&scope=…&state=…&login\_hint=](https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=...&response_type=...&scope=...&state=...&login_hint=)…&redirectUri=`<insert url here>`
 
 #### Success Response
 
@@ -129,14 +129,14 @@ The API returns the following URL query parameters on error:
 
 **Error Codes**
 
-| error | error\_description |
-| --- | --- |
-| invalid\_client | The specified client ID is invalid. |
-| invalid\_request | &lt;Parameter Name&gt; is missing or empty/invalid. |
-| invalid\_scope | The scopes list contains an invalid or unsupported value. |
+| error | error\_description                                                                               |
+| --- |--------------------------------------------------------------------------------------------------|
+| invalid\_client | The specified client ID is invalid.                                                              |
+| invalid\_request | `<Parameter Name>` is missing or empty/invalid.                                                   |
+| invalid\_scope | The scopes list contains an invalid or unsupported value.                                        |
 | temporarily\_unavailable | The server is temporarily unavailable but should be able to process the request at a later time. |
-| unsupported\_response\_type | The specified response type is invalid or unsupported. |
-| internal\_server\_error | Service Error |
+| unsupported\_response\_type | The specified response type is invalid or unsupported.                                           |
+| internal\_server\_error | Service Error                                                                                    |
 
 ### Token
 
@@ -240,16 +240,16 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
-| error | error\_code | error\_description |
-| --- | --- | --- |
-| invalid\_client | 400 | The client credentials are invalid or expired. |
+| error | error\_code | error\_description                                                                        |
+| --- | --- |-------------------------------------------------------------------------------------------|
+| invalid\_client | 400 | The client credentials are invalid or expired.                                            |
 | invalid\_grant | 400 | The code or `refresh_token` or `redirect_uri` in combination with grant\_type is invalid. |
-| invalid\_request | 400 | &lt;Parameter Name&gt; is missing or empty or invalid. |
-| invalid\_scope | 400 | The scopes list contains an invalid or unsupported value. |
-| invalid\_authenticating\_token | 401 | actor\_token is missing or invalid. |
-| unsupported\_grant\_type | 400 | The `grant_type` isn’t authorization\_code , `refresh_token` or token\_exchange. |
-| invalid\_body | 400 | The `actor_token` or `user_id` provided ineligible for issuing a token. |
-| internal\_server\_error | 500 | Service Error |
+| invalid\_request | 400 | `<Parameter Name>` is missing or empty or invalid.                                         |
+| invalid\_scope | 400 | The scopes list contains an invalid or unsupported value.                                 |
+| invalid\_authenticating\_token | 401 | actor\_token is missing or invalid.                                                       |
+| unsupported\_grant\_type | 400 | The `grant_type` isn’t authorization\_code , `refresh_token` or token\_exchange.          |
+| invalid\_body | 400 | The `actor_token` or `user_id` provided ineligible for issuing a token.                   |
+| internal\_server\_error | 500 | Service Error                                                                             |
 
 ### Validate Token
 
@@ -310,12 +310,12 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
-| error | error\_code | error\_description |
-| --- | --- | --- |
-| invalid\_client | 400 | The client credentials are invalid. |
-| invalid\_request | 400 | &lt;Parameter Name&gt; is missing or empty/invalid. |
+| error | error\_code | error\_description                                                                        |
+| --- | --- |-------------------------------------------------------------------------------------------|
+| invalid\_client | 400 | The client credentials are invalid.                                                       |
+| invalid\_request | 400 | `<Parameter Name>` is missing or empty/invalid.                                            |
 | `token_type_mismatch` | 400 | The `type` field was specified in the request, but it does not match the actual token type |
-| internal\_server\_error | 500 | Service Error |
+| internal\_server\_error | 500 | Service Error                                                                             |
 
 ### Invalidate Token
 
@@ -358,12 +358,12 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
-| error | error\_code | error\_description |
-| --- | --- | --- |
-| invalid\_client | 400 | The client credentials are invalid. |
-| invalid\_request | 400 | &lt;Parameter Name&gt; is missing or empty/invalid. |
+| error | error\_code | error\_description                                                                         |
+| --- | --- |--------------------------------------------------------------------------------------------|
+| invalid\_client | 400 | The client credentials are invalid.                                                        |
+| invalid\_request | 400 | `<Parameter Name>` is missing or empty/invalid.                                             |
 | `token_type_mismatch` | 400 | The `type` field was specified in the request, but it does not match the actual token type |
-| internal\_server\_error | 500 | Service Error |
+| internal\_server\_error | 500 | Service Error                                                                              |
 
 ### Logout
 
@@ -403,17 +403,17 @@ The API returns the following JSON attributes on error:
 
 **Error Codes**
 
-| error | error\_description |
-| --- | --- |
-| invalid\_client | The specified client ID is invalid. |
-| invalid\_request | &lt;Parameter Name&gt; is missing or empty/invalid. |
-| internal\_server\_error | Service Error |
+| error | error\_description                             |
+| --- |------------------------------------------------|
+| invalid\_client | The specified client ID is invalid.            |
+| invalid\_request | `<Parameter Name>` is missing or empty/invalid. |
+| internal\_server\_error | Service Error                                  |
 
 ## Clickjacking defense for sign views
 
 API Applications using Sign Views in iframes or WebViews must leverage the clickjacking defense for Sign APIs. To do so, use the `frameParent` property with Sign `POST .../agreements/.../views`
 
-*   `frameParent: &lt;domain suffix`; for example, “adobe.com”.
+*   `frameParent: <domain suffix>`; for example, “adobe.com”.
 
 *   The domain suffix is the domain to at least the 2nd level; for example, “adobe.com” but NOT just the top level “com”.
 

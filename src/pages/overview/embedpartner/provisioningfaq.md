@@ -100,8 +100,8 @@ OAuth access_token of the new account.)
    * Uses IntegrationKey (with account_write scope enabled; PSM team must enable this)
    * Returns accountId and userId for the new admin. You can use these as the unique keys to store information about the account’s shard, authentication tokens, admin info, and so on.
    * Generates:
-   * Activation email to new admin to set password
-   * Activation email to new admin to agree to Terms of Use
+     * Activation email to new admin to set password
+     * Activation email to new admin to agree to Terms of Use
 3. New-account admin—Responds to Activation emails.
 4. Partner app—Initiates Authorization Request (aka URL that grants account access to your partner app, or embed link)
 5. New-account admin—Responds to Authorization Request

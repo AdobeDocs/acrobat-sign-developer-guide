@@ -122,10 +122,10 @@ webhookInfo {
 You should be prepared to handle new errors that may be returned from APIs or changes in existing error codes. It is important to note that error codes can evolve over time. You must be prepared to implement default error handling for unclear error events.
 
 
-| Code | Error Code                  | Message                                                  |
-|------|-----------------------------|----------------------------------------------------------|
-| 400  | INVALID_JSON                | An invalid JSON was specified.                           |
-| 404  | INVALID_WEBHOOK_ENDPOINT_ID | WebhookEndpointId is not found. Request id: &lt;hash&gt; |
+| Code | Error Code                  | Message                                             |
+|------|-----------------------------|-----------------------------------------------------|
+| 400  | INVALID_JSON                | An invalid JSON was specified.                      |
+| 404  | INVALID_WEBHOOK_ENDPOINT_ID | WebhookEndpointId is not found. Request id: `<hash>` |
 
 
 ## GET /webhooks

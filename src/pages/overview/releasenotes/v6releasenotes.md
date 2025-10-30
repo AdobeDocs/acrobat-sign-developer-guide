@@ -451,7 +451,7 @@ The polling frequency can vary from clients to clients depending on their use ca
 
 The Acrobat Sign API accepts an authorization token in the `access-token` header; however, from v6 onwards we will be migrating to the standard `Authorization` header. The Authorization header will hold the user’s authorization token in this format:
 
-`Authorization: Bearer &lt;access-token&gt;`
+`Authorization: Bearer <access-token>`
 
 Clients can continue using their older access token, but in the `authorization` header using this format.
 

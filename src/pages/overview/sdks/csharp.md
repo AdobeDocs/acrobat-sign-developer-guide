@@ -43,7 +43,7 @@ Run the following command to generate the DLL:
 + Mac/Linux: `/bin/sh build.sh`
 + Windows: `build.bat`
 
-The `IO.Swagger.dll` will be generated at `&lt;AdobeSignCSharpSDK&gt;/bin`.
+The `IO.Swagger.dll` will be generated at `<AdobeSignCSharpSDK>/bin`.
 
 Then include the DLL (under the `bin` folder) in the C## project, and use the namespaces:
 

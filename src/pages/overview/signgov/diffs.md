@@ -10,7 +10,7 @@ The Acrobat Sign commercial and Sign Gov instances differ in some key ways as de
 Item | Sign Gov | Commercial  
 ---|---|---  
 Compliance | FedRAMP Moderate | PCI and HIPAA  
-API application creation | By Adobe | Self-service: Account Admin’s can create API applications from Account page **Acrobat Sign API &gt; API Applications**.  
+API application creation | By Adobe | Self-service: Account Admin’s can create API applications from Account page **Acrobat Sign API `>` API Applications**.  
 Top-level domain | `https://secure.na1.adobesign.us` | https://secure.adobesign.com  
 Authentication mechanisms | OAuth only | Commercial accounts can use the legacy API keys, integration keys, and OAuth.  
 OAuth | Does not support `x-api-user` | Supports `x-api-user`
