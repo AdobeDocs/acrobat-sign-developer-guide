@@ -1507,10 +1507,10 @@ When a Webform is signed, Acrobat Sign creates a new agreement, which undergoes 
 If the agreement processing exceeds throttling limits, the Webform signer will see the following error message:
 
 ```text
-{
+
 This web form is very popular right now and can't be processed due to high demand. Please try again in {x} hours, {xx} minutes, and {xxx} seconds.
 Contact the owner of this web form for further information.
-}
+
 ```
 
 ### Webform First Signer/Participant
@@ -1522,9 +1522,34 @@ Acrobat Sign allows webform creators to enable email verification for the first 
 - If the signer exceeds the limit, they will see the following error message:
 
 ```text
-{
+
 You've reached the limit on the number of times that you may access this web form. Please try again after {x} hours, {xx} minutes, and {xxx} seconds.
 Contact the owner of this web form for further information.
-}
+
 ```
 If email verification is not enabled, no submission limits apply to the first signer. Contact your CSM or Support if you find that your throttling thresholds must be increased.
+[More about Acrobat Sign webforms can be found here.](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/developer_guide/apiusage#create-a-widget)
+
+### GET Endpoints
+
+High-frequency polling can put unnecessary loads on systems which can lead to suboptimal response times for all users. To bolster reliable API usage, Acrobat Sign enforces a polling threshold rule that limits duplicate GET API requests from the same effective user.
+
+#### API polling threshold
+
+The polling policy applies to all GET API endpoints. A Minimum Object Polling Interval (MOPI) will regulate how often clients can send the identical API request to the Acrobat Sign service. Your service plan determines your MOPI and the threshold for identical requests within the MOPI. Higher-tier plans allow shorter intervals and higher thresholds:
+
+**Minimum Object Polling Interval (MOPI) - The default MOPI varies depending on the tier of service:**
+
+* Acrobat Sign Partners: 1-minute interval.
+* Acrobat Sign Solutions for Enterprise: 1-minute interval.
+* Developer accounts: 10-minute interval.
+
+Identical GET requests mean the same path, parameters, and headers requested by the same effective user more than once within the MOPI. If an identical request over the threshold is made within the MOPI by the same user, the system will return:
+
+* 304 Not Modified status code (for HTTP conditional requests using an ETag).
+* 429 Too Many Requests (status code with a retry-after header for other requests).
+
+Recommended Implementation
+
+* **Use ETags and cache repeated request responses** - If the API supports the 304 status code, use the ETag returned from the first request. Include ETag values in the If-None-Match header for the subsequent requests. When a 304 response is received, use the cached data instead of making a new API call.
+* **Increase call limits within MOPI** - You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.
