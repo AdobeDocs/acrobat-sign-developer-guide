@@ -4,6 +4,6 @@
 
 Your feedback is welcome and is a key driver as documentation evolves. Send suggestions to [acrobatsignembed@adobe.com](mailto:acrobatsignembed%40adobe.com).
 
-[Creating a transient document](https://opensource.adobe.com/acrobat-sign/embedpartner/LearnhowtocreateatransientdocumentthatcanbeusedwiththeAcrobatSignAPI.)
+[Creating a transient document](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/developer_guide/apiusage#send-private-messages-to-the-counter-signers)
 
 Learn how to create a transient document that can be used with the Acrobat Sign API.

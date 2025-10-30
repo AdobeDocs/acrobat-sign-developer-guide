@@ -15,10 +15,10 @@ The following returns for a bulk signing event if all the conditional parameters
 
 | Parameter name | Type | Description | Possible enums |
 |---|---|---|---|
-| id | String | The unique identifier of the agreement; it can be used to query status and download signed documents. |  |
-| name | String | The name of the agreement that will be used to identify it, in emails and on the website. |  |
-| status | Enum | The current status of the agreement. | OUT_FOR_SIGNATURE, SIGNED, APPROVED, ACCEPTED, DELIVERED, FORM_FILLED, ABORTED, EXPIRED, OUT_FOR_APPROVAL, OUT_FOR_ACCEPTANCE, OUT_FOR_DELIVERY, OUT_FOR_FORM_FILLING, or CANCELLED |
-| payloadApplicable | boolean | Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the webhookNotificationApplicableUsers array. |  |
+| `id` | String | The unique identifier of the agreement; it can be used to query status and download signed documents. |  |
+| `name` | String | The name of the agreement that will be used to identify it, in emails and on the website. |  |
+| `status` | Enum | The current status of the agreement. | OUT_FOR_SIGNATURE, SIGNED, APPROVED, ACCEPTED, DELIVERED, FORM_FILLED, ABORTED, EXPIRED, OUT_FOR_APPROVAL, OUT_FOR_ACCEPTANCE, OUT_FOR_DELIVERY, OUT_FOR_FORM_FILLING, or CANCELLED |
+| `payloadApplicable` | boolean | Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the webhookNotificationApplicableUsers array. |  |
 
 
 For different Send in Bulk events, the detailed agreement info, participant info, document info, and the signed document returns based on the conditional parameters specified during webhook creation.
@@ -27,21 +27,21 @@ For different Send in Bulk events, the detailed agreement info, participant info
 
 | Parameter Name | Type | Description | Possible Enums |
 |---|---|---|---|
-| id | String | The unique identifier of the bulk signing parent agreement. |  |
-| name | String | The name of the agreement that will be used to identify it in emails, on the website, and elsewhere. |  |
-| status | Enum | State of the bulk signing event. | IN_PROCESS |
-| ccs | Array of Strings | Email IDs of cc: participants of the bulk signing event |  |
-| createdDate | Date | Date when the bulk signing event was created, in the format yyyy-MM-dd’T’HH:mm:ssZ |  |
-| expirationTime | Timestamp | The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document. |  |
-| externalId | Object | A unique identifier provided by an external system search for your transaction through API. |  |
-| firstReminderDelay | Integer | Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation. |  |
-| locale | String | The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender. |  |
-| message | String | The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required. |  |
-| postSignOption | Object | Determines the URL and associated properties for the success page to which the user will be taken after completing the signing process. |  |
-| reminderFrequency | Enum | Specifies how often reminders will be sent to the recipients. | DAILY_UNTIL_SIGNED or WEEKLY_UNTIL_SIGNED |
-| senderEmail | String | Email of the sender. |  |
-| signatureType | Enum | Specifies the type of signature requested on the agreement—written or e-signature. | ESIGN or WRITTEN |
-| vaultingInfo | Object | Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider. |  |
+| `id`| String | The unique identifier of the bulk signing parent agreement. |  |
+| `name` | String | The name of the agreement that will be used to identify it in emails, on the website, and elsewhere. |  |
+| `status` | Enum | State of the bulk signing event. | IN_PROCESS |
+| `ccs` | Array of Strings | Email IDs of cc: participants of the bulk signing event |  |
+| `createdDate` | Date | Date when the bulk signing event was created, in the format yyyy-MM-dd’T’HH:mm:ssZ |  |
+| `expirationTime` | Timestamp | The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document. |  |
+| `externalId` | Object | A unique identifier provided by an external system search for your transaction through API. |  |
+| `firstReminderDelay` | Integer | Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation. |  |
+| `locale` | String | The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender. |  |
+| `message` | String | The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required. |  |
+| `postSignOption` | Object | Determines the URL and associated properties for the success page to which the user will be taken after completing the signing process. |  |
+| `reminderFrequency` | Enum | Specifies how often reminders will be sent to the recipients. | DAILY_UNTIL_SIGNED or WEEKLY_UNTIL_SIGNED |
+| `senderEmail` | String | Email of the sender. |  |
+| `signatureType` | Enum | Specifies the type of signature requested on the agreement—written or e-signature. | ESIGN or WRITTEN |
+| `vaultingInfo` | Object | Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider. |  |
 
 
 ## MEGASIGN_ALL
@@ -62,12 +62,12 @@ Triggers when a bulk signing event is created.
 
 | Parameter name | Type | Description |
 |---|---|---|
-| participantUserId | String | The user ID of the creator of the bulk signing event. |
-| participantUserEmail | String | The user email of the creator of the bulk signing event. |
-| actingUserId | String | The user ID of the creator of the bulk signing event. |
-| actingUserEmail | String | The user email of the creator of the bulk signing event. |
-| initiatingUserId | String | The user ID of the sharee of the creator of the megasign who created the bulk signing event on behalf of the creator in the case of account sharing. |
-| initiatingUserEmail | String | The user email of the sharee of the creator of the megasign who created the bulk signing event on behalf of the creator in the case of account sharing. |
+| `participantUserId` | String | The user ID of the creator of the bulk signing event. |
+| `participantUserEmail` | String | The user email of the creator of the bulk signing event. |
+| `actingUserId` | String | The user ID of the creator of the bulk signing event. |
+| `actingUserEmail` | String | The user email of the creator of the bulk signing event. |
+| `initiatingUserId` | String | The user ID of the sharee of the creator of the megasign who created the bulk signing event on behalf of the creator in the case of account sharing. |
+| `initiatingUserEmail` | String | The user email of the sharee of the creator of the megasign who created the bulk signing event on behalf of the creator in the case of account sharing. |
 
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
@@ -143,14 +143,14 @@ Triggers when a bulk signing event is created.
 
 | Parameter name | Type | Description |
 |---|---|---|
-| participantUserId | String | The user ID of the creator of the bulk signing event. |
-| participantUserEmail | String | The user email of the creator of the bulk signing event. |
-| actingUserId | String | The user ID of the creator of the bulk signing event. |
-| actingUserEmail | String | The user email of the creator of the bulk signing event. |
-| initiatingUserId | String | The user ID of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
-| initiatingUserEmail | String | The user email of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
-| comment | String | Any arbitrary comment. |
-| notifyOthers | Boolean | True or false (default) depending on whether recipients should be notified that the transaction(s) have been cancelled. This field is set when an agreement is cancelled using the {`PUT /agreements/{agreementId}/state`} API. |
+| `participantUserId` | String | The user ID of the creator of the bulk signing event. |
+| `participantUserEmail` | String | The user email of the creator of the bulk signing event. |
+| `actingUserId` | String | The user ID of the creator of the bulk signing event. |
+| `actingUserEmail` | String | The user email of the creator of the bulk signing event. |
+| `initiatingUserId` | String | The user ID of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
+| `initiatingUserEmail` | String | The user email of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
+| `comment` | String | Any arbitrary comment. |
+| `notifyOthers` | Boolean | True or false (default) depending on whether recipients should be notified that the transaction(s) have been cancelled. This field is set when an agreement is cancelled using the {`PUT /agreements/{agreementId}/state`} API. |
 
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
@@ -236,12 +236,12 @@ Triggers when a send in bulk reminder is sent to recipients.
 
 | Parameter name | Type | Description |
 |---|---|---|
-| participantUserId | String | The user ID of the user to whom the bulk signing event is shared. |
-| participantUserEmail | String | The user email of the user to whom the bulk signing event is shared. |
-| actingUserId | String | The user ID of the user by whom the bulk signing event is shared. This will be creator of the bulk signing event. |
-| actingUserEmail | String | The user email of the user by whom the bulk signing event is shared. This will be creator of the bulk signing event. |
-| initiatingUserId | String | The user ID of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
-| initiatingUserEmail | String | The user email of the sharee of the user on whose behalf this bulk signing event is shared in the case of account sharing. |
+| `participantUserId` | String | The user ID of the user to whom the bulk signing event is shared. |
+| `participantUserEmail` | String | The user email of the user to whom the bulk signing event is shared. |
+| `actingUserId` | String | The user ID of the user by whom the bulk signing event is shared. This will be creator of the bulk signing event. |
+| `actingUserEmail` | String | The user email of the user by whom the bulk signing event is shared. This will be creator of the bulk signing event. |
+| `initiatingUserId` | String | The user ID of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
+| `initiatingUserEmail` | String | The user email of the sharee of the user on whose behalf this bulk signing event is shared in the case of account sharing. |
 
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />

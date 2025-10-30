@@ -22,10 +22,10 @@ Events are the reason for webhooks, and you control what events your Acrobat Sig
 
 You can learn about and explore the JSON payloads by downloading the JSON files:
 
-+ [Agreement event payloads](./payloads/agreementpayloads.7z)
-+ [Library event payloads](./payloads/librarypayloads.7z)
-+ [Bulk signing event payloads](./payloads/bulksignpayloads.7z)
-+ [Form filling event payloads](./payloads/formfillpayloads.7z)
++ [Agreement event payloads](payloads/agreementpayloads.7z)
++ [Library event payloads](payloads/librarypayloads.7z)
++ [Bulk signing event payloads](payloads/bulksignpayloads.7z)
++ [Form filling event payloads](payloads/formfillpayloads.7z)
 
 This guide provides details about each event, including:
 

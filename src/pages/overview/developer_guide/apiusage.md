@@ -104,13 +104,13 @@ Replace the value for the following attributes with the correct values:
 
 | Attribute | Description |
 |---|---|
-| transientDocumentId | The unique ID representing the uploaded document. |
-| name | The name of the agreement. |
-| email | Recipient’s email address. |
-| signatureType | The type of signature you would like to request. ESIGN and WRITTEN. |
-| order | Index indicating the position at which this signing group needs to sign. Signing group to sign at first place is assigned 1 as index. |
-| role | Role of the participant set. The possible values are: SIGNER, APPROVER, ACCEPTOR, CERTIFIED_RECIPIENT, FORM_FILLER, DELEGATE_TO_SIGNER, DELEGATE_TO_APPROVER, DELEGATE_TO_ACCEPTOR, DELEGATE_TO_CERTIFIED_RECIPIENT, DELEGATE_TO_FORM_FILLER, or SHARE. |
-| state | The state in which the agreement should land. The possible values are AUTHORING, DRAFT, or IN_PROCESS. You can use: a) DRAFT to incrementally build the agreement before sending out, b) AUTHORING to add or edit form fields in the agreement, c) IN_PROCESS to immediately send the agreement. You can use the PUT /agreements/{"{"}agreementId{"}"}/state endpoint to transition an agreement between the above-mentioned states. An allowed transition would follow this sequence: DRAFT → AUTHORING → IN_PROCESS → CANCELLED. |
+| `transientDocumentId` | The unique ID representing the uploaded document. |
+| `name` | The name of the agreement. |
+| `email` | Recipient’s email address. |
+| `signatureType` | The type of signature you would like to request. `ESIGN` and `WRITTEN`. |
+| `order` | Index indicating the position at which this signing group needs to sign. Signing group to sign at first place is assigned 1 as index. |
+| `role` | Role of the participant set. The possible values are: `SIGNER`, `APPROVER`, `ACCEPTOR`, `CERTIFIED_RECIPIENT`, `FORM_FILLER`, `DELEGATE_TO_SIGNER`, `DELEGATE_TO_APPROVER`, `DELEGATE_TO_ACCEPTOR`, `DELEGATE_TO_CERTIFIED_RECIPIENT`, `DELEGATE_TO_FORM_FILLER`, or `SHARE`. |
+| `state` | The state in which the agreement should land. The possible values are `AUTHORING`, `DRAFT`, or `IN_PROCESS`. You can use: a) `DRAFT` to incrementally build the agreement before sending out, b) `AUTHORING` to add or edit form fields in the agreement, c) IN_PROCESS to immediately send the agreement. You can use the `PUT /agreements/{"{"}agreementId{"}"}/state` endpoint to transition an agreement between the above-mentioned states. An allowed transition would follow this sequence: `DRAFT` → `AUTHORING` → `IN_PROCESS` → `CANCELLED`. |
 
 
 You will get the following response containing the `id`:
@@ -251,9 +251,9 @@ the PDF and store that within your application.
 
 ![_images/sign_devguide_4.png](_images/sign_devguide_4.png)
 
-The signed agreement can also be retrieved by sending a GET request to `/agreements/&#123;agreementId&#125;/combinedDocument`. This will return a single combined PDF document for the documents associated with the agreement. To retrieve any supporting document, you can send a GET request to `/agreements/&#123;agreementId&#125;/documents`. This will return the IDs of all the main and supporting documents of an agreement.
+The signed agreement can also be retrieved by sending a GET request to `/agreements/{agreementId}/combinedDocument`. This will return a single combined PDF document for the documents associated with the agreement. To retrieve any supporting document, you can send a GET request to `/agreements/{agreementId}/documents`. This will return the IDs of all the main and supporting documents of an agreement.
 
-The returned document ID can be used in the `/agreements/&#123;agreementId&#125;/documents/&#123;documentId&#125;` call to retrieve the file stream of a document of the agreement. Depending on your application, you can also retrieve the form field data that your signer may have entered when signing the document by sending a GET request to `/agreements/&#123;agreementId&#125;/formData`. The data can be used to update your calling application with the information provided by the signer during signing.
+The returned document ID can be used in the `/agreements/{agreementId}/documents/{documentId}` call to retrieve the file stream of a document of the agreement. Depending on your application, you can also retrieve the form field data that your signer may have entered when signing the document by sending a GET request to `/agreements/{agreementId}/formData`. The data can be used to update your calling application with the information provided by the signer during signing.
 
 Send the following GET request to retrieve the signed agreement:
 
@@ -266,7 +266,7 @@ Send the following GET request to retrieve the signed agreement:
 The response body will contain the content of the PDF file, which you can save locally through your application.
 
 Note that the agreement can be downloaded even before it gets signed. Provide
-the `versionId` attribute when invoking `GET /agreements/&#123;agreementId&#125;/combinedDocument/` to get the correct version of the agreement. For example, when the agreement is sent to two entities for signing, and when only one entity signs, the document can still be downloaded. If the `versionId` is not specified, the document in the latest state is returned.
+the `versionId` attribute when invoking `GET /agreements/{agreementId}/combinedDocument/` to get the correct version of the agreement. For example, when the agreement is sent to two entities for signing, and when only one entity signs, the document can still be downloaded. If the `versionId` is not specified, the document in the latest state is returned.
 
 [TRY IT OUT](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2_3_4_5_6)
 
@@ -300,7 +300,7 @@ You will get the following JSON response:
 ```
 
 Now, the Widget URL can be circulated to the parents for signing. At any time,
-to get information about the Widget, send a GET request to `/widgets/&#123;widgetId&#125;`.
+to get information about the Widget, send a GET request to `/widgets/{widgetId}`.
 
 ```http
     GET /api/rest/v6/widgets/3AAANotTheRealID6o HTTP/1.1
@@ -310,16 +310,16 @@ to get information about the Widget, send a GET request to `/widgets/&#123;widge
 You will get a JSON response containing details about the widget, including
 participants’ information and status.
 
-You can also send a `GET /widgets/&#123;widgetId&#125;/formData` to retrieve the data entered (by the parents) in the document when it got signed.
+You can also send a `GET /widgets/{widgetId}/formData` to retrieve the data entered (by the parents) in the document when it got signed.
 
-Each time a widget is signed by a person, a separate instance of a document gets created. To get the agreements created using the widget, call `GET /widgets/&#123;widgetId&#125;/agreements` where `widgetId` is the key returned by the service while creating the widget. To retrieve the data filled by the users at the time of signing the widget, call `GET /widgets/&#123;widgetId&#125;/formData`. The service returns data in comma-separated value (CSV) file format. The first line includes the column header names, and each row represents a distinct instance of the widget.
+Each time a widget is signed by a person, a separate instance of a document gets created. To get the agreements created using the widget, call `GET /widgets/{widgetId}/agreements` where `widgetId` is the key returned by the service while creating the widget. To retrieve the data filled by the users at the time of signing the widget, call `GET /widgets/{widgetId}/formData`. The service returns data in comma-separated value (CSV) file format. The first line includes the column header names, and each row represents a distinct instance of the widget.
 
 [TRY IT
 OUT](https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/)
 
 ## Get the Signing URL
 
-When the agreement is ready for signing, invoke `GET /agreements/&#123;agreementId&#125;/signingUrls`
+When the agreement is ready for signing, invoke `GET /agreements/{agreementId}/signingUrls`
 to get the signing URL:
 
 ```http
@@ -706,46 +706,51 @@ JSON payload examples:
 
 - Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.
 
-```
-> **“postSignOption”**: {
->  
->
-> “redirectUrl”:”[https://www.adobe.com]”
->
-> }
+```json
+{
+  "postSignOption": {
+    "redirectUrl": "[https://www.adobe.com]"
+  }
+}
+
 ```
 
 - Redirect with no delay after signing (immediate redirect):
 
-```
-> **“postSignOption”**: {
->  
->
-> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: 0
->
-> }
+
+```json
+{
+  "postSignOption": {
+    "redirectUrl": "[https://www.adobe.com]",
+    "redirectDelay": 0
+  }
+}
+
 ```
 
 - Redirect with a delay of 2 seconds after signing:
 
-```
-> **“postSignOption”**: {
->  
->
-> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: 2
->
-> }
+```json
+{
+  "postSignOption": {
+    "redirectUrl": "[https://www.adobe.com]",
+    "redirectDelay": 2
+  }
+}
+
 ```
 
 - Redirect with no delay after signing (null delay - immediate redirect):
 
-```
-> **“postSignOption”**: {
->  
->
-> “redirectUrl”:”[https://www.adobe.com]”, “redirectDelay”: null
->
-> }
+
+```json
+{
+  "postSignOption": {
+    "redirectUrl": "[https://www.adobe.com]",
+    "redirectDelay": null
+  }
+}
+
 ```
 
 As participants sign the agreement, they are automatically redirected to the
@@ -1033,57 +1038,66 @@ Here are examples of JSON payloads for different redirect scenarios:
 
 - Redirect upon declining with no delay (immediate redirect):
 
-```
-> **“redirectOptions”: {**
->  
->
-> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: 0
->
-> }
+```json
+{
+  "redirectOptions": {
+    "action": "DECLINED",
+    "url": "[https://www.adobe.com]",
+    "delay": 0
+  }
+}
+
 ```
 
 - Redirect upon declining with no delay (null delay - immediate redirect):
 
-```
-> **“redirectOptions”: {**
->  
->
-> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: null
->
-> }
+```json
+{
+  "redirectOptions": {
+    "action": "DECLINED",
+    "url": "[https://www.adobe.com]",
+    "delay": null
+  }
+}
+
 ```
 
 - Redirect upon declining with no delay (default delay is zero seconds - immediate redirect):
 
-```
-> **“redirectOptions”: {**
->  
->
-> “action”:”DECLINED”, “url”:”[https://www.adobe.com]”
->
-> }
+```json
+{
+  "redirectOptions": {
+    "action": "DECLINED",
+    "url": "[https://www.adobe.com]"
+  }
+}
+
 ```
 
 - Redirect upon declining with a delay of 1 second:
 
-```
-> **“redirectOptions”: {**
->  
->
-> “action”: “DECLINED”, “url”: “[https://www.adobe.com]”, “delay”: 1
->
-> }
+```json
+{
+  "redirectOptions": {
+    "action": "DECLINED",
+    "url": "[https://www.adobe.com]",
+    "delay": 1
+  }
+}
+
 ```
 
 - Redirect upon declining with a delay of exactly 5 seconds:
 
-```
-> **“redirectOptions”: {**
->  
->
-> “action”: “DECLINED”, “url”:”[https://www.adobe.com]”, “delay”: 5
->
-> }
+```json
+{
+  "redirectOptions": {
+    "action": "DECLINED",
+    "url": "[https://www.adobe.com]",
+    "delay": 5
+  }
+}
+
 ```
 
 JSON payload to create an agreement with Redirect Options that redirects a

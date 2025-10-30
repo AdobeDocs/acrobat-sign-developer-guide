@@ -964,8 +964,10 @@ Was: [PUT /agreements/\{agreementId\}/status](https://secure.echosign.com/public
 
 *   This API can be used by the sender to cancel the agreement.
 
+[PUT /users/\{userId\}](https://secure.na1.echosign.com/public/docs/restapi/v6#/users/modifyUser)
 Updating the group of the user is now handled via the `PUT /users/{userId}/groups` API.
 
+[PUT /users/\{userId\}/state](https://secure.na1.echosign.com/public/docs/restapi/v6#/users/modifyUserState)
 This is functionally the same as before, but the API structure is revamped to make it consistent with other state transition APIs in v6.
 
 ### Removed APIs

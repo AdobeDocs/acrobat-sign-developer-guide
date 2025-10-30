@@ -13,7 +13,7 @@ driver as documentation evolves. Send suggestions to
 
 The following guidelines will help you understand how to use the Adobe Acrobat
 Sign account provisioning API to create new accounts for your customers.
-[Download the PDF](223014.3-Adobe-Provisioning-Considerations-v2.pdf).
+[Download the PDF](/223014.3-Adobe-Provisioning-Considerations-v2.pdf).
 
 ## Provisioning FAQs
 
@@ -94,23 +94,14 @@ OAuth access_token of the new account.)
 
 1. GET/ [https://secure.adobesign.com/api/rest/v6/baseUris](https://secure.adobesign.com/api/rest/v6/baseUris)—Uses your provisioning integration key to return baseUris (aka {{apiAccessPoint}}) for POST/accounts
 2. POST/ {{apiAccessPoint}}/api/rest/v6/accounts:
-  ```
-
->   * Uses shard returned by GET/baseUris
->   * Required JSON: customer-admin email address
->   * Highly recommended but optional: countryCode (used to determine correct
-> geo-shard for new account)
->   * Uses IntegrationKey (with account_write scope enabled; PSM team must
-> enable this)
->   * Returns accountId and userId for the new admin. You can use these as the
-> unique keys to store information about the account’s shard, authentication
-> tokens, admin info, and so on.
->   * Generates:
->     * Activation email to new admin to set password
->     * Activation email to new admin to agree to Terms of Use
->
-```
-
+   * Uses shard returned by GET/baseUris
+   * Required JSON: customer-admin email address
+   * Highly recommended but optional: countryCode (used to determine correct geo-shard for new account)
+   * Uses IntegrationKey (with account_write scope enabled; PSM team must enable this)
+   * Returns accountId and userId for the new admin. You can use these as the unique keys to store information about the account’s shard, authentication tokens, admin info, and so on.
+   * Generates:
+   * Activation email to new admin to set password
+   * Activation email to new admin to agree to Terms of Use
 3. New-account admin—Responds to Activation emails.
 4. Partner app—Initiates Authorization Request (aka URL that grants account access to your partner app, or embed link)
 5. New-account admin—Responds to Authorization Request

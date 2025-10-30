@@ -25,9 +25,7 @@ While certification is a simple process, there are some recommended best practic
 
 + Testing: You can still test your app prior to certification. To use other accounts representing that simulate a customer’s account, go to the web app’s **Account > Account Settings > Security Settings** and check “Allow Uncertified partner applications to access data from this account”.
 
-<div style="width: auto; border: 1px solid #EAEAEA; box-shadow: rgba(50, 50, 93, 0.25) 2px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; margin: 24px">
-    <img src="_images/allowuncertified.png" alt="_images/allowuncertified.png" />
-</div>
+![_images/allowuncertified.png](_images/allowuncertified.png)
 
 + Configure your platform: You need to allow admins and/or users to connect their Acrobat Sign accounts via [oAuth](https://secure.echosign.com/public/static/oauthDoc.jsp). Either you have provisioned these accounts or they have done it themselves.
 

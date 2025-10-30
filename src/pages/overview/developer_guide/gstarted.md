@@ -113,7 +113,7 @@ https://secure.echosign.com/public/oauth?
 | client_id | Your ID obtained from the OAuth configuration page. | Yes | Identifies to Acrobat Sign what application your customer is requesting a token for (the one for your app/platform). |
 | redirect_uri | Your custom, secure, and absolute URI; for example, [https://your-oAuthInteraction-Server/your-oAuth-Page.html](https://your-oAuthInteraction-Server/your-oAuth-Page.html). | Yes | Redirects users here at the end of the authorization process. The value must belong to the set of values specified on the OAuth Configuration page. |
 | scope | A space-delimited set of permissions specified during the OAuth configuration setup on the Configure OAuth page. | Yes | The permissions that the user will be asked to approve. |
-| state | Any string | No | This value returns to the client as a parameter at the end of the authorization process. While not required, use of the state parameter is highly recommended to protect against CSRF [as described in the RFC](https://tools.ietf.org/html/rfc6749#section-10.12). You can use it to pass a unique ID that will be passed to the redirect URI so your system knows which client/instance requested the token and where to save it inside your platform. |
+| state | Any string | No | This value returns to the client as a parameter at the end of the authorization process. While not required, use of the `state` parameter is highly recommended to protect against CSRF [as described in the RFC](https://tools.ietf.org/html/rfc6749#section-10.12). You can use it to pass a unique ID that will be passed to the redirect URI so your system knows which client/instance requested the token and where to save it inside your platform. |
 
 
 ## Configure the redirect URI on your server
@@ -146,14 +146,14 @@ When your customer initiates the OAuth process by clicking your app’s Sign lin
 
 ***Failure***
 
-| Parameter | Value                                                                                                    |
-|-----------|----------------------------------------------------------------------------------------------------------|
-| error     | INVALID_REQUEST: The request is not well-formed due to missing or invalid parameters.                    |
-|           | UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active.          |      
-|           | INVALID_SCOPE: The requested scopes are not syntactically valid.                                         |     
-|           | ACCESS_DENIED: The user declined to grant access or wasn’t able to (for example, they weren’t an admin). | 
-|           | SERVER_ERROR: An internal error occurred while processing the request.                                   |
-| state     | The value of state initially passed in, if any.                                                          |
+| Parameter | Value                                                                                                           |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| error     | &#8226;INVALID_REQUEST: The request is not well-formed due to missing or invalid parameters.                    |
+|           | &#8226;UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active.          |      
+|           | &#8226;INVALID_SCOPE: The requested scopes are not syntactically valid.                                         |     
+|           | &#8226;ACCESS_DENIED: The user declined to grant access or wasn’t able to (for example, they weren’t an admin). | 
+|           | &#8226;SERVER_ERROR: An internal error occurred while processing the request.                                   |
+| state     | The value of state initially passed in, if any.                                                                 |
 
 
 ## The customer experience

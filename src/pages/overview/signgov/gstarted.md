@@ -91,8 +91,8 @@ Once this process is complete, you’re ready to build and deploy applications a
 For more information, refer to these resources:
 
 -  [REST API Reference](https://www.adobe.com/go/acrobatsignapireference)
--  [Developer Guide](https://www.adobe.com/go/acrobatsigndeveloper)
--  [Webhook Reference](https://www.adobe.com/go/acrobatsignwebhook)
+-  [Developer Guide]()
+-  [Webhook Reference](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/acrobat_sign_events/)
 -  [Postman collections](https://www.adobe.com/go/acrobatsignpostman)
 
 

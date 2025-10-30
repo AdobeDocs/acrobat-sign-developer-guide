@@ -5,7 +5,7 @@ Last update: Aug 04, 2023.
 
 The Acrobat Sign commercial and Sign Gov instances differ in some key ways as described below.
 
-Differences between Acrobat Sign Gov and Commercial
+***Differences between Acrobat Sign Gov and Commercial***
 
 Item | Sign Gov | Commercial  
 ---|---|---  

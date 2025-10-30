@@ -19,7 +19,7 @@ Acrobat Sign APIs include the endpoints described below.
 | Response object       | Response object [below](#post-response-object)                  |
 | HTTPS status code     | 201                                                             |
 
-## POST Request object
+### POST Request object
 ```
 {`{
     "name": "",
@@ -58,7 +58,7 @@ Acrobat Sign APIs include the endpoints described below.
 }`}
 ```
 
-## POST Response object
+### POST Response object
 ```
 `WebhookCreationResponse  { "id" : "" }`
 ```
@@ -141,7 +141,7 @@ You should be prepared to handle new errors that may be returned from APIs or ch
 | HTTPS status code | 200                                                                                                                       |
 
 
-## GET List Response object
+### GET List Response object
 ```
 WebhooksInfo
     
@@ -217,7 +217,7 @@ Please note that new errors could be returned from APIs or existing error codes 
 | HTTPS status code     | 200                                                      |
 
 
-## Get List by ID Response object
+### Get List by ID Response object
 ```
 {`{
     "scope": "",
@@ -300,7 +300,7 @@ You can update a webhook that is linked to webhookEndpoint by providing the webh
 | Response object       | Empty response                                                                                                                   |
 | HTTPS status code     | 204                                                                                                                              |
 
-## Put Request body
+### Put Request body
 ```
 {`{
   "name": "",
@@ -392,7 +392,7 @@ webhookInfo {
 | Response object       | Empty response                                                                                                                    |
 | HTTPS status code     | 204                                                                                                                               |
 
-## PUT State Request body
+### PUT State Request body
 ```
 { "state": ""}
 ```

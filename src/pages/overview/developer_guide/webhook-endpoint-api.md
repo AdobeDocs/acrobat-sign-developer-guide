@@ -19,7 +19,7 @@ Acrobat Sign APIs include the endpoints described below.
 | Response object       | Response object [below](#post-response-object)                   |
 | HTTPS status code     | 201                                                              |
 
-## POST Request object
+### POST Request object
 ```
 {`{
   "name": "",
@@ -40,7 +40,7 @@ Acrobat Sign APIs include the endpoints described below.
   }
 }`}
 ```
-## POST Response object
+### POST Response object
 ```
 WebhookEndpointResponse{`{
   "id": ""
@@ -105,7 +105,7 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
 | Response object       | Response object [below](#get-list-response-object)                                                        |
 | HTTPS status code     | 200                                                                                                       |
 
-## GET List Response object
+### GET List Response object
 ```
 {`{
   "page": {
@@ -163,7 +163,7 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 | Response object       | Response object [below](#get-list-by-id-response-object)                                                  |
 | HTTPS status code     | 200                                                                                                       |
 
-## GET List by ID Response object
+### GET List by ID Response object
 ```
 {`{
     "name": "webhookEndpoint_12_01_2023_1",
@@ -215,7 +215,7 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 | Response object       | Empty response                                                |
 | HTTPS status code     | 204                                                           |
 
-## PUT Request body
+### PUT Request body
 ```
 {`{
     "name": "",
