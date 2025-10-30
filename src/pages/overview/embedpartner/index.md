@@ -33,37 +33,37 @@ up!](https://partners.adobe.com/exchangeprogram/documentcloud/prereg.html)
 
  *   **New Settings APIs**
 
-     *   POST /accounts/{accountId|me}/settings/search – Takes the identified account (accountId) and a list of setting names and returns the list of setting names with their values for the account specified. Only account-level values are returned.
+     *   POST /accounts/\{accountId|me\}/settings/search – Takes the identified account (accountId) and a list of setting names and returns the list of setting names with their values for the account specified. Only account-level values are returned.
 
          *   Available to non-admin users.
 
- *   PUT /accounts/{accountId|me}/settings - Applies a provided list of setting names and their values to the identified account (accountId).
+ *   PUT /accounts/\{accountId|me\}/settings - Applies a provided list of setting names and their values to the identified account (accountId).
 
  *   **New Logo APIs**
 
-     *   POST /accounts/{accountId|me}/logo - Uploads the CoBrandingLogo file.
+     *   POST /accounts/\{accountId|me\}/logo - Uploads the CoBrandingLogo file.
 
-     *   GET /accounts/{accountId|me}/logo - Returns the image data of the CoBrandingLogo image file in the same format that it was uploaded.
+     *   GET /accounts/\{accountId|me\}/logo - Returns the image data of the CoBrandingLogo image file in the same format that it was uploaded.
 
          *   Available to non-admin users
 
-     *   DELETE /accounts/{accountId|me}/logo – Clears the CoBrandingLogo image for the account.
+     *   DELETE /accounts/\{accountId|me\}/logo – Clears the CoBrandingLogo image for the account.
 
  *   **Signing Reason APIs**
 
-     *   GET /accounts/{accountId|me}/signingReasons - Returns a list of signing reasons for the identified account (accountId).
+     *   GET /accounts/\{accountId|me\}/signingReasons - Returns a list of signing reasons for the identified account (accountId).
 
          *   Available to non-admin users.
 
-     *   POST /accounts/{accountId|me}/signingReasons - Creates a new signing reason for the identified account (accountId).
+     *   POST /accounts/\{accountId|me\}/signingReasons - Creates a new signing reason for the identified account (accountId).
 
-     *   GET /accounts/{accountId|me}/signingReasons/{signingReasonId} - Retrieves the text of the identified signing reason (signingReasonId) from the identified account (accountId). account’s identified signing reason.
+     *   GET /accounts/\{accountId|me\}/signingReasons/\{signingReasonId\} - Retrieves the text of the identified signing reason (signingReasonId) from the identified account (accountId). account’s identified signing reason.
 
          *   Available to non-admin users
 
-     *   PUT /accounts/{accountId|me}/signingReasons/{signingReasonId} - Updates the identified signing reason (signingReasonId) from the identified account (accountId).
+     *   PUT /accounts/\{accountId|me\}/signingReasons/\{signingReasonId\} - Updates the identified signing reason (signingReasonId) from the identified account (accountId).
 
-     *   DELETE /accounts/{accountId|me}/signingReasons/{signingReasonId} - Removes the identified signing reason (signingReasonId) from the identified account (accountId).
+     *   DELETE /accounts/\{accountId|me\}/signingReasons/\{signingReasonId\} - Removes the identified signing reason (signingReasonId) from the identified account (accountId).
 
 **August, 2023**
 

@@ -27,7 +27,7 @@ To use Webhook OAuth 2.0, you need to enable the account-level setting WEBHOOK_O
 
 &nbsp;3. [`Follow these steps`](../developer_guide/gstarted.md#getting-the-access-token) to generate access_token to authorize requests for a Acrobat Sign API endpoint.
 
-&nbsp;4. To create a WebhookEndpoint, send a [POST request](../developer_guide/webhook-endpoint-api.md) to the /api/rest/v6/accounts/{accountId}/webhookEndpoints with the following JSON body:
+&nbsp;4. To create a WebhookEndpoint, send a [POST request](../developer_guide/webhook-endpoint-api.md) to the /api/rest/v6/accounts/\{accountId\}/webhookEndpoints with the following JSON body:
 
 **webhookEndpoints_POST_curl**
 

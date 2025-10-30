@@ -477,9 +477,9 @@ issueAccessToken - [Auth has replaced access tokens](gstarted.md).
 
 
 
-| SOAP Endpoint | REST Endpoint                                                                                                                                                                                                                                                                                        |
-|---|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [getLatestImages](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestImages) | [/agreements/{agrId}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) ,[/agreements/\{agrId\}/documents/\{docId\}/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls) |
+| SOAP Endpoint | REST Endpoint                                                                                                                                                                                                                                                                                          |
+|---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getLatestImages](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestImages) | [/agreements/\{agrId\}/documents/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls) ,[/agreements/\{agrId\}/documents/\{docId\}/imageUrls, GET](https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls) |
 
 
 #### User Methods

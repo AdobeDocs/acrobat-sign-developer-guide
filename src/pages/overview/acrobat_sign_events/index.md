@@ -298,10 +298,10 @@ Manage your webhooks via the webhook APIs. See the event guides for standard hea
 
 + POST /webhooks Creates a new webhook.
 + GET /webhooks Retrieves webhooks for a user.
-+ GET /webhooks/{webhookId} retrieves details of a webhook.
-+ PUT /webhooks/{webhookId} modifies an existing webhook.
-+ PUT /webhooks/{webhookId}/state modifies an existing webhook’s status(ACTIVE/INACTIVE).
-+ DELETE /webhooks/{webhookId} deletes a webhook.
++ GET /webhooks/\{webhookId\} retrieves details of a webhook.
++ PUT /webhooks/\{webhookId\} modifies an existing webhook.
++ PUT /webhooks/\{webhookId\}/state modifies an existing webhook’s status(ACTIVE/INACTIVE).
++ DELETE /webhooks/\{webhookId\} deletes a webhook.
 
 ## Acrobat Sign: security and reliability
 

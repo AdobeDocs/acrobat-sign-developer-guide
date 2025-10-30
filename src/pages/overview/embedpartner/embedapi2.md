@@ -1014,15 +1014,15 @@ Common user header attributes are identical to the Account APIs.
 ***Error codes for UserGetErrorResponse***
 
 
-| HTTP Status Code | Error Code | Message                                                                |
-|---|---|------------------------------------------------------------------------|
-| 400 | INVALID_PARAMETER | The `<param_name>` value specified is invalid.                          |
-| 400 | INVALID_ACCESS_TOKEN | Access token provided is invalid or has expired.                       |
-| 403 | MISSING_SCOPES | The token does not contain the required scopes.                        |
-| 403 | AUTHENTICATION_FAILED | Partner is not onboarded successfully.                                 |
-| 403 | PERMISSION_DENIED | The API caller does not have the permission to execute this operation. |
-| 404 | USER_NOT_FOUND | User does not exist.                                                   |
-| 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred.                                 |
+| HTTP Status Code | Error Code            | Message                                                                |
+|------------------|-----------------------|------------------------------------------------------------------------|
+| 400              | INVALID_PARAMETER     | The `<param_name>` value specified is invalid.                         |
+| 400              | INVALID_ACCESS_TOKEN  | Access token provided is invalid or has expired.                       |
+| 403              | MISSING_SCOPES        | The token does not contain the required scopes.                        |
+| 403              | AUTHENTICATION_FAILED | Partner is not onboarded successfully.                                 |
+| 403              | PERMISSION_DENIED     | The API caller does not have the permission to execute this operation. |
+| 404              | USER_NOT_FOUND        | User does not exist.                                                   |
+| 500              | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred.                                 |
 
 
 ## Consumable APIs
@@ -1101,18 +1101,18 @@ Add-ons and transactions are referred to as "consumables" because they are resou
 ### Get consumables summary on account level
 
 
-|  | Value |
-|---|---|
-| HTTP Method | GET |
-| Endpoint Operation | /v1/accounts/{account_id}/consumableSummary |
-| Authentication/ Authorization | Valid Technical Account Token |
-| Mandatory Scopes in token | sign_account_read, agreement_read |
-| Audience | Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account |
-| Request Header | Partner APIs Common Headers |
-| Query Params | AccountFilterQueryParams |
-| Response Object | ConsumableSummaryDetailsResponse |
-| HTTP Status Code | 200 |
-| Error Code | CommonErrorResponse |
+|                               | Value                                                                                                                                   |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| HTTP Method                   | GET                                                                                                                                     |
+| Endpoint Operation            | /v1/accounts/\{account_id\}/consumableSummary                                                                                           |
+| Authentication/ Authorization | Valid Technical Account Token                                                                                                           |
+| Mandatory Scopes in token     | sign_account_read, agreement_read                                                                                                       |
+| Audience                      | Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account |
+| Request Header                | Partner APIs Common Headers                                                                                                             |
+| Query Params                  | AccountFilterQueryParams                                                                                                                |
+| Response Object               | ConsumableSummaryDetailsResponse                                                                                                        |
+| HTTP Status Code              | 200                                                                                                                                     |
+| Error Code                    | CommonErrorResponse                                                                                                                     |
 
 
 **ConsumableSummaryResponse**
@@ -1135,18 +1135,18 @@ Add-ons and transactions are referred to as "consumables" because they are resou
 ### Get consumables summary details on account level
 
 
-|  | Value |
-|---|---|
-| HTTP Method | GET |
-| Endpoint Operation | /v1/accounts/{account_id}/consumableSummaryDetails |
-| Authentication/ Authorization | Valid Technical Account Token |
-| Mandatory Scopes in token | sign_account_read, agreement_read |
+|  | Value                                                                                                                                   |
+|---|-----------------------------------------------------------------------------------------------------------------------------------------|
+| HTTP Method | GET                                                                                                                                     |
+| Endpoint Operation | /v1/accounts/\{account_id\}/consumableSummaryDetails                                                                                    |
+| Authentication/ Authorization | Valid Technical Account Token                                                                                                           |
+| Mandatory Scopes in token | sign_account_read, agreement_read                                                                                                       |
 | Audience | Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account |
-| Request Header | Partner APIs Common Headers |
-| Query Params | AccountFilterQueryParams |
-| Response Object | ConsumableSummaryDetailsResponse |
-| HTTP Status Code | 200 |
-| Error Code | CommonErrorResponse |
+| Request Header | Partner APIs Common Headers                                                                                                             |
+| Query Params | AccountFilterQueryParams                                                                                                                |
+| Response Object | ConsumableSummaryDetailsResponse                                                                                                        |
+| HTTP Status Code | 200                                                                                                                                     |
+| Error Code | CommonErrorResponse                                                                                                                     |
 
 
 **AccountFilterQueryParams**
@@ -1232,4 +1232,72 @@ Add-ons and transactions are referred to as "consumables" because they are resou
 | Authorization | Bearer `<Technical Account Token>` | Technical account token that is generated by the partner |
 | content-type | application/json                  | Media type of the resource |
 | x-request-id | String                            | A unique string value needed to track a given request |
+
+
+## GDPR Delete userInfo
+
+The GDPR Delete User API enables partners to delete end users in compliance with GDPR “Right to be forgotten” requirements. This removes the user in a manner that cannot be reversed or retrieved, addressing privacy and compliance issues.
+
+**Pre-requisites**
+
+* A technical account with the scope sign_account_write_scope is required.
+
+* Only users having both Account Admin and Privacy Admin roles can delete users in their account.
+
+* The user that needs to be deleted must be marked as inactive.
+
+**Steps to delete a user:**
+
+* Generate a technical account token.
+
+* Use this token to obtain a user embed token for the account admin who has both required roles.
+
+* Update the user status you want to delete to “INACTIVE.”
+
+* Call the GDPR Delete User API using the same embed token to permanently remove the user.
+
+### Delete userInfo as per GDPR compliance
+|                                | Value                                                                              | 
+|--------------------------------|------------------------------------------------------------------------------------|
+| HTTP Method                    | DELETE                                                                             |
+| Endpoint Operation             | /v1/users/\{user_id\}/userInfo                                                     |
+| Authentication / Authorization | Valid OEM 2.0 user token                                                           |
+|                                | Token user must have account_admin & privacy_admin role                            |
+|                                | Token must have sign_user_write scope                                              |
+| Audience                       | Partner calls this API to delete their customers’ end users as per GDPR compliance |
+| Request Header                 | Partner APIs Common Headers                                                        |
+| Query Params                   | QueryParams                                                                        |
+| Response Object                | ConsumableSummaryResponse                                                          |
+| HTTP Status Code               | 202                                                                                |
+| Error Code                     | ErrorResponse                                                                      |
+
+### QueryParams
+| Parameter Name | Type    | Description                                    | Required | Default Value | Value Range |
+|----------------|---------|------------------------------------------------|----------|---------------|-------------|
+| keepAgreements | Boolean | Flag whether user agreements be deleted or not | NO       | True          | True/False  |
+
+### Partner APIs Common Headers
+
+| Header Name   | Values                    | Description                                                                           |
+|---------------|---------------------------|---------------------------------------------------------------------------------------|
+| Authorization | Bearer `<OEM user token>` | OEM 2.0 user token exchanged through technical account token with valid scopes/roles. |
+| content-type  | application/json          | Media type of the resource                                                            |
+| x-request-id  | String                    | A unique string value needed to track a given request                                 |
+
+### SuccessResponse
+| HTTP Status Code |
+|------------------|
+| 202 (Accepted)   |
+
+
+### ErrorResponse
+| HTTP Status Code | Error Code              | Message                                                                |
+|------------------|-------------------------|------------------------------------------------------------------------|
+| 400              | INVALID_USER_ID         | The specified path param ‘userId’ is invalid                           |
+| 400              | INVALID_TOKEN           | The token provided is invalid or expired.                              |
+| 403              | PERMISSION_DENIED       | The API caller does not have the permission to execute this operation. |
+| 403              | USER_STILL_ACTIVE       | The user is still active.                                              |
+| 403              | USER_NOT_FOUND          | User does not exist.                                                   |
+| 404              | TOO_MANY_REQUESTS       | The request rate limit has reached.                                    |
+| 500              | USER_INFO_REMOVE_FAILED | The system failed to remove user data.                                 |
 

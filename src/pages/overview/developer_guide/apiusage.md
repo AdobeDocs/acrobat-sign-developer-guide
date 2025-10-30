@@ -508,7 +508,7 @@ view of the agreement.
 Acrobat Sign now allows you to generate Agreement templates from in-progress
 or completed agreements. To generate a template:
 
-1. Get the id of the agreement by sending a GET request to /agreements/{agreementid}:
+1. Get the id of the agreement by sending a GET request to /agreements/\{agreementid\}:
 
 > a. Go to [Get/agreements](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement)  
 > b. Select **OAuth Access-Token** to fetch the required access token.  
