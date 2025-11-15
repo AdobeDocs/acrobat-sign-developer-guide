@@ -1,5 +1,7 @@
 # Migrating and Updating Apps
 
+Last update: Feb 06, 2024.
+
 ## Updating API authentication methods
 
 Adobe is committed to providing a safe and secure product experience for our customers by adhering to the latest industry-standard security protocols. As a part of that process, on December 2021, Adobe Acrobat Sign ended support for older API authentication models that allowed sending a username and password in the API call.

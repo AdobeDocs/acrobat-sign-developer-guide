@@ -3,6 +3,8 @@ title: Example Scenarios
 ---
 # Example Scenarios
 
+Last update: Feb 06, 2024.
+
 The [API Usage](apiusage.md) section lists simple tasks that can be performed using the Sign APIs. However, you can also use the APIs in other simple to complex signing scenarios as mentioned in this guide.
 
 ## Parental Consent

@@ -1,5 +1,7 @@
 # API Usage
 
+Last update: Oct 27, 2025.
+
 The Acrobat Sign API allows you to quickly build client-side applications that can utilize the signing functionalities offered by Acrobat Sign. This guide contains the most common scenarios in which you can use the API.
 
 Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response. Before you begin, you can browse through the [API Reference](https://www.adobe.com/go/acrobatsignapireference) and try a few endpoints.

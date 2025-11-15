@@ -1,5 +1,7 @@
 # WebhookEndpoint APIs
 
+Last update: Mar 15, 2024.
+
 WebhookEndpoint APIs are the means by which your integration communicates with the Acrobat Sign service about webhookEndpoints to support OAuth2.0 in the Webhooks. Use the various API endpoints to create, delete, modify, and retrieve information about your webhookEndpoints. The account level setting, WEBHOOK_OAUTH20_ROLLOUT, needs to be set to use this feature.
 
 Acrobat Sign APIs include the endpoints described below.
@@ -95,15 +97,14 @@ Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the aut
 ## GET /webhookEndpoints
 
 
-| Entity                | Value                                                                                                     |
-|-----------------------|-----------------------------------------------------------------------------------------------------------|
-| Description           | Get a list of all active webhookEndpoints from the account of the access token user.                      |
-| OAuth scopes          | webhook_read                                                                                              |
-| Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.             |
-|                       | pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
-| Response content type | application/json                                                                                          |
-| Response object       | Response object [below](#get-list-response-object)                                                        |
-| HTTPS status code     | 200                                                                                                       |
+| Entity                | Value                                                                                                                                                                                                         |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description           | Get a list of all active webhookEndpoints from the account of the access token user.                                                                                                                          |
+| OAuth scopes          | webhook_read                                                                                                                                                                                                  |
+| Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.\<br\/>pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
+| Response content type | application/json                                                                                                                                                                                              |
+| Response object       | Response object [below](#get-list-response-object)                                                                                                                                                            |
+| HTTPS status code     | 200                                                                                                                                                                                                           |
 
 ### GET List Response object
 ```
@@ -152,16 +153,15 @@ Be aware that APIs may return new errors or evolve existing error codes. Clients
 ## GET /webhookEndpoints/\{webhookEndpointId\}
 
 
-| Entity                | Value                                                                                                     |
-|-----------------------|-----------------------------------------------------------------------------------------------------------|
-| Description           | Get a list of all active webhookEndpoints from the account of the access token user.                      |
-| Endpoint operation    | /webhookEndpoints/\{webhookEndpointId\}                                                                   |
-| OAuth scopes          | webhook_read                                                                                              |
-| Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.             |
-|                       | pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
-| Response content type | application/json                                                                                          |
-| Response object       | Response object [below](#get-list-by-id-response-object)                                                  |
-| HTTPS status code     | 200                                                                                                       |
+| Entity                | Value                                                                                                                                                                                                         |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description           | Get a list of all active webhookEndpoints from the account of the access token user.                                                                                                                          |
+| Endpoint operation    | /webhookEndpoints/\{webhookEndpointId\}                                                                                                                                                                       |
+| OAuth scopes          | webhook_read                                                                                                                                                                                                  |
+| Query parameters      | cursor: A String used to navigate through the pages. If not provided, returns the first page.\<br\/>pageSize: Number of intended items in the response page. If not provided, it is limited to the first 100. |
+| Response content type | application/json                                                                                                                                                                                              |
+| Response object       | Response object [below](#get-list-by-id-response-object)                                                                                                                                                      |
+| HTTPS status code     | 200                                                                                                                                                                                                           |
 
 ### GET List by ID Response object
 ```

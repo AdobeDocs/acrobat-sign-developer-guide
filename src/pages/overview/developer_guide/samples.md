@@ -1,5 +1,7 @@
 # REST API Samples
 
+Last update: Feb 06, 2024.
+
 The samples included in this section are Java clients of the Acrobat Sign REST API that demonstrate how to use the API as well as some of its key capabilities.
 
 ## The package

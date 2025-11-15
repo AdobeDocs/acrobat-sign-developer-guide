@@ -1,5 +1,7 @@
 # Webhook APIs
 
+Last update: Feb 06, 2024.
+
 Webhook APIs are the means by which your integration communicates with the Acrobat Sign service about webhooks. Use the various API endpoints to create, delete, modify, and retrieve status information about your webhooks.
 
 Acrobat Sign APIs include the endpoints described below.
@@ -130,15 +132,13 @@ You should be prepared to handle new errors that may be returned from APIs or ch
 
 ## GET /webhooks
 
-| Entity            | Value                                                                                                                     |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Description       | Get a list of webhooks created by the access token user                                                                   |
-| OAuth scopes      | webhook_read                                                                                                              |
-| Query parameters  | showInactiveWebhooks: boolean: A query parameter to fetch all the inactive webhooks along with the active webhooks.       |
-|                   | scope: Scope of the webhook. The possible values are ACCOUNT, GROUP, USER, or RESOURCE.                                   |
-|                   | resourceType: The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, and MEGASIGN. |
-| Response object   | Response object [below](#get-list-response-object)                                                                        |
-| HTTPS status code | 200                                                                                                                       |
+| Entity            | Value                                                                                                                                                                                                                                                                                                                                             |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description       | Get a list of webhooks created by the access token user                                                                                                                                                                                                                                                                                           |
+| OAuth scopes      | webhook_read                                                                                                                                                                                                                                                                                                                                      |
+| Query parameters  | showInactiveWebhooks: boolean: A query parameter to fetch all the inactive webhooks along with the active webhooks.\<br\/>scope: Scope of the webhook. The possible values are ACCOUNT, GROUP, USER, or RESOURCE.\<br\/>resourceType: The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, and MEGASIGN. |
+| Response object   | Response object [below](#get-list-response-object)                                                                                                                                                                                                                                                                                                |
+| HTTPS status code | 200                                                                                                                                                                                                                                                                                                                                               |
 
 
 ### GET List Response object
