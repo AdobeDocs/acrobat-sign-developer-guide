@@ -3,6 +3,8 @@ title: Webhook Event Payload Overview — Acrobat Sign Webhook Guide
 ---
 # Webhook Event Payload Overview
 
+Last update: Aug 10, 2025.
+
 ## Payload info
 
 Webhook notification payloads are delivered using the `application/json` content type. The payload object contains all the relevant information about what just happened, including the type of event and the data associated with that event. Acrobat Sign then sends the payload object, via an HTTP POST request, to any endpoint URLs that you have defined as webhook URLs.
@@ -167,3 +169,6 @@ The following example shows a **Webhook Payload for the AGREEMENT_CREATED** even
 | authenticationMethod | The authentication method for the participants to have access to view and sign the document. possible values:["NONE" or "PASSWORD" or "PHONE" or "KBA" or "WEB_IDENTITY" or "ADOBE_SIGN" or "GOV_ID" or "DIG_ID" or "EMAIL_OTP"] | Agreement Info needs to be checked. | \{`"securityOption": { "authenticationMethod": "ADOBE_SIGN" }`\} |
 | createdGroupId | The group id of agreement at the time of creation. | Agreement Participant Info needs to be checked. | "createdGroupId": "CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf3" |
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

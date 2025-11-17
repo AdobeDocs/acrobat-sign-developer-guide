@@ -980,4 +980,6 @@ This is functionally the same as before, but the API structure is revamped to ma
 
 *   The v5 API had the redundant functionality of providing combined agreement docs, which can be achieved through the [GET /document](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocument) API.
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
 ![](../_static/adobelogo.png)

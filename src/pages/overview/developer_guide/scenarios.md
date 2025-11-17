@@ -44,3 +44,7 @@ The steps involved are:
 1. [Upload a document](apiusage.md#upload-a-document) the document containing the terms and conditions involving photo publishing.
 2. Create an agreement and [Get the Signing URL](apiusage.md#get-the-signing-url) for the agreement. Load the signing URL in a mobile device and get it signed from the celebrity, in-person.
 3. Once the celebrity signs, [Download the Agreement](apiusage.md#download-the-agreement).
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

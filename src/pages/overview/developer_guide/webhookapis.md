@@ -733,3 +733,7 @@ Once you have verified the behavior, the webhook URL is functional as per Acroba
 2. Copy the URL and use it for creating webhooks in Acrobat Sign.
 
 ![sign_webhooks_azure_6.png](_images/sign_webhooks_azure_6.png)
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

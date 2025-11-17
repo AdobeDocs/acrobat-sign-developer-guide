@@ -1,5 +1,7 @@
 # Embed Partner Onboarding v 2.0
 
+Last update: Aug 23, 2023.
+
 <InlineAlert slots="text" />
 
 Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to [acrobatsignembed@adobe.com](mailto:acrobatsignembed%40adobe.com).
@@ -297,3 +299,7 @@ Before using Acrobat Sign Embed services in production, your application must un
 ## Onboard your customers
 
 Once your Partner Application is certified, you can use the [Acrobat Sign Embed APIs](embedapi2.md) to create customer accounts, add users, and generate user tokens.
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

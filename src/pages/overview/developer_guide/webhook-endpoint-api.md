@@ -317,3 +317,6 @@ Any API request may return any of these standard error codes:
 | 403               | PERMISSION_DENIED       | The API caller does not have the permission to execute this operation.                                                                                     |
 | 500               | MISC_SERVER_ERROR       | Some miscellaneous server error has occurred.                                                                                                              |
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

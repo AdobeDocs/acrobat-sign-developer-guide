@@ -76,3 +76,6 @@ if(!window.addEventListener){
     window.addEventListener('message', eventHandler,false);
 }
 ```
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

@@ -62,3 +62,7 @@ If you’ll eventually use your enterprise ID in a production environment, you m
    4. If all the signers have signed, [Download the Agreement](apiusage.md#download-the-agreement).
 
 ![sign_overview_2.png](_images/sign_overview_2.png)
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

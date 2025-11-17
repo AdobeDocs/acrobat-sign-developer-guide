@@ -4,6 +4,7 @@ title: Acrobat Sign OpenAPI SDK — Acrobat Sign SDK Downloads
 
 # Acrobat Sign OpenAPI SDK
 
+Last update: Apr 06, 2023.
 
 `The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains JSON files and instructions you can use to generate Acrobat Sign’s SDK for V6 REST APIs in various languages.`
 
@@ -87,3 +88,6 @@ Each class represents request or response class required in the API calls. The c
 ## Reporting issues
 
 Please report issues on the [Acrobat Sign Developer Forum](https://www.adobe.com/go/acrobatsigndevforum).
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

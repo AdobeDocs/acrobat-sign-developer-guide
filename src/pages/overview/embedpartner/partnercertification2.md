@@ -1,5 +1,7 @@
 # Certifying Your Partner App 2.0
 
+Last update: Aug 23, 2023.
+
 <InlineAlert slots="text" />
 
 Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to [acrobatsignembed@adobe.com](mailto:acrobatsignembed%40adobe.com).
@@ -37,3 +39,7 @@ If there are any major issues, the team provides details. Once all concerns have
 ## Post 'certification'
 
 Once your integration is certified, you can work with our Partner Success Managers to collaborate on co-marketing. We can also list your integration on the Adobe Exchange - Document Cloud page. As a best practice, provide Adobe with marketing collateral and documentation links so that users can find details on our partner website about how the integration works, the range of functionality included, and so on.
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

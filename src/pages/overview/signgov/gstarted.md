@@ -96,4 +96,6 @@ For more information, refer to these resources:
 -  [Postman collections](https://www.adobe.com/go/acrobatsignpostman)
 
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
 ![](../_static/adobelogo.png)

@@ -5,6 +5,7 @@ description: Create, manage, track, and automate signing workflows with the Acro
 
 # Acrobat Sign SDK Downloads
 
+Last update: Jan 04, 2024.
 
 `Acrobat Sign provides downloadable SDKs with code samples as follows:`
 
@@ -22,3 +23,6 @@ The SDKs are obsolete and haven’t been in sync with REST v6 APIs for a while. 
 | OpenAPI | [Readme](./openapi.md) | [Docs](https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_OpenAPI_SDK) | [Repo-Download](https://github.com/adobe/acrobat-sign/tree/main) |
 | REST | [Readme](./rest.md) | n/a | [Repo-Download](https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_REST_Samples/v6) |
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

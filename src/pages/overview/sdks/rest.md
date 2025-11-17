@@ -4,6 +4,7 @@ title: Acrobat Sign REST API Samples — Acrobat Sign SDK Downloads
 
 # Acrobat Sign REST API Samples
 
+Last update: Apr 06, 2023.
 
 `These sample Java clients of the Acrobat Sign REST APIs demonstrate how to use the API as well as some of its key capabilities.`
 
@@ -65,3 +66,6 @@ V6 Acrobat Sign REST API (2016) introduces many advanced features, including Dra
 <InlineAlert slots="text" />
 
 The deprecated versions 3, 4, and 5 are available but should not be used in production.
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

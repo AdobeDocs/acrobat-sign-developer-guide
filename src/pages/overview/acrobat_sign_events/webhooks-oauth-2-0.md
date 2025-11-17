@@ -3,6 +3,8 @@ title: Webhooks OAuth 2.0 User Guide — Acrobat Sign Webhook Guide
 ---
 # Webhooks OAuth 2.0 User Guide
 
+Last update: Aug 10, 2025.
+
 <InlineAlert slots="text" />
 
 Current release includes enhancement to the Webhooks OAuth 2.0. The /webhookEndpoints API can now be configured at both the account level and the application level. To enable webhookEndpoints/ API configuration at the account level, we made the *applicationIDs* field optional. This means that if you omit the applicationIDs in a POST /webhookEndpoint request, the webhookEndpoint is created at the account level instead of being linked to a specific application.
@@ -187,3 +189,7 @@ You will get the following response containing the id:
 ```
 
 The returned id is used to uniquely identify the webhookEndpoint.
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

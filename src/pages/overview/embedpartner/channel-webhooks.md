@@ -1,5 +1,7 @@
 # Channel Webhooks User Guide
 
+Last update: Aug 23, 2023.
+
 <InlineAlert slots="text" />
 
 Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to [acrobatsignembed@adobe.com](mailto:acrobatsignembed%40adobe.com).
@@ -111,3 +113,7 @@ Details about managing webhooks can be found here:
 Best practices for setting up webhooks can be found here:
 
 - [https://developer.adobe.com/acrobat-sign/acrobat_sign_events/index.html#best-practices](../acrobat_sign_events/index.md#best-practices)
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

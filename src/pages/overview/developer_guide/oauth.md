@@ -72,3 +72,6 @@ If request succeeds, an HTTP success code 200 returns without any body. If the r
 | 400 | EXPIRED_TOKEN | The token is expired or already revoked |
 | 400 | INVALID_TOKEN | This is not a valid OAuth access or refresh token |
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

@@ -4,6 +4,7 @@ title: Acrobat Sign JavaScript SDK — Acrobat Sign SDK Downloads
 
 # Acrobat Sign JavaScript SDK
 
+Last update: Apr 06, 2023.
 
 The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s JavaScript SDK and samples for these APIs.
 
@@ -122,3 +123,6 @@ It’s recommended to create an instance of ApiClient per thread and per user (w
 ## Reporting issues
 
 Please report issues on the [Acrobat Sign Developer Forum](https://www.adobe.com/go/acrobatsigndevforum).
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

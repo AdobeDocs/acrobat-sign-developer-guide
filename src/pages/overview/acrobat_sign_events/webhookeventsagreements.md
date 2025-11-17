@@ -3,6 +3,8 @@ title: Agreement Events — Acrobat Sign Webhook Guide
 ---
 # Agreement Events
 
+Last update: Aug 10, 2025.
+
 ## Common payload elements
 
 ### Minimum payload for agreements
@@ -5771,3 +5773,6 @@ TBD
     }
 }
 ```
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

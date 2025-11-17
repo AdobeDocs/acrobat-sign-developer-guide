@@ -225,3 +225,6 @@ The response returns the following JSON body containing the access token and the
 | api_access_point | Use this endpoint for Sign API access; it’s the base URI to be used for subsequent calls (/oauth/v2/refresh and /oauth/v2/revoke). |
 | web_access_point | Use this endpoint to open Sign Web, e.g. web_access_point + “/public/login” OR web_access_point + “/public/logout”. |
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

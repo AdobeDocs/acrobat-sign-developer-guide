@@ -3,6 +3,8 @@ title: Web Form Events — Acrobat Sign Webhook Guide
 ---
 # Web Form Events
 
+Last update: Aug 10, 2025.
+
 <InlineAlert slots="text" />
 
 "Widgets" has been renamed to "web form" in many docs. Event names have not changed. Web form events pertain only to the creation of a web form template. The resultant child agreements are tracked as agreement events.
@@ -747,3 +749,6 @@ Triggers when a web form is shared.
     }
 }
 ```
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

@@ -4,6 +4,7 @@ title: "C#: Acrobat Sign SDK — Acrobat Sign SDK Downloads"
 
 # C#: Acrobat Sign SDK
 
+Last update: Apr 06, 2023.
 
 `The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s SDK (CSharp) and samples for these APIs.`
 
@@ -148,3 +149,7 @@ Create an `ApiClient` instance per thread and per user (with baseUris fetched fo
 ## Reporting issues
 
 Please report issues on the [`Acrobat Sign Developer Forum`](https://www.adobe.com/go/acrobatsigndevforum).
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

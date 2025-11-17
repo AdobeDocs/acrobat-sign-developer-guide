@@ -3,6 +3,8 @@ title: Bulk Signing Events — Acrobat Sign Webhook Guide
 ---
 # Bulk Signing Events
 
+Last update: Aug 10, 2025.
+
 <InlineAlert slots="text" />
 
 The Sign in Bulk feature was previously named “Megasign”. Hence the use of “megasign” in code samples, event names, and the REST APIs.
@@ -467,3 +469,6 @@ Triggers when a Send in Bulk reminder is triggered and reminder emails are enabl
     }
 }
 ```
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

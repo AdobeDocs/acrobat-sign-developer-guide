@@ -5,6 +5,7 @@ description: Create, manage, track, and automate signing workflows with the Acro
 
 # How-to Video Tutorials
 
+Last update: Aug 23, 2023.
 
 `These tutorials are specifically designed for OEM-Embed partners that are building and embedding a signature process within their application.`
 
@@ -27,3 +28,7 @@ Learn how to generate an access token that can be used with the Acrobat Sign API
 [Creating a transient document](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/developer_guide/apiusage#send-private-messages-to-the-counter-signers)
 
 Learn how to create a transient document that can be used with the Acrobat Sign API.
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

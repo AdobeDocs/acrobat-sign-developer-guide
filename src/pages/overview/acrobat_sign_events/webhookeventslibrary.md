@@ -3,6 +3,8 @@ title: Library Events — Acrobat Sign Webhook Guide
 ---
 # Library Events
 
+Last update: Aug 10, 2025.
+
 ## Common payload elements
 
 ### Minimum payload for library events
@@ -252,3 +254,6 @@ Web app name: Not available in the UI
     }
 }
 ````
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

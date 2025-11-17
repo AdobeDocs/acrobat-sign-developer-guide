@@ -25,4 +25,6 @@ For an itemized list of differences between the Acrobat Sign and Sign Gov instan
 
 ![home.png](../images/home.png)
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
 ![](../_static/adobelogo.png)

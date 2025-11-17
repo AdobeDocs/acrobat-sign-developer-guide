@@ -5,6 +5,8 @@ description: Create, manage, track, and automate signing workflows with the Acro
 
 # Partner Application Quickstart v.1.0
 
+Last update: Aug 23, 2023.
+
 <InlineAlert slots="text" />
 
 Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to [acrobatsignembed@adobe.com](mailto:acrobatsignembed@adobe.com).
@@ -154,12 +156,7 @@ When your customer initiates the OAuth process by clicking your app’s Sign lin
 
 | Parameter | Value                                                                                                     |
 |-----------|-----------------------------------------------------------------------------------------------------------|
-| error     | One of:                                                                                                   |
-|           | * INVALID_REQUEST: the request is not well formed due to missing or invalid parameters                    |
-|           | * UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active          |
-|           | * INVALID_SCOPE: the requested scopes are not syntactically valid                                         |
-|           | * ACCESS_DENIED: the user declined to grant access or wasn’t able to (for example, they weren’t an admin) |
-|           | * SERVER_ERROR: an internal error occurred while processing the request                                   |
+| error     | One of:\<br\/>* INVALID_REQUEST: the request is not well formed due to missing or invalid parameters\<br\/>* UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active\<br\/>* INVALID_SCOPE: the requested scopes are not syntactically valid\<br\/>* ACCESS_DENIED: the user declined to grant access or wasn’t able to (for example, they weren’t an admin)\<br\/>* SERVER_ERROR: an internal error occurred while processing the request                               |
 | state     | The value of state initially passed in, if any.                                                           |
 
 
@@ -226,3 +223,6 @@ The response returns the following JSON body containing the access token and the
 | api_access_point | Use this endpoint for Sign API access; it the base URI to be used for subsequent calls (/oauth/v2/refresh and /oauth/v2/revoke) |
 | web_access_point | Use this endpoint to open Sign Web, e.g. web_access_point + “/public/login” OR web_access_point + “/public/logout” . |
 
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)

@@ -32,3 +32,7 @@ Instead of creating a new library document every time a document is updated, the
 **Recipient set** A group of recipients where only one member of the group needs to take action, sign or approve depending on the role specified for the set. While using the Sign APIs, recipients are always specified as recipient sets.
 
 **Routing order** Acrobat Sign supports having multiple recipients and routing orders making it easy to collect signatures in the right order. The sequence for the transaction can be sequential, parallel, or hybrid. In sequential signing, a definite order is followed for signing or approving. In parallel workflow, every recipient will get the agreement simultaneously allowing them to sign or approve in any order. You can even have a combination of the two (hybrid routing).
+
+<HorizontalLine />
+© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+![](../_static/adobelogo.png)
