@@ -5,7 +5,7 @@ description: Create, manage, track, and automate signing workflows with the Acro
 
 # Certifying Your Partner App v.1.0
 
-Last update: Aug 23, 2023.
+Last update: Jan 30, 2025.
 
 <InlineAlert slots="text" />
 
@@ -55,5 +55,5 @@ If there are any major issues, the team provides details. Once all concerns have
 Once your integration is certified, you can work with our Partner Success Managers to collaborate on co-marketing. We can also list your integration on the Adobe Exchange - Document Cloud page. As a best practice, provide Adobe with marketing collateral and documentation links so that users can find details on our partner website about how the integration works, the range of functionality included, and so on.
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Jan 30, 2025.
 ![](../_static/adobelogo.png)

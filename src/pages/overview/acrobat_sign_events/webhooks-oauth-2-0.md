@@ -191,5 +191,5 @@ You will get the following response containing the id:
 The returned id is used to uniquely identify the webhookEndpoint.
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Aug 10, 2025.
 ![](../_static/adobelogo.png)

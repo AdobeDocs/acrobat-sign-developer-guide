@@ -1,6 +1,6 @@
 # Onboarding Overview
 
-Last update: Aug 23, 2023.
+Last update: Jan 30, 2025.
 
 The Acrobat Sign Partner Program provides the tools and
 resources you need to deliver solutions that integrate with Acrobat Sign.
@@ -16,5 +16,5 @@ Tip
 ![_images/foursteps.png](_images/foursteps.png)
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Jan 30, 2025.
 ![](../_static/adobelogo.png)

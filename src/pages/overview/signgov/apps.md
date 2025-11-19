@@ -442,5 +442,5 @@ The following signer authentication mechanisms are available:
 *   Digital Identity Gateway
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Aug 04, 2023.
 ![](../_static/adobelogo.png)

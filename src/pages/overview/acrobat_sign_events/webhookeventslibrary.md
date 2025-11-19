@@ -255,5 +255,5 @@ Web app name: Not available in the UI
 }
 ````
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Aug 10, 2025.
 ![](../_static/adobelogo.png)

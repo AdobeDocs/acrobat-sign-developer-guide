@@ -170,5 +170,5 @@ The following example shows a **Webhook Payload for the AGREEMENT_CREATED** even
 | createdGroupId | The group id of agreement at the time of creation. | Agreement Participant Info needs to be checked. | "createdGroupId": "CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf3" |
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Aug 10, 2025.
 ![](../_static/adobelogo.png)

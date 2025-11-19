@@ -1,6 +1,6 @@
 # Channel Webhooks User Guide
 
-Last update: Aug 23, 2023.
+Last update: Jan 30, 2025.
 
 <InlineAlert slots="text" />
 
@@ -115,5 +115,5 @@ Best practices for setting up webhooks can be found here:
 - [https://developer.adobe.com/acrobat-sign/acrobat_sign_events/index.html#best-practices](../acrobat_sign_events/index.md#best-practices)
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Jan 30, 2025.
 ![](../_static/adobelogo.png)

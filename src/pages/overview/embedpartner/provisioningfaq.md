@@ -1,7 +1,7 @@
 
 # Provisioning Design and FAQ v.1.0
 
-Last update: Aug 30, 2023.
+Last update: Jan 30, 2025.
 
 <InlineAlert slots="header, text" />
 
@@ -11,6 +11,7 @@ Your feedback is welcome and is a key
 driver as documentation evolves. Send suggestions to
 [acrobatsignembed@adobe.com](mailto:acrobatsignembed%40adobe.com).
 
+Downloads - testing
 The following guidelines will help you understand how to use the Adobe Acrobat
 Sign account provisioning API to create new accounts for your customers.
 [Download the PDF](/223014.3-Adobe-Provisioning-Considerations-v2.pdf).
@@ -172,5 +173,5 @@ new account and refreshes tokens as needed.
 
 <HorizontalLine />
 
-© Copyright 2023, Adobe Inc..  Last update: Aug 30, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Jan 30, 2025.
 ![](../_static/adobelogo.png)

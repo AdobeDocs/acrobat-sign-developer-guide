@@ -5,7 +5,7 @@ description: Create, manage, track, and automate signing workflows with the Acro
 
 # Partner Application Quickstart v.1.0
 
-Last update: Aug 23, 2023.
+Last update: Jan 30, 2025.
 
 <InlineAlert slots="text" />
 
@@ -224,5 +224,5 @@ The response returns the following JSON body containing the access token and the
 | web_access_point | Use this endpoint to open Sign Web, e.g. web_access_point + “/public/login” OR web_access_point + “/public/logout” . |
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Jan 30, 2025.
 ![](../_static/adobelogo.png)

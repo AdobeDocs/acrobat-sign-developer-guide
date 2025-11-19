@@ -24,5 +24,5 @@ The SDKs are obsolete and haven’t been in sync with REST v6 APIs for a while. 
 | REST | [Readme](./rest.md) | n/a | [Repo-Download](https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_REST_Samples/v6) |
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Jan 04, 2024.
 ![](../_static/adobelogo.png)

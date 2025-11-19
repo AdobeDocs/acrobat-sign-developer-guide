@@ -67,5 +67,5 @@ V6 Acrobat Sign REST API (2016) introduces many advanced features, including Dra
 
 The deprecated versions 3, 4, and 5 are available but should not be used in production.
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
 ![](../_static/adobelogo.png)

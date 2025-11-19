@@ -151,5 +151,5 @@ Create an `ApiClient` instance per thread and per user (with baseUris fetched fo
 Please report issues on the [`Acrobat Sign Developer Forum`](https://www.adobe.com/go/acrobatsigndevforum).
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
 ![](../_static/adobelogo.png)

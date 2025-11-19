@@ -24,6 +24,7 @@ Events are the reason for webhooks, and you control what events your Acrobat Sig
 
 You can learn about and explore the JSON payloads by downloading the JSON files:
 
+Downloads - testing
 + [Agreement event payloads](payloads/agreementpayloads.7z)
 + [Library event payloads](/payloads/librarypayloads.7z)
 + [Bulk signing event payloads](../payloads/bulksignpayloads.7z)
@@ -38,7 +39,7 @@ This guide provides details about each event, including:
 
 ## Webhook changes
 
-Webhooks regularly evolve with major releases. It’s a good idea to track updates by date from the [Developer Release Notes](https://www.adobe.com/go/acrobatsigndevrnotes)
+Webhooks regularly evolve with major releases. It’s a good idea to track updates by date from the [Developer Release Notes](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/releasenotes/)
 
 ## Best Practices
 
@@ -345,5 +346,5 @@ Acrobat Sign incorporates an advanced, reliable strategy for delivery of webhook
 You can check whether a webhook is enabled or disabled via the `GET /webhooks/{webhook ID}` API call. Note that the API does not tell you if the webhook is failing but has not yet been disabled.
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Jun 07, 2024.
 ![](../_static/adobelogo.png)

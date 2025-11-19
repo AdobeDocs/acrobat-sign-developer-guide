@@ -77,5 +77,5 @@ account settings apply in the Sign Gov environment, and these are removed from
 the user interface. ![_images/webappui.png](_images/webappui.png)
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 04, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Aug 04, 2023.
 ![](../_static/adobelogo.png)
