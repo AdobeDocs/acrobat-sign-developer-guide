@@ -16,7 +16,7 @@ module.exports = {
     pages: [
       {
         title: 'Adobe Acrobat Sign',
-        path: 'overview/index.md'
+        path: 'https://developer-stage.adobe.com/sign-developer'
       },
       {
         title: 'Resources',

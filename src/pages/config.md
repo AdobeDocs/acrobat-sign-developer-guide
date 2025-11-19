@@ -2,7 +2,7 @@
     - /acrobat-sign/developer-guide/
 
 - pages:
-    - [Adobe Acrobat Sign](overview/index.md)
+    - [Adobe Acrobat Sign](https://developer-stage.adobe.com/sign-developer)
     - Resources
         - [Free Dev Account Sign-Up](https://www.adobe.com/sign/developer-form.html)
         - [FAQs and Tech Tips](https://www.adobe.com/go/acrobatsigntechblog)
