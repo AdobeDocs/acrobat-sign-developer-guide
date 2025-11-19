@@ -498,5 +498,5 @@ issueAccessToken - [Auth has replaced access tokens](gstarted.md).
 | [createAccount](https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService19#createAccount) | None |
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Feb 06, 2022.
 ![](../_static/adobelogo.png)

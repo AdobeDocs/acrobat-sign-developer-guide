@@ -1557,5 +1557,5 @@ Recommended Implementation
 * **Increase call limits within MOPI** - You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Oct 27, 2025.
 ![](../_static/adobelogo.png)

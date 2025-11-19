@@ -34,5 +34,5 @@ Instead of creating a new library document every time a document is updated, the
 **Routing order** Acrobat Sign supports having multiple recipients and routing orders making it easy to collect signatures in the right order. The sequence for the transaction can be sequential, parallel, or hybrid. In sequential signing, a definite order is followed for signing or approving. In parallel workflow, every recipient will get the agreement simultaneously allowing them to sign or approve in any order. You can even have a combination of the two (hybrid routing).
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Feb 06, 2022.
 ![](../_static/adobelogo.png)

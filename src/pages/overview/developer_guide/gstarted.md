@@ -3,9 +3,9 @@ title: Create an Application Quickstart
 ---
 # Create an Application Quickstart
 
-## Create an app in the web UI
-
 Last update: Feb 06, 2024.
+
+## Create an app in the web UI
 
 To use Acrobat Sign APIs, create an application.
 
@@ -148,14 +148,10 @@ When your customer initiates the OAuth process by clicking your app’s Sign lin
 
 ***Failure***
 
-| Parameter | Value                                                                                                           |
-|-----------|-----------------------------------------------------------------------------------------------------------------|
-| error     | &#8226;INVALID_REQUEST: The request is not well-formed due to missing or invalid parameters.                    |
-|           | &#8226;UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active.          |      
-|           | &#8226;INVALID_SCOPE: The requested scopes are not syntactically valid.                                         |     
-|           | &#8226;ACCESS_DENIED: The user declined to grant access or wasn’t able to (for example, they weren’t an admin). | 
-|           | &#8226;SERVER_ERROR: An internal error occurred while processing the request.                                   |
-| state     | The value of state initially passed in, if any.                                                                 |
+| Parameter | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| error     | &#8226;INVALID_REQUEST: The request is not well-formed due to missing or invalid parameters.\<br\/>&#8226;UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active.\<br\/>&#8226;INVALID_SCOPE: The requested scopes are not syntactically valid.\<br\/>&#8226;ACCESS_DENIED: The user declined to grant access or wasn’t able to (for example, they weren’t an admin).\<br\/>&#8226;SERVER_ERROR: An internal error occurred while processing the request. |
+| state     | The value of state initially passed in, if any.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 
 ## The customer experience
@@ -226,5 +222,5 @@ The response returns the following JSON body containing the access token and the
 | web_access_point | Use this endpoint to open Sign Web, e.g. web_access_point + “/public/login” OR web_access_point + “/public/logout”. |
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Feb 06, 2024.
 ![](../_static/adobelogo.png)

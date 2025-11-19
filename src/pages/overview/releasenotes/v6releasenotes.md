@@ -589,10 +589,10 @@ The v6 Acrobat Sign APIs has endpoints to manage notes in an agreement. Clients 
 
 The reminder APIs in v6 enable clients to create reminders for _any_ participant at any time before their action on the agreement. The capability to list all reminders on an agreement is also availaible in v6. These capabilities will significantly improve clients’ experience of handling reminders for agreements. The table below lists all the endpoints in this set:
 
-| Authoring API                              |Functionality                                   |
-|--------------------------------------------|------------------------------------------------|
-| POST /agreements/\{agreementId\}/reminders |Sets reminders for a list of participants.      |
-| GET /agreements/\{agreementId\}/reminders  |Retrieves all the reminders set on an agreement.|
+| Authoring API                                  |Functionality                                   |
+|------------------------------------------------|------------------------------------------------|
+| [POST /agreements/\{agreementId\}/reminders](https://secure.na1.echosign.com/public/docs/restapi/v6#/agreements/createReminderOnParticipant) |Sets reminders for a list of participants.      |
+| [GET /agreements/\{agreementId\}/reminders](https://secure.na1.echosign.com/public/docs/restapi/v6#/agreements/getAgreementReminders)  |Retrieves all the reminders set on an agreement.|
 
 ### Resource views
 
@@ -981,5 +981,5 @@ This is functionally the same as before, but the API structure is revamped to ma
 *   The v5 API had the redundant functionality of providing combined agreement docs, which can be achieved through the [GET /document](https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getDocument) API.
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Jun 13, 2025.
 ![](../_static/adobelogo.png)

@@ -318,5 +318,5 @@ Any API request may return any of these standard error codes:
 | 500               | MISC_SERVER_ERROR       | Some miscellaneous server error has occurred.                                                                                                              |
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Mar 15, 2024.
 ![](../_static/adobelogo.png)

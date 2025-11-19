@@ -64,5 +64,5 @@ If you’ll eventually use your enterprise ID in a production environment, you m
 ![sign_overview_2.png](_images/sign_overview_2.png)
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Feb 06, 2024.
 ![](../_static/adobelogo.png)

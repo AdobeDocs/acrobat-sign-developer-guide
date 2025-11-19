@@ -46,5 +46,5 @@ The steps involved are:
 3. Once the celebrity signs, [Download the Agreement](apiusage.md#download-the-agreement).
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2022, Adobe Inc..  Last update: Feb 06, 2024.
 ![](../_static/adobelogo.png)
