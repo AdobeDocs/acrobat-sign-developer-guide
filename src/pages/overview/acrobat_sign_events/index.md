@@ -24,7 +24,6 @@ Events are the reason for webhooks, and you control what events your Acrobat Sig
 
 You can learn about and explore the JSON payloads by downloading the JSON files:
 
-Downloads - testing
 + [Agreement event payloads](https://raw.githubusercontent.com/AdobeDocs/acrobat-sign-developer-guide/sign-pages-bugfix/src/pages/overview/acrobat_sign_events/payloads/agreementpayloads.7z)
 + [Library event payloads](https://raw.githubusercontent.com/AdobeDocs/acrobat-sign-developer-guide/sign-pages-bugfix/src/pages/overview/acrobat_sign_events/payloads/librarypayloads.7z)
 + [Bulk signing event payloads](https://raw.githubusercontent.com/AdobeDocs/acrobat-sign-developer-guide/sign-pages-bugfix/src/pages/overview/acrobat_sign_events/payloads/bulksignpayloads.7z)
