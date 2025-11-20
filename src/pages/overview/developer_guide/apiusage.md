@@ -1352,10 +1352,11 @@ Each API request is evaluated based on its resource consumption, which varies de
 
 If a request exceeds the allowed limit, it’s rejected with an HTTP 429 “Too Many Requests” response with an error message. The error message will specify the issue, and the “Retry-After” header in the response indicates when you can attempt the subsequent request.
 
-There are three discrete throttling mechanisms, each throttling specific functions in the service:
+There are four discrete throttling mechanisms, each throttling specific functions in the service:
 - Rest APIs
 - Agreement Document Processing
 - Webform First Signer/Participant
+- GET Endpoints
 
 
 

@@ -20,8 +20,6 @@ The following returns for a bulk signing event if all the conditional parameters
 | `id` | String | The unique identifier of the agreement; it can be used to query status and download signed documents. |  |
 | `name` | String | The name of the agreement that will be used to identify it, in emails and on the website. |  |
 | `status` | Enum | The current status of the agreement. | OUT_FOR_SIGNATURE, SIGNED, APPROVED, ACCEPTED, DELIVERED, FORM_FILLED, ABORTED, EXPIRED, OUT_FOR_APPROVAL, OUT_FOR_ACCEPTANCE, OUT_FOR_DELIVERY, OUT_FOR_FORM_FILLING, or CANCELLED |
-| `payloadApplicable` | boolean | Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the webhookNotificationApplicableUsers array. |  |
-
 
 For different Send in Bulk events, the detailed agreement info, participant info, document info, and the signed document returns based on the conditional parameters specified during webhook creation.
 

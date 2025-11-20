@@ -1,6 +1,6 @@
 # Embed 2.0 API
 
-Last update: Aug 23, 2023.
+Last update: Oct 07, 2025.
 
 <InlineAlert slots="text" />
 
@@ -58,16 +58,16 @@ Acrobat Sign APIs come with location awareness, so it's important to use the cor
 
 ***Overview***
 
-| Item | Value |
-|------|-------|
-| HTTP Method | GET |
-| Endpoint Operation | `{Base Api Host}/api/rest/v6/baseUris` |
-| Description | Very first API call to fetch geographical aware access points before you can call further APIs. |
-| Authentication | Valid user/technical account token |
-| Request Header | Auth API Headers |
-| Response Object | BaseUri Response |
-| HTTP Status Code | 200 |
-| Error Code | BaseUri Error Codes |
+| Item | Value                                                                                                                                                |
+|------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| HTTP Method | GET                                                                                                                                                  |
+| Endpoint Operation | `{Base Api Host}/api/rest/v6/baseUris`                                                                                                               |
+| Description | Very first API call to fetch geographical aware access points before you can call further APIs.                                                      |
+| Authentication | Valid user/technical account token                                                                                                                   |
+| Request Header | [Auth API Headers](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/embedpartner/embedapi2#common-account-api-header-attributes) |
+| Response Object | [BaseUri Response](#BaseUri-Error-Response)                                                                                                          |
+| HTTP Status Code | 200                                                                                                                                                  |
+| Error Code | [BaseUri Error Codes](#BaseUri-Error-Response)                                                                                                                                |
 
 ***Response Object***
 
@@ -85,7 +85,7 @@ Acrobat Sign APIs come with location awareness, so it's important to use the cor
 }
 ```
 
-**BaseUri: Error Response**
+### ***BaseUri: Error Response***
 
 ***Error codes***
 
@@ -1230,7 +1230,7 @@ The GDPR Delete User API enables partners to delete end users in compliance with
 
 **Pre-requisites**
 
-* A technical account with the scope sign_account_write_scope is required.
+* A [technical account](https://helpx.adobe.com/sign/admin/users/technical-account.html) with the scope sign_account_write_scope is required.
 
 * Only users having both Account Admin and Privacy Admin roles can delete users in their account.
 
@@ -1247,19 +1247,17 @@ The GDPR Delete User API enables partners to delete end users in compliance with
 * Call the GDPR Delete User API using the same embed token to permanently remove the user.
 
 ### Delete userInfo as per GDPR compliance
-|                                | Value                                                                              | 
-|--------------------------------|------------------------------------------------------------------------------------|
-| HTTP Method                    | DELETE                                                                             |
-| Endpoint Operation             | /v1/users/\{user_id\}/userInfo                                                     |
-| Authentication / Authorization | Valid OEM 2.0 user token                                                           |
-|                                | Token user must have account_admin & privacy_admin role                            |
-|                                | Token must have sign_user_write scope                                              |
-| Audience                       | Partner calls this API to delete their customers’ end users as per GDPR compliance |
-| Request Header                 | Partner APIs Common Headers                                                        |
-| Query Params                   | QueryParams                                                                        |
-| Response Object                | ConsumableSummaryResponse                                                          |
-| HTTP Status Code               | 202                                                                                |
-| Error Code                     | ErrorResponse                                                                      |
+|                                | Value                                                                                                                              | 
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| HTTP Method                    | DELETE                                                                                                                             |
+| Endpoint Operation             | /v1/users/\{user_id\}/userInfo                                                                                                     |
+| Authentication / Authorization | Valid OEM 2.0 user token\<br/\>Token user must have account_admin & privacy_admin role\<br/\>Token must have sign_user_write scope |
+| Audience                       | Partner calls this API to delete their customers’ end users as per GDPR compliance                                                 |
+| Request Header                 | Partner APIs Common Headers                                                                                                        |
+| Query Params                   | QueryParams                                                                                                                        |
+| Response Object                | ConsumableSummaryResponse                                                                                                          |
+| HTTP Status Code               | 202                                                                                                                                |
+| Error Code                     | ErrorResponse                                                                                                                      |
 
 ### QueryParams
 | Parameter Name | Type    | Description                                    | Required | Default Value | Value Range |
@@ -1292,5 +1290,5 @@ The GDPR Delete User API enables partners to delete end users in compliance with
 | 500              | USER_INFO_REMOVE_FAILED | The system failed to remove user data.                                 |
 
 <HorizontalLine />
-© Copyright 2023, Adobe Inc..  Last update: Aug 23, 2023.
+© Copyright 2023, Adobe Inc..  Last update: Oct 07, 2025.
 ![](../_static/adobelogo.png)
