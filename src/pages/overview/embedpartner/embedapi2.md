@@ -64,7 +64,7 @@ Acrobat Sign APIs come with location awareness, so it's important to use the cor
 | Endpoint Operation | `{Base Api Host}/api/rest/v6/baseUris`                                                                                                               |
 | Description | Very first API call to fetch geographical aware access points before you can call further APIs.                                                      |
 | Authentication | Valid user/technical account token                                                                                                                   |
-| Request Header | [Auth API Headers](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/embedpartner/embedapi2#common-account-api-header-attributes) |
+| Request Header | [Auth API Headers](https://developer-stage.adobe.com/acrobat-sign/overview/embedpartner/embedapi2#common-account-api-header-attributes) |
 | Response Object | [BaseUri Response](#BaseUri-Error-Response)                                                                                                          |
 | HTTP Status Code | 200                                                                                                                                                  |
 | Error Code | [BaseUri Error Codes](#BaseUri-Error-Response)                                                                                                                                |

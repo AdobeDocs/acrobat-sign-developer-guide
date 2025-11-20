@@ -1,7 +1,7 @@
 # Adobe IO Events Documentation
 
 Adobe IO Events documentation site deployed to EDS.
-The production address is https://developer.adobe.com/acrobat-sign/developer-guide/
+The production address is https://developer.adobe.com/acrobat-sign/
 
 ## Quick Start
 
@@ -28,7 +28,7 @@ npm install
 npm run dev
 ```
 
-Once all three servers are running, navigate to http://localhost:3000/acrobat-sign/developer-guide/
+Once all three servers are running, navigate to http://localhost:3000/acrobat-sign/
 
 ## Commands
 
@@ -79,12 +79,12 @@ To manage URL redirections:
 - Can deploy from any branch to staging
 - Uses incremental builds from last commit by default
 - Use `deployAll` function for full rebuild if needed
-- **URL**: `developer-stage.adobe.com/acrobat-sign/developer-guide/`
+- **URL**: `developer-stage.adobe.com/acrobat-sign/`
 
 **Production**:
 - Automatically deploys from `main` branch
 - Uses incremental builds from last commit
-- **URL**: `developer.adobe.com/acrobat-sign/developer-guide/`
+- **URL**: `developer.adobe.com/acrobat-sign/`
 
 ## Support
 

@@ -1,5 +1,5 @@
 - pathPrefix:
-    - /acrobat-sign/developer-guide/
+    - /acrobat-sign/
 
 - pages:
     - [Adobe Acrobat Sign](https://developer-stage.adobe.com/sign-developer)

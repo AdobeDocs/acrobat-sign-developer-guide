@@ -8,7 +8,7 @@ description: Create, manage, track, and automate signing workflows with the Acro
 Last update: Jun 07, 2024.
 
 <InlineAlert slots="text" />
-Announcement: All customers are migrating to webhooks 2.0 in 2023. For details, see [http://www.adobe.com/go/acrobatsigndevrnotes](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/releasenotes/).
+Announcement: All customers are migrating to webhooks 2.0 in 2023. For details, see [http://www.adobe.com/go/acrobatsigndevrnotes](https://developer-stage.adobe.com/acrobat-sign/overview/releasenotes/).
 
 Webhooks are developer-defined HTTPS requests that trigger when a subscribed event occurs. They allow for real-time notification of workflow events such as “signed” or “created” without having to poll Acrobat Sign for status; your app is automatically notified when an event occurs. The service simply makes an HTTPS POST request to the webhook’s HTTPS URL. In simple words, a webhook is a `web service that accepts data or a stream of data` from a source using a PUSH communication model. You can create webhooks can via the REST APIs as well as the Acrobat Sign web application.
 
@@ -38,7 +38,7 @@ This guide provides details about each event, including:
 
 ## Webhook changes
 
-Webhooks regularly evolve with major releases. It’s a good idea to track updates by date from the [Developer Release Notes](https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/releasenotes/)
+Webhooks regularly evolve with major releases. It’s a good idea to track updates by date from the [Developer Release Notes](https://developer-stage.adobe.com/acrobat-sign/overview/releasenotes/)
 
 ## Best Practices
 
