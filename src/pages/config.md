@@ -1,5 +1,5 @@
 - pathPrefix:
-    - /acrobat-sign/developer-guide/
+    - /acrobat-sign/docs/
 
 - versions:
     - [v2.0](/) selected
