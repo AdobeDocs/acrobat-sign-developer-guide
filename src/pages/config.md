@@ -1,5 +1,9 @@
 - pathPrefix:
-    - /acrobat-sign/
+    - /acrobat-sign/docs/
+
+- versions:
+    - [v2.0](/) selected
+    - [v1.4](https://github.com/AdobeDocs/dev-site) 
 
 - pages:
     - [Adobe Acrobat Sign](https://developer-stage.adobe.com/sign-developer)
