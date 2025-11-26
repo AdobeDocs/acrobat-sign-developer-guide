@@ -18,7 +18,7 @@ All sources are under the **adobesign.api.rest.sample** package (and sub package
 
 ## Prerequisites
 
-`Before using the samples, you need to obtain either an OAuth access token or an integration key as described at https://developer-stage.adobe.com/acrobat-sign/developer-guide/overview/developer_guide/gstarted`
+`Before using the samples, you need to obtain either an OAuth access token or an integration key as described at https://developer-stage.adobe.com/acrobat-sign/docs/overview/developer_guide/gstarted`
 
 You can provide this token or key as a value to the OAUTH_ACCESS_TOKEN constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the OAUTH_REFRESH_TOKEN constant (in the same class) which will be used to refresh the OAuth access token.
 
