@@ -24,8 +24,6 @@
         - [SDK Downloads](overview/sdks/index.md)
     - [Solutions for Government](overview/signgov/index.md)
     - [Postman workspace](https://www.adobe.com/go/acrobatsignpostman)
-    - [Guides](guides/index.md)
-    - [Support](support/index.md)
 
 - subPages:
     - [Introduction to API Release Notes](overview/releasenotes/index.md)
