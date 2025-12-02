@@ -1531,7 +1531,7 @@ Contact the owner of this web form for further information.
 
 ```
 If email verification is not enabled, no submission limits apply to the first signer. Contact your CSM or Support if you find that your throttling thresholds must be increased.
-[More about Acrobat Sign webforms can be found here.](https://developer-stage.adobe.com/acrobat-sign/docs/overview/developer_guide/apiusage#create-a-widget)
+[More about Acrobat Sign webforms can be found here.](https://developer.adobe.com/acrobat-sign/docs/overview/developer_guide/apiusage#create-a-widget)
 
 ### GET Endpoints
 
