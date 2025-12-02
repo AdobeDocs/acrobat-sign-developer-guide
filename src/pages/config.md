@@ -6,7 +6,7 @@
     - [v1.4](https://github.com/AdobeDocs/dev-site) 
 
 - pages:
-    - [Adobe Acrobat Sign](https://developer-stage.adobe.com/acrobat-sign/)
+    - [Adobe Acrobat Sign](https://developer.adobe.com/acrobat-sign/)
     - Resources
         - [Free Dev Account Sign-Up](https://www.adobe.com/sign/developer-form.html)
         - [FAQs and Tech Tips](https://www.adobe.com/go/acrobatsigntechblog)
