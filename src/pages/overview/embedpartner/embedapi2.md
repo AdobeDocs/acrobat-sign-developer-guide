@@ -58,16 +58,16 @@ Acrobat Sign APIs come with location awareness, so it's important to use the cor
 
 ***Overview***
 
-| Item | Value                                                                                                                                  |
-|------|----------------------------------------------------------------------------------------------------------------------------------------|
-| HTTP Method | GET                                                                                                                                    |
-| Endpoint Operation | `{Base Api Host}/api/rest/v6/baseUris`                                                                                                 |
-| Description | Very first API call to fetch geographical aware access points before you can call further APIs.                                        |
-| Authentication | Valid user/technical account token                                                                                                     |
-| Request Header | [Auth API Headers](https://developer.adobe.com/acrobat-sign/docs/overview/embedpartner/embedapi2#common-account-api-header-attributes) |
-| Response Object | [BaseUri Response](#BaseUri-Error-Response)                                                                                            |
-| HTTP Status Code | 200                                                                                                                                    |
-| Error Code | [BaseUri Error Codes](#BaseUri-Error-Response)                                                                                         |
+| Item | Value                                                                                           |
+|------|-------------------------------------------------------------------------------------------------|
+| HTTP Method | GET                                                                                             |
+| Endpoint Operation | `{Base Api Host}/api/rest/v6/baseUris`                                                          |
+| Description | Very first API call to fetch geographical aware access points before you can call further APIs. |
+| Authentication | Valid user/technical account token                                                              |
+| Request Header | [Auth API Headers](../embedpartner/embedapi2.md#common-account-api-header-attributes)           |
+| Response Object | [BaseUri Response](#BaseUri-Error-Response)                                                     |
+| HTTP Status Code | 200                                                                                             |
+| Error Code | [BaseUri Error Codes](#BaseUri-Error-Response)                                                  |
 
 ***Response Object***
 

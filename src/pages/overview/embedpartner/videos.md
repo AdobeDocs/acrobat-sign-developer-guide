@@ -25,7 +25,7 @@ Learn how to create an embed link for OAuth, which is the method by which your a
 
 Learn how to generate an access token that can be used with the Acrobat Sign API.
 
-[Creating a transient document](https://developer.adobe.com/acrobat-sign/docs/overview/developer_guide/apiusage#send-private-messages-to-the-counter-signers)
+[Creating a transient document](../developer_guide/apiusage.md#send-private-messages-to-the-counter-signers)
 
 Learn how to create a transient document that can be used with the Acrobat Sign API.
 
