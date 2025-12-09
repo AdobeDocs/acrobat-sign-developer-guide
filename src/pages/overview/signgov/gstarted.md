@@ -65,8 +65,8 @@ For more detail, see https://helpx.adobe.com/sign/fedramp/okta/okta-claim-domain
 The Acrobat Sign team is responsible for enabling Solutions for Government API applications. The app registration process requires that you provide the following details:
 
 -  Whether you need a customer (single-tenant) or partner (multi-tenant) API app.
--  A [redirect URL](https://developer.adobe.com/acrobat-sign/docs/overview/developer_guide/gstarted#configure-the-redirect-uri-on-your-server) which links the app instance to the correct Acrobat Sign account.
--  A [list of required scopes](https://developer.adobe.com/acrobat-sign/docs/overview/developer_guide/gstarted#configure-scopes) that define what resources and actions are available to your app.
+-  A [redirect URL](../developer_guide/gstarted.md#configure-the-redirect-uri-on-your-server) which links the app instance to the correct Acrobat Sign account.
+-  A [list of required scopes](../developer_guide/gstarted.md#configure-scopes) that define what resources and actions are available to your app.
 -  An app name.
 -  Whether or not you require impersonation. Some clients provide a single impersonation token for all user actions while others prefer that users act on behalf of themselves. For example, a legal department may use a shared token while users in another organization will personally send and sign as individuals.
 
@@ -91,8 +91,8 @@ Once this process is complete, you’re ready to build and deploy applications a
 For more information, refer to these resources:
 
 -  [REST API Reference](https://www.adobe.com/go/acrobatsignapireference)
--  [Developer Guide](https://developer.adobe.com/acrobat-sign/docs/)
--  [Webhook Reference](https://developer.adobe.com/acrobat-sign/docs/overview/acrobat_sign_events/)
+-  [Developer Guide](../developer_guide/index.md)
+-  [Webhook Reference](../developer_guide/events.md)
 -  [Postman collections](https://www.adobe.com/go/acrobatsignpostman)
 
 
