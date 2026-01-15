@@ -1541,11 +1541,13 @@ High-frequency polling can put unnecessary loads on systems which can lead to su
 
 The polling policy applies to all GET API endpoints. A Minimum Object Polling Interval (MOPI) will regulate how often clients can send the identical API request to the Acrobat Sign service. Your service plan determines your MOPI and the threshold for identical requests within the MOPI. Higher-tier plans allow shorter intervals and higher thresholds:
 
-**Minimum Object Polling Interval (MOPI) - The default MOPI varies depending on the tier of service:**
+**Minimum Object Polling Interval (MOPI) - The default MOPI varies depending on the tier of service and application types:**
 
-* Acrobat Sign Partners: 1-minute interval.
-* Acrobat Sign Solutions for Enterprise: 1-minute interval.
-* Developer accounts: 10-minute interval.
+* Acrobat Sign partner applications: The MOPI for a partner app is determined by the tier of the user’s account.
+  * **GLOBAL/ENTERPRISE tier**: 3 calls per one minute interval
+  * **All other tiers**: 1 unique call per ten minute interval
+* Customer applications under Global/Enterprise accounts: Three identical calls per one-minute interval.
+* Customer applications under Developer accounts: One unique call per 10-minute interval.
 
 Identical GET requests mean the same path, parameters, and headers requested by the same effective user more than once within the MOPI. If an identical request over the threshold is made within the MOPI by the same user, the system will return:
 
@@ -1558,5 +1560,5 @@ Recommended Implementation
 * **Increase call limits within MOPI** - You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.
 
 <HorizontalLine />
-© Copyright 2022, Adobe Inc..  Last update: Oct 27, 2025.
+© Copyright 2022, Adobe Inc..  Last update: Dec 18, 2025.
 ![](../_static/adobelogo.png)
