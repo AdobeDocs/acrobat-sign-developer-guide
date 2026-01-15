@@ -32,6 +32,7 @@
         - [2016 REST v6 Release Notes](overview/releasenotes/v6releasenotes.md)
     - [Introduction to Core Dev Guide](overview/developer_guide/index.md)
         - [Acrobat Sign API Overview](overview/developer_guide/index.md)
+        - [API Best Practices](overview/developer_guide/bestpractices.md)
         - [Create an Application Quickstart](overview/developer_guide/gstarted.md)
         - [Managing OAuth Tokens](overview/developer_guide/oauth.md)
         - [Example Scenarios](overview/developer_guide/scenarios.md)
