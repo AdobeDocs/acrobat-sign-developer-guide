@@ -138,24 +138,24 @@ The response below indicates that we are trying to update an older version (_obs
 
 The ETag value required to be passed in any PUT or DELETE API can be obtained from a corresponding GET operation on the same entity. The table below mentions these modification (PUT or DELETE) APIs along with the corresponding GET APIs that provides the ETag value for these modification requests.
 
-| **Update/Deletion API**                                                    | **Corresponding GET endpoint**                        |
-|----------------------------------------------------------------------------|------------------------------------------------------|
-| PUT /agreements/\{agreementId\}                                            | GET /agreements/{agreementId}                        |
-| POST /agreements/\{agreementId\}/formFields                                | GET /agreements/{agreementId}/formFields             |
-| PUT /agreements/\{agreementId\}/formFields                                 | GET /agreements/{agreementId}/formFields             |
-| PUT /agreements/\{agreementId\}/formFields/mergeInfo                       | GET /agreements/{agreementId}/formFields/mergeInfo   |
-| PUT /agreements/\{agreementId\}/members/participantSets/{participantSetId} | GET /agreements/{agreementId}/members/participantSets/{participantSetId} |
-| PUT /agreements/\{agreementId\}/state                                      | GET /agreements/{agreementId}                        |
-| DELETE /agreements/\{agreementId\}/documents                               | GET /agreements/{agreementId}/documents              |
-| PUT /libraryDocuments/\{libraryDocumentId\}                                | GET /libraryDocuments/{libraryDocumentId}            |
-| PUT /libraryDocuments/\{libraryDocumentId\}/state                          | GET /libraryDocuments/{libraryDocumentId}            |
-| PUT /widgets/\{widgetId\}                                                  | GET /widgets/{widgetId}                              |
-| PUT /widgets/\{widgetId\}/state                                            | GET /widgets/{widgetId}                              |
-| PUT /megaSigns/\{megaSignId\}/state                                        | GET /megaSigns/{megaSignId}                          |
-| DELETE /users/\{userId\}/signatures/{signatureId}                          | GET /users/{userId}/signatures/{signatureId}         |
-| PUT /webhooks/\{webhookId\}                                                | GET /webhooks/{webhookId}                            |
-| PUT /webhooks/\{webhookId\}/state                                          | GET /webhooks/{webhookId}                            |
-| DELETE /webhooks/\{webhookId\}                                             | GET /webhooks/{webhookId}                            |
+| **Update/Deletion API**                                                      | **Corresponding GET endpoint**                                               |
+|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| PUT /agreements/\{agreementId\}                                              | GET /agreements/\{agreementId\}                                              |
+| POST /agreements/\{agreementId\}/formFields                                  | GET /agreements/\{agreementId\}/formFields                                   |
+| PUT /agreements/\{agreementId\}/formFields                                   | GET /agreements/\{agreementId\}/formFields                                   |
+| PUT /agreements/\{agreementId\}/formFields/mergeInfo                         | GET /agreements/\{agreementId\}/formFields/mergeInfo                         |
+| PUT /agreements/\{agreementId\}/members/participantSets/\{participantSetId\} | GET /agreements/\{agreementId\}/members/participantSets/\{participantSetId\} |
+| PUT /agreements/\{agreementId\}/state                                        | GET /agreements/\{agreementId\}                                              |
+| DELETE /agreements/\{agreementId\}/documents                                 | GET /agreements/\{agreementId\}/documents                                    |
+| PUT /libraryDocuments/\{libraryDocumentId\}                                  | GET /libraryDocuments/\{libraryDocumentId\}                                  |
+| PUT /libraryDocuments/\{libraryDocumentId\}/state                            | GET /libraryDocuments/\{libraryDocumentId\}                                  |
+| PUT /widgets/\{widgetId\}                                                    | GET /widgets/\{widgetId\}                                                    |
+| PUT /widgets/\{widgetId\}/state                                              | GET /widgets/\{widgetId\}                                                    |
+| PUT /megaSigns/\{megaSignId\}/state                                          | GET /megaSigns/\{megaSignId\}                                                |
+| DELETE /users/\{userId\}/signatures/\{signatureId\}                          | GET /users/\{userId\}/signatures/\{signatureId\}                             |
+| PUT /webhooks/\{webhookId\}                                                  | GET /webhooks/\{webhookId\}                                                  |
+| PUT /webhooks/\{webhookId\}/state                                            | GET /webhooks/\{webhookId\}                                                  |
+| DELETE /webhooks/\{webhookId\}                                               | GET /webhooks/\{webhookId\}                                                  |
 
 ### GET, PUT, POST consistency
 

@@ -114,16 +114,16 @@ Call these APIs via the AdobeSignAuthService for user token generation and valid
 
 ***Overview***
 
-| Item | Value |
-|------|-------|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/token |
-| Description | API to generate Sign Embed user Token. |
-| Request Header | Auth API Headers |
-| Request Object | Create token parameters |
-| Response Object | Create token response |
-| HTTP Status Code | 200 |
-| Error Code | Generate Token - Error response |
+| Item | Value                                                            |
+|------|------------------------------------------------------------------|
+| HTTP Method | POST                                                             |
+| Endpoint Operation | \{apiAccessPoint\}/api/gateway/adobesignauthservice/api/v1/token |
+| Description | API to generate Sign Embed user Token.                           |
+| Request Header | Auth API Headers                                                 |
+| Request Object | Create token parameters                                          |
+| Response Object | Create token response                                            |
+| HTTP Status Code | 200                                                              |
+| Error Code | Generate Token - Error response                                  |
 
 #### Request
 
@@ -787,17 +787,17 @@ Common user header attributes are identical to the Account APIs.
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/users |
+| Item | Value                                                                                                              |
+|---|--------------------------------------------------------------------------------------------------------------------|
+| HTTP Method | POST                                                                                                               |
+| Endpoint Operation | \{apiAccessPoint\}/api/gateway/signembed/v1/users                                                                  |
 | Authentication/ Authorization | Valid Technical Account Token or Sign Embed user Admin token. Mandatory Scopes required in token: sign_user_write. |
-| Audience | Partner will call this API to add a new user to their customer's account. |
-| Request Header | Partner APIs Common Headers |
-| Request Object | Create User Request |
-| Response Object | Create User Response |
-| HTTP Status Code | 201 |
-| Error Code | ErrorCodes - Create User |
+| Audience | Partner will call this API to add a new user to their customer's account.                                          |
+| Request Header | Partner APIs Common Headers                                                                                        |
+| Request Object | Create User Request                                                                                                |
+| Response Object | Create User Response                                                                                               |
+| HTTP Status Code | 201                                                                                                                |
+| Error Code | ErrorCodes - Create User                                                                                           |
 
 
 #### Request
@@ -880,7 +880,7 @@ Common user header attributes are identical to the Account APIs.
 | Item | Value                                                                               |
 |---|-------------------------------------------------------------------------------------|
 | HTTP Method | PUT                                                                                 |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/users/`<userId>`                           |
+| Endpoint Operation | \{apiAccessPoint\}/api/gateway/signembed/v1/users/`<userId>`                        |
 | Authentication/Authorization | Valid Technical Account Token or Admin User Token.                                  
     Mandatory scopes in token: sign_user_write. |
 | Audience | Partner will call this API to update the user attributes in the customer's account. |
