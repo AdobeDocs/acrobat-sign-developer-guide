@@ -221,16 +221,16 @@ scope:sign_webhook_retention,widget_write,workflow_read,agreement_send,agreement
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/validate_token |
-| Description | API to check the validity of the user token. |
-| Request Header | Auth API Headers |
-| Request Object | Validate token request |
-| Response Object | Validate token Response |
-| HTTP Status Code | 200 |
-| Error Code | Error Response - Validate Token |
+| Item | Value                                                                    |
+|---|--------------------------------------------------------------------------|
+| HTTP Method | POST                                                                     |
+| Endpoint Operation | \{apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/validate_token |
+| Description | API to check the validity of the user token.                             |
+| Request Header | Auth API Headers                                                         |
+| Request Object | Validate token request                                                   |
+| Response Object | Validate token Response                                                  |
+| HTTP Status Code | 200                                                                      |
+| Error Code | Error Response - Validate Token                                          |
 
 
 #### Request
@@ -439,7 +439,7 @@ Call these APIs directly using a technical account token to create or update an 
 | Item                         | Value                                                                        |
 |------------------------------|------------------------------------------------------------------------------|
 | HTTP Method                  | POST                                                                         |
-| Endpoint Operation           | {apiAccessPoint}/api/gateway/signembed/v1/accounts                           |
+| Endpoint Operation           | \{apiAccessPoint\}/api/gateway/signembed/v1/accounts                         |
 | Authentication/Authorization | Valid technical account token. Required scopes in token: sign_account_write. |
 | Audience                     | Partner will call this API to create new accounts for their customers.       |
 | Request Header               | Partner APIs Common Headers                                                  |
@@ -693,16 +693,16 @@ Account update request parameters
 ***Overview***
 
 
-| Item               | Value                                                                                   |
-|--------------------|-----------------------------------------------------------------------------------------|
-| HTTP Method        | GET                                                                                     |
-| Endpoint Operation | /v1/accounts?isLegacy={true/false}&pagesSize={}&pageNumber={}                           |
-| Authorization      | &#8226; Valid Technical Account Token.\<br/\>&#8226; Mandatory Scope in token - sign_account_read                                    |
-| Audience           | Partner will call this API to fetch paginated list of accounts for all their customers. |
-| Request Header     | Partner APIs Common Headers                                                             |
-| Request Object     | GetAccountsResponse                                                                     |
-| HTTP Status Code   | 200                                                                                     |
-| Error Code         | ErrorCodes - get Account                                                                |
+| Item               | Value                                                                                             |
+|--------------------|---------------------------------------------------------------------------------------------------|
+| HTTP Method        | GET                                                                                               |
+| Endpoint Operation | /v1/accounts?isLegacy=\{true/false\}&pagesSize=\{\}&pageNumber=\{\}                               |
+| Authorization      | &#8226; Valid Technical Account Token.\<br/\>&#8226; Mandatory Scope in token - sign_account_read |
+| Audience           | Partner will call this API to fetch paginated list of accounts for all their customers.           |
+| Request Header     | Partner APIs Common Headers                                                                       |
+| Request Object     | GetAccountsResponse                                                                               |
+| HTTP Status Code   | 200                                                                                               |
+| Error Code         | ErrorCodes - get Account                                                                          |
 
 
 ***Query Params***
