@@ -156,7 +156,7 @@ When your customer initiates the OAuth process by clicking your app’s Sign lin
 
 | Parameter | Value                                                                                                     |
 |-----------|-----------------------------------------------------------------------------------------------------------|
-| error     | One of:\<br\/>* INVALID_REQUEST: the request is not well formed due to missing or invalid parameters\<br\/>* UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active\<br\/>* INVALID_SCOPE: the requested scopes are not syntactically valid\<br\/>* ACCESS_DENIED: the user declined to grant access or wasn’t able to (for example, they weren’t an admin)\<br\/>* SERVER_ERROR: an internal error occurred while processing the request                               |
+| error     | One of:\<br/\>* INVALID_REQUEST: the request is not well formed due to missing or invalid parameters\<br/\>* UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active\<br/\>* INVALID_SCOPE: the requested scopes are not syntactically valid\<br/\>* ACCESS_DENIED: the user declined to grant access or wasn’t able to (for example, they weren’t an admin)\<br/\>* SERVER_ERROR: an internal error occurred while processing the request                               |
 | state     | The value of state initially passed in, if any.                                                           |
 
 
