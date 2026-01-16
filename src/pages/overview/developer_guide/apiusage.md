@@ -653,7 +653,7 @@ an agreement. To do so:
 
 3. To get the agreement URL:
 
-> a. Go to the [POST /widgets/{id}/views](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/getWidgetView) and request OAuth access token for widget_read:self.  
+> a. Go to the [POST /widgets/\{id\}/views](https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/getWidgetView) and request OAuth access token for widget_read:self.  
 > b. In the _widgetID_ field, paste the copied ID.  
 > c. In the _WidgetViewInfo_ field, enter the following JSON and select **Try it out!**:
 
