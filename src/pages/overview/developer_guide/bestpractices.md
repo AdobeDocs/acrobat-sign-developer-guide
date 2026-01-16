@@ -446,7 +446,7 @@ Bad Pattern
 ### Details
 * The `agreementId` obtained from the `POST /agreement` API is utilized as a path parameter to invoke this API, which is responsible for transitioning the state of the agreement.
 * Following is the allowed transition state of agreement. DRAFT → AUTHORING → IN_PROCESS → CANCELLED/COMPLETED
-* For GET agreements{id} allowed states DRAFT → AUTHORING → IN_PROCESS → IN_REVISION
+* For GET agreements\{id\} allowed states DRAFT → AUTHORING → IN_PROCESS → IN_REVISION
 
 It is important to know that the IN_REVISION agreement state supports the capability of modifying an in-flight agreement by removing recipients, but it is not an extension of the authoring state and does not offer the full range of agreement modifications that are possible when the agreement in the authoring state.
 * Form fields can be added to the agreements only when it is in the AUTHORING state 
@@ -459,7 +459,7 @@ It is important to know that the IN_REVISION agreement state supports the capabi
 ### Best Practices
 * To check the status of an agreement, call the `GET /agreements/{agreementId}` API. Based on the returned status of the agreement, you can then invoke the `PUT /agreements/{agreementId}/state` API to update the agreement’s state accordingly
 * Ensure `PUT /agreements/{agreementId}/state` is used to transition only between correct states 
-  * DRAFT → AUTHORING → (PUT /agreements/{agreementId}/formFields) → IN_PROCESS → CANCELLED/COMPLETED
+  * DRAFT → AUTHORING → (PUT /agreements/\{agreementId\}/formFields) → IN_PROCESS → CANCELLED/COMPLETED
 * Once the agreement has been sent, it can no longer be modified or authored. Any attempts to make changes to the agreement’s content are prohibited after it has been dispatched
 
 ### Pseudo Code
@@ -598,19 +598,19 @@ public String getSigningUrl() {
 * You can track the agreement progress in different ways:
   * Using [Webhooks](../acrobat_sign_events/index.md#best-practices) to receive per-agreement change updates event. 
     * Webhooks acts a callback on configured endpoint with appropriate event details whenever the agreement status changes
-- [GET /agreements/{agreementId}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) (field - status, in the response) can be polled (at an appropriate polling frequency) to retrieve updated agreement status
+- [GET /agreements/\{agreementId\}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) (field - status, in the response) can be polled (at an appropriate polling frequency) to retrieve updated agreement status
 
 ### Bad Practices Identified
-- Polling /agreement/{id} API for agreements in either draft or terminal state
-- High frequency polling /agreement/{id} API for agreements status to query latest agreement status changes.
+- Polling /agreement/\{id\} API for agreements in either draft or terminal state
+- High frequency polling /agreement/\{id\} API for agreements status to query latest agreement status changes.
 - Polling implemented with no/incorrect backoff policy ignoring the document age etc.
 
 ### Best Practices
 * Webhooks: [Webhooks can be setup](../acrobat_sign_events/index.md#webhook-scopes) to get notified on any updates on agreement resource, as it transitions through 
   * Reduced API Invocations: This will help reduce the api redundant invocations, and you can update your system whenever there is a webhook notification received, avoiding reduce n/w resource overhead 
   * Backup: To not miss on events in case of unnoticed issue( webhook endpoint not reachable setup etc.), a polling mechanism with a very lenient frequency can be setup to maintain consistency, with optimised resource usage.
-* [Poll GET /agreements/{agreementId}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) API with an appropriate backoff policy to avoid redundant network overhead and throttling scenarios. This strategy helps reduce resource usage while still effectively monitoring the agreement’s status changes.
-* Poll the `/agreements/{id}` API only for agreements that are in non-terminal states, specifically those that are not in the “Draft” state or are currently in **IN_PROCESS**. This ensures efficient monitoring of agreements that are actively being processed
+* [Poll GET /agreements/\{agreementId\}](https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo) API with an appropriate backoff policy to avoid redundant network overhead and throttling scenarios. This strategy helps reduce resource usage while still effectively monitoring the agreement's status changes.
+* Poll the `/agreements/\{id\}` API only for agreements that are in non-terminal states, specifically those that are not in the "Draft" state or are currently in **IN_PROCESS**. This ensures efficient monitoring of agreements that are actively being processed
 * Terminate the polling once the agreement reaches a terminal state, specifically when it transitions to **Completed** or **Canceled**. This ensures efficient resource utilization and avoids unnecessary API calls
 
 ### Pseudo Code
@@ -717,7 +717,7 @@ public void startPollingForAgreementStatus(Agreement agreement) {
 * Usage of v5 or earlier GET /agreements API. These APIs do not have support for pagination and as well as advance filtering. As a result this increases the response time and increases network traffic
 * Calling v6/agreements API at a higher frequency. Even though this API is paginated, clients should have a valid case as to why they need to call this API at a higher frequency 
   * Ideally, client should limit calling these APIs at a frequency lower than 3
-* Iteratively calling /agreements/{agreementId} based on criteria such as status, role, created date, modified date, etc
+* Iteratively calling `/agreements/\{agreementId\}` based on criteria such as status, role, created date, modified date, etc
 
 ### Best Practices
 * Call GET v6/agreements or POST v6/search APIs and leverage pagination. This would ensure lesser response time and network traffic and optimal usage of resources
@@ -742,7 +742,7 @@ Public List<UserAgreements> getAgreementsAndDetails(String query, String id, Str
 ## Retrieving List of Agreements of a Widget
 ### Details
 * Once a widget is created, all the agreements that were created using this widget can be retrieved by using the following two APIs 
-  * GET v6/widgets/{widgetId}/agreements : Fetches list of agreements for the provided widgetId in a paginated manner 
+  * GET v6/widgets/\{widgetId\}/agreements` : Fetches list of agreements for the provided widgetId in a paginated manner 
   * POST v6/search : Fetches all agreements associated with the given associated widgetId additionally providing search, filter, sort capabilities
     * Specify type= WIDGET_INSTANCE search criteria
 * Best practices are similar to what is mentioned in the “Retrieving List of Agreement and Details”
@@ -752,7 +752,7 @@ Public List<UserAgreements> getAgreementsAndDetails(String query, String id, Str
 To retrieve list of users and user’s details, following two APIs are used
 
 * GET v6/users : Fetched list of all users of the account in a paginated manner. This API has capability to filter the result set on the basis of their account administrator status (“ADMIN_ONLY”, “NON_ADMIN_ONLY”, “ALL”)
-* GET v6/users/{userId} : Retrieves detailed information about the given user
+* GET v6/users/\{userId\} : Retrieves detailed information about the given user
 
 ### Bad Practices Identified
 * Usage of v5 or older GET /users API. This is not a paginated API, thus increasing response time and network traffic
@@ -762,7 +762,7 @@ To retrieve list of users and user’s details, following two APIs are used
 * Use paginated GET v6/users API in place of older version API and leverage pagination by defining the pageSize correctly, to reduce data transfer across network, resulting in faster response times. 
   * Limit GET all /users invocations to a limited (once per-hour, few per-day invocations)
     * Introduce sufficient delay(hour or two) between invocations on bulk endpoints (GET all based endpoints)
-* Cache response received from GET v6/users/{userId} whenever possible to avoid repeated invocation this API for a particular user
+* Cache response received from GET v6/users/\{userId\} whenever possible to avoid repeated invocation this API for a particular user
 
 ### Pseudo Code
 Good Pattern
