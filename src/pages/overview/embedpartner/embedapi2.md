@@ -114,16 +114,16 @@ Call these APIs via the AdobeSignAuthService for user token generation and valid
 
 ***Overview***
 
-| Item | Value |
-|------|-------|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/token |
-| Description | API to generate Sign Embed user Token. |
-| Request Header | Auth API Headers |
-| Request Object | Create token parameters |
-| Response Object | Create token response |
-| HTTP Status Code | 200 |
-| Error Code | Generate Token - Error response |
+| Item | Value                                                            |
+|------|------------------------------------------------------------------|
+| HTTP Method | POST                                                             |
+| Endpoint Operation | \{apiAccessPoint\}/api/gateway/adobesignauthservice/api/v1/token |
+| Description | API to generate Sign Embed user Token.                           |
+| Request Header | Auth API Headers                                                 |
+| Request Object | Create token parameters                                          |
+| Response Object | Create token response                                            |
+| HTTP Status Code | 200                                                              |
+| Error Code | Generate Token - Error response                                  |
 
 #### Request
 
@@ -221,16 +221,16 @@ scope:sign_webhook_retention,widget_write,workflow_read,agreement_send,agreement
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/validate_token |
-| Description | API to check the validity of the user token. |
-| Request Header | Auth API Headers |
-| Request Object | Validate token request |
-| Response Object | Validate token Response |
-| HTTP Status Code | 200 |
-| Error Code | Error Response - Validate Token |
+| Item | Value                                                                    |
+|---|--------------------------------------------------------------------------|
+| HTTP Method | POST                                                                     |
+| Endpoint Operation | \{apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/validate_token |
+| Description | API to check the validity of the user token.                             |
+| Request Header | Auth API Headers                                                         |
+| Request Object | Validate token request                                                   |
+| Response Object | Validate token Response                                                  |
+| HTTP Status Code | 200                                                                      |
+| Error Code | Error Response - Validate Token                                          |
 
 
 #### Request
@@ -321,7 +321,7 @@ You can call the following API to register your partner application by directly 
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | HTTP Method                  | POST                                                                                                                                   |
 | Endpoint Operation           | \{apiAccessPoint\}/api/gateway/signembed/v1/partners                                                                                   |
-| Authentication/Authorization | Values:\<br\/>&#8226; Valid Technical Account Token\<br\/>&#8226;   Mandatory scopes in token: sign_user_write, sign_user_read, sign_account_write, sign_account_read, sign_oem_user_impersonate |
+| Authentication/Authorization | Values:\<br/\>&#8226; Valid Technical Account Token\<br/\>&#8226;   Mandatory scopes in token: sign_user_write, sign_user_read, sign_account_write, sign_account_read, sign_oem_user_impersonate |
 | Description                  | API to register the Partner with Acrobat Sign. This would be called once as part of Partner onboarding.                                |
 | Request Header               | Partner APIs Common Headers                                                                                                            |
 | Request Object               | RegisterPartnerRequest                                                                                                                 |
@@ -439,7 +439,7 @@ Call these APIs directly using a technical account token to create or update an 
 | Item                         | Value                                                                        |
 |------------------------------|------------------------------------------------------------------------------|
 | HTTP Method                  | POST                                                                         |
-| Endpoint Operation           | {apiAccessPoint}/api/gateway/signembed/v1/accounts                           |
+| Endpoint Operation           | \{apiAccessPoint\}/api/gateway/signembed/v1/accounts                         |
 | Authentication/Authorization | Valid technical account token. Required scopes in token: sign_account_write. |
 | Audience                     | Partner will call this API to create new accounts for their customers.       |
 | Request Header               | Partner APIs Common Headers                                                  |
@@ -468,7 +468,7 @@ Call these APIs directly using a technical account token to create or update an 
 
 | Parameter Name | Type   | Default Value | Description                                                                                                              | Needed in POST/PUT | Updatable by PUT |
 |----------------|--------|---------------|--------------------------------------------------------------------------------------------------------------------------|--------------------|------------------|
-| type           | String | NA            | Name of consumable supported in Embed Accounts.\<br\/>&#8226;KBA_ANNUAL\<br\/>&#8226;PHONE_AUTH_ANNUAL\<br\/>&#8226;SEAT | Required           | mutable          |
+| type           | String | NA            | Name of consumable supported in Embed Accounts.\<br/\>&#8226;KBA_ANNUAL\<br/\>&#8226;PHONE_AUTH_ANNUAL\<br/\>&#8226;SEAT | Required           | mutable          |
 | attributes     | Object | N/A           | Properties for each consumable type                                                                                      | Required           | mutable          |
 
 
@@ -545,7 +545,7 @@ Call these APIs directly using a technical account token to create or update an 
 |------------------------------|-------------------------------------------------------------------|
 | HTTP Method                  | PUT                                                               |
 | Endpoint Operation           | \{apiAccessPoint\}/api/gateway/signembed/v1/accounts/`<accountId>` |
-| Authentication/Authorization | &#8226;Valid technical account token.\<br\/>&#8226;Required scopes: sign_account_write                        |
+| Authentication/Authorization | &#8226;Valid technical account token.\<br/\>&#8226;Required scopes: sign_account_write                        |
 | Audience                     | Partner will call this API to update existing Embed account.      |
 | Request Header               | Partner APIs Common Headers                                       |
 | Request Object               | AccountUpdateRequest                                              |
@@ -693,16 +693,16 @@ Account update request parameters
 ***Overview***
 
 
-| Item               | Value                                                                                   |
-|--------------------|-----------------------------------------------------------------------------------------|
-| HTTP Method        | GET                                                                                     |
-| Endpoint Operation | /v1/accounts?isLegacy={true/false}&pagesSize={}&pageNumber={}                           |
-| Authorization      | &#8226; Valid Technical Account Token.\<br\/>&#8226; Mandatory Scope in token - sign_account_read                                    |
-| Audience           | Partner will call this API to fetch paginated list of accounts for all their customers. |
-| Request Header     | Partner APIs Common Headers                                                             |
-| Request Object     | GetAccountsResponse                                                                     |
-| HTTP Status Code   | 200                                                                                     |
-| Error Code         | ErrorCodes - get Account                                                                |
+| Item               | Value                                                                                             |
+|--------------------|---------------------------------------------------------------------------------------------------|
+| HTTP Method        | GET                                                                                               |
+| Endpoint Operation | /v1/accounts?isLegacy=\{true/false\}&pagesSize=\{\}&pageNumber=\{\}                               |
+| Authorization      | &#8226; Valid Technical Account Token.\<br/\>&#8226; Mandatory Scope in token - sign_account_read |
+| Audience           | Partner will call this API to fetch paginated list of accounts for all their customers.           |
+| Request Header     | Partner APIs Common Headers                                                                       |
+| Request Object     | GetAccountsResponse                                                                               |
+| HTTP Status Code   | 200                                                                                               |
+| Error Code         | ErrorCodes - get Account                                                                          |
 
 
 ***Query Params***
@@ -710,9 +710,9 @@ Account update request parameters
 
 | Parameter Name | Type    | Description                                                   | Needed   | Data Range                                                                    |
 |----------------|---------|---------------------------------------------------------------|----------|-------------------------------------------------------------------------------|
-| pageNumber     | Integer | pageNumber to navigate through pages                          | Optional | default:0\<br\/>&#8226;If pageNumber is less than 0, throw INVALID_PARAMETER exception        |
-| pageSize       | Integer | pageSize to limit the number of records that will be fetched. | Optional | default:20 max:100\<br\/>&#8226;If pageSize is less than 1, throw INVALID_PARAMETER exception\<br\/>&#8226;If pageSize is more than 100, throw PAGE_SIZE_LIMIT_EXCEEDED exception |
-| isLegacy       | boolean | Return legacy accounts that are on old Sign Embed Models.     | Optional | default:false\<br\/>&#8226;If isLegacy value is not a boolean, throw INVALID_PARAMETER exception  |
+| pageNumber     | Integer | pageNumber to navigate through pages                          | Optional | default:0\<br/\>&#8226;If pageNumber is less than 0, throw INVALID_PARAMETER exception        |
+| pageSize       | Integer | pageSize to limit the number of records that will be fetched. | Optional | default:20 max:100\<br/\>&#8226;If pageSize is less than 1, throw INVALID_PARAMETER exception\<br/\>&#8226;If pageSize is more than 100, throw PAGE_SIZE_LIMIT_EXCEEDED exception |
+| isLegacy       | boolean | Return legacy accounts that are on old Sign Embed Models.     | Optional | default:false\<br/\>&#8226;If isLegacy value is not a boolean, throw INVALID_PARAMETER exception  |
 
 
 #### Response
@@ -787,17 +787,17 @@ Common user header attributes are identical to the Account APIs.
 ***Overview***
 
 
-| Item | Value |
-|---|---|
-| HTTP Method | POST |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/users |
+| Item | Value                                                                                                              |
+|---|--------------------------------------------------------------------------------------------------------------------|
+| HTTP Method | POST                                                                                                               |
+| Endpoint Operation | \{apiAccessPoint\}/api/gateway/signembed/v1/users                                                                  |
 | Authentication/ Authorization | Valid Technical Account Token or Sign Embed user Admin token. Mandatory Scopes required in token: sign_user_write. |
-| Audience | Partner will call this API to add a new user to their customer's account. |
-| Request Header | Partner APIs Common Headers |
-| Request Object | Create User Request |
-| Response Object | Create User Response |
-| HTTP Status Code | 201 |
-| Error Code | ErrorCodes - Create User |
+| Audience | Partner will call this API to add a new user to their customer's account.                                          |
+| Request Header | Partner APIs Common Headers                                                                                        |
+| Request Object | Create User Request                                                                                                |
+| Response Object | Create User Response                                                                                               |
+| HTTP Status Code | 201                                                                                                                |
+| Error Code | ErrorCodes - Create User                                                                                           |
 
 
 #### Request
@@ -880,7 +880,7 @@ Common user header attributes are identical to the Account APIs.
 | Item | Value                                                                               |
 |---|-------------------------------------------------------------------------------------|
 | HTTP Method | PUT                                                                                 |
-| Endpoint Operation | {apiAccessPoint}/api/gateway/signembed/v1/users/`<userId>`                           |
+| Endpoint Operation | \{apiAccessPoint\}/api/gateway/signembed/v1/users/`<userId>`                        |
 | Authentication/Authorization | Valid Technical Account Token or Admin User Token.                                  
     Mandatory scopes in token: sign_user_write. |
 | Audience | Partner will call this API to update the user attributes in the customer's account. |
@@ -946,7 +946,7 @@ Common user header attributes are identical to the Account APIs.
 |---|--------------------------------------------------------|
 | HTTP Method | GET                                                    |
 | Endpoint Operation | /api/gateway/signembed/v1/users/`<userId>`              |
-| Authorization | Valid Technical Account Token or Admin User Token.\<br\/>Mandatory scopes in token: sign_user_read. |
+| Authorization | Valid Technical Account Token or Admin User Token.\<br/\>Mandatory scopes in token: sign_user_read. |
 | Mandatory Scopes | sign_user_read                                         |
 | Audience | Partner will call this API to fetch details of a user. |
 | Request Header | Partner APIs Common Headers                            |
