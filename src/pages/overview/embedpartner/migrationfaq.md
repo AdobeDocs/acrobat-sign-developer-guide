@@ -157,10 +157,10 @@ In Production:
 | Endpoint Operation           | /v1/users/migrationStatus                                                                       |
 | Authentication/Authorization | Valid Technical Account Token \<br/\> Mandatory Scopes in token - **sign_user_read**            |
 | Audience                     | Partner will call this API to check the state of a user whether it is migrated or not.          |
-| Request Header               | [Partner Migration Status APIs Headers](migration_faq.md#partner-migration-status-apis-headers) |
-| Response Object              | [MigrationStatusReponse](migration_faq.md#migrationstatusreponse)                               |
+| Request Header               | [Partner Migration Status APIs Headers](migrationfaq.md#partner-migration-status-apis-headers) |
+| Response Object              | [MigrationStatusReponse](migrationfaq.md#migrationstatusreponse)                               |
 | HTTP Status Code             | 200                                                                                             |
-| Error Code                   | [Error Response - User Migration Status](migration_faq.md#error-response-user-migration-status) |
+| Error Code                   | [Error Response - User Migration Status](migrationfaq.md#error-response-user-migration-status) |
 
 ## Request Form parameters
 
