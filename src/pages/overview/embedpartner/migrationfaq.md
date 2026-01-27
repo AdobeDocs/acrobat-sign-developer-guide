@@ -52,7 +52,7 @@ No Acrobat Sign asset IDs are changing as part of this process, and they are not
 ```
 
 - GET /v1/accounts – Returns Acrobat Sign accounts created using your technical account token.
-- POST /v1/users/migrationStatus – The [private API to get the migration status of a user](migration_faq.md#migration-status-of-a-user) is documented at the bottom of this page.
+- POST /v1/users/migrationStatus – The [private API to get the migration status of a user](migrationfaq.md#migration-status-of-a-user) is documented at the bottom of this page.
 
 ## Access token storage and validation
 
