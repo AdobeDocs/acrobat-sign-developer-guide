@@ -13,7 +13,7 @@ driver as documentation evolves. Send suggestions to
 
 The following guidelines will help you understand how to use the Adobe Acrobat
 Sign account provisioning API to create new accounts for your customers.
-[Download the PDF](https://raw.githubusercontent.com/AdobeDocs/acrobat-sign-developer-guide/sign-pages-bugfix/src/pages/overview/embedpartner/223014.3-Adobe-Provisioning-Considerations-v2.pdf).
+[Download the PDF](https://raw.githubusercontent.com/AdobeDocs/acrobat-sign-developer-guide/main/src/pages/overview/embedpartner/223014.3-Adobe-Provisioning-Considerations-v2.pdf).
 
 ## Provisioning FAQs
 
