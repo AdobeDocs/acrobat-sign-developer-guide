@@ -64,7 +64,7 @@
         - [Certifying Your Partner App v.1.0](overview/embedpartner/partnercertification.md)
         - [How-to Video Tutorials](overview/embedpartner/videos.md)
         - [Upgrading to OEM Embed 2.0 - Overview](overview/embedpartner/migrationoverview.md)
-        - [Phases of Upgrade](overview/embedpartner/migrationchanges.md)
+        - [Phases of Upgrade](overview/embedpartner/migrationsteps.md)
         - [Changes in the Acrobat Sign product and APIs](overview/embedpartner/migrationchanges.md)
         - [Implementation Notes and Best Practice](overview/embedpartner/migrationfaq.md)
         - [Embed Partner Onboarding v 2.0](overview/embedpartner/onboarding2.md)
