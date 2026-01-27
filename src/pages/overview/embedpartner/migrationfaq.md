@@ -32,11 +32,11 @@ No Acrobat Sign asset IDs are changing as part of this process, and they are not
 ## Embed 2.0 adds the following:
 
 - [Embed 2.0 Authentication and Provisioning APIs](embedapi2.md)
-- [POST /v1/accounts](https://opensource.adobe.com/acrobat-sign/embedpartner/embedapi2.html#id7) (and PUT /V1/accounts) enables you to configure three “consumables”: SEATS, KBA, PHONE_AUTH:
+- [POST /v1/accounts](embedapi2.md#id7) (and PUT /V1/accounts) enables you to configure three “consumables”: SEATS, KBA, PHONE_AUTH:
   - **SEATS**: This consumable represents the number of user seats available in an account. Each seat allows one user to access and use the services provided by the account. For example, if an account has a cap of 10 SEATS, it means up to 10 users can be assigned to use the account’s services at any given time. Recommendation: Set the SEATS “cap” to “0” or “-1” for an unlimited number of seats.
   - [PHONE_AUTH](https://helpx.adobe.com/sign/config/send-settings/auth-methods/phone-auth.html): This consumable is related to phone authentication, a method used to verify a user’s identity. It involves sending a verification code to the user’s phone via SMS or voice call, which the user must enter to access the service. Each PHONE_AUTH transaction is consumed per recipient, meaning if an agreement requires phone authentication for three recipients, it will consume three PHONE_AUTH transactions. Recommendation: Set PHONE_AUTH “cap” to “0” for unlimited or “-1” to disable.
   - [KBA (Knowledge-Based Authentication)](https://helpx.adobe.com/sign/config/send-settings/auth-methods/knowledge-based-auth.html): This is a premium authentication method that verifies a user’s identity by asking them to answer personal questions based on public records. Each KBA transaction is consumed per recipient (like PHONE_AUTH). For instance, if an agreement requires KBA for three recipients, it will consume three KBA transactions. KBA is typically used in scenarios requiring a high level of identity verification. Recommendation: Set KBA “cap” to “0” for unlimited or “-1” to disable.
-- [POST /v1/users](https://opensource.adobe.com/acrobat-sign/embedpartner/embedapi2.html#post-user) – the email addresses in the request must be sixty characters or less including the “@domain.com.”” Create an admin user by assigning one or both roles: ACCOUNT_ADMIN, PRIVACY_ADMIN
+- [POST /v1/users](embedapi2.md#post-user) – the email addresses in the request must be sixty characters or less including the “@domain.com.”” Create an admin user by assigning one or both roles: ACCOUNT_ADMIN, PRIVACY_ADMIN
 
 ```{
   "firstName": "Adrian",
@@ -52,7 +52,7 @@ No Acrobat Sign asset IDs are changing as part of this process, and they are not
 ```
 
 - GET /v1/accounts – Returns Acrobat Sign accounts created using your technical account token.
-- POST /v1/users/migrationStatus – The [private API to get the migration status of a user](migration_faq.html#private-api-to-get-the-migration-status-of-a-user) is documented at the bottom of this page.
+- POST /v1/users/migrationStatus – The [private API to get the migration status of a user](migration_faq.html#migration-status-of-a-user) is documented at the bottom of this page.
 
 ## Access token storage and validation
 
@@ -144,6 +144,7 @@ In Sandbox:
 - dev.partner.com is linked to child_org_dev
 - stage.partner.com is linked to child_org_stage
 - preprod.partner.com is linked to child_org_preprod
+
 In Production:
 
 - esign.partner.com is linked to child_org_prod
@@ -151,39 +152,32 @@ In Production:
 
 ## Migration Status of a User
 
-|                              | **Value**                                                                                       |
-|------------------------------|-------------------------------------------------------------------------------------------------|
-| HTTP Method                  | Post                                                                                            |
-| Endpoint Operation           | /v1/users/migrationStatus                                                                       |
-| Authentication/Authorization | Valid Technical Account Token \<br/\> Mandatory Scopes in token - **sign_user_read**            |
-| Audience                     | Partner will call this API to check the state of a user whether it is migrated or not.          |
-| Request Header               | [Partner Migration Status APIs Headers](migrationfaq.md#partner-migration-status-apis-headers) |
-| Response Object              | [MigrationStatusReponse](migrationfaq.md#migrationstatusreponse)                               |
-| HTTP Status Code             | 200                                                                                             |
-| Error Code                   | [Error Response - User Migration Status](migrationfaq.md#error-response-user-migration-status) |
+|                              | **Value**                                                                                      |
+|------------------------------|------------------------------------------------------------------------------------------------|
+| HTTP Method                  | Post                                                                                           |
+| Endpoint Operation           | /v1/users/migrationStatus                                                                      |
+| Authentication/Authorization | Valid Technical Account Token \<br/\> Mandatory Scopes in token - **sign_user_read**           |
+| Audience                     | Partner will call this API to check the state of a user whether it is migrated or not.         |
+| Request Header               | [Partner Migration Status APIs Headers](#partner-migration-status-apis-headers) |
+| Response Object              | [MigrationStatusReponse](#migrationstatusreponse)                               |
+| HTTP Status Code             | 200                                                                                            |
+| Error Code                   | [Error Response - User Migration Status](#error-response-user-migration-status) |
 
-## Request Form parameters
+### Request Form parameters
 
 | **Parameter Name** | **Type** | **Description**                  | **Optional/Required**                                                              |
 |--------------------|----------|----------------------------------|------------------------------------------------------------------------------------|
 | email              | String   | email Id of the user             | Either a UserId or Email is required.                                              |
 | userId             | String   | Acrobat Sign User Id of the user | Either UserId or Email is required. User Id will get priority if both are present. |
 
-## Response Object
+### Response Object
 
 **Migration status Response**
 
-| **Parameter Name** | **Type** | **Description**                                                                                                                                                                                                                                                                           | **Value Range**                                              |
-|--------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| state              | Enum     | Check if the user is migrated to Embed 2.0 on not.\<br/\> -MIGRATED - The User has been Migrated Successfully\<br/\> -NOT_MIGRATED - The User is not migrated and can continue to access Sign using the legacy Embed model.                                                               | MIGRATED/NOT_MIGRATED                                        |
-| migrationStatus    | Enum     | Status of a user with respect to migration and identify the correct model of the user.\<br/\> - MIGRATION_REQUIRED - Migration not started for this user.\<br/\> - IN_PROGRESS - Migration is in progress.\<br/\> - SUCCEEDED - Migration successful.\<br/\> - FAILED - Migration Failed. | If the User State is MIGRATED, the Migration Status will be: |
-
-SUCCEEDED
-If the User State is NOT_MIGRATED, the Migration Status can be:
-MIGRATION_REQUIRED
-IN_PROGRESS
-FAILED
-|
+| **Parameter Name** | **Type** | **Description**                                                                                                                                                                                                                                                                           | **Value Range**                                                                                                                                                                                                                                |
+|--------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| state              | Enum     | Check if the user is migrated to Embed 2.0 on not.\<br/\> -MIGRATED - The User has been Migrated Successfully\<br/\> -NOT_MIGRATED - The User is not migrated and can continue to access Sign using the legacy Embed model.                                                               | MIGRATED/NOT_MIGRATED                                                                                                                                                                                                                          |
+| migrationStatus    | Enum     | Status of a user with respect to migration and identify the correct model of the user.\<br/\> - MIGRATION_REQUIRED - Migration not started for this user.\<br/\> - IN_PROGRESS - Migration is in progress.\<br/\> - SUCCEEDED - Migration successful.\<br/\> - FAILED - Migration Failed. | If the User State is MIGRATED, the Migration Status will be: \<br/\>&#8226;SUCCEEDED \<br/\>If the User State is NOT_MIGRATED, the Migration Status can be: \<br/\>&#8226; MIGRATION_REQUIRED \<br/\>&#8226; IN_PROGRESS \<br/\>&#8226; FAILED |
 
 **Sample Response**
 ```
