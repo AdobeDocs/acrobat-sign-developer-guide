@@ -44,30 +44,30 @@ Your feedback is valuable and is vital in improving our product and documentatio
 
 **Changes to the Acrobat Sign SOAP APIs**
 
-| **Legacy SOAP endpoint**         | **New REST endpoint**                                                                                                                                                          |
-|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| getBaseUris                      | /baseURIs, GET                                                                                                                                                                 |
-| sendDocument                     | /agreements, POST                                                                                                                                                              |
-| sendDocumentInteractive          | /agreements/{Id}/views, POST                                                                                                                                                   |
-| sendDocumentMegaSign             | /megaSigns, POST                                                                                                                                                               |
-| createLibraryDocument            | /libraryDocuments, POST                                                                                                                                                        |
-| createLibraryDocumentInteractive | /libraryDocuments/{Id}, POST                                                                                                                                                   |
-| sendReminder                     | /agreements/{Id}/reminders, POST                                                                                                                                               |
-| removeDocument                   | /agreements/{Id}/documents, DELETE                                                                                                                                             |
-| cancelDocument                   | /agreements/{Id}/state, PUT                                                                                                                                                    |
-| rejectDocument                   | /agreements/{Id}/members/participationSets/{ID}/participants/{Id}/reject, PUT                                                                                                  |
-| replaceSigner                    | /agreements/{Id}/members/participantSets/{Id}, PUT                                                                                                                             |
-| delegateSigning                  | /agreements/{Id}/members/participantSets/{Id}/participants/{Id}/delegatedParticipantSet, POST                                                                                  |
-| notifyDocumentVaulted            | /agreements/{Id}/vaulted, PUT                                                                                                                                                  |
-| getDocumentInfo                  | /agreements/{Id}, GET                                                                                                                                                          |
-| getDocumentInfosByExternalId     | /agreements, GET with query parameter externalId={Id}                                                                                                                          |
-| getDocuments                     | /agreements/{Id}/documents, GET                                                                                                                                                |
-| getDocumentUrls                  | /agreements/{Id}/combinedDocument/url, GET \<br/\>/agreements/{Id}/documents/{Id}/url, GET                                                                                     |
-| getDocumentImageUrls             | /agreements/{Id}/documents/imageUrls, GET - Retrieve URL of an individual document \<br/\> /agreements/{Id}/documents/{Id}/imageUrls, GET - Retrieve URLs of all visible pages |
-| getSupportingDocuments           | /agreements/{Id}/documents, GET                                                                                                                                                |
-| getFormData                      | /agreements/{Id}/formData, GET                                                                                                                                                 |
-| getAuditTrail                    | /agreements/{Id}/auditTrail, GET                                                                                                                                               |
-| getSigningUrl                    | /agreements/{Id}/singingUrls, GET                                                                                                                                              |
+| **Legacy SOAP endpoint**         | **New REST endpoint**                                                                                                                                                                |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| getBaseUris                      | /baseURIs, GET                                                                                                                                                                       |
+| sendDocument                     | /agreements, POST                                                                                                                                                                    |
+| sendDocumentInteractive          | /agreements/\{Id\}/views, POST                                                                                                                                                       |
+| sendDocumentMegaSign             | /megaSigns, POST                                                                                                                                                                     |
+| createLibraryDocument            | /libraryDocuments, POST                                                                                                                                                              |
+| createLibraryDocumentInteractive | /libraryDocuments/\{Id\}, POST                                                                                                                                                       |
+| sendReminder                     | /agreements/\{Id\}/reminders, POST                                                                                                                                                   |
+| removeDocument                   | /agreements/\{Id\}/documents, DELETE                                                                                                                                                 |
+| cancelDocument                   | /agreements/\{Id\}/state, PUT                                                                                                                                                        |
+| rejectDocument                   | /agreements/\{Id\}/members/participationSets/\{ID\}/participants/\{Id\}/reject, PUT                                                                                                  |
+| replaceSigner                    | /agreements/\{Id\}/members/participantSets/\{Id\}, PUT                                                                                                                               |
+| delegateSigning                  | /agreements/\{Id\}/members/participantSets/\{Id\}/participants/\{Id\}/delegatedParticipantSet, POST                                                                                  |
+| notifyDocumentVaulted            | /agreements/\{Id\}/vaulted, PUT                                                                                                                                                      |
+| getDocumentInfo                  | /agreements/\{Id\}, GET                                                                                                                                                              |
+| getDocumentInfosByExternalId     | /agreements, GET with query parameter externalId=\{Id\}                                                                                                                              |
+| getDocuments                     | /agreements/\{Id\}/documents, GET                                                                                                                                                    |
+| getDocumentUrls                  | /agreements/\{Id\}/combinedDocument/url, GET \<br/\>/agreements/\{Id\}/documents/\{Id\}/url, GET                                                                                     |
+| getDocumentImageUrls             | /agreements/\{Id\}/documents/imageUrls, GET - Retrieve URL of an individual document \<br/\> /agreements/\{Id\}/documents/\{Id\}/imageUrls, GET - Retrieve URLs of all visible pages |
+| getSupportingDocuments           | /agreements/\{Id\}/documents, GET                                                                                                                                                    |
+| getFormData                      | /agreements/\{Id\}/formData, GET                                                                                                                                                     |
+| getAuditTrail                    | /agreements/\{Id\}/auditTrail, GET                                                                                                                                                   |
+| getSigningUrl                    | /agreements/\{Id\}/singingUrls, GET                                                                                                                                                  |
 
 Reference for the complete list regarding SOAP to REST mapping: [https://developer.adobe.com/acrobat-sign/docs/overview/developer_guide/migrating#deprecated-soap-methods](../developer_guide/migrating.md#deprecated-soap-methods)
 
