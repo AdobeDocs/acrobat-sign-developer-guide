@@ -152,16 +152,16 @@ In Production:
 
 ## Migration Status of a User
 
-|                              | **Value**                                                                                      |
-|------------------------------|------------------------------------------------------------------------------------------------|
-| HTTP Method                  | Post                                                                                           |
-| Endpoint Operation           | /v1/users/migrationStatus                                                                      |
-| Authentication/Authorization | Valid Technical Account Token \<br/\> Mandatory Scopes in token - **sign_user_read**           |
-| Audience                     | Partner will call this API to check the state of a user whether it is migrated or not.         |
-| Request Header               | [Partner Migration Status APIs Headers](#partner-migration-status-apis-headers) |
-| Response Object              | [MigrationStatusReponse](#migrationstatusreponse)                               |
-| HTTP Status Code             | 200                                                                                            |
-| Error Code                   | [Error Response - User Migration Status](#error-response-user-migration-status) |
+|                              | **Value**                                                                              |
+|------------------------------|----------------------------------------------------------------------------------------|
+| HTTP Method                  | Post                                                                                   |
+| Endpoint Operation           | /v1/users/migrationStatus                                                              |
+| Authentication/Authorization | Valid Technical Account Token \<br/\> Mandatory Scopes in token - **sign_user_read**   |
+| Audience                     | Partner will call this API to check the state of a user whether it is migrated or not. |
+| Request Header               | [Partner Migration Status APIs Headers](#partner-migration-status-apis-headers)        |
+| Response Object              | [MigrationStatusReponse](migrationfaq.md#reponse-object)                               |
+| HTTP Status Code             | 200                                                                                    |
+| Error Code                   | [Error Response - User Migration Status](#error-response)                              |
 
 ### Request Form parameters
 
@@ -170,14 +170,15 @@ In Production:
 | email              | String   | email Id of the user             | Either a UserId or Email is required.                                              |
 | userId             | String   | Acrobat Sign User Id of the user | Either UserId or Email is required. User Id will get priority if both are present. |
 
+
 ### Response Object
 
 **Migration status Response**
 
-| **Parameter Name** | **Type** | **Description**                                                                                                                                                                                                                                                                           | **Value Range**                                                                                                                                                                                                                                |
-|--------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| state              | Enum     | Check if the user is migrated to Embed 2.0 on not.\<br/\> -MIGRATED - The User has been Migrated Successfully\<br/\> -NOT_MIGRATED - The User is not migrated and can continue to access Sign using the legacy Embed model.                                                               | MIGRATED/NOT_MIGRATED                                                                                                                                                                                                                          |
-| migrationStatus    | Enum     | Status of a user with respect to migration and identify the correct model of the user.\<br/\> - MIGRATION_REQUIRED - Migration not started for this user.\<br/\> - IN_PROGRESS - Migration is in progress.\<br/\> - SUCCEEDED - Migration successful.\<br/\> - FAILED - Migration Failed. | If the User State is MIGRATED, the Migration Status will be: \<br/\>&#8226;SUCCEEDED \<br/\>If the User State is NOT_MIGRATED, the Migration Status can be: \<br/\>&#8226; MIGRATION_REQUIRED \<br/\>&#8226; IN_PROGRESS \<br/\>&#8226; FAILED |
+| **Parameter Name** | **Type** | **Description**                                                                                                                                                                                                                                                                                               | **Value Range**                                                                                                                                                                                                                                 |
+|--------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| state              | Enum     | Check if the user is migrated to Embed 2.0 on not.\<br/\> -MIGRATED - The User has been Migrated Successfully\<br/\> -NOT_MIGRATED - The User is not migrated and can continue to access Sign using the legacy Embed model.                                                                                   | MIGRATED/NOT_MIGRATED                                                                                                                                                                                                                           |
+| migrationStatus    | Enum     | Status of a user with respect to migration and identify the correct model of the user.\<br/\>&#8226; MIGRATION_REQUIRED - Migration not started for this user.\<br/\>&#8226; IN_PROGRESS - Migration is in progress.\<br/\>&#8226; SUCCEEDED - Migration successful.\<br/\>&#8226; FAILED - Migration Failed. | If the User State is MIGRATED, the Migration Status will be: \<br/\>&#8226; SUCCEEDED \<br/\>If the User State is NOT_MIGRATED, the Migration Status can be: \<br/\>&#8226; MIGRATION_REQUIRED \<br/\>&#8226; IN_PROGRESS \<br/\>&#8226; FAILED |
 
 **Sample Response**
 ```
@@ -205,11 +206,11 @@ In Production:
 
 ### Partner Migration Status APIs Headers
 
-| **Header Name** | **Values**                        | **Description**                                           |
-|-----------------|-----------------------------------|-----------------------------------------------------------|
-| Authorization   | Bearer `<Technical Account Token>`  | Technical account token that is generated by the partner. |
-| content-type    | application/x-www-form-urlencoded | Media type of the resource.                               |
-| x-request-id    | String                            | A string value needed to track a given request            |
+| **Header Name** | **Values**                         | **Description**                                           |
+|-----------------|------------------------------------|-----------------------------------------------------------|
+| Authorization   | Bearer `<Technical Account Token>` | Technical account token that is generated by the partner. |
+| content-type    | application/x-www-form-urlencoded  | Media type of the resource.                               |
+| x-request-id    | String                             | A string value needed to track a given request            |
 
 <HorizontalLine />
 © Copyright 2022, Adobe Inc..  Last update: Jan 30, 2025.
