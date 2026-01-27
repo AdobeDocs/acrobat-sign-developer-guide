@@ -92,8 +92,8 @@ OAuth access_token of the new account.)
 
 ## New account provisioning flow
 
-1. GET/ [https://secure.adobesign.com/api/rest/v6/baseUris](https://secure.adobesign.com/api/rest/v6/baseUris)—Uses your provisioning integration key to return baseUris (aka {{apiAccessPoint}}) for POST/accounts
-2. POST/ {{apiAccessPoint}}/api/rest/v6/accounts:
+1. GET/ [https://secure.adobesign.com/api/rest/v6/baseUris](https://secure.adobesign.com/api/rest/v6/baseUris)—Uses your provisioning integration key to return baseUris (aka \{\{apiAccessPoint}}) for POST/accounts
+2. POST/ \{\{apiAccessPoint}}/api/rest/v6/accounts:
    * Uses shard returned by GET/baseUris
    * Required JSON: customer-admin email address
    * Highly recommended but optional: countryCode (used to determine correct geo-shard for new account)

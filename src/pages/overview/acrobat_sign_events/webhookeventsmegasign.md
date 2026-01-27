@@ -150,7 +150,7 @@ Triggers when a bulk signing event is created.
 | `initiatingUserId` | String | The user ID of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
 | `initiatingUserEmail` | String | The user email of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing. |
 | `comment` | String | Any arbitrary comment. |
-| `notifyOthers` | Boolean | True or false (default) depending on whether recipients should be notified that the transaction(s) have been cancelled. This field is set when an agreement is cancelled using the {`PUT /agreements/{agreementId}/state`} API. |
+| `notifyOthers` | Boolean | True or false (default) depending on whether recipients should be notified that the transaction(s) have been cancelled. This field is set when an agreement is cancelled using the `{PUT /agreements/{agreementId}/state}` API. |
 
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
