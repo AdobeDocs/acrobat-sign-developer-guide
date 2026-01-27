@@ -42,7 +42,7 @@ Phases 3A and 3B can happen separately or simultaneously.
 
 **Phase 3A - Partner onboards new customers onto the new 2.0 platform**
 
-Complete documentation for onboarding to the 2.0 platform can be found here: https://developer.adobe.com/acrobat-sign/docs/overview/embedpartner/embedapi2. Once your partner application is certified, the Partner can use the Acrobat Sign Embed APIs to:
+Complete documentation for onboarding to the 2.0 platform can be found here: [https://developer.adobe.com/acrobat-sign/docs/overview/embedpartner/embedapi2](https://developer.adobe.com/acrobat-sign/docs/overview/embedpartner/embedapi2). Once your partner application is certified, the Partner can use the Acrobat Sign Embed APIs to:
 
 - Create customer accounts
 - Add users
