@@ -52,7 +52,7 @@ No Acrobat Sign asset IDs are changing as part of this process, and they are not
 ```
 
 - GET /v1/accounts – Returns Acrobat Sign accounts created using your technical account token.
-- POST /v1/users/migrationStatus – The [private API to get the migration status of a user](migration_faq.html#migration-status-of-a-user) is documented at the bottom of this page.
+- POST /v1/users/migrationStatus – The [private API to get the migration status of a user](migration_faq.md#migration-status-of-a-user) is documented at the bottom of this page.
 
 ## Access token storage and validation
 
@@ -187,7 +187,7 @@ In Production:
 }
 ```
 
-## Error Response
+### Error Response
 
 **Error codes**
 
@@ -203,7 +203,7 @@ In Production:
 | 404                  | USER_NOT_FOUND         | User not found.                                                        |
 | 500                  | MISC_SERVER_ERROR      | Some miscellaneous error has occurred.                                 |
 
-## Partner Migration Status APIs Headers
+### Partner Migration Status APIs Headers
 
 | **Header Name** | **Values**                        | **Description**                                           |
 |-----------------|-----------------------------------|-----------------------------------------------------------|
