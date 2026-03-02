@@ -12,7 +12,7 @@ Last update: March 1, 2026.
 These APIs enable organizations to:
 
 - Upload and process documents (PDF, DOC, DOCX).
-- Retrieve document processing status.
+- Search and filter documents and retrieve processing status.
 - Retrieve available attributes (or custom insights) for filtering and searching.
 - Search and filter processed documents with pagination support to retrieve detailed document-level intelligence and extracted insights.
 
@@ -31,7 +31,7 @@ https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html
   Upload a document for processing.
 
 - `POST /documents/search`  
-  Search documents and retrieve processing status.
+  Search and filter for documents and retrieve processing status.
 
 - `GET /documents/{documentId}`  
   Retrieve detailed extracted data for a specific document.
