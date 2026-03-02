@@ -22,11 +22,6 @@ Access is provided through a **Technical Account** configured in the Adobe Devel
 
 [API methods online](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html)
 
-<!-- INTERNAL NOTE:
-Source content: 
-https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html
--->
-
 - `POST /documents`  
   Upload a document for processing.
 
@@ -40,10 +35,6 @@ https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html
   Retrieve available attributes (custom insights) for filtering and searching.
 
 ## Getting access to Acrobat Analyzer APIs
-
-<!-- INTERNAL NOTE:
-Source content: https://wiki.corp.adobe.com/display/ES/Technical+account+onboarding+for+Acrobat+Analyzer+Apis
--->
 
 To use the APIs, you must create a **Technical Account** in the Adobe Developer Console.
 
@@ -169,7 +160,6 @@ To enable a Technical Account to act on behalf of specific users, follow these s
 - Confirm you selected the correct account intended for integration use.
 
 ![tech-account-id](_images/analyzer/tech-account-id.png)
-tech-account-id
 
 #### Step 2: Identify the end users to be allowlisted
 
