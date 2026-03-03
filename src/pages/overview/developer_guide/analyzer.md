@@ -49,8 +49,8 @@ A Technical Account:
 
 Before creating a Technical Account:
 
-- You [must have **Developer access**](https://helpx.adobe.com/enterprise/using/manage-developers.html#Adddevelopers), or
-- You must [be the **System Administrator**](https://helpx.adobe.com/enterprise/using/admin-roles.html#enterprise) for your organization.
+- You must have [**Developer access**](https://helpx.adobe.com/enterprise/using/manage-developers.html#Adddevelopers), or
+- You must [be the [**System Administrator**](https://helpx.adobe.com/enterprise/using/admin-roles.html#enterprise) for your organization.
 
 ### Create a Technical Account
 
@@ -106,7 +106,7 @@ Important:
 
 Once you generate the access token, you can begin making API calls:
 
-1. Access the [online API documentation:](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) 
+1. Access the [online API documentation](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) 
 
 2. Select **Authorize**.
 
