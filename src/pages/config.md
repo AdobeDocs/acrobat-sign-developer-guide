@@ -42,6 +42,7 @@
         - [REST API Samples](overview/developer_guide/samples.md)
         - [Web Message Events](overview/developer_guide/events.md)
         - [Migrating and Updating Apps](overview/developer_guide/migrating.md)
+        - [Acrobat Analyzer](overview/developer_guide/analyzer.md)
         - [Glossary](overview/developer_guide/glossary.md)
     - [Introduction to Webhook Reference](overview/acrobat_sign_events/index.md)
         - [Webhooks in Acrobat Sign](overview/acrobat_sign_events/index.md)
