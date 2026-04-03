@@ -1539,7 +1539,7 @@ High-frequency polling can put unnecessary loads on systems which can lead to su
 
 #### API polling threshold
 
-The polling policy applies to all GET API endpoints. A Minimum Object Polling Interval (MOPI) will regulate how often clients can send the identical API request to the Acrobat Sign service. Your service plan determines your MOPI and the threshold for identical requests within the MOPI. Higher-tier plans allow shorter intervals and higher thresholds:
+[The polling policy](#handling-rate-limiting-http-429) applies to all GET API endpoints. A Minimum Object Polling Interval (MOPI) will regulate how often clients can send the identical API request to the Acrobat Sign service. Your service plan determines your MOPI and the threshold for identical requests within the MOPI. Higher-tier plans allow shorter intervals and higher thresholds:
 
 **Minimum Object Polling Interval (MOPI) - The default MOPI varies depending on the tier of service and application types:**
 
