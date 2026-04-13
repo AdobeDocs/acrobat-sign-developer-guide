@@ -1557,7 +1557,8 @@ Identical GET requests mean the same path, parameters, and headers requested by 
 Recommended Implementation
 
 * **Use ETags and cache repeated request responses** - If the API supports the 304 status code, use the ETag returned from the first request. Include ETag values in the If-None-Match header for the subsequent requests. When a 304 response is received, use the cached data instead of making a new API call.
-* **Increase call limits within MOPI** - You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.
+* **[Handle 429 response per the best practices](#handling-rate-limiting-http-429)**
+ - You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.
 
 <HorizontalLine />
 © Copyright 2022, Adobe Inc..  Last update: Dec 18, 2025.
