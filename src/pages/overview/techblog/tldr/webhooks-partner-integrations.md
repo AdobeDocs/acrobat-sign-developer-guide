@@ -17,7 +17,7 @@ It is also recommended to set up a polling mechanism and some way to re-create t
 
 ## Resource (per-agreement) webhook cleanup
 
-The webhooks created by API will be visible in the UI if folks are logging into the website, but they can't be deleted from there. If you are using resource-level webhooks, there will be a post-terminal cleanup that you should perform to remove API-initiated webhooks for agreements that have completed workflows. If you do not, the UI will have hundreds or thousands of useless webhooks piling up for old agreements. Once the agreements are in a terminal state, they can be cleaned up using the [DELETE /webhooks/{webhookID}](https://secure.echosign.com/public/docs/restapi/v6#!/webhooks/deleteWebhook) API call.
+The webhooks created by API will be visible in the UI if folks are logging into the website, but they can't be deleted from there. If you are using resource-level webhooks, there will be a post-terminal cleanup that you should perform to remove API-initiated webhooks for agreements that have completed workflows. If you do not, the UI will have hundreds or thousands of useless webhooks piling up for old agreements. Once the agreements are in a terminal state, they can be cleaned up using the [DELETE /webhooks/\{webhookID\}](https://secure.echosign.com/public/docs/restapi/v6#!/webhooks/deleteWebhook) API call.
 
 ## Update Agreement Status "manual" option
 
