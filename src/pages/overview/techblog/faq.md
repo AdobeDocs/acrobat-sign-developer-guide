@@ -13,4 +13,4 @@ For detailed information on agreement statuses and webhook integrations for part
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../_static/adobelogo.png)
+![](../_static/adobelogo.png)

@@ -17,4 +17,4 @@ While this is not overly flexible from the standpoint that you can't apply it on
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../../../_static/adobelogo.png)
+![](../../_static/adobelogo.png)

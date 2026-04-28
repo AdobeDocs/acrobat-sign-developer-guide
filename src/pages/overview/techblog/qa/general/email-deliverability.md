@@ -21,4 +21,4 @@ There is really no workaround for this, other than to set up "[alerts](https://h
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../../../_static/adobelogo.png)
+![](../../_static/adobelogo.png)

@@ -84,4 +84,4 @@ Webhook events follow the same naming conventions as Agreement Events but are de
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../../_static/adobelogo.png)
+![](../../_static/adobelogo.png)

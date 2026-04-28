@@ -25,4 +25,4 @@ An additional best practice is to add an "update agreement status" button or tri
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../../_static/adobelogo.png)
+![](../../_static/adobelogo.png)

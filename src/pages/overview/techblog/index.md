@@ -36,4 +36,4 @@ Welcome to the Acrobat Sign tech blog for developers. Here you'll find tips and 
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../_static/adobelogo.png)
+![](../_static/adobelogo.png)

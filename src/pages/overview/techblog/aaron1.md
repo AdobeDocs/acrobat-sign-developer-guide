@@ -15,4 +15,4 @@ During most of my time working with Acrobat Sign, I have been helping customers 
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../_static/adobelogo.png)
+![](../_static/adobelogo.png)

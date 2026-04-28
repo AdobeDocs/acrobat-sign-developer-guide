@@ -29,4 +29,4 @@ This does incur more development debt which you'll need to consider as part of t
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../_static/adobelogo.png)
+![](../_static/adobelogo.png)

@@ -92,4 +92,4 @@ Always store tokens in encrypted format. Exposing tokens or the client secret is
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../../_static/adobelogo.png)
+![](../../_static/adobelogo.png)

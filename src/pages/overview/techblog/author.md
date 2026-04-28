@@ -40,4 +40,4 @@ Code block is indented under two colons
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../_static/adobelogo.png)
+![](../_static/adobelogo.png)

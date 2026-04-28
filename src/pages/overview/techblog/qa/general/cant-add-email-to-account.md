@@ -19,4 +19,4 @@ You will need to [open a case with support](https://helpx.adobe.com/support/sign
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../../../_static/adobelogo.png)
+![](../../_static/adobelogo.png)

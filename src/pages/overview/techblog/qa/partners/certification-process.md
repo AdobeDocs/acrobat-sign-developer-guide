@@ -32,4 +32,4 @@ Once your integration is certified, you can work with our Partner Success Manage
 
 <HorizontalLine />
 © Copyright 2023, Adobe Inc..  Last update: Apr 06, 2023.
-![](../../../../_static/adobelogo.png)
+![](../../_static/adobelogo.png)
