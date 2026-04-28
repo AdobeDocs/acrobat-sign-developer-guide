@@ -23,7 +23,7 @@ Once you have the account set up, log in and create a new partner application:
 
 Fill out the form with your application name and domain, selecting **PARTNER** as the domain type.
 
-Your new partner application will be "uncertified" until you have completed the [partner certification process](../qa/partners/Certification-process.md). Still, you will be able to test the process of getting Adobe Sign accounts connected to it by changing some settings in the test/customer account.
+Your new partner application will be "uncertified" until you have completed the [partner certification process](../qa/partners/certification-process.md). Still, you will be able to test the process of getting Adobe Sign accounts connected to it by changing some settings in the test/customer account.
 
 ## Configure OAuth for the new app
 

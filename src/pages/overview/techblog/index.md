@@ -16,7 +16,7 @@ Welcome to the Acrobat Sign tech blog for developers. Here you'll find tips and 
 ## Core Documentation
 
 - [API release notes](../releasenotes/index.md)
-- [API Reference (v6)](.https://secure.na1.adobesign.com/public/docs/restapi/v6)
+- [API Reference (v6)](https://secure.na1.adobesign.com/public/docs/restapi/v6)
 - [Developer Guide (core v6)](../developer_guide/index.md)
 - [Webhook Reference (v6)](../acrobat_sign_events/index.md)
 - [Solutions for Government](../signgov/index.md)
