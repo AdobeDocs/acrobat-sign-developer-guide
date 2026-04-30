@@ -49,8 +49,8 @@ A Technical Account:
 
 Before creating a Technical Account:
 
-- You [must have **Developer access**](https://helpx.adobe.com/enterprise/using/manage-developers.html#Adddevelopers), or
-- You must [be the **System Administrator**](https://helpx.adobe.com/enterprise/using/admin-roles.html#enterprise) for your organization.
+- You must have [**Developer access**](https://helpx.adobe.com/enterprise/using/manage-developers.html#Adddevelopers), or
+- You must be the [**System Administrator**](https://helpx.adobe.com/enterprise/using/admin-roles.html#enterprise) for your organization.
 
 ### Create a Technical Account
 

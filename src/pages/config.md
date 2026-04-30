@@ -9,7 +9,7 @@
     - [Adobe Acrobat Sign](https://developer.adobe.com/acrobat-sign/)
     - Resources
         - [Free Dev Account Sign-Up](https://www.adobe.com/sign/developer-form.html)
-        - [FAQs and Tech Tips](https://www.adobe.com/go/acrobatsigntechblog)
+        - [FAQs and Tech Tips](overview/techblog/index.md)
         - [Application Certification Form](https://www.adobe.com/go/esign-dev-cert)
         - [Integration Guides](https://www.adobe.com/go/acrobatsignintegrations)
         - [3rd Party Integrations](https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT)
@@ -80,3 +80,8 @@
         - [C#: Acrobat Sign SDK](overview/sdks/csharp.md)
         - [Acrobat Sign OpenAPI SDK](overview/sdks/openapi.md)
         - [Acrobat Sign REST API Samples](overview/sdks/rest.md)
+    - [Introduction to Tech Blog](overview/techblog/index.md)
+        - [Acrobat Sign FAQs, Tips, and Tricks](overview/techblog/index.md)
+        - [About me](overview/techblog/aaron1.md)
+        - [Provisioning Acrobat Sign](overview/techblog/provisioning.md)
+        - [Agreement Status Updates and Webhooks](overview/techblog/faq.md)
