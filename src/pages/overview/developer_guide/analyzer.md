@@ -68,15 +68,15 @@ This project represents your Technical Account.
 
 ![add-api](_images/analyzer/add-api.png)
 
-5. Select your **Adobe Acrobat Sign Product** profile.
+5. Choose the **Adobe Acrobat Sign** product and select **Next**.
 
 ![acrobat-sign-product](_images/analyzer/acrobat-sign-product.png)
 
-6. Select **Next** to establish OAuth server-to-server authentication. 
+6. Provide a **Credential name**, and then select **Next** to establish OAuth server-to-server authentication. 
 
 ![add-oauth.png](_images/analyzer/add-oauth.png)
 
-7. Select **Save configured API**.
+7. Select your Acrobat Sign product profile, and then select **Save configured API**.
 
 ![save-configured-api.png](_images/analyzer/save-configured-api.png)
 
@@ -86,7 +86,7 @@ Your Technical Account is now configured.
 
 ### Generate an access token
 
-1. Go to **Connected Credentials** and select **Generate access token**.
+1. In the **Connected Credentials** section of the project page, select **Generate access token**.
 
 ![generate-access-token.png](_images/analyzer/generate-access-token.png)
 
@@ -96,7 +96,7 @@ Important:
 
 - Access tokens expire every 24 hours.
 - Generate a new token after it expires.
-- For production integrations, automate token refresh.
+- For production integrations, [automate token refresh](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims#refreshing-access-tokens).
 
 ![copy-access-token.png](_images/analyzer/copy-access-token.png)
 
@@ -106,13 +106,13 @@ Important:
 
 Once you generate the access token, you can begin making API calls:
 
-1. Access the [online API documentation](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) 
+1. Access the [API methods online:](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) 
 
 2. Select **Authorize**.
 
 ![authorize](_images/analyzer/authorize.png)
 
-3. Paste your access token.
+3. Paste your access token into the *bearerAuth Value* text box, and select **Authorize**.
 
 ![paste-access-code](_images/analyzer/paste-access-code.png)
 
