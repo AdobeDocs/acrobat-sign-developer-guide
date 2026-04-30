@@ -442,7 +442,7 @@ Call these APIs directly using a technical account token to create or update an 
 | Endpoint Operation           | \{apiAccessPoint\}/api/gateway/signembed/v1/accounts                         |
 | Authentication/Authorization | Valid technical account token. Required scopes in token: sign_account_write. |
 | Audience                     | Partner will call this API to create new accounts for their customers.       |
-| Description                   | This API is idempotent.<br> Repeating a create request with the same account name in the partner's channel returns `201 Created` and the existing `accountId`.<br> A `409 ACCOUNT_ALREADY_EXISTS` error is returned when the name conflicts with an account in a different partner's channel. |
+| Description                   | This API is idempotent.\<br/\> Repeating a create request with the same account name in the partner's channel returns `201 Created` and the existing `accountId`.\<br/\> A `409 ACCOUNT_ALREADY_EXISTS` error is returned when the name conflicts with an account in a different partner's channel. |
 | Request Header               | Partner APIs Common Headers                                                  |
 | Request Object               | AccountProvisionRequest                                                      |
 | Response Object              | AccountProvisionResponse                                                     |
@@ -803,7 +803,7 @@ Common user header attributes are identical to the Account APIs.
 | Endpoint Operation | \{apiAccessPoint\}/api/gateway/signembed/v1/users                                                                  |
 | Authentication/ Authorization | Valid Technical Account Token or Sign Embed user Admin token. Mandatory Scopes required in token: sign_user_write. |
 | Audience | Partner will call this API to add a new user to their customer's account.                                          |
-| Description | This API is idempotent.<br> Repeating a create request with the same email in the same account returns `201 Created` and the existing `userId`.<br> A `409 USER_ALREADY_EXISTS` error is returned when the email conflicts with a user in a different account. |
+| Description | This API is idempotent.\<br/\> Repeating a create request with the same email in the same account returns `201 Created` and the existing `userId`.\<br/\> A `409 USER_ALREADY_EXISTS` error is returned when the email conflicts with a user in a different account. |
 | Request Header | Partner APIs Common Headers                                                                                        |
 | Request Object | Create User Request                                                                                                |
 | Response Object | Create User Response                                                                                               |
