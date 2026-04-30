@@ -6,7 +6,8 @@ title: Acrobat Sign API Best Practices
 ## Base URI
 
 ### Details
-* Adobe Acrobat Sign utilizes a multi-sharded architecture, distributing accounts across different API endpoints based on geographical regions. To interact with the Sign API, it is essential to first identify the appropriate access point for your account. This endpoint can vary, such as [api.na1.adobesign.com](https://www.adobe.com/acrobat/business/sign.html?fromES=true), [api.na4.adobesign.com](https://www.adobe.com/acrobat/business/sign.html?fromES=true), [api.eu1.adobesign.com](https://www.adobe.com/acrobat/business/sign.html?fromES=true), or others, depending on your account’s regional allocation
+
+* Adobe Acrobat Sign tilizes a multi-sharded architecture, distributing accounts across different API endpoints based on geographical regions. To interact with the Sign API, it is essential to first identify the appropriate access point for your account. This endpoint can vary, such as [api.na1.adobesign.com](https://www.adobe.com/acrobat/business/sign.html?fromES=true), [api.na4.adobesign.com](https://www.adobe.com/acrobat/business/sign.html?fromES=true), [api.eu1.adobesign.com](https://www.adobe.com/acrobat/business/sign.html?fromES=true), or others, depending on your account’s regional allocation
 * The `baseUri` API response includes the `apiAccessPoint`, which is a critical parameter needed to route subsequent API requests to the correct endpoint for accessing other Acrobat Sign APIs
 * If other APIs are accessed using an incorrect endpoint, the request will be considered invalid and will not be processed
 
