@@ -5,7 +5,7 @@ title: Acrobat Sign FAQs, Tips, and Tricks
 
 Last update: Apr 06, 2023.
 
-Welcome to the Acrobat Sign tech blog for developers. Here you'll find tips and tricks, code samples, and example workflows that will help guide you on your path to a successful deployment.
+Welcome to the Acrobat Sign tech blog for developers. Here you'll find tips and tricks, code samples, and example workflows that will help guide you on your path to a successful deployment..
 
 ## Tips and Tricks by Aaron Smusz
 
