@@ -781,9 +781,7 @@ Call these APIs directly using a technical account token to create or update an 
 - PUT User - To update a user.
 - GET User - To fetch user info.
 
-<InlineAlert slots="text">
-
-<div>
+<InlineAlert>
 
 **Show Personalized/OEM email address everywhere**
 
@@ -793,8 +791,6 @@ This behavior is **not** enabled by default.
 
 When enabled, emailAlias becomes required during user creation and must contain the user’s actual company email address. 
 Partners interested in enabling this option must contact their PSM to request access. PSM and Security teams will review eligibility.
-
-</div>
 
 </InlineAlert>
 
