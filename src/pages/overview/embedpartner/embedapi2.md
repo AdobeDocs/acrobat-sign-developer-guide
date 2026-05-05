@@ -784,9 +784,7 @@ Call these APIs directly using a technical account token to create or update an 
 <InlineAlert slots="text" />
 
 OEM 2.0 partners can request a channel-level configuration that lets Acrobat Sign display a user’s actual company email address in the UI instead of the partner-managed email value used for provisioning and identity management. 
-
 This behavior is **not** enabled by default. 
-
 When enabled, emailAlias becomes required during user creation and must contain the user’s actual company email address. 
 Partners interested in enabling this option must contact their PSM to request access. PSM and Security teams will review eligibility.
 
@@ -794,26 +792,7 @@ Partners interested in enabling this option must contact their PSM to request ac
 
 Common user header attributes are identical to the Account APIs.
 
-### POST user
-
-***Overview***
-
-This API is idempotent.\<br/\>
-Repeating a create request with the same email in the same account returns `201 Created` and the existing `userId`. \<br/\>A `409 USER_ALREADY_EXISTS` error is returned when the email conflicts with a user in a different account.
-
-
-| Item | Value                                                                                                              |
-|---|--------------------------------------------------------------------------------------------------------------------|
-| HTTP Method | POST                                                                                                               |
-| Endpoint Operation | \{apiAccessPoint\}/api/gateway/signembed/v1/users                                                                  |
-| Authentication/ Authorization | Valid Technical Account Token or Sign Embed user Admin token. Mandatory Scopes required in token: sign_user_write. |
-| Audience | Partner will call this API to add a new user to their customer's account.                                          |
-| Request Header | Partner APIs Common Headers                                                                                        |
-| Request Object | Create User Request                                                                                                |
-| Response Object | Create User Response                                                                                               |
-| HTTP Status Code | 201                                                                                                                |
-| Error Code | ErrorCodes - Create User                                                                                           |
-
+### POST usergit add
 
 #### Request
 
