@@ -793,6 +793,7 @@ When enabled, emailAlias becomes required during user creation and must contain 
 
 Partners interested in enabling this option must contact their PSM to request access. PSM and Security teams will review eligibility.
 
+</InlineAlert?
 
 ### Common user API header attributes
 
