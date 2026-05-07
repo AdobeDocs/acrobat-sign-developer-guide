@@ -783,16 +783,13 @@ Call these APIs directly using a technical account token to create or update an 
 
 <InlineAlert slots="text">
 
-**Show Personalized/OEM email address everywhere**  
+**Show Personalized/OEM email address everywhere**
+\<br/\>OEM 2.0 partners can request a channel-level configuration that lets Acrobat Sign display a user’s actual company email address in the UI instead of the partner-managed email value used for provisioning and identity management.
+\<br/\>This behavior is **not** enabled by default.
+\<br/\>When enabled, emailAlias becomes required during user creation and must contain the user’s actual company email address.
+\<br/\>Partners interested in enabling this option must contact their PSM to request access. PSM and Security teams will review eligibility.
 
-OEM 2.0 partners can request a channel-level configuration that lets Acrobat Sign display a user’s actual company email address in the UI instead of the partner-managed email value used for provisioning and identity management.  
-
-This behavior is **not** enabled by default.  
-
-When enabled, emailAlias becomes required during user creation and must contain the user’s actual company email address. 
-
-Partners interested in enabling this option must contact their PSM to request access. PSM and Security teams will review eligibility.
-
+</InlineAlert>
 
 ### Common user API header attributes
 
