@@ -435,6 +435,9 @@ Call these APIs directly using a technical account token to create or update an 
 
 ***Overview***
 
+This API is idempotent.
+\<br/\> Repeating a create request with the same account name in the partner's channel returns `201 Created` and the existing `accountId`.
+\<br/\> A `409 ACCOUNT_ALREADY_EXISTS` error is returned when the name conflicts with an account in a different partner's channel.
 
 | Item                         | Value                                                                        |
 |------------------------------|------------------------------------------------------------------------------|
@@ -525,13 +528,13 @@ Call these APIs directly using a technical account token to create or update an 
 
 | HTTP Status Code | Error code                      | Message                                                                 |
 |------------------|---------------------------------|-------------------------------------------------------------------------|
-| 400              | MISSING_REQUIRED_PARAMS         | Required parameter `<param name>` is missing.                            |
+| 400              | MISSING_REQUIRED_PARAMS         | Required parameter `<param name>` is missing.                           |
 | 400              | INVALID_JSON                    | An invalid JSON was specified.                                          |
 | 400              | INVALID_PARAMETER               | The `<param_name>` value specified is invalid.                          |
 | 401              | INVALID_ACCESS_TOKEN            | Access token provided is invalid or has expired.                        |
 | 403              | MISSING_SCOPES                  | The token does not contain the required scopes.                         |
 | 403              | AUTHENTICATION_FAILED           | Partner is not onboarded successfully.                                  |
-| 409              | ACCOUNT_ALREADY_EXISTS          | Account with this name already exists.                                  |
+| 409              | ACCOUNT_ALREADY_EXISTS          | Account with this name already exists in a different partner's channel. |
 | 500              | INTERNAL_SERVER_ERROR           | Some miscellaneous error has occurred.                                  |
 | 500              | ACCOUNT_COULD_NOT_BE_CONFIGURED | Account with accountId `{account id}` could not be configured properly. |
 
@@ -778,6 +781,15 @@ Call these APIs directly using a technical account token to create or update an 
 - PUT User - To update a user.
 - GET User - To fetch user info.
 
+<InlineAlert slots="text" />
+
+**Show Personalized/OEM email address everywhere**
+\<br/\>OEM 2.0 partners can request a channel-level configuration that lets Acrobat Sign display a user’s actual company email address in the UI instead of the partner-managed email value used for provisioning and identity management.
+\<br/\>This behavior is **not** enabled by default.
+\<br/\>When enabled, emailAlias becomes required during user creation and must contain the user’s actual company email address.
+\<br/\>Partners interested in enabling this option must contact their PSM to request access. PSM and Security teams will review eligibility.
+
+
 ### Common user API header attributes
 
 Common user header attributes are identical to the Account APIs.
@@ -785,6 +797,9 @@ Common user header attributes are identical to the Account APIs.
 ### POST user
 
 ***Overview***
+
+This API is idempotent.\<br/\>
+Repeating a create request with the same email in the same account returns `201 Created` and the existing `userId`. \<br/\>A `409 USER_ALREADY_EXISTS` error is returned when the email conflicts with a user in a different account.
 
 
 | Item | Value                                                                                                              |
@@ -867,7 +882,7 @@ Common user header attributes are identical to the Account APIs.
 | 403 | MAXIMUM_USERS_FOR_ACCOUNT_LIMIT_EXCEEDED | Maximum active user limit reached for the account.                 |
 | 403 | PERMISSION_DENIED | The API caller does not have permission to execute this operation. |
 | 404 | ACCOUNT_NOT_FOUND | Account does not exist.                                            |
-| 409 | USER_ALREADY_EXISTS | User with this email already exists.                               |
+| 409 | USER_ALREADY_EXISTS | User with this email already exists in a different account. |
 | 500 | USER_COULD_NOT_BE_CREATED | User could not be created.                                         |
 | 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred.                             |
 
