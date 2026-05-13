@@ -20,7 +20,21 @@ Access is provided through a **Technical Account** configured in the Adobe Devel
 
 ## Primary API Endpoints
 
-[API methods online](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html)
+Acrobat Analyzer is a multi-region service. All API calls must be directed to your organization's regional host. Before making any API calls, resolve your base URI by calling:
+
+```
+GET https://svs.na1.adobesign.com/svc/cascade/cups/v1/cascade/base-uris
+Authorization: Bearer {your_access_token}
+```
+
+Use the `apiAccessPoint` value returned in the response as the base URL for all subsequent requests. See [Step 1: Resolve your base URI](#step-1-resolve-your-base-uri) for full details.
+
+Interactive API documentation (Swagger UI):
+
+| Region | Swagger UI |
+|---|---|
+| North America (NA1) | [https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+| Europe (EU1) | [https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html) |
 
 - `POST /documents`  
   Upload a document for processing.
