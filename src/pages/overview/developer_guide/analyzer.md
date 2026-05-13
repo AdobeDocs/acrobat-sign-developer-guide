@@ -3,7 +3,7 @@ title: Adobe Acrobat Analyzer REST API Overview
 ---
 # Adobe Acrobat Analyzer REST API Overview
 
-Last update: March 1, 2026.
+Last update: May 13, 2026.
 
 
 
@@ -104,23 +104,73 @@ Important:
 
 ## Using *Acrobat Analyzer* APIs
 
-Once you generate the access token, you can begin making API calls:
+Once you generate the access token, you can begin making API calls.
 
-1. Access the [online API documentation](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) 
+### Step 1: Resolve your base URI
 
-2. Select **Authorize**.
+Acrobat Analyzer is a multi-region service. Your organization's data is stored in a specific region (for example, North America or Europe). Before making any API calls, resolve the base URI for your region.
+
+Call the following endpoint on the North America host, passing your access token:
+
+```
+GET https://svs.na1.adobesign.com/svc/cascade/cups/v1/cascade/base-uris
+Authorization: Bearer {your_access_token}
+```
+
+The response returns the base URI for your organization's region:
+
+```json
+{
+  "apiAccessPoint": "https://svs.{region}.adobesign.com/svc/cascade"
+}
+```
+
+Use the returned `apiAccessPoint` value as the base URL for all subsequent API calls.
+
+**Example — European region:**
+
+If your organization is located in Europe, the response will be:
+
+```json
+{
+  "apiAccessPoint": "https://svs.eu1.adobesign.com/svc/cascade"
+}
+```
+
+In this case, all your API calls and the interactive API documentation are available at:
+
+[https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html)
+
+### Step 2: Access the API documentation
+
+Open the Swagger UI for your region using the `apiAccessPoint` from the previous step:
+
+```
+{apiAccessPoint}/swagger-ui/index.html
+```
+
+For reference:
+
+| Region | Swagger UI |
+|---|---|
+| North America (NA1) | [https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+| Europe (EU1) | [https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+
+### Step 3: Authorize and invoke endpoints
+
+1. Select **Authorize**.
 
 ![authorize](_images/analyzer/authorize.png)
 
-3. Paste your access token.
+2. Paste your access token.
 
 ![paste-access-code](_images/analyzer/paste-access-code.png)
 
-4. Begin invoking API endpoints.
+3. Begin invoking API endpoints.
 
 Your system is now authenticated as the Technical Account.
 
-In production environments, include the token in the `Authorization` header of each API request.
+In production environments, include the token in the `Authorization` header of each API request, and direct all requests to the `apiAccessPoint` URL resolved in Step 1.
 
 ## Enable X-On-Behalf-of access (optional)
 
