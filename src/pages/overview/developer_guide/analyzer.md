@@ -36,6 +36,9 @@ Interactive API documentation (Swagger UI):
 | North America (NA1) | [https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) |
 | Europe (EU1) | [https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html) |
 
+- `GET /baseUris`  
+  Resolve the base URI for your organization's region. Only served on the North America (NA1) shard.
+
 - `POST /documents`  
   Upload a document for processing.
 
