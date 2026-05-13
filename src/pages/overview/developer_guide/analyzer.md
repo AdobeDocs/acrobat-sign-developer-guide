@@ -20,10 +20,10 @@ Access is provided through a **Technical Account** configured in the Adobe Devel
 
 ## Primary API Endpoints
 
-Acrobat Analyzer is a multi-region service. All API calls must be directed to your organization's regional host. Before making any API calls, resolve your base URI by calling:
+Acrobat Analyzer is a multi-region service. All API calls must be directed to your organization's regional host. Before making any API calls, resolve your base URI by calling the endpoint below. This endpoint is **only served on the North America (NA1) shard** — calling it on any other shard returns a `404` error:
 
 ```
-GET https://svs.na1.adobesign.com/svc/cascade/cups/v1/cascade/base-uris
+GET https://svs.na1.adobesign.com/svc/cascade/baseUris
 Authorization: Bearer {your_access_token}
 ```
 
@@ -124,10 +124,10 @@ Once you generate the access token, you can begin making API calls.
 
 Acrobat Analyzer is a multi-region service. Your organization's data is stored in a specific region (for example, North America or Europe). Before making any API calls, resolve the base URI for your region.
 
-Call the following endpoint on the North America host, passing your access token:
+The base URI endpoint is **only served on the North America (NA1) shard**. Calling it on any other regional host returns a `404` error. Always call this endpoint on NA1 regardless of your organization's region.
 
 ```
-GET https://svs.na1.adobesign.com/svc/cascade/cups/v1/cascade/base-uris
+GET https://svs.na1.adobesign.com/svc/cascade/baseUris
 Authorization: Bearer {your_access_token}
 ```
 
