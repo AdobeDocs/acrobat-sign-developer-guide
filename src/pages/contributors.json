@@ -1,0 +1,499 @@
+{
+  "total": 62,
+  "offset": 0,
+  "limit": 62,
+  "data": [
+    {
+      "page": "/config",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/61562240?v=4",
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/60716091?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/120194874?v=4"
+      ],
+      "lastUpdated": "5/5/2026"
+    },
+    {
+      "page": "/overview/acrobat_sign_events/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "1/27/2026"
+    },
+    {
+      "page": "/overview/acrobat_sign_events/webhookeventsagreements",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/acrobat_sign_events/webhookeventslibrary",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/acrobat_sign_events/webhookeventsmegasign",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/acrobat_sign_events/webhookeventswidget",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/acrobat_sign_events/webhookpayloadoverview",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/20/2025"
+    },
+    {
+      "page": "/overview/acrobat_sign_events/webhooks-oauth-2-0",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/developer_guide/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/developer_guide/analyzer",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/61562240?v=4",
+        "https://avatars.githubusercontent.com/u/60716091?v=4"
+      ],
+      "lastUpdated": "5/5/2026"
+    },
+    {
+      "page": "/overview/developer_guide/apiusage",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/61562240?v=4",
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "5/5/2026"
+    },
+    {
+      "page": "/overview/developer_guide/bestpractices",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/developer_guide/events",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/developer_guide/glossary",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/developer_guide/gstarted",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/developer_guide/migrating",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/developer_guide/oauth",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/developer_guide/samples",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/61562240?v=4",
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "5/5/2026"
+    },
+    {
+      "page": "/overview/developer_guide/scenarios",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/developer_guide/webhook-endpoint-api",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/developer_guide/webhookapis",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/embedpartner/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "1/27/2026"
+    },
+    {
+      "page": "/overview/embedpartner/channel-webhooks",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/embedpartner/embedapi2",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/61562240?v=4",
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "5/7/2026"
+    },
+    {
+      "page": "/overview/embedpartner/gstarted",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/embedpartner/migrationchanges",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "1/27/2026"
+    },
+    {
+      "page": "/overview/embedpartner/migrationfaq",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "1/27/2026"
+    },
+    {
+      "page": "/overview/embedpartner/migrationoverview",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "1/27/2026"
+    },
+    {
+      "page": "/overview/embedpartner/migrationsteps",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "1/27/2026"
+    },
+    {
+      "page": "/overview/embedpartner/onboarding",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/embedpartner/onboarding2",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/embedpartner/partnercertification",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/embedpartner/partnercertification2",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/embedpartner/provisioningfaq",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "1/27/2026"
+    },
+    {
+      "page": "/overview/embedpartner/videos",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "12/9/2025"
+    },
+    {
+      "page": "/overview/embedpartner/videos2",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/196642991?v=4"
+      ],
+      "lastUpdated": "12/9/2025"
+    },
+    {
+      "page": "/overview/releasenotes/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/releasenotes/acrobatsignreleasenotes",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "12/9/2025"
+    },
+    {
+      "page": "/overview/releasenotes/v6releasenotes",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/sdks/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/sdks/csharp",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/sdks/java",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/sdks/js",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/sdks/openapi",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/sdks/rest",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/13258198?v=4"
+      ],
+      "lastUpdated": "12/2/2025"
+    },
+    {
+      "page": "/overview/signgov/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/signgov/apps",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "1/17/2026"
+    },
+    {
+      "page": "/overview/signgov/diffs",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/87715213?v=4",
+        "https://avatars.githubusercontent.com/u/12938736?v=4"
+      ],
+      "lastUpdated": "11/19/2025"
+    },
+    {
+      "page": "/overview/signgov/gstarted",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4",
+        "https://avatars.githubusercontent.com/u/87715213?v=4"
+      ],
+      "lastUpdated": "12/9/2025"
+    },
+    {
+      "page": "/overview/techblog/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/aaron1",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/author",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/faq",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/provisioning",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/qa/general/cant-add-email-to-account",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/qa/general/custom-email",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/qa/general/email-deliverability",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/qa/general/why-email",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/qa/partners/certification-process",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/tldr/api-agreement-statuses",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/tldr/partner-oauth-walkthrough",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    },
+    {
+      "page": "/overview/techblog/tldr/webhooks-partner-integrations",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
+    }
+  ],
+  ":type": "sheet"
+}
