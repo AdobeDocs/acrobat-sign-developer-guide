@@ -3,7 +3,7 @@ title: Adobe Acrobat Analyzer REST API Overview
 ---
 # Adobe Acrobat Analyzer REST API Overview
 
-Last update: March 1, 2026.
+Last update: May 13, 2026.
 
 
 
@@ -20,7 +20,24 @@ Access is provided through a **Technical Account** configured in the Adobe Devel
 
 ## Primary API Endpoints
 
-[API methods online](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html)
+Acrobat Analyzer is a multi-region service. All API calls must be directed to your organization's regional host. Before making an API call, resolve your base URI by calling the endpoint below. Use the base URI in the response for making any further API calls. This endpoint is **only served on the North America (NA1) shard** — calling it on any other shard returns a `404` error:
+
+```
+GET https://svs.na1.adobesign.com/svc/cascade/baseUris
+Authorization: Bearer {your_access_token}
+```
+
+Use the `apiAccessPoint` value returned in the response as the base URL for all subsequent requests. See [Step 1: Resolve your base URI](#step-1-resolve-your-base-uri) for full details.
+
+Interactive API documentation (Swagger UI):
+
+| Region | Swagger UI |
+|---|---|
+| North America (NA1) | [https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+| Europe (EU1) | [https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+
+- `GET /baseUris`  
+  Resolve the base URI for your organization's region. Only served on the North America (NA1) shard.
 
 - `POST /documents`  
   Upload a document for processing.
@@ -104,11 +121,61 @@ Important:
 
 ## Using *Acrobat Analyzer* APIs
 
-Once you generate the access token, you can begin making API calls:
+Once you generate the access token, you can begin making API calls.
 
-1. Access the [API methods online:](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) 
+### Step 1: Resolve your base URI
 
-2. Select **Authorize**.
+Acrobat Analyzer is a multi-region service. Your organization's data is stored in a specific region (for example, North America or Europe). Before making an API call, resolve the base URI for your region and use it for further calls.
+
+The base URI endpoint is **only served on the North America (NA1) shard**. Calling it on any other regional host returns a `404` error. Always call this endpoint on NA1 regardless of your organization's region.
+
+```
+GET https://svs.na1.adobesign.com/svc/cascade/baseUris
+Authorization: Bearer {your_access_token}
+```
+
+The response returns the base URI for your organization's region:
+
+```json
+{
+  "apiAccessPoint": "https://svs.{region}.adobesign.com/svc/cascade"
+}
+```
+
+Use the returned `apiAccessPoint` value as the base URL for all subsequent API calls.
+
+**Example — European region:**
+
+If your organization is located in Europe, the response will be:
+
+```json
+{
+  "apiAccessPoint": "https://svs.eu1.adobesign.com/svc/cascade"
+}
+```
+
+In this case, all your API calls and the interactive API documentation are available at:
+
+[https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html)
+
+### Step 2: Access the API documentation
+
+Open the Swagger UI for your region using the `apiAccessPoint` from the previous step:
+
+```
+{apiAccessPoint}/swagger-ui/index.html
+```
+
+For reference:
+
+| Region | Swagger UI |
+|---|---|
+| North America (NA1) | [https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+| Europe (EU1) | [https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+
+### Step 3: Authorize and invoke endpoints
+
+1. Select **Authorize**.
 
 ![authorize](_images/analyzer/authorize.png)
 
@@ -120,7 +187,7 @@ Once you generate the access token, you can begin making API calls:
 
 Your system is now authenticated as the Technical Account.
 
-In production environments, include the token in the `Authorization` header of each API request.
+In production environments, include the token in the `Authorization` header of each API request, and direct all requests to the `apiAccessPoint` URL resolved in Step 1.
 
 ## Enable X-On-Behalf-of access (optional)
 
