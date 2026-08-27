@@ -799,7 +799,7 @@ Common user header attributes are identical to the Account APIs.
 ***Overview***
 
 This API is idempotent.\<br/\>
-Repeating a create request with the same email in the same account returns `201 Created` and the existing `userId`. \<br/\>A `409 USER_ALREADY_EXISTS` error is returned when the email conflicts with a user in a different account.
+Repeating a create request with the same email in the same account returns `201 Created` and the existing `userId`. \<br/\>A `409 USER_ALREADY_EXISTS` error is returned when the email conflicts with a user in a different account.\<br/\>If the target account has not finished provisioning, this call returns a `409 ACCOUNT_NOT_READY` error; partners should retry after a short delay.
 
 
 | Item | Value                                                                                                              |
@@ -882,6 +882,7 @@ Repeating a create request with the same email in the same account returns `201 
 | 403 | MAXIMUM_USERS_FOR_ACCOUNT_LIMIT_EXCEEDED | Maximum active user limit reached for the account.                 |
 | 403 | PERMISSION_DENIED | The API caller does not have permission to execute this operation. |
 | 404 | ACCOUNT_NOT_FOUND | Account does not exist.                                            |
+| 409 | ACCOUNT_NOT_READY | The account has not finished provisioning yet. Retry the request after a short delay. |
 | 409 | USER_ALREADY_EXISTS | User with this email already exists in a different account. |
 | 500 | USER_COULD_NOT_BE_CREATED | User could not be created.                                         |
 | 500 | INTERNAL_SERVER_ERROR | Some miscellaneous error has occurred.                             |
