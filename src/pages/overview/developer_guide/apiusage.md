@@ -1535,30 +1535,43 @@ If email verification is not enabled, no submission limits apply to the first si
 
 ### GET Endpoints
 
-High-frequency polling can put unnecessary loads on systems which can lead to suboptimal response times for all users. To bolster reliable API usage, Acrobat Sign enforces a polling threshold rule that limits duplicate GET API requests from the same effective user.
+High-frequency polling can put unnecessary loads on systems which can lead to suboptimal response times for all users. To bolster reliable API usage, Acrobat Sign enforces a polling threshold rule that limits duplicate GET API requests from the same effective user. Adobe recommends using [webhooks](webhookapis.md) for near real-time updates instead of repeated polling.
 
 #### API polling threshold
 
-[The polling policy](#handling-rate-limiting-http-429) applies to all GET API endpoints. A Minimum Object Polling Interval (MOPI) will regulate how often clients can send the identical API request to the Acrobat Sign service. Your service plan determines your MOPI and the threshold for identical requests within the MOPI. Higher-tier plans allow shorter intervals and higher thresholds:
+[The polling policy](#handling-rate-limiting-http-429) applies to all GET API endpoints for identical calls. A Minimum Object Polling Interval (MOPI) regulates how often the same effective user can make the same GET API request to the Acrobat Sign service.
 
-**Minimum Object Polling Interval (MOPI) - The default MOPI varies depending on the tier of service and application types:**
+A repeated request to the same endpoint for the same agreement or library document is treated as an identical call. Requests for different agreements or library documents are treated as distinct calls, since each object represents a different request target.
 
-* Acrobat Sign partner applications: The MOPI for a partner app is determined by the tier of the user’s account.
-  * **GLOBAL/ENTERPRISE tier**: 3 calls per one minute interval
-  * **All other tiers**: 1 unique call per ten minute interval
-* Customer applications under Global/Enterprise accounts: Three identical calls per one-minute interval.
-* Customer applications under Developer accounts: One unique call per 10-minute interval.
+**Examples of affected endpoints**
 
-Identical GET requests mean the same path, parameters, and headers requested by the same effective user more than once within the MOPI. If an identical request over the threshold is made within the MOPI by the same user, the system will return:
+*Status retrieval*
+* `GET /agreements/{agreementId}` – Retrieves the current status of an agreement.
+* `GET /agreements/{agreementId}/documents/{documentId}` – Retrieves the file stream of a document within an agreement.
 
-* 304 Not Modified status code (for HTTP conditional requests using an ETag).
-* 429 Too Many Requests (status code with a retry-after header for other requests).
+*Listing, events, and library documents*
+* `GET /agreements` – Retrieves agreements for the user.
+* `GET /agreements/{agreementId}/events` – Retrieves event information for an agreement.
+* `GET /libraryDocuments` – Retrieves library documents for the user.
+* `GET /libraryDocuments/{libraryDocumentId}` – Retrieves information for a specific library document.
+
+**Minimum Object Polling Interval (MOPI) - The default MOPI varies by service tier:**
+
+* **GLOBAL, ENTERPRISE, and DEVELOPER tiers**: Three identical calls per one-minute interval.
+* **All other tiers**: Three identical calls per three-minute interval.
+
+A request is considered identical when the same effective user makes the same GET request with the same request path and headers within the applicable polling interval. If the same effective user exceeds this threshold, Acrobat Sign returns:
+
+* **429 Too Many Requests** with a `Retry-After` header — returned even when the request includes an `If-None-Match` header. Exceeding the polling threshold takes precedence over conditional-request handling, so a `304 Not Modified` is not returned once the threshold has been exceeded.
+
+**ETag handling**
+
+Applications may continue to use ETags and the `If-None-Match` header for endpoints that support conditional GET requests. For conditional GET requests that stay within the polling threshold, Acrobat Sign may return `304 Not Modified` when the resource has not changed. Once the polling threshold is exceeded, Acrobat Sign returns `429 Too Many Requests`, even when a valid `If-None-Match` header is present.
 
 Recommended Implementation
 
-* **Use ETags and cache repeated request responses** - If the API supports the 304 status code, use the ETag returned from the first request. Include ETag values in the If-None-Match header for the subsequent requests. When a 304 response is received, use the cached data instead of making a new API call.
-* **[Handle 429 response per the best practices](#handling-rate-limiting-http-429)**
- - You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.
+* **Use ETags and cache repeated request responses** - Use the ETag returned from the first request and include it in the `If-None-Match` header on subsequent requests. This remains useful for reducing payload size on requests made *within* the allowed polling interval. Once the polling threshold is exceeded, a `429` is returned regardless of ETag — caching alone will not prevent throttling once the limit is hit.
+* **[Handle 429 response per the best practices](#handling-rate-limiting-http-429)** - Retry only after the number of seconds specified in the `Retry-After` header. You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.
 
 <HorizontalLine />
 © Copyright 2022, Adobe Inc..  Last update: Dec 18, 2025.
