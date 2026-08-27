@@ -104,7 +104,7 @@
       "avatars": [
         "https://avatars.githubusercontent.com/u/43958458?v=4"
       ],
-      "lastUpdated": "4/30/2026"
+      "lastUpdated": "1/17/2026"
     },
     {
       "page": "/overview/developer_guide/events",
@@ -200,12 +200,13 @@
     {
       "page": "/overview/embedpartner/embedapi2",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/60716091?v=4",
         "https://avatars.githubusercontent.com/u/61562240?v=4",
         "https://avatars.githubusercontent.com/u/43958458?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/196642991?v=4"
       ],
-      "lastUpdated": "5/7/2026"
+      "lastUpdated": "8/27/2026"
     },
     {
       "page": "/overview/embedpartner/gstarted",
@@ -409,67 +410,91 @@
       "avatars": [
         "https://avatars.githubusercontent.com/u/43958458?v=4"
       ],
-      "lastUpdated": "4/30/2026"
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/aaron1",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/author",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/faq",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/provisioning",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/qa/general/cant-add-email-to-account",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/qa/general/custom-email",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/qa/general/email-deliverability",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/qa/general/why-email",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/qa/partners/certification-process",
-      "avatars": [],
-      "lastUpdated": "4/30/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/tldr/api-agreement-statuses",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/tldr/partner-oauth-walkthrough",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     },
     {
       "page": "/overview/techblog/tldr/webhooks-partner-integrations",
-      "avatars": [],
-      "lastUpdated": "4/28/2026"
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/43958458?v=4"
+      ],
+      "lastUpdated": "4/29/2026"
     }
   ],
   ":type": "sheet"
