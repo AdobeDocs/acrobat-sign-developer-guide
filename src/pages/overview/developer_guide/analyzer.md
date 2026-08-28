@@ -23,7 +23,7 @@ Access is provided through a **Technical Account** configured in the Adobe Devel
 Acrobat Analyzer is a multi-region service. All API calls must be directed to your organization's regional host. Before making an API call, resolve your base URI by calling the endpoint below. Use the base URI in the response for making any further API calls. This endpoint is **only served on the North America (NA1) shard** — calling it on any other shard returns a `404` error:
 
 ```
-GET https://svs.na1.adobesign.com/svc/cascade/baseUris
+GET https://analyzer-na1.adobe.io/baseUris
 Authorization: Bearer {your_access_token}
 ```
 
@@ -33,8 +33,8 @@ Interactive API documentation (Swagger UI):
 
 | Region | Swagger UI |
 |---|---|
-| North America (NA1) | [https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) |
-| Europe (EU1) | [https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+| North America (NA1) | [https://analyzer-na1.adobe.io/swagger-ui/index.html](https://analyzer-na1.adobe.io/swagger-ui/index.html) |
+| Europe (EU1) | [https://analyzer-eu1.adobe.io/swagger-ui/index.html](https://analyzer-eu1.adobe.io/swagger-ui/index.html) |
 
 - `GET /baseUris`  
   Resolve the base URI for your organization's region. Only served on the North America (NA1) shard.
@@ -130,15 +130,12 @@ Acrobat Analyzer is a multi-region service. Your organization's data is stored i
 The base URI endpoint is **only served on the North America (NA1) shard**. Calling it on any other regional host returns a `404` error. Always call this endpoint on NA1 regardless of your organization's region.
 
 ```
-GET https://svs.na1.adobesign.com/svc/cascade/baseUris
-Authorization: Bearer {your_access_token}
-```
 
 The response returns the base URI for your organization's region:
 
 ```json
 {
-  "apiAccessPoint": "https://svs.{region}.adobesign.com/svc/cascade"
+  "apiAccessPoint": "https://analyzer-{region}.adobe.io"
 }
 ```
 
@@ -150,13 +147,14 @@ If your organization is located in Europe, the response will be:
 
 ```json
 {
-  "apiAccessPoint": "https://svs.eu1.adobesign.com/svc/cascade"
+  "apiAccessPoint": "https://analyzer-eu1.adobe.io"
 }
 ```
 
 In this case, all your API calls and the interactive API documentation are available at:
 
-[https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html)
+[https://analyzer-eu1.adobe.io/swagger-ui/index.html](https://analyzer-eu1.adobe.io/swagger-ui/index.html)
+
 
 ### Step 2: Access the API documentation
 
@@ -170,8 +168,8 @@ For reference:
 
 | Region | Swagger UI |
 |---|---|
-| North America (NA1) | [https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.na1.adobesign.com/svc/cascade/swagger-ui/index.html) |
-| Europe (EU1) | [https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html](https://svs.eu1.adobesign.com/svc/cascade/swagger-ui/index.html) |
+| North America (NA1) | [https://analyzer-na1.adobe.io/swagger-ui/index.html](https://analyzer-na1.adobe.io/swagger-ui/index.html) |
+| Europe (EU1) | [https://analyzer-eu1.adobe.io/swagger-ui/index.html](https://analyzer-eu1.adobe.io/swagger-ui/index.html) |
 
 ### Step 3: Authorize and invoke endpoints
 
