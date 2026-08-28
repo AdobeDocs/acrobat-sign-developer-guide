@@ -18,8 +18,6 @@ These APIs enable organizations to:
 
 Access is provided through a **Technical Account** configured in the Adobe Developer Console using **OAuth server-to-server authentication**. This allows secure, system-to-system integration without requiring individual user login tokens.
 
-> **Note:** The Acrobat Analyzer API base URL has moved to `analyzer-{region}.adobe.io`. Existing integrations using the previous `svs.{region}.adobesign.com/svc/cascade` URL will continue to function, but new integrations should use the updated URL shown below.
-
 ## Primary API Endpoints
 
 Acrobat Analyzer is a multi-region service. All API calls must be directed to your organization's regional host. Before making an API call, resolve your base URI by calling the endpoint below. Use the base URI in the response for making any further API calls. This endpoint is **only served on the North America (NA1) shard** — calling it on any other shard returns a `404` error:
