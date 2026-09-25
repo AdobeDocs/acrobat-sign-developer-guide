@@ -284,7 +284,7 @@ The technical account token generated has a default validity of 24 hours. You ca
 
 ### Call the register Partner API
 
-You can now use your technical account token to register with Acrobat Sign via the [register partner API](embedapi2.md#register-apis). You must use the Register API to register your application in both production and sandbox.
+You can now use your technical account token to register with Acrobat Sign via the [register partner API](embedapi2.md#register-apis). You must use the Register API to register a separate application for each environment. Each environment requires its own technical account and credentials — do not register the same application in more than one environment.
 
 ### Provide account info to Adobe
 
